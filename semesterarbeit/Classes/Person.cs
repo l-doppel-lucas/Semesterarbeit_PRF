@@ -8,6 +8,26 @@ namespace semesterarbeit
 {
     class Person
     {
-        //Unsere este klasse
+       public string Firstname { get; set; }
+
+        public string Lastname { get; set; }
+
+        public DateTime Birthdate { get; set; }
+
+        public Person(string firstname, string lastname, DateTime birthdate)
+        { Firstname = firstname; Lastname = lastname; Birthdate = birthdate; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Person person &&
+                   Firstname == person.Firstname &&
+                   Lastname == person.Lastname &&
+                   Birthdate == person.Birthdate;
+        }
+
+        public override string ToString()
+        {
+            return Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString();
+        }
     }
 }
