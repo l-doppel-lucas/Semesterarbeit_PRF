@@ -1,6 +1,6 @@
 ﻿namespace semesterarbeit.Forms
 {
-    partial class view_employee
+    partial class employee_view
     {
         /// <summary>
         /// Required designer variable.

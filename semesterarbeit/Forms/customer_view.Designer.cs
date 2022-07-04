@@ -1,6 +1,6 @@
-﻿namespace semesterarbeit
+﻿namespace semesterarbeit.Forms
 {
-    partial class modify_customer
+    partial class customer_view
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "modify_customer";
+            this.Text = "view_customer";
         }
 
         #endregion

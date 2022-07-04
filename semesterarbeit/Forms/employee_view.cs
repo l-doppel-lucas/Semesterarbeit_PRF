@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace semesterarbeit
+namespace semesterarbeit.Forms
 {
-    public partial class create_customer : Form
+    public partial class employee_view : Form
     {
-        public create_customer()
+        public employee_view()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
-﻿namespace semesterarbeit
+﻿namespace semesterarbeit.Forms
 {
-    partial class create_employee
+    partial class employee_browse
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "create_employee";
+            this.Text = "employee_browse";
         }
 
         #endregion

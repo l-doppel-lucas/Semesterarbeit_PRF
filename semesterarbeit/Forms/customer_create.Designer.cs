@@ -1,6 +1,6 @@
-﻿namespace semesterarbeit.Forms
+﻿namespace semesterarbeit
 {
-    partial class view_customer
+    partial class customer_create
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // create_customer
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "view_customer";
+            this.ClientSize = new System.Drawing.Size(1600, 865);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Name = "create_customer";
+            this.Text = "Erfassen_kunde";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

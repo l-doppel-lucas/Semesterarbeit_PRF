@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace semesterarbeit
 {
-    public partial class create_employee : Form
+    public partial class customer_modify : Form
     {
-        public create_employee()
+        public customer_modify()
         {
             InitializeComponent();
         }
