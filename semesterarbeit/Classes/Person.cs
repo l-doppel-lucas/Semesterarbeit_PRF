@@ -14,11 +14,14 @@ namespace semesterarbeit
 
         public DateTime Birthdate { get; set; }
 
+        public bool IsDeleted { get; set; }
+
         public Person(string firstname, string lastname, DateTime birthdate)
         { 
             Firstname = firstname;
             Lastname = lastname;
             Birthdate = birthdate;
+            IsDeleted = isDeleted;
         }
 
         public override bool Equals(object obj)
