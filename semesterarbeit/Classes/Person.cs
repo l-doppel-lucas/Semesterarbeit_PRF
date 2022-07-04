@@ -16,7 +16,7 @@ namespace semesterarbeit
 
         public bool IsDeleted { get; set; }
 
-        public Person(string firstname, string lastname, DateTime birthdate)
+        public Person(string firstname, string lastname, DateTime birthdate, bool isDeleted)
         { 
             Firstname = firstname;
             Lastname = lastname;
