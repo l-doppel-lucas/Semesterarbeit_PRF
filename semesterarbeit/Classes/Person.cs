@@ -8,5 +8,6 @@ namespace semesterarbeit
 {
     class Person
     {
+        //Unsere este klasse
     }
 }
