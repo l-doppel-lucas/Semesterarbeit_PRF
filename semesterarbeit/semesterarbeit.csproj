@@ -46,71 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\employee_create.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\employee_create.Designer.cs">
-      <DependentUpon>employee_create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\customer_create.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\customer_create.Designer.cs">
-      <DependentUpon>customer_create.cs</DependentUpon>
-    </Compile>
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\Employee.cs" />
-    <Compile Include="Dashboard.cs">
+    <Compile Include="Forms\ContactManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\customer_browse.cs">
+    <Compile Include="Forms\.Designer.cs">
+      <DependentUpon>ContactManager.cs</DependentUpon>
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\customer_browse.Designer.cs">
-      <DependentUpon>customer_browse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\employee_browse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\employee_browse.Designer.cs">
-      <DependentUpon>employee_browse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\customer_modify.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\customer_modify.Designer.cs">
-      <DependentUpon>customer_modify.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\employee_modify.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\employee_modify.Designer.cs">
-      <DependentUpon>employee_modify.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Person.cs" />
-    <Compile Include="Forms\customer_view.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\customer_view.Designer.cs">
-      <DependentUpon>customer_view.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\employee_view.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\employee_view.Designer.cs">
-      <DependentUpon>employee_view.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Trainee.cs" />
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\customer_create.resx">
-      <DependentUpon>customer_create.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ContactManager.resx">
+      <DependentUpon>ContactManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
