@@ -46,20 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Customer.cs" />
-    <Compile Include="Classes\Employee.cs" />
-    <Compile Include="Forms\ContactManager.cs">
+    <Compile Include="Model\Classes\Customer.cs" />
+    <Compile Include="Model\Classes\Employee.cs" />
+    <Compile Include="View\ContactManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\.Designer.cs">
+    <Compile Include="View\.Designer.cs">
       <DependentUpon>ContactManager.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Classes\Person.cs" />
+    <Compile Include="Model\Classes\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Classes\Trainee.cs" />
-    <EmbeddedResource Include="Forms\ContactManager.resx">
+    <Compile Include="Model\Classes\Trainee.cs" />
+    <EmbeddedResource Include="View\ContactManager.resx">
       <DependentUpon>ContactManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
