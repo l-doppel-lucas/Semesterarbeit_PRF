@@ -24,11 +24,11 @@ namespace semesterarbeit
         /******** Constructor ********/
 
         public Employee(bool status, int id, string title, string salutation, string firstname, string lastname, DateTime birthdate, string gender, string ahv,
-            string nationality, string privatephone, string mobilephone, string businessphone, string businessfax, string mail, 
+            string nationality, string privatephone, string mobilephone, string businessphone, string businessfax, string mail, string changehistory, 
             string departement, DateTime entrydate, DateTime exitdate, string employmentlvl, string role, MgmLvl lvl) : 
 
             base(status, id, title, salutation, firstname, lastname, birthdate, gender, 
-                 ahv, nationality, privatephone, mobilephone, businessphone, businessfax, mail)
+                 ahv, nationality, privatephone, mobilephone, businessphone, businessfax, mail, changehistory)
             
         {
             Departement = departement;

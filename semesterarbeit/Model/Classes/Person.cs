@@ -24,13 +24,13 @@ namespace semesterarbeit
         public string Businessphone { get; set; }
         public string Businessfax { get; set; }
         public string Mail { get; set; }
-
+        public string ChangeHistory{ get; set; }
 
 
         /******** Constructor ********/
 
         public Person(bool status, int id, string title, string salutation, string firstname, string lastname, DateTime birthdate, string gender, string ahv,
-            string nationality, string privatephone, string mobilephone, string businessphone, string businessfax, string mail)
+            string nationality, string privatephone, string mobilephone, string businessphone, string businessfax, string mail, string changehistory)
         {
             Status = status;
             Id = id;
@@ -46,6 +46,7 @@ namespace semesterarbeit
             Businessphone = businessphone;
             Businessfax = businessfax;
             Mail = mail;
+            ChangeHistory = changehistory;
         }
 
 
