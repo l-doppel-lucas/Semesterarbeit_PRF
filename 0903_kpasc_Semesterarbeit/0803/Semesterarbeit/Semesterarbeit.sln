@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semesterarbeit", "Semesterarbeit\Semesterarbeit.csproj", "{3A072EC6-51A8-4390-A720-8E72BDD836DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A072EC6-51A8-4390-A720-8E72BDD836DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A072EC6-51A8-4390-A720-8E72BDD836DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A072EC6-51A8-4390-A720-8E72BDD836DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A072EC6-51A8-4390-A720-8E72BDD836DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C971A1E3-8B66-4B3A-BA20-67B818D951C0}
+	EndGlobalSection
+EndGlobal
