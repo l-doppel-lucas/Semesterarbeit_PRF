@@ -17,5 +17,14 @@ namespace semesterarbeit
             InitializeComponent();
         }
 
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
