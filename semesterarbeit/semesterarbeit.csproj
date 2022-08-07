@@ -59,6 +59,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Classes\Trainee.cs" />
+    <EmbeddedResource Include="View\.Designer.resx">
+      <DependentUpon>.Designer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ContactManager.resx">
       <DependentUpon>ContactManager.cs</DependentUpon>
     </EmbeddedResource>
