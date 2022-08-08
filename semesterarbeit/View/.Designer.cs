@@ -113,6 +113,12 @@
             this.TxtNationality = new System.Windows.Forms.TextBox();
             this.LblDirectReports = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.LblNotesHistory = new System.Windows.Forms.Label();
+            this.LblLastModified = new System.Windows.Forms.Label();
+            this.LblCreationDate = new System.Windows.Forms.Label();
+            this.TxtLastModified = new System.Windows.Forms.TextBox();
+            this.TxtCreationDate = new System.Windows.Forms.TextBox();
+            this.LsbNoteHistory = new System.Windows.Forms.ListBox();
             this.LsbOutput = new System.Windows.Forms.ListBox();
             this.CmdAddUser = new System.Windows.Forms.Button();
             this.CmdEditUser = new System.Windows.Forms.Button();
@@ -123,13 +129,14 @@
             this.LblSearch = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
             // 
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
-            this.TabControl.Location = new System.Drawing.Point(16, 167);
+            this.TabControl.Location = new System.Drawing.Point(28, 75);
             this.TabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
@@ -247,7 +254,6 @@
             this.RadCustomer.Name = "RadCustomer";
             this.RadCustomer.Size = new System.Drawing.Size(69, 17);
             this.RadCustomer.TabIndex = 2;
-            this.RadCustomer.TabStop = true;
             this.RadCustomer.Text = "Customer";
             this.RadCustomer.UseVisualStyleBackColor = true;
             // 
@@ -268,7 +274,6 @@
             this.RadTrainee.Name = "RadTrainee";
             this.RadTrainee.Size = new System.Drawing.Size(61, 17);
             this.RadTrainee.TabIndex = 1;
-            this.RadTrainee.TabStop = true;
             this.RadTrainee.Text = "Trainee";
             this.RadTrainee.UseVisualStyleBackColor = true;
             // 
@@ -284,6 +289,7 @@
             // RadEmployee
             // 
             this.RadEmployee.AutoSize = true;
+            this.RadEmployee.Checked = true;
             this.RadEmployee.Location = new System.Drawing.Point(16, 11);
             this.RadEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RadEmployee.Name = "RadEmployee";
@@ -717,6 +723,16 @@
             this.TxtTitle.Size = new System.Drawing.Size(138, 20);
             this.TxtTitle.TabIndex = 116;
             // 
+            // TxtTitle
+            // 
+            this.TxtTitle.AllowDrop = true;
+            this.TxtTitle.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtTitle.Location = new System.Drawing.Point(168, 63);
+            this.TxtTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtTitle.Name = "TxtTitle";
+            this.TxtTitle.Size = new System.Drawing.Size(138, 20);
+            this.TxtTitle.TabIndex = 116;
+            // 
             // LblAHVNumber
             // 
             this.LblAHVNumber.AutoSize = true;
@@ -1071,6 +1087,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.LblNotesHistory);
+            this.tabPage2.Controls.Add(this.LblLastModified);
+            this.tabPage2.Controls.Add(this.LblCreationDate);
+            this.tabPage2.Controls.Add(this.TxtLastModified);
+            this.tabPage2.Controls.Add(this.TxtCreationDate);
+            this.tabPage2.Controls.Add(this.LsbNoteHistory);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
@@ -1080,10 +1102,66 @@
             this.tabPage2.Text = "HISTORY";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // LblNotesHistory
+            // 
+            this.LblNotesHistory.AutoSize = true;
+            this.LblNotesHistory.Location = new System.Drawing.Point(276, 33);
+            this.LblNotesHistory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblNotesHistory.Name = "LblNotesHistory";
+            this.LblNotesHistory.Size = new System.Drawing.Size(73, 13);
+            this.LblNotesHistory.TabIndex = 5;
+            this.LblNotesHistory.Text = "Notes History:";
+            // 
+            // LblLastModified
+            // 
+            this.LblLastModified.AutoSize = true;
+            this.LblLastModified.Location = new System.Drawing.Point(3, 88);
+            this.LblLastModified.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblLastModified.Name = "LblLastModified";
+            this.LblLastModified.Size = new System.Drawing.Size(72, 13);
+            this.LblLastModified.TabIndex = 4;
+            this.LblLastModified.Text = "Last modified:";
+            // 
+            // LblCreationDate
+            // 
+            this.LblCreationDate.AutoSize = true;
+            this.LblCreationDate.Location = new System.Drawing.Point(3, 33);
+            this.LblCreationDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblCreationDate.Name = "LblCreationDate";
+            this.LblCreationDate.Size = new System.Drawing.Size(62, 13);
+            this.LblCreationDate.TabIndex = 3;
+            this.LblCreationDate.Text = "Created on:";
+            // 
+            // TxtLastModified
+            // 
+            this.TxtLastModified.Location = new System.Drawing.Point(3, 102);
+            this.TxtLastModified.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtLastModified.Multiline = true;
+            this.TxtLastModified.Name = "TxtLastModified";
+            this.TxtLastModified.Size = new System.Drawing.Size(260, 456);
+            this.TxtLastModified.TabIndex = 2;
+            // 
+            // TxtCreationDate
+            // 
+            this.TxtCreationDate.Location = new System.Drawing.Point(3, 47);
+            this.TxtCreationDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCreationDate.Name = "TxtCreationDate";
+            this.TxtCreationDate.Size = new System.Drawing.Size(260, 20);
+            this.TxtCreationDate.TabIndex = 1;
+            // 
+            // LsbNoteHistory
+            // 
+            this.LsbNoteHistory.FormattingEnabled = true;
+            this.LsbNoteHistory.Location = new System.Drawing.Point(279, 47);
+            this.LsbNoteHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LsbNoteHistory.Name = "LsbNoteHistory";
+            this.LsbNoteHistory.Size = new System.Drawing.Size(380, 511);
+            this.LsbNoteHistory.TabIndex = 0;
+            // 
             // LsbOutput
             // 
             this.LsbOutput.FormattingEnabled = true;
-            this.LsbOutput.Location = new System.Drawing.Point(1012, 187);
+            this.LsbOutput.Location = new System.Drawing.Point(1012, 95);
             this.LsbOutput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LsbOutput.Name = "LsbOutput";
             this.LsbOutput.Size = new System.Drawing.Size(238, 563);
@@ -1092,19 +1170,18 @@
             // CmdAddUser
             // 
             this.CmdAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAddUser.Location = new System.Drawing.Point(535, 135);
+            this.CmdAddUser.Location = new System.Drawing.Point(535, 43);
             this.CmdAddUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmdAddUser.Name = "CmdAddUser";
             this.CmdAddUser.Size = new System.Drawing.Size(112, 42);
             this.CmdAddUser.TabIndex = 2;
             this.CmdAddUser.Text = "ADD USER";
             this.CmdAddUser.UseVisualStyleBackColor = true;
-            this.CmdAddUser.Click += new System.EventHandler(this.CmdAddUser_Click);
             // 
             // CmdEditUser
             // 
             this.CmdEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdEditUser.Location = new System.Drawing.Point(650, 135);
+            this.CmdEditUser.Location = new System.Drawing.Point(650, 43);
             this.CmdEditUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmdEditUser.Name = "CmdEditUser";
             this.CmdEditUser.Size = new System.Drawing.Size(112, 42);
@@ -1115,7 +1192,7 @@
             // CmdDeleteUser
             // 
             this.CmdDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdDeleteUser.Location = new System.Drawing.Point(764, 135);
+            this.CmdDeleteUser.Location = new System.Drawing.Point(764, 43);
             this.CmdDeleteUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmdDeleteUser.Name = "CmdDeleteUser";
             this.CmdDeleteUser.Size = new System.Drawing.Size(112, 42);
@@ -1126,7 +1203,7 @@
             // CmdExport
             // 
             this.CmdExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdExport.Location = new System.Drawing.Point(878, 135);
+            this.CmdExport.Location = new System.Drawing.Point(878, 43);
             this.CmdExport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmdExport.Name = "CmdExport";
             this.CmdExport.Size = new System.Drawing.Size(112, 42);
@@ -1136,7 +1213,7 @@
             // 
             // TxtSearch
             // 
-            this.TxtSearch.Location = new System.Drawing.Point(1012, 161);
+            this.TxtSearch.Location = new System.Drawing.Point(1012, 69);
             this.TxtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(154, 20);
@@ -1145,10 +1222,10 @@
             // 
             // CmdSearch
             // 
-            this.CmdSearch.Location = new System.Drawing.Point(1177, 161);
+            this.CmdSearch.Location = new System.Drawing.Point(1177, 69);
             this.CmdSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CmdSearch.Name = "CmdSearch";
-            this.CmdSearch.Size = new System.Drawing.Size(72, 16);
+            this.CmdSearch.Size = new System.Drawing.Size(72, 22);
             this.CmdSearch.TabIndex = 7;
             this.CmdSearch.Text = "SEARCH";
             this.CmdSearch.UseVisualStyleBackColor = true;
@@ -1156,7 +1233,7 @@
             // LblSearch
             // 
             this.LblSearch.AutoSize = true;
-            this.LblSearch.Location = new System.Drawing.Point(1010, 135);
+            this.LblSearch.Location = new System.Drawing.Point(1010, 43);
             this.LblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblSearch.Name = "LblSearch";
             this.LblSearch.Size = new System.Drawing.Size(65, 13);
@@ -1167,7 +1244,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1268, 739);
+            this.ClientSize = new System.Drawing.Size(1272, 687);
             this.Controls.Add(this.LblSearch);
             this.Controls.Add(this.CmdSearch);
             this.Controls.Add(this.TxtSearch);
@@ -1182,6 +1259,8 @@
             this.TabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1281,6 +1360,12 @@
         private System.Windows.Forms.Label LblCurrentApprentYear;
         private System.Windows.Forms.Label LblCivilStatus;
         private System.Windows.Forms.TextBox TxtNationality;
+        private System.Windows.Forms.Label LblNotesHistory;
+        private System.Windows.Forms.Label LblLastModified;
+        private System.Windows.Forms.Label LblCreationDate;
+        private System.Windows.Forms.TextBox TxtLastModified;
+        private System.Windows.Forms.TextBox TxtCreationDate;
+        private System.Windows.Forms.ListBox LsbNoteHistory;
         private System.Windows.Forms.Label LblDirectReports;
     }
 }
