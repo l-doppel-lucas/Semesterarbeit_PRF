@@ -41,5 +41,17 @@ namespace semesterarbeit
             Companycontact = companycontact;
             NotesHistory = notesHistory;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + ", " + Companyname + ", " + Companyadress + ", " + Type + ", " + Companycontact;
+        }
+
+        public override string PrintAll()
+        {
+            return base.PrintAll() + ", " + Companyname + ", " + Companyadress + ", " + Type + ", " + Companycontact;
+        }
+    }
+    
     }
 }
