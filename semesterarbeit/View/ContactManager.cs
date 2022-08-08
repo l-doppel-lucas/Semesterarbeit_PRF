@@ -12,9 +12,57 @@ namespace semesterarbeit
 {
     public partial class Dashboard : Form
     {
+        //Create variable for id
+        private int id;
+
         public Dashboard()
         {
             InitializeComponent();
+        }
+
+        /*---------------------------------------------------------------------
+        Radio Buttons
+        -----------------------------------------------------------------------*/
+        private void RadEmployee_CheckedChanged(object sender, EventArgs e)
+        {
+            //Make all Employee textboxes visible & enabled
+            ShowAllEmp();
+            EnableAllEmp();
+            ShowAllCmbEmp();
+
+            //hides all others
+            HideAllAppr();
+            HideAllCust();
+            HideAllCmbCust();
+            HideAllCmbAppr();
+        }
+
+        private void RadApprentice_CheckedChanged(object sender, EventArgs e)
+        {
+            //Make all Trainee textboxes visible & enabled
+            ShowAllEmp();
+            EnableAllEmp();
+            ShowAllAppr();
+            EnableAllAppr();
+            ShowAllCmbEmp();
+            ShowAllCmbAppr();
+
+            //hides all others
+            HideAllCust();
+            HideAllCmbCust();
+        }
+        private void RadCustomer_CheckedChanged(object sender, EventArgs e)
+        {
+            //Make all Customer textboxes visible & enabled
+            ShowAllCust();
+            EnableAllCust();
+            ShowAllCmbCust();
+
+            //hides all others
+            HideAllAppr();
+            HideAllEmp();
+            HideAllCmbAppr();
+            HideAllCmbEmp();
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
@@ -36,7 +84,7 @@ namespace semesterarbeit
         Text Boxes and Labels
         -----------------------------------------------------------------------*/
 
-        //Enables all Person fields
+        //Enables all Person Textboxes
         private void EnableAllPers()
         {
             TxtSalutation.ReadOnly = false;
@@ -55,7 +103,7 @@ namespace semesterarbeit
             TxtZipcode.ReadOnly = false;
         }
 
-        //Enables all Employee fields
+        //Enables all Employee Textboxes
         private void EnableAllEmp()
         {
             TxtDepartment.ReadOnly = false;
@@ -73,7 +121,7 @@ namespace semesterarbeit
             TxtPrivatePhone.ReadOnly = false;
         }
 
-        //Enables all Customer fields
+        //Enables all Customer Textboxes
         private void EnableAllCust()
         {
             TxtCompanyName.ReadOnly = false;
@@ -81,14 +129,14 @@ namespace semesterarbeit
             TxtContacPerson.ReadOnly = false;
         }
 
-        //Enables all Apprentice fields
+        //Enables all Apprentice Textboxes
         private void EnableAllAppr()
         {
             TxtApprentYears.ReadOnly = false;
             TxtCurrentApprentYear.ReadOnly = false;
         }
 
-        //Disables all Employee fields
+        //Disables all Employee Textboxes
         private void DisableAllPers()
         {
             TxtSalutation.ReadOnly = true;
@@ -107,7 +155,7 @@ namespace semesterarbeit
             TxtZipcode.ReadOnly = true;
         }
 
-        //Disable all Employee fields
+        //Disable all Employee Textboxes
         private void DisableAllEmp()
         {
             TxtDepartment.ReadOnly = true;
@@ -125,7 +173,7 @@ namespace semesterarbeit
             TxtPrivatePhone.ReadOnly = true;
         }
 
-        //Disables all Customer fields
+        //Disables all Customer Textboxes
         private void DisableAllCust()
         {
             TxtCompanyName.ReadOnly = true;
@@ -133,7 +181,7 @@ namespace semesterarbeit
             TxtContacPerson.ReadOnly = true;
         }
 
-        //Disables all Apprentice fields
+        //Disables all Apprentice Textboxes
         private void DisableAllAppr()
         {
             TxtApprentYears.ReadOnly = true;
@@ -149,7 +197,7 @@ namespace semesterarbeit
             DisableAllPers();
         }
 
-        //Function which hides all "Employee" related textboxes and labels
+        //Hide all Employee textboxes and labels
         private void HideAllEmp()
         {
             TxtDepartment.Visible = false;
@@ -180,7 +228,7 @@ namespace semesterarbeit
             LblPrivatePhone.Visible = false;
         }
 
-        //Function which hides all "Customer" related textboxes and labels
+        //Hides all Customer textboxes and labels
         private void HideAllCust()
         {
             TxtCompanyName.Visible = false;
@@ -195,7 +243,7 @@ namespace semesterarbeit
             LblNotesHistory.Visible = false;
         }
 
-        //Function which hides all "Apprentice" related textboxes and labels
+        //Hide all Apprentice textboxes and labels
         private void HideAllAppr()
         {
             TxtApprentYears.Visible = false;
@@ -204,7 +252,7 @@ namespace semesterarbeit
             LblCurrentApprentYear.Visible = false;
         }
 
-        //Function which makes all "Employee" related textboxes and labels visible
+        //Make all Employee textboxes and labels visible
         private void ShowAllEmp()
         {
             TxtDepartment.Visible = true;
@@ -235,7 +283,7 @@ namespace semesterarbeit
             LblPrivatePhone.Visible = true;
         }
 
-        //Function which makes all "Customer" related textboxes and labels visible
+        //Make all Customer textboxes and labels visible
         private void ShowAllCust()
         {
             TxtCompanyName.Visible = true;
@@ -250,7 +298,7 @@ namespace semesterarbeit
             LblNotesHistory.Visible = true;
         }
 
-        //Function which makes all "Apprentice" related textboxes and labels visible
+        //Make all Apprentice textboxes and labels visible
         private void ShowAllAppr()
         {
             TxtApprentYears.Visible = true;
@@ -259,74 +307,74 @@ namespace semesterarbeit
             LblCurrentApprentYear.Visible = true;
         }
 
-        //Function which clears all textboxes
+        //Clear all textboxes
         private void ClearAllTextboxes()
         {
-            TxtSalutation.Text = "";
-            TxtFirstname.Text = "";
-            TxtSecondname.Text = "";
-            TxtLastname.Text = "";
-            TxtBirthdate.Text = "";
-            TxtGender.Text = "";
-            TxtTitle.Text = "";
-            TxtBusinessPhone.Text = ""; ;
-            TxtBusinessFax.Text = "";
-            TxtMobileNumber.Text = "";
-            TxtEmail.Text = "";
-            TxtCity.Text = "";
-            TxtStreet.Text = "";
-            TxtZipcode.Text = "";
-            TxtDepartment.Text = "";
-            TxtAHVNumber.Text = "";
-            TxtStartDate.Text = "";
-            TxtLeaveDate.Text = "";
-            TxtDenomination.Text = "";
-            TxtBirthplace.Text = "";
-            TxtNationality.Text = "";
-            TxtRole.Text = "";
-            TxtMgmtLevel.Text = "";
-            TxtDirectReports.Text = "";
-            TxtWorkPensum.Text = "";
-            TxtCivilStatus.Text = "";
-            TxtPrivatePhone.Text = "";
-            TxtCompanyName.Text = "";
-            TxtCustomerType.Text = "";
-            TxtContacPerson.Text = "";
-            TxtApprentYears.Text = "";
-            TxtCurrentApprentYear.Text = "";
+            TxtSalutation.ResetText();
+            TxtFirstname.ResetText();
+            TxtSecondname.ResetText();
+            TxtLastname.ResetText();
+            TxtBirthdate.ResetText();
+            TxtGender.ResetText();
+            TxtTitle.ResetText();
+            TxtBusinessPhone.ResetText();
+            TxtBusinessFax.ResetText();
+            TxtMobileNumber.ResetText();
+            TxtEmail.ResetText();
+            TxtCity.ResetText();
+            TxtStreet.ResetText();
+            TxtZipcode.ResetText();
+            TxtDepartment.ResetText();
+            TxtAHVNumber.ResetText();
+            TxtStartDate.ResetText();
+            TxtLeaveDate.ResetText();
+            TxtDenomination.ResetText();
+            TxtBirthplace.ResetText();
+            TxtNationality.ResetText();
+            TxtRole.ResetText();
+            TxtMgmtLevel.ResetText();
+            TxtDirectReports.ResetText();
+            TxtWorkPensum.ResetText();
+            TxtCivilStatus.ResetText();
+            TxtPrivatePhone.ResetText();
+            TxtCompanyName.ResetText();
+            TxtCustomerType.ResetText();
+            TxtContacPerson.ResetText();
+            TxtApprentYears.ResetText();
+            TxtCurrentApprentYear.ResetText();
         }
 
-        //Function which makes all radio buttons visible
+        //Make all radio buttons visible
         private void ShowAllRad()
         {
-            RadApprentice.Visible = true;
+            RadTrainee.Visible = true;
             RadCustomer.Visible = true;
             RadEmployee.Visible = true;
         }
 
-        //Function which hides all radio buttons 
+        //Hide all radio buttons 
         private void HideAllRad()
         {
-            RadApprentice.Visible = false;
+            RadTrainee.Visible = false;
             RadCustomer.Visible = false;
             RadEmployee.Visible = false;
         }
 
-        //Function to make the button "Reset Search Results" and lable visible
+        //Make the button Reset Search Results and lable visible
         private void ShowResetSearchResults()
         {
             CmdResetSearchResults.Visible = true;
             LblResetSearchResults.Visible = true;
         }
 
-        //Function to hide the button "Reset Search Results" and lable
+        //Hide the button Reset Search Results and lable
         private void HideResetSearchResults()
         {
             CmdResetSearchResults.Visible = false;
             LblResetSearchResults.Visible = false;
         }
 
-        //Function to make all combo boxes visible (Person)
+        //Make all Person combo boxes visible 
         private void ShowAllCmbPers()
         {
             CmbSalutation.Visible = true;
@@ -341,10 +389,10 @@ namespace semesterarbeit
             if (TxtBirthdate.Text != "")
                 DtpBirthdate.Value = Convert.ToDateTime(TxtBirthdate.Text);
             else
-                DtpBirthdate.Value = Convert.ToDateTime("01.01.1900");
+                DtpBirthdate.Value = Convert.ToDateTime("01.01.1990");
         }
 
-        //Function to hide all combo boxes (Person)
+        //Hide all Person combo boxes 
         private void HideAllCmbPers()
         {
             CmbSalutation.Visible = false;
@@ -352,7 +400,7 @@ namespace semesterarbeit
             DtpBirthdate.Visible = false;
         }
 
-        //Function to make all combo boxes visible (Customer)
+        //Make all Customer combo boxes visible 
         private void ShowAllCmbCust()
         {
             CmbCustomerType.Visible = true;
@@ -361,13 +409,13 @@ namespace semesterarbeit
             CmbCustomerType.SelectedItem = TxtCustomerType.Text;
         }
 
-        //Function to hide all combo boxes (Customer)
+        //Hide all Customer combo boxes 
         private void HideAllCmbCust()
         {
             CmbCustomerType.Visible = false;
         }
 
-        //Function to make all combo boxes visible (Employee)
+        //Make all Employee combo boxes visible 
         private void ShowAllCmbEmp()
         {
             CmbDepartment.Visible = true;
@@ -389,15 +437,15 @@ namespace semesterarbeit
             if (TxtStartDate.Text != "")
                 DtpStartDate.Value = Convert.ToDateTime(TxtStartDate.Text);
             else
-                DtpStartDate.Value = Convert.ToDateTime("01.01.1900");
+                DtpStartDate.Value = Convert.ToDateTime("01.01.2022");
 
             if (TxtLeaveDate.Text != "")
                 DtpLeaveDate.Value = Convert.ToDateTime(TxtLeaveDate.Text);
             else
-                DtpLeaveDate.Value = Convert.ToDateTime("01.01.1900");
+                DtpLeaveDate.Value = Convert.ToDateTime("01.01.2022");
         }
 
-        //Function to hide all combo boxes (Employee)
+        //Hide all Employee combo boxes
         private void HideAllCmbEmp()
         {
             CmbDepartment.Visible = false;
@@ -408,7 +456,7 @@ namespace semesterarbeit
             DtpStartDate.Visible = false;
             DtpLeaveDate.Visible = false;
         }
-        //Function to make all combo boxes visible (Apprentice)
+        //Make all Person combo boxes visible
         private void ShowAllCmbAppr()
         {
             CmbApprentYears.Visible = true;
@@ -419,7 +467,7 @@ namespace semesterarbeit
             CmbCurrentApprentYear.SelectedItem = TxtCurrentApprentYear.Text;
         }
 
-        //Function to hide all combo boxes (Apprentice)
+        //Hide all Apprentice combo boxes 
         private void HideAllCmbAppr()
         {
             CmbApprentYears.Visible = false;
@@ -430,5 +478,7 @@ namespace semesterarbeit
         {
 
         }
+
+
     }
 }

@@ -33,7 +33,7 @@
             this.DtpLeaveDate = new System.Windows.Forms.DateTimePicker();
             this.RadCustomer = new System.Windows.Forms.RadioButton();
             this.DtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.RadApprentice = new System.Windows.Forms.RadioButton();
+            this.RadTrainee = new System.Windows.Forms.RadioButton();
             this.DtpBirthdate = new System.Windows.Forms.DateTimePicker();
             this.RadEmployee = new System.Windows.Forms.RadioButton();
             this.CmbWorkPensum = new System.Windows.Forms.ComboBox();
@@ -152,7 +152,7 @@
             this.tabPage1.Controls.Add(this.DtpLeaveDate);
             this.tabPage1.Controls.Add(this.RadCustomer);
             this.tabPage1.Controls.Add(this.DtpStartDate);
-            this.tabPage1.Controls.Add(this.RadApprentice);
+            this.tabPage1.Controls.Add(this.RadTrainee);
             this.tabPage1.Controls.Add(this.DtpBirthdate);
             this.tabPage1.Controls.Add(this.RadEmployee);
             this.tabPage1.Controls.Add(this.CmbWorkPensum);
@@ -260,6 +260,7 @@
             this.RadCustomer.TabIndex = 2;
             this.RadCustomer.Text = "Customer";
             this.RadCustomer.UseVisualStyleBackColor = true;
+            this.RadCustomer.CheckedChanged += new System.EventHandler(this.RadCustomer_CheckedChanged);
             // 
             // DtpStartDate
             // 
@@ -270,16 +271,17 @@
             this.DtpStartDate.TabIndex = 183;
             this.DtpStartDate.Visible = false;
             // 
-            // RadApprentice
+            // RadTrainee
             // 
-            this.RadApprentice.AutoSize = true;
-            this.RadApprentice.Location = new System.Drawing.Point(95, 11);
-            this.RadApprentice.Margin = new System.Windows.Forms.Padding(2);
-            this.RadApprentice.Name = "RadApprentice";
-            this.RadApprentice.Size = new System.Drawing.Size(76, 17);
-            this.RadApprentice.TabIndex = 1;
-            this.RadApprentice.Text = "Apprentice";
-            this.RadApprentice.UseVisualStyleBackColor = true;
+            this.RadTrainee.AutoSize = true;
+            this.RadTrainee.Location = new System.Drawing.Point(95, 11);
+            this.RadTrainee.Margin = new System.Windows.Forms.Padding(2);
+            this.RadTrainee.Name = "RadTrainee";
+            this.RadTrainee.Size = new System.Drawing.Size(61, 17);
+            this.RadTrainee.TabIndex = 1;
+            this.RadTrainee.Text = "Trainee";
+            this.RadTrainee.UseVisualStyleBackColor = true;
+            this.RadTrainee.CheckedChanged += new System.EventHandler(this.RadApprentice_CheckedChanged);
             // 
             // DtpBirthdate
             // 
@@ -302,6 +304,7 @@
             this.RadEmployee.TabStop = true;
             this.RadEmployee.Text = "Employee";
             this.RadEmployee.UseVisualStyleBackColor = true;
+            this.RadEmployee.CheckedChanged += new System.EventHandler(this.RadEmployee_CheckedChanged);
             // 
             // CmbWorkPensum
             // 
@@ -1193,7 +1196,7 @@
             this.CmdExport.Name = "CmdExport";
             this.CmdExport.Size = new System.Drawing.Size(112, 42);
             this.CmdExport.TabIndex = 5;
-            this.CmdExport.Text = "EXPORT TO CSV";
+            this.CmdExport.Text = "EXPORT CONTACTS";
             this.CmdExport.UseVisualStyleBackColor = true;
             // 
             // TxtSearch
@@ -1317,7 +1320,7 @@
         private System.Windows.Forms.DateTimePicker DtpLeaveDate;
         private System.Windows.Forms.RadioButton RadCustomer;
         private System.Windows.Forms.DateTimePicker DtpStartDate;
-        private System.Windows.Forms.RadioButton RadApprentice;
+        private System.Windows.Forms.RadioButton RadTrainee;
         private System.Windows.Forms.DateTimePicker DtpBirthdate;
         private System.Windows.Forms.RadioButton RadEmployee;
         private System.Windows.Forms.ComboBox CmbWorkPensum;
