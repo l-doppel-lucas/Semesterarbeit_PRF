@@ -20,6 +20,58 @@ namespace semesterarbeit
             InitializeComponent();
         }
 
+        /*---------------------------------------------------------------------
+        Listbox
+        -----------------------------------------------------------------------*/
+
+
+
+        /*---------------------------------------------------------------------
+        Buttons
+        -----------------------------------------------------------------------*/
+        private void CmdAddUser_Click(object sender, EventArgs e)
+        {
+            //Change buttons
+            CmdAddUser.Visible = false;
+            CmdSave.Visible = true;
+
+            //Uncheck radio buttons
+            UncheckAllRad();
+
+            //Enables all "Person" related fields
+            EnableAllPers();
+
+            //Clears all textboxes
+            ClearAllTextboxes();
+
+            //Makes all radio buttos visible
+            ShowAllRad();
+
+            //Makes all comboboxes visible
+            ShowAllCmbPers();
+
+            //Hides all "Apprentice", "Customer" and "Employee" related textboxes and labels
+            HideAllAppr();
+            HideAllCust();
+            HideAllEmp();
+
+            //Disables unusable buttons, combo boxes, and list boxes
+            ChkStatus.Enabled = false;
+            CmdTakeNotes.Enabled = false;
+            LsbOutput.Enabled = false;
+            CmdAddUser.Enabled = false;
+            CmdDeleteUser.Enabled = false;
+            CmdEditUser.Enabled = false;
+            CmdExport.Enabled = false;
+            CmdSearch.Enabled = false;
+            
+        }
+        private void CmdSave_Click(object sender, EventArgs e)
+        {
+            //Change buttons
+            CmdAddUser.Visible = true;
+            CmdSave.Visible = false;
+        }
 
 
         /*---------------------------------------------------------------------
@@ -77,10 +129,6 @@ namespace semesterarbeit
 
         }
 
-        private void CmdAddUser_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /*---------------------------------------------------------------------
         Text Boxes and Labels
@@ -136,6 +184,15 @@ namespace semesterarbeit
         {
             TxtApprentYears.ReadOnly = false;
             TxtCurrentApprentYear.ReadOnly = false;
+        }
+
+        //Enable all textboxes
+        private void EnableAllTxtboxes()
+        {
+            EnableAllAppr();
+            EnableAllCust();
+            EnableAllEmp();
+            EnableAllPers();
         }
 
         //Disables all Employee Textboxes
@@ -362,6 +419,14 @@ namespace semesterarbeit
             RadEmployee.Visible = false;
         }
 
+        //Uncheck all redio buttons
+        private void UncheckAllRad()
+        {
+            RadTrainee.Visible = false;
+            RadCustomer.Visible = false;
+            RadEmployee.Visible = false;
+        }
+
         //Make the button Reset Search Results and lable visible
         private void ShowResetSearchResults()
         {
@@ -480,7 +545,5 @@ namespace semesterarbeit
         {
 
         }
-
-
     }
 }

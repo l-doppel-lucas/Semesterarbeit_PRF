@@ -30,6 +30,7 @@
         {
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ChkStatus = new System.Windows.Forms.CheckBox();
             this.DtpLeaveDate = new System.Windows.Forms.DateTimePicker();
             this.RadCustomer = new System.Windows.Forms.RadioButton();
             this.DtpStartDate = new System.Windows.Forms.DateTimePicker();
@@ -131,7 +132,7 @@
             this.LblResetSearchResults = new System.Windows.Forms.Label();
             this.CmdCancelAdd = new System.Windows.Forms.Button();
             this.LblCancelAdd = new System.Windows.Forms.Label();
-            this.ChkStatus = new System.Windows.Forms.CheckBox();
+            this.CmdSave = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -243,6 +244,16 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // ChkStatus
+            // 
+            this.ChkStatus.AutoSize = true;
+            this.ChkStatus.Location = new System.Drawing.Point(889, 12);
+            this.ChkStatus.Name = "ChkStatus";
+            this.ChkStatus.Size = new System.Drawing.Size(67, 17);
+            this.ChkStatus.TabIndex = 185;
+            this.ChkStatus.Text = "Disabled";
+            this.ChkStatus.UseVisualStyleBackColor = true;
+            // 
             // DtpLeaveDate
             // 
             this.DtpLeaveDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -255,7 +266,7 @@
             // RadCustomer
             // 
             this.RadCustomer.AutoSize = true;
-            this.RadCustomer.Location = new System.Drawing.Point(180, 11);
+            this.RadCustomer.Location = new System.Drawing.Point(168, 11);
             this.RadCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.RadCustomer.Name = "RadCustomer";
             this.RadCustomer.Size = new System.Drawing.Size(69, 17);
@@ -1176,6 +1187,7 @@
             this.CmdAddUser.TabIndex = 2;
             this.CmdAddUser.Text = "ADD USER";
             this.CmdAddUser.UseVisualStyleBackColor = true;
+            this.CmdAddUser.Click += new System.EventHandler(this.CmdAddUser_Click);
             // 
             // CmdEditUser
             // 
@@ -1275,21 +1287,25 @@
             this.LblCancelAdd.TabIndex = 12;
             this.LblCancelAdd.Text = "Cancel";
             // 
-            // ChkStatus
+            // CmdSave
             // 
-            this.ChkStatus.AutoSize = true;
-            this.ChkStatus.Location = new System.Drawing.Point(889, 12);
-            this.ChkStatus.Name = "ChkStatus";
-            this.ChkStatus.Size = new System.Drawing.Size(67, 17);
-            this.ChkStatus.TabIndex = 185;
-            this.ChkStatus.Text = "Disabled";
-            this.ChkStatus.UseVisualStyleBackColor = true;
+            this.CmdSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdSave.Location = new System.Drawing.Point(534, 43);
+            this.CmdSave.Margin = new System.Windows.Forms.Padding(2);
+            this.CmdSave.Name = "CmdSave";
+            this.CmdSave.Size = new System.Drawing.Size(112, 42);
+            this.CmdSave.TabIndex = 13;
+            this.CmdSave.Text = "SAVE";
+            this.CmdSave.UseVisualStyleBackColor = true;
+            this.CmdSave.Visible = false;
+            this.CmdSave.Click += new System.EventHandler(this.CmdSave_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 687);
+            this.Controls.Add(this.CmdSave);
             this.Controls.Add(this.LblCancelAdd);
             this.Controls.Add(this.CmdCancelAdd);
             this.Controls.Add(this.LblResetSearchResults);
@@ -1422,6 +1438,7 @@
         private System.Windows.Forms.Label LblCancelAdd;
         private System.Windows.Forms.TextBox TxtNotesHistory;
         private System.Windows.Forms.CheckBox ChkStatus;
+        private System.Windows.Forms.Button CmdSave;
     }
 }
 
