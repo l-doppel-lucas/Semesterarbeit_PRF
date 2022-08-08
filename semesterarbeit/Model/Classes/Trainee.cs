@@ -25,5 +25,20 @@ namespace semesterarbeit
             Appyears = appyears;
             Currappyear = currappyear;
         }
+
+
+        /******** Methods ********/
+
+        public override string ToString()
+        {
+            return base.ToString() + ", " + Appyears + ", " + Currappyear;
+        }
+
+        public override string PrintAll()
+        {
+            return base.PrintAll() + ", " + Appyears + ", " + Currappyear;
+        }
+
+
     }
 }

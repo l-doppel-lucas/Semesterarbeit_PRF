@@ -45,5 +45,17 @@ namespace semesterarbeit
         }
 
 
+        /******** Methods ********/
+
+        public override string ToString()
+        {
+            return base.ToString() + ", " + Departement + ", " + Entrydate + ", " + Exitdate + ", " + Employmentlvl + ", " + Role + ", " + Lvl;
+        }
+
+        public override string PrintAll()
+        {
+            return base.PrintAll() + ", " + Departement + ", " + Entrydate + ", " + Exitdate + ", " + Employmentlvl + ", " + Role + ", " + Lvl;
+        }
+
     }
 }

@@ -53,6 +53,17 @@ namespace semesterarbeit
 
         /******** Methods ********/
 
-        
+        public override string ToString()
+        {
+            return Status + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString() 
+                + ", " + Gender + ", " + Ahv + ", " + Nationality + ", " + Privatephone + ", " + Businessphone + ", " + Businessfax + ", " + Mail;
+        }
+
+        public virtual string PrintAll()
+        {
+            return Status + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString()
+                + ", " + Gender + ", " + Ahv + ", " + Nationality + ", " + Privatephone + ", " + Businessphone + ", " + Businessfax + ", " + Mail + ", " + ChangeHistory;
+        }
+
     }
 }
