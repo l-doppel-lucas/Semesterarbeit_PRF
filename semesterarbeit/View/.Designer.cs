@@ -723,6 +723,16 @@
             this.TxtTitle.Size = new System.Drawing.Size(138, 20);
             this.TxtTitle.TabIndex = 116;
             // 
+            // TxtTitle
+            // 
+            this.TxtTitle.AllowDrop = true;
+            this.TxtTitle.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtTitle.Location = new System.Drawing.Point(168, 63);
+            this.TxtTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtTitle.Name = "TxtTitle";
+            this.TxtTitle.Size = new System.Drawing.Size(138, 20);
+            this.TxtTitle.TabIndex = 116;
+            // 
             // LblAHVNumber
             // 
             this.LblAHVNumber.AutoSize = true;
