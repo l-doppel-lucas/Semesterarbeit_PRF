@@ -34,6 +34,7 @@ namespace semesterarbeit
             //Change buttons
             CmdAddUser.Visible = false;
             CmdSave.Visible = true;
+            CmdCancel.Visible = true;
 
             //Uncheck radio buttons
             UncheckAllRad();
@@ -71,6 +72,9 @@ namespace semesterarbeit
             //Change buttons
             CmdAddUser.Visible = true;
             CmdSave.Visible = false;
+            CmdCancel.Visible = false;
+
+
         }
 
 
@@ -422,11 +426,18 @@ namespace semesterarbeit
         //Uncheck all redio buttons
         private void UncheckAllRad()
         {
-            RadTrainee.Visible = false;
-            RadCustomer.Visible = false;
-            RadEmployee.Visible = false;
+            RadTrainee.Checked = false;
+            RadCustomer.Checked = false;
+            RadEmployee.Checked = false;
+
+            HideAllAppr();
+            HideAllCmbAppr();
+            HideAllCust();
+            HideAllEmp();
+            HideAllCmbEmp();
         }
 
+        /*
         //Make the button Reset Search Results and lable visible
         private void ShowResetSearchResults()
         {
@@ -440,6 +451,8 @@ namespace semesterarbeit
             CmdResetSearchResults.Visible = false;
             LblResetSearchResults.Visible = false;
         }
+        */
+
 
         //Make all Person combo boxes visible 
         private void ShowAllCmbPers()
