@@ -118,7 +118,6 @@
             this.LblCreationDate = new System.Windows.Forms.Label();
             this.TxtLastModified = new System.Windows.Forms.TextBox();
             this.TxtCreationDate = new System.Windows.Forms.TextBox();
-            this.LsbNoteHistory = new System.Windows.Forms.ListBox();
             this.LsbOutput = new System.Windows.Forms.ListBox();
             this.CmdAddUser = new System.Windows.Forms.Button();
             this.CmdEditUser = new System.Windows.Forms.Button();
@@ -131,6 +130,7 @@
             this.LblResetSearchResults = new System.Windows.Forms.Label();
             this.CmdCancelAdd = new System.Windows.Forms.Button();
             this.LblCancelAdd = new System.Windows.Forms.Label();
+            this.TxtNotesHistory = new System.Windows.Forms.TextBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -1081,12 +1081,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.TxtNotesHistory);
             this.tabPage2.Controls.Add(this.LblNotesHistory);
             this.tabPage2.Controls.Add(this.LblLastModified);
             this.tabPage2.Controls.Add(this.LblCreationDate);
             this.tabPage2.Controls.Add(this.TxtLastModified);
             this.tabPage2.Controls.Add(this.TxtCreationDate);
-            this.tabPage2.Controls.Add(this.LsbNoteHistory);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
@@ -1142,15 +1142,6 @@
             this.TxtCreationDate.Name = "TxtCreationDate";
             this.TxtCreationDate.Size = new System.Drawing.Size(260, 20);
             this.TxtCreationDate.TabIndex = 1;
-            // 
-            // LsbNoteHistory
-            // 
-            this.LsbNoteHistory.FormattingEnabled = true;
-            this.LsbNoteHistory.Location = new System.Drawing.Point(279, 47);
-            this.LsbNoteHistory.Margin = new System.Windows.Forms.Padding(2);
-            this.LsbNoteHistory.Name = "LsbNoteHistory";
-            this.LsbNoteHistory.Size = new System.Drawing.Size(380, 511);
-            this.LsbNoteHistory.TabIndex = 0;
             // 
             // LsbOutput
             // 
@@ -1264,11 +1255,20 @@
             // LblCancelAdd
             // 
             this.LblCancelAdd.AutoSize = true;
-            this.LblCancelAdd.Location = new System.Drawing.Point(369, 69);
+            this.LblCancelAdd.Location = new System.Drawing.Point(434, 69);
             this.LblCancelAdd.Name = "LblCancelAdd";
-            this.LblCancelAdd.Size = new System.Drawing.Size(105, 13);
+            this.LblCancelAdd.Size = new System.Drawing.Size(40, 13);
             this.LblCancelAdd.TabIndex = 12;
-            this.LblCancelAdd.Text = "Reset Search Result";
+            this.LblCancelAdd.Text = "Cancel";
+            // 
+            // TxtNotesHistory
+            // 
+            this.TxtNotesHistory.Location = new System.Drawing.Point(279, 48);
+            this.TxtNotesHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtNotesHistory.Multiline = true;
+            this.TxtNotesHistory.Name = "TxtNotesHistory";
+            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 510);
+            this.TxtNotesHistory.TabIndex = 6;
             // 
             // Dashboard
             // 
@@ -1400,12 +1400,12 @@
         private System.Windows.Forms.Label LblCreationDate;
         private System.Windows.Forms.TextBox TxtLastModified;
         private System.Windows.Forms.TextBox TxtCreationDate;
-        private System.Windows.Forms.ListBox LsbNoteHistory;
         private System.Windows.Forms.Label LblDirectReports;
         private System.Windows.Forms.Button CmdResetSearchResults;
         private System.Windows.Forms.Label LblResetSearchResults;
         private System.Windows.Forms.Button CmdCancelAdd;
         private System.Windows.Forms.Label LblCancelAdd;
+        private System.Windows.Forms.TextBox TxtNotesHistory;
     }
 }
 
