@@ -27,6 +27,8 @@ namespace semesterarbeit
         }
 
 
+        /******** Methods ********/
+
         public override string ToString()
         {
             return base.ToString() + ", " + Appyears + ", " + Currappyear;

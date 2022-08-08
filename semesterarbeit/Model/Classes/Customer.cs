@@ -42,6 +42,9 @@ namespace semesterarbeit
             NotesHistory = notesHistory;
         }
 
+
+        /******** Methods ********/
+
         public override string ToString()
         {
             return base.ToString() + ", " + Companyname + ", " + Companyadress + ", " + Type + ", " + Companycontact;
