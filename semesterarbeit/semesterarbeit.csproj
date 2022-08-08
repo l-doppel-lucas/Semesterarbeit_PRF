@@ -62,9 +62,6 @@
     <EmbeddedResource Include="View\.Designer.resx">
       <DependentUpon>.Designer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ContactManager.resx">
-      <DependentUpon>ContactManager.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
