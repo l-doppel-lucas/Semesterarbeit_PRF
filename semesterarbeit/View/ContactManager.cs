@@ -300,16 +300,16 @@ namespace semesterarbeit
         private void ShowAllRad()
         {
             RadApprentice.Visible = true;
-            RadCustomers.Visible = true;
-            RadEmployees.Visible = true;
+            RadCustomer.Visible = true;
+            RadEmployee.Visible = true;
         }
 
         //Function which hides all radio buttons 
         private void HideAllRad()
         {
             RadApprentice.Visible = false;
-            RadCustomers.Visible = false;
-            RadEmployees.Visible = false;
+            RadCustomer.Visible = false;
+            RadEmployee.Visible = false;
         }
 
         //Function to make the button "Reset Search Results" and lable visible
@@ -426,5 +426,9 @@ namespace semesterarbeit
             CmbCurrentApprentYear.Visible = false;
         }
 
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -33,7 +33,7 @@
             this.DtpLeaveDate = new System.Windows.Forms.DateTimePicker();
             this.RadCustomer = new System.Windows.Forms.RadioButton();
             this.DtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.RadTrainee = new System.Windows.Forms.RadioButton();
+            this.RadApprentice = new System.Windows.Forms.RadioButton();
             this.DtpBirthdate = new System.Windows.Forms.DateTimePicker();
             this.RadEmployee = new System.Windows.Forms.RadioButton();
             this.CmbWorkPensum = new System.Windows.Forms.ComboBox();
@@ -127,6 +127,10 @@
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.CmdSearch = new System.Windows.Forms.Button();
             this.LblSearch = new System.Windows.Forms.Label();
+            this.CmdResetSearchResults = new System.Windows.Forms.Button();
+            this.LblResetSearchResults = new System.Windows.Forms.Label();
+            this.CmdCancelAdd = new System.Windows.Forms.Button();
+            this.LblCancelAdd = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -137,7 +141,7 @@
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Location = new System.Drawing.Point(28, 75);
-            this.TabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TabControl.Margin = new System.Windows.Forms.Padding(2);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(982, 586);
@@ -148,7 +152,7 @@
             this.tabPage1.Controls.Add(this.DtpLeaveDate);
             this.tabPage1.Controls.Add(this.RadCustomer);
             this.tabPage1.Controls.Add(this.DtpStartDate);
-            this.tabPage1.Controls.Add(this.RadTrainee);
+            this.tabPage1.Controls.Add(this.RadApprentice);
             this.tabPage1.Controls.Add(this.DtpBirthdate);
             this.tabPage1.Controls.Add(this.RadEmployee);
             this.tabPage1.Controls.Add(this.CmbWorkPensum);
@@ -228,9 +232,9 @@
             this.tabPage1.Controls.Add(this.TxtNationality);
             this.tabPage1.Controls.Add(this.LblDirectReports);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(974, 560);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GENERAL";
@@ -249,8 +253,8 @@
             // RadCustomer
             // 
             this.RadCustomer.AutoSize = true;
-            this.RadCustomer.Location = new System.Drawing.Point(167, 11);
-            this.RadCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RadCustomer.Location = new System.Drawing.Point(180, 11);
+            this.RadCustomer.Margin = new System.Windows.Forms.Padding(2);
             this.RadCustomer.Name = "RadCustomer";
             this.RadCustomer.Size = new System.Drawing.Size(69, 17);
             this.RadCustomer.TabIndex = 2;
@@ -266,16 +270,16 @@
             this.DtpStartDate.TabIndex = 183;
             this.DtpStartDate.Visible = false;
             // 
-            // RadTrainee
+            // RadApprentice
             // 
-            this.RadTrainee.AutoSize = true;
-            this.RadTrainee.Location = new System.Drawing.Point(95, 11);
-            this.RadTrainee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.RadTrainee.Name = "RadTrainee";
-            this.RadTrainee.Size = new System.Drawing.Size(61, 17);
-            this.RadTrainee.TabIndex = 1;
-            this.RadTrainee.Text = "Trainee";
-            this.RadTrainee.UseVisualStyleBackColor = true;
+            this.RadApprentice.AutoSize = true;
+            this.RadApprentice.Location = new System.Drawing.Point(95, 11);
+            this.RadApprentice.Margin = new System.Windows.Forms.Padding(2);
+            this.RadApprentice.Name = "RadApprentice";
+            this.RadApprentice.Size = new System.Drawing.Size(76, 17);
+            this.RadApprentice.TabIndex = 1;
+            this.RadApprentice.Text = "Apprentice";
+            this.RadApprentice.UseVisualStyleBackColor = true;
             // 
             // DtpBirthdate
             // 
@@ -291,7 +295,7 @@
             this.RadEmployee.AutoSize = true;
             this.RadEmployee.Checked = true;
             this.RadEmployee.Location = new System.Drawing.Point(16, 11);
-            this.RadEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RadEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.RadEmployee.Name = "RadEmployee";
             this.RadEmployee.Size = new System.Drawing.Size(71, 17);
             this.RadEmployee.TabIndex = 0;
@@ -324,7 +328,7 @@
             // 
             this.TxtFirstname.BackColor = System.Drawing.SystemColors.Window;
             this.TxtFirstname.Location = new System.Drawing.Point(16, 104);
-            this.TxtFirstname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtFirstname.Margin = new System.Windows.Forms.Padding(2);
             this.TxtFirstname.Name = "TxtFirstname";
             this.TxtFirstname.Size = new System.Drawing.Size(138, 20);
             this.TxtFirstname.TabIndex = 108;
@@ -634,7 +638,7 @@
             // 
             this.TxtWorkPensum.BackColor = System.Drawing.SystemColors.Window;
             this.TxtWorkPensum.Location = new System.Drawing.Point(326, 421);
-            this.TxtWorkPensum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtWorkPensum.Margin = new System.Windows.Forms.Padding(2);
             this.TxtWorkPensum.Name = "TxtWorkPensum";
             this.TxtWorkPensum.Size = new System.Drawing.Size(138, 20);
             this.TxtWorkPensum.TabIndex = 160;
@@ -672,7 +676,7 @@
             // 
             this.TxtMgmtLevel.BackColor = System.Drawing.SystemColors.Window;
             this.TxtMgmtLevel.Location = new System.Drawing.Point(16, 470);
-            this.TxtMgmtLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtMgmtLevel.Margin = new System.Windows.Forms.Padding(2);
             this.TxtMgmtLevel.Name = "TxtMgmtLevel";
             this.TxtMgmtLevel.Size = new System.Drawing.Size(138, 20);
             this.TxtMgmtLevel.TabIndex = 156;
@@ -681,7 +685,7 @@
             // 
             this.TxtCurrentApprentYear.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCurrentApprentYear.Location = new System.Drawing.Point(168, 524);
-            this.TxtCurrentApprentYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCurrentApprentYear.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCurrentApprentYear.Name = "TxtCurrentApprentYear";
             this.TxtCurrentApprentYear.Size = new System.Drawing.Size(138, 20);
             this.TxtCurrentApprentYear.TabIndex = 168;
@@ -690,7 +694,7 @@
             // 
             this.TxtRole.BackColor = System.Drawing.SystemColors.Window;
             this.TxtRole.Location = new System.Drawing.Point(168, 420);
-            this.TxtRole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtRole.Margin = new System.Windows.Forms.Padding(2);
             this.TxtRole.Name = "TxtRole";
             this.TxtRole.Size = new System.Drawing.Size(138, 20);
             this.TxtRole.TabIndex = 150;
@@ -699,7 +703,7 @@
             // 
             this.TxtSalutation.BackColor = System.Drawing.SystemColors.Window;
             this.TxtSalutation.Location = new System.Drawing.Point(16, 62);
-            this.TxtSalutation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtSalutation.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSalutation.Name = "TxtSalutation";
             this.TxtSalutation.Size = new System.Drawing.Size(138, 20);
             this.TxtSalutation.TabIndex = 106;
@@ -708,7 +712,7 @@
             // 
             this.TxtStartDate.BackColor = System.Drawing.SystemColors.Window;
             this.TxtStartDate.Location = new System.Drawing.Point(326, 472);
-            this.TxtStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.TxtStartDate.Name = "TxtStartDate";
             this.TxtStartDate.Size = new System.Drawing.Size(138, 20);
             this.TxtStartDate.TabIndex = 144;
@@ -718,17 +722,7 @@
             this.TxtTitle.AllowDrop = true;
             this.TxtTitle.BackColor = System.Drawing.SystemColors.Window;
             this.TxtTitle.Location = new System.Drawing.Point(168, 63);
-            this.TxtTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtTitle.Name = "TxtTitle";
-            this.TxtTitle.Size = new System.Drawing.Size(138, 20);
-            this.TxtTitle.TabIndex = 116;
-            // 
-            // TxtTitle
-            // 
-            this.TxtTitle.AllowDrop = true;
-            this.TxtTitle.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtTitle.Location = new System.Drawing.Point(168, 63);
-            this.TxtTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtTitle.Margin = new System.Windows.Forms.Padding(2);
             this.TxtTitle.Name = "TxtTitle";
             this.TxtTitle.Size = new System.Drawing.Size(138, 20);
             this.TxtTitle.TabIndex = 116;
@@ -747,7 +741,7 @@
             this.TxtSecondname.AllowDrop = true;
             this.TxtSecondname.BackColor = System.Drawing.SystemColors.Window;
             this.TxtSecondname.Location = new System.Drawing.Point(168, 104);
-            this.TxtSecondname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtSecondname.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSecondname.Name = "TxtSecondname";
             this.TxtSecondname.Size = new System.Drawing.Size(138, 20);
             this.TxtSecondname.TabIndex = 110;
@@ -756,7 +750,7 @@
             // 
             this.TxtLastname.BackColor = System.Drawing.SystemColors.Window;
             this.TxtLastname.Location = new System.Drawing.Point(16, 150);
-            this.TxtLastname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtLastname.Margin = new System.Windows.Forms.Padding(2);
             this.TxtLastname.Name = "TxtLastname";
             this.TxtLastname.Size = new System.Drawing.Size(138, 20);
             this.TxtLastname.TabIndex = 112;
@@ -774,7 +768,7 @@
             // 
             this.TxtBirthdate.BackColor = System.Drawing.SystemColors.Window;
             this.TxtBirthdate.Location = new System.Drawing.Point(16, 215);
-            this.TxtBirthdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtBirthdate.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBirthdate.Name = "TxtBirthdate";
             this.TxtBirthdate.Size = new System.Drawing.Size(138, 20);
             this.TxtBirthdate.TabIndex = 114;
@@ -792,7 +786,7 @@
             // 
             this.TxtGender.BackColor = System.Drawing.SystemColors.Window;
             this.TxtGender.Location = new System.Drawing.Point(16, 260);
-            this.TxtGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtGender.Margin = new System.Windows.Forms.Padding(2);
             this.TxtGender.Name = "TxtGender";
             this.TxtGender.Size = new System.Drawing.Size(138, 20);
             this.TxtGender.TabIndex = 118;
@@ -801,7 +795,7 @@
             // 
             this.TxtAHVNumber.BackColor = System.Drawing.SystemColors.Window;
             this.TxtAHVNumber.Location = new System.Drawing.Point(16, 317);
-            this.TxtAHVNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtAHVNumber.Margin = new System.Windows.Forms.Padding(2);
             this.TxtAHVNumber.Name = "TxtAHVNumber";
             this.TxtAHVNumber.Size = new System.Drawing.Size(138, 20);
             this.TxtAHVNumber.TabIndex = 142;
@@ -810,7 +804,7 @@
             // 
             this.TxtBusinessPhone.BackColor = System.Drawing.SystemColors.Window;
             this.TxtBusinessPhone.Location = new System.Drawing.Point(344, 63);
-            this.TxtBusinessPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtBusinessPhone.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBusinessPhone.Name = "TxtBusinessPhone";
             this.TxtBusinessPhone.Size = new System.Drawing.Size(138, 20);
             this.TxtBusinessPhone.TabIndex = 120;
@@ -819,7 +813,7 @@
             // 
             this.TxtZipcode.BackColor = System.Drawing.SystemColors.Window;
             this.TxtZipcode.Location = new System.Drawing.Point(344, 261);
-            this.TxtZipcode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtZipcode.Margin = new System.Windows.Forms.Padding(2);
             this.TxtZipcode.Name = "TxtZipcode";
             this.TxtZipcode.Size = new System.Drawing.Size(138, 20);
             this.TxtZipcode.TabIndex = 130;
@@ -828,7 +822,7 @@
             // 
             this.TxtLeaveDate.BackColor = System.Drawing.SystemColors.Window;
             this.TxtLeaveDate.Location = new System.Drawing.Point(492, 472);
-            this.TxtLeaveDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtLeaveDate.Margin = new System.Windows.Forms.Padding(2);
             this.TxtLeaveDate.Name = "TxtLeaveDate";
             this.TxtLeaveDate.Size = new System.Drawing.Size(138, 20);
             this.TxtLeaveDate.TabIndex = 146;
@@ -846,7 +840,7 @@
             // 
             this.TxtContacPerson.BackColor = System.Drawing.SystemColors.Window;
             this.TxtContacPerson.Location = new System.Drawing.Point(684, 150);
-            this.TxtContacPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtContacPerson.Margin = new System.Windows.Forms.Padding(2);
             this.TxtContacPerson.Name = "TxtContacPerson";
             this.TxtContacPerson.Size = new System.Drawing.Size(139, 20);
             this.TxtContacPerson.TabIndex = 138;
@@ -855,7 +849,7 @@
             // 
             this.TxtBusinessFax.BackColor = System.Drawing.SystemColors.Window;
             this.TxtBusinessFax.Location = new System.Drawing.Point(510, 63);
-            this.TxtBusinessFax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtBusinessFax.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBusinessFax.Name = "TxtBusinessFax";
             this.TxtBusinessFax.Size = new System.Drawing.Size(138, 20);
             this.TxtBusinessFax.TabIndex = 122;
@@ -882,7 +876,7 @@
             // 
             this.TxtCustomerType.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCustomerType.Location = new System.Drawing.Point(684, 104);
-            this.TxtCustomerType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCustomerType.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCustomerType.Name = "TxtCustomerType";
             this.TxtCustomerType.Size = new System.Drawing.Size(139, 20);
             this.TxtCustomerType.TabIndex = 136;
@@ -891,7 +885,7 @@
             // 
             this.TxtApprentYears.BackColor = System.Drawing.SystemColors.Window;
             this.TxtApprentYears.Location = new System.Drawing.Point(16, 524);
-            this.TxtApprentYears.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtApprentYears.Margin = new System.Windows.Forms.Padding(2);
             this.TxtApprentYears.Name = "TxtApprentYears";
             this.TxtApprentYears.Size = new System.Drawing.Size(138, 20);
             this.TxtApprentYears.TabIndex = 166;
@@ -900,7 +894,7 @@
             // 
             this.TxtDirectReports.BackColor = System.Drawing.SystemColors.Window;
             this.TxtDirectReports.Location = new System.Drawing.Point(168, 472);
-            this.TxtDirectReports.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDirectReports.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDirectReports.Name = "TxtDirectReports";
             this.TxtDirectReports.Size = new System.Drawing.Size(138, 20);
             this.TxtDirectReports.TabIndex = 158;
@@ -909,7 +903,7 @@
             // 
             this.TxtStreet.BackColor = System.Drawing.SystemColors.Window;
             this.TxtStreet.Location = new System.Drawing.Point(344, 215);
-            this.TxtStreet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtStreet.Margin = new System.Windows.Forms.Padding(2);
             this.TxtStreet.Name = "TxtStreet";
             this.TxtStreet.Size = new System.Drawing.Size(138, 20);
             this.TxtStreet.TabIndex = 128;
@@ -918,7 +912,7 @@
             // 
             this.TxtCompanyName.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCompanyName.Location = new System.Drawing.Point(684, 62);
-            this.TxtCompanyName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCompanyName.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCompanyName.Name = "TxtCompanyName";
             this.TxtCompanyName.Size = new System.Drawing.Size(139, 20);
             this.TxtCompanyName.TabIndex = 134;
@@ -927,7 +921,7 @@
             // 
             this.TxtCity.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCity.Location = new System.Drawing.Point(510, 215);
-            this.TxtCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCity.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCity.Name = "TxtCity";
             this.TxtCity.Size = new System.Drawing.Size(138, 20);
             this.TxtCity.TabIndex = 132;
@@ -936,7 +930,7 @@
             // 
             this.TxtCivilStatus.BackColor = System.Drawing.SystemColors.Window;
             this.TxtCivilStatus.Location = new System.Drawing.Point(168, 317);
-            this.TxtCivilStatus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCivilStatus.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCivilStatus.Name = "TxtCivilStatus";
             this.TxtCivilStatus.Size = new System.Drawing.Size(138, 20);
             this.TxtCivilStatus.TabIndex = 162;
@@ -963,7 +957,7 @@
             // 
             this.TxtEmail.BackColor = System.Drawing.SystemColors.Window;
             this.TxtEmail.Location = new System.Drawing.Point(344, 150);
-            this.TxtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(304, 20);
             this.TxtEmail.TabIndex = 126;
@@ -972,7 +966,7 @@
             // 
             this.TxtDenomination.BackColor = System.Drawing.SystemColors.Window;
             this.TxtDenomination.Location = new System.Drawing.Point(16, 367);
-            this.TxtDenomination.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDenomination.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDenomination.Name = "TxtDenomination";
             this.TxtDenomination.Size = new System.Drawing.Size(138, 20);
             this.TxtDenomination.TabIndex = 148;
@@ -990,7 +984,7 @@
             // 
             this.TxtPrivatePhone.BackColor = System.Drawing.SystemColors.Window;
             this.TxtPrivatePhone.Location = new System.Drawing.Point(510, 104);
-            this.TxtPrivatePhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtPrivatePhone.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPrivatePhone.Name = "TxtPrivatePhone";
             this.TxtPrivatePhone.Size = new System.Drawing.Size(138, 20);
             this.TxtPrivatePhone.TabIndex = 164;
@@ -1017,7 +1011,7 @@
             // 
             this.TxtMobileNumber.BackColor = System.Drawing.SystemColors.Window;
             this.TxtMobileNumber.Location = new System.Drawing.Point(344, 104);
-            this.TxtMobileNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtMobileNumber.Margin = new System.Windows.Forms.Padding(2);
             this.TxtMobileNumber.Name = "TxtMobileNumber";
             this.TxtMobileNumber.Size = new System.Drawing.Size(138, 20);
             this.TxtMobileNumber.TabIndex = 124;
@@ -1026,7 +1020,7 @@
             // 
             this.TxtDepartment.BackColor = System.Drawing.SystemColors.Window;
             this.TxtDepartment.Location = new System.Drawing.Point(16, 421);
-            this.TxtDepartment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDepartment.Name = "TxtDepartment";
             this.TxtDepartment.Size = new System.Drawing.Size(138, 20);
             this.TxtDepartment.TabIndex = 140;
@@ -1035,7 +1029,7 @@
             // 
             this.TxtBirthplace.BackColor = System.Drawing.SystemColors.Window;
             this.TxtBirthplace.Location = new System.Drawing.Point(168, 215);
-            this.TxtBirthplace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtBirthplace.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBirthplace.Name = "TxtBirthplace";
             this.TxtBirthplace.Size = new System.Drawing.Size(138, 20);
             this.TxtBirthplace.TabIndex = 152;
@@ -1071,7 +1065,7 @@
             // 
             this.TxtNationality.BackColor = System.Drawing.SystemColors.Window;
             this.TxtNationality.Location = new System.Drawing.Point(168, 260);
-            this.TxtNationality.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtNationality.Margin = new System.Windows.Forms.Padding(2);
             this.TxtNationality.Name = "TxtNationality";
             this.TxtNationality.Size = new System.Drawing.Size(138, 20);
             this.TxtNationality.TabIndex = 154;
@@ -1094,9 +1088,9 @@
             this.tabPage2.Controls.Add(this.TxtCreationDate);
             this.tabPage2.Controls.Add(this.LsbNoteHistory);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(974, 560);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "HISTORY";
@@ -1135,7 +1129,7 @@
             // TxtLastModified
             // 
             this.TxtLastModified.Location = new System.Drawing.Point(3, 102);
-            this.TxtLastModified.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtLastModified.Margin = new System.Windows.Forms.Padding(2);
             this.TxtLastModified.Multiline = true;
             this.TxtLastModified.Name = "TxtLastModified";
             this.TxtLastModified.Size = new System.Drawing.Size(260, 456);
@@ -1144,7 +1138,7 @@
             // TxtCreationDate
             // 
             this.TxtCreationDate.Location = new System.Drawing.Point(3, 47);
-            this.TxtCreationDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtCreationDate.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCreationDate.Name = "TxtCreationDate";
             this.TxtCreationDate.Size = new System.Drawing.Size(260, 20);
             this.TxtCreationDate.TabIndex = 1;
@@ -1153,7 +1147,7 @@
             // 
             this.LsbNoteHistory.FormattingEnabled = true;
             this.LsbNoteHistory.Location = new System.Drawing.Point(279, 47);
-            this.LsbNoteHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LsbNoteHistory.Margin = new System.Windows.Forms.Padding(2);
             this.LsbNoteHistory.Name = "LsbNoteHistory";
             this.LsbNoteHistory.Size = new System.Drawing.Size(380, 511);
             this.LsbNoteHistory.TabIndex = 0;
@@ -1162,7 +1156,7 @@
             // 
             this.LsbOutput.FormattingEnabled = true;
             this.LsbOutput.Location = new System.Drawing.Point(1012, 95);
-            this.LsbOutput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LsbOutput.Margin = new System.Windows.Forms.Padding(2);
             this.LsbOutput.Name = "LsbOutput";
             this.LsbOutput.Size = new System.Drawing.Size(238, 563);
             this.LsbOutput.TabIndex = 1;
@@ -1171,7 +1165,7 @@
             // 
             this.CmdAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmdAddUser.Location = new System.Drawing.Point(535, 43);
-            this.CmdAddUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdAddUser.Margin = new System.Windows.Forms.Padding(2);
             this.CmdAddUser.Name = "CmdAddUser";
             this.CmdAddUser.Size = new System.Drawing.Size(112, 42);
             this.CmdAddUser.TabIndex = 2;
@@ -1182,7 +1176,7 @@
             // 
             this.CmdEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmdEditUser.Location = new System.Drawing.Point(650, 43);
-            this.CmdEditUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdEditUser.Margin = new System.Windows.Forms.Padding(2);
             this.CmdEditUser.Name = "CmdEditUser";
             this.CmdEditUser.Size = new System.Drawing.Size(112, 42);
             this.CmdEditUser.TabIndex = 3;
@@ -1193,7 +1187,7 @@
             // 
             this.CmdDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmdDeleteUser.Location = new System.Drawing.Point(764, 43);
-            this.CmdDeleteUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdDeleteUser.Margin = new System.Windows.Forms.Padding(2);
             this.CmdDeleteUser.Name = "CmdDeleteUser";
             this.CmdDeleteUser.Size = new System.Drawing.Size(112, 42);
             this.CmdDeleteUser.TabIndex = 4;
@@ -1204,7 +1198,7 @@
             // 
             this.CmdExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmdExport.Location = new System.Drawing.Point(878, 43);
-            this.CmdExport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdExport.Margin = new System.Windows.Forms.Padding(2);
             this.CmdExport.Name = "CmdExport";
             this.CmdExport.Size = new System.Drawing.Size(112, 42);
             this.CmdExport.TabIndex = 5;
@@ -1214,7 +1208,7 @@
             // TxtSearch
             // 
             this.TxtSearch.Location = new System.Drawing.Point(1012, 69);
-            this.TxtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TxtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(154, 20);
             this.TxtSearch.TabIndex = 6;
@@ -1223,7 +1217,7 @@
             // CmdSearch
             // 
             this.CmdSearch.Location = new System.Drawing.Point(1177, 69);
-            this.CmdSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CmdSearch.Margin = new System.Windows.Forms.Padding(2);
             this.CmdSearch.Name = "CmdSearch";
             this.CmdSearch.Size = new System.Drawing.Size(72, 22);
             this.CmdSearch.TabIndex = 7;
@@ -1240,11 +1234,51 @@
             this.LblSearch.TabIndex = 8;
             this.LblSearch.Text = "Search Text";
             // 
+            // CmdResetSearchResults
+            // 
+            this.CmdResetSearchResults.Location = new System.Drawing.Point(480, 38);
+            this.CmdResetSearchResults.Name = "CmdResetSearchResults";
+            this.CmdResetSearchResults.Size = new System.Drawing.Size(34, 23);
+            this.CmdResetSearchResults.TabIndex = 9;
+            this.CmdResetSearchResults.Text = "X";
+            this.CmdResetSearchResults.UseVisualStyleBackColor = true;
+            // 
+            // LblResetSearchResults
+            // 
+            this.LblResetSearchResults.AutoSize = true;
+            this.LblResetSearchResults.Location = new System.Drawing.Point(369, 43);
+            this.LblResetSearchResults.Name = "LblResetSearchResults";
+            this.LblResetSearchResults.Size = new System.Drawing.Size(105, 13);
+            this.LblResetSearchResults.TabIndex = 10;
+            this.LblResetSearchResults.Text = "Reset Search Result";
+            // 
+            // CmdCancelAdd
+            // 
+            this.CmdCancelAdd.Location = new System.Drawing.Point(480, 62);
+            this.CmdCancelAdd.Name = "CmdCancelAdd";
+            this.CmdCancelAdd.Size = new System.Drawing.Size(34, 23);
+            this.CmdCancelAdd.TabIndex = 11;
+            this.CmdCancelAdd.Text = "X";
+            this.CmdCancelAdd.UseVisualStyleBackColor = true;
+            // 
+            // LblCancelAdd
+            // 
+            this.LblCancelAdd.AutoSize = true;
+            this.LblCancelAdd.Location = new System.Drawing.Point(369, 69);
+            this.LblCancelAdd.Name = "LblCancelAdd";
+            this.LblCancelAdd.Size = new System.Drawing.Size(105, 13);
+            this.LblCancelAdd.TabIndex = 12;
+            this.LblCancelAdd.Text = "Reset Search Result";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 687);
+            this.Controls.Add(this.LblCancelAdd);
+            this.Controls.Add(this.CmdCancelAdd);
+            this.Controls.Add(this.LblResetSearchResults);
+            this.Controls.Add(this.CmdResetSearchResults);
             this.Controls.Add(this.LblSearch);
             this.Controls.Add(this.CmdSearch);
             this.Controls.Add(this.TxtSearch);
@@ -1256,6 +1290,7 @@
             this.Controls.Add(this.TabControl);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.TabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1282,7 +1317,7 @@
         private System.Windows.Forms.DateTimePicker DtpLeaveDate;
         private System.Windows.Forms.RadioButton RadCustomer;
         private System.Windows.Forms.DateTimePicker DtpStartDate;
-        private System.Windows.Forms.RadioButton RadTrainee;
+        private System.Windows.Forms.RadioButton RadApprentice;
         private System.Windows.Forms.DateTimePicker DtpBirthdate;
         private System.Windows.Forms.RadioButton RadEmployee;
         private System.Windows.Forms.ComboBox CmbWorkPensum;
@@ -1367,6 +1402,10 @@
         private System.Windows.Forms.TextBox TxtCreationDate;
         private System.Windows.Forms.ListBox LsbNoteHistory;
         private System.Windows.Forms.Label LblDirectReports;
+        private System.Windows.Forms.Button CmdResetSearchResults;
+        private System.Windows.Forms.Label LblResetSearchResults;
+        private System.Windows.Forms.Button CmdCancelAdd;
+        private System.Windows.Forms.Label LblCancelAdd;
     }
 }
 
