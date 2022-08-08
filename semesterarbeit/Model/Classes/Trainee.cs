@@ -19,7 +19,7 @@ namespace semesterarbeit
             string nationality, string privatephone, string mobilephone, string businessphone, string businessfax, string mail, string changehistory, string departement, DateTime entrydate, 
             DateTime exitdate, string employmentlvl, string role, MgmLvl lvl, int appyears, int currappyear) : 
             base(status, id, title, salutation, firstname, lastname, birthdate, gender, ahv, 
-                nationality, privatephone, mobilephone, businessphone, businessfax, mail, changehistory
+                nationality, privatephone, mobilephone, businessphone, businessfax, mail, changehistory,
                 departement, entrydate, exitdate, role, employmentlvl, lvl)
         {
             Appyears = appyears;
