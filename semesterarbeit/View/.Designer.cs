@@ -113,6 +113,7 @@
             this.TxtNationality = new System.Windows.Forms.TextBox();
             this.LblDirectReports = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TxtNotesHistory = new System.Windows.Forms.TextBox();
             this.LblNotesHistory = new System.Windows.Forms.Label();
             this.LblLastModified = new System.Windows.Forms.Label();
             this.LblCreationDate = new System.Windows.Forms.Label();
@@ -130,7 +131,7 @@
             this.LblResetSearchResults = new System.Windows.Forms.Label();
             this.CmdCancelAdd = new System.Windows.Forms.Button();
             this.LblCancelAdd = new System.Windows.Forms.Label();
-            this.TxtNotesHistory = new System.Windows.Forms.TextBox();
+            this.ChkStatus = new System.Windows.Forms.CheckBox();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ChkStatus);
             this.tabPage1.Controls.Add(this.DtpLeaveDate);
             this.tabPage1.Controls.Add(this.RadCustomer);
             this.tabPage1.Controls.Add(this.DtpStartDate);
@@ -1099,6 +1101,15 @@
             this.tabPage2.Text = "HISTORY";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // TxtNotesHistory
+            // 
+            this.TxtNotesHistory.Location = new System.Drawing.Point(279, 48);
+            this.TxtNotesHistory.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtNotesHistory.Multiline = true;
+            this.TxtNotesHistory.Name = "TxtNotesHistory";
+            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 510);
+            this.TxtNotesHistory.TabIndex = 6;
+            // 
             // LblNotesHistory
             // 
             this.LblNotesHistory.AutoSize = true;
@@ -1264,14 +1275,15 @@
             this.LblCancelAdd.TabIndex = 12;
             this.LblCancelAdd.Text = "Cancel";
             // 
-            // TxtNotesHistory
+            // ChkStatus
             // 
-            this.TxtNotesHistory.Location = new System.Drawing.Point(279, 48);
-            this.TxtNotesHistory.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtNotesHistory.Multiline = true;
-            this.TxtNotesHistory.Name = "TxtNotesHistory";
-            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 510);
-            this.TxtNotesHistory.TabIndex = 6;
+            this.ChkStatus.AutoSize = true;
+            this.ChkStatus.Location = new System.Drawing.Point(889, 12);
+            this.ChkStatus.Name = "ChkStatus";
+            this.ChkStatus.Size = new System.Drawing.Size(67, 17);
+            this.ChkStatus.TabIndex = 185;
+            this.ChkStatus.Text = "Disabled";
+            this.ChkStatus.UseVisualStyleBackColor = true;
             // 
             // Dashboard
             // 
@@ -1409,6 +1421,7 @@
         private System.Windows.Forms.Button CmdCancelAdd;
         private System.Windows.Forms.Label LblCancelAdd;
         private System.Windows.Forms.TextBox TxtNotesHistory;
+        private System.Windows.Forms.CheckBox ChkStatus;
     }
 }
 
