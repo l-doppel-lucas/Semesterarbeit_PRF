@@ -10,7 +10,7 @@ using System.IO;
 
 namespace semesterarbeit.Controller
 {
-    public class database
+    public class Database
     {
         //Create new binding list "contactList" of type "Person"
         //Binding list is used to refresh the datasource of the listbox

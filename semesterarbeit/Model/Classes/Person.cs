@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace semesterarbeit
 {
-   class Person
+   public class Person
     {
         /******** AutoProperties ********/
         public bool Status { get; set; }

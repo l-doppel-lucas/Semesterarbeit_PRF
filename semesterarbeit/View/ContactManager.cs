@@ -16,7 +16,7 @@ namespace semesterarbeit
         private int id;
 
         //Create Contact List for Listbox
-        public Data Db = new Database();
+        public Database Db = new Database;
 
         public Dashboard()
         {
