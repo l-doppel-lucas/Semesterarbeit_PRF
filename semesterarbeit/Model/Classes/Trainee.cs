@@ -40,5 +40,11 @@ namespace semesterarbeit
         }
 
 
+        public override string GetClassName()
+        {
+            return "Trainee";
+        }
+
+
     }
 }

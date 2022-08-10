@@ -65,5 +65,11 @@ namespace semesterarbeit
                 + ", " + Gender + ", " + Ahv + ", " + Nationality + ", " + Privatephone + ", " + Businessphone + ", " + Businessfax + ", " + Mail + ", " + ChangeHistory;
         }
 
+        //Virtual method to return the name of the class as a string - virtual because this is individual for each class
+        public virtual string GetClassName()
+        {
+            return "Person";
+        }
+
     }
 }

@@ -54,6 +54,11 @@ namespace semesterarbeit
         {
             return base.PrintAll() + ", " + Companyname + ", " + Companyadress + ", " + Type + ", " + Companycontact;
         }
+
+        public override string GetClassName()
+        {
+            return "Customer";
+        }
     }
     
 }
