@@ -13,7 +13,9 @@ namespace semesterarbeit
         public string Currappyear { get; set; }
 
 
-        /******** Constructor ********/
+        /*---------------------------------------------------------------------
+        Constructor
+        -----------------------------------------------------------------------*/
 
         public Trainee(int id, string salutation, string firstname, string lastname, string email, Boolean status,
              DateTime creationDate, string lastmodified, string department, string role, string appyears) :
@@ -23,8 +25,9 @@ namespace semesterarbeit
         }
 
 
-        /******** Methods ********/
-
+        /*---------------------------------------------------------------------
+        Methods
+        -----------------------------------------------------------------------*/
         public override string ToString()
         {
             return base.ToString() + ", " + Appyears + ", " + Currappyear;

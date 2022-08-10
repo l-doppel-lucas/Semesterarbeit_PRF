@@ -23,7 +23,9 @@ namespace semesterarbeit
 
 
 
-        /******** Constructor ********/
+        /*---------------------------------------------------------------------
+             Constructor
+        -----------------------------------------------------------------------*/
         public Customer(int id, string salutation, string firstname, string lastname, string mail, Boolean status,
             DateTime creationDate, string changehistory, string companyname, CustType type, string companycontact)
             
@@ -36,8 +38,9 @@ namespace semesterarbeit
         }
 
 
-        /******** Methods ********/
-
+        /*---------------------------------------------------------------------
+             Methods
+        -----------------------------------------------------------------------*/
         public override string ToString()
         {
             return base.ToString() + ", " + Companyname + ", " + Type + ", " + Companycontact;

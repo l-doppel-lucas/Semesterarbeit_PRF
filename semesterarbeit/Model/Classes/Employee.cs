@@ -30,7 +30,9 @@ namespace semesterarbeit
         public MgmLvl Lvl { get; set; }
 
 
-        /******** Constructor ********/
+        /*---------------------------------------------------------------------
+        Constructor
+        -----------------------------------------------------------------------*/
         public Employee(int id, string salutation, string firstname, string lastname, string mail, Boolean status,
             DateTime creationDate, string lastmodified, string department, string role) :
             base(id, salutation, firstname, lastname, mail, status, creationDate, lastmodified)
@@ -41,7 +43,9 @@ namespace semesterarbeit
 
 
 
-        /******** Methods ********/
+        /*---------------------------------------------------------------------
+        Methods
+        -----------------------------------------------------------------------*/
 
         public override string ToString()
         {

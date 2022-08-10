@@ -9,7 +9,6 @@ namespace semesterarbeit
 {
    public class Person
     {
-        /******** AutoProperties ********/
         public bool Status { get; set; }
         public int Id { get; set; }
         public string Title { get; set; }
@@ -29,7 +28,9 @@ namespace semesterarbeit
         public string ChangeHistory{ get; set; }
 
 
-        /******** Constructor ********/
+        /*---------------------------------------------------------------------
+        Constructor
+        -----------------------------------------------------------------------*/
 
         public Person(int id, string salutation, string firstname, string lastname, string mail, Boolean status,
             DateTime creationDate, string changehistory)
@@ -46,8 +47,9 @@ namespace semesterarbeit
 
 
 
-        /******** Methods ********/
-
+        /*---------------------------------------------------------------------
+                Methods
+        -----------------------------------------------------------------------*/
         public override string ToString()
         {
             return Status + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString() 

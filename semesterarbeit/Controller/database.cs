@@ -20,8 +20,9 @@ namespace semesterarbeit.Controller
         //Create new binding list "searchResults" of type "Person"
         public BindingList<Person> searchResults = new BindingList<Person>();
 
-        /*************** Methods ***************/
-
+        /*---------------------------------------------------------------------
+            Methods
+        -----------------------------------------------------------------------*/
         //Method to add an object of type "Person" to the list "contactList"
         public void AddPerson(Person p)
         {
