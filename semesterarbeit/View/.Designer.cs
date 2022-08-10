@@ -30,6 +30,14 @@
         {
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.LblTraiCount = new System.Windows.Forms.Label();
+            this.LblEmpCount = new System.Windows.Forms.Label();
+            this.LblCustCount = new System.Windows.Forms.Label();
+            this.LblTotalCount = new System.Windows.Forms.Label();
+            this.LblTotCount = new System.Windows.Forms.Label();
+            this.LblTraiNumb = new System.Windows.Forms.Label();
+            this.LblCustNum = new System.Windows.Forms.Label();
+            this.LblEmpNum = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ChkStatus = new System.Windows.Forms.CheckBox();
             this.DtpLeaveDate = new System.Windows.Forms.DateTimePicker();
@@ -132,14 +140,6 @@
             this.CmdSave = new System.Windows.Forms.Button();
             this.CmdCancel = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
-            this.LblEmpNum = new System.Windows.Forms.Label();
-            this.LblCustNum = new System.Windows.Forms.Label();
-            this.LblTraiNumb = new System.Windows.Forms.Label();
-            this.LblTotCount = new System.Windows.Forms.Label();
-            this.LblTotalCount = new System.Windows.Forms.Label();
-            this.LblCustCount = new System.Windows.Forms.Label();
-            this.LblEmpCount = new System.Windows.Forms.Label();
-            this.LblTraiCount = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -175,6 +175,90 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "User Dashboard";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // LblTraiCount
+            // 
+            this.LblTraiCount.AutoSize = true;
+            this.LblTraiCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblTraiCount.Location = new System.Drawing.Point(790, 291);
+            this.LblTraiCount.Name = "LblTraiCount";
+            this.LblTraiCount.Size = new System.Drawing.Size(28, 24);
+            this.LblTraiCount.TabIndex = 7;
+            this.LblTraiCount.Text = "...";
+            this.LblTraiCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblEmpCount
+            // 
+            this.LblEmpCount.AutoSize = true;
+            this.LblEmpCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblEmpCount.Location = new System.Drawing.Point(470, 291);
+            this.LblEmpCount.Name = "LblEmpCount";
+            this.LblEmpCount.Size = new System.Drawing.Size(28, 24);
+            this.LblEmpCount.TabIndex = 6;
+            this.LblEmpCount.Text = "...";
+            this.LblEmpCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblCustCount
+            // 
+            this.LblCustCount.AutoSize = true;
+            this.LblCustCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblCustCount.Location = new System.Drawing.Point(126, 291);
+            this.LblCustCount.Name = "LblCustCount";
+            this.LblCustCount.Size = new System.Drawing.Size(28, 24);
+            this.LblCustCount.TabIndex = 5;
+            this.LblCustCount.Text = "...";
+            this.LblCustCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblTotalCount
+            // 
+            this.LblTotalCount.AutoSize = true;
+            this.LblTotalCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblTotalCount.Location = new System.Drawing.Point(470, 71);
+            this.LblTotalCount.Name = "LblTotalCount";
+            this.LblTotalCount.Size = new System.Drawing.Size(28, 24);
+            this.LblTotalCount.TabIndex = 4;
+            this.LblTotalCount.Text = "...";
+            this.LblTotalCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblTotCount
+            // 
+            this.LblTotCount.AutoSize = true;
+            this.LblTotCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotCount.Location = new System.Drawing.Point(369, 32);
+            this.LblTotCount.Name = "LblTotCount";
+            this.LblTotCount.Size = new System.Drawing.Size(219, 24);
+            this.LblTotCount.TabIndex = 3;
+            this.LblTotCount.Text = "Total Number of Users";
+            // 
+            // LblTraiNumb
+            // 
+            this.LblTraiNumb.AutoSize = true;
+            this.LblTraiNumb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTraiNumb.Location = new System.Drawing.Point(701, 253);
+            this.LblTraiNumb.Name = "LblTraiNumb";
+            this.LblTraiNumb.Size = new System.Drawing.Size(196, 24);
+            this.LblTraiNumb.TabIndex = 2;
+            this.LblTraiNumb.Text = "Number of Trainees";
+            // 
+            // LblCustNum
+            // 
+            this.LblCustNum.AutoSize = true;
+            this.LblCustNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCustNum.Location = new System.Drawing.Point(38, 253);
+            this.LblCustNum.Name = "LblCustNum";
+            this.LblCustNum.Size = new System.Drawing.Size(213, 24);
+            this.LblCustNum.TabIndex = 1;
+            this.LblCustNum.Text = "Number of Customers";
+            // 
+            // LblEmpNum
+            // 
+            this.LblEmpNum.AutoSize = true;
+            this.LblEmpNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEmpNum.Location = new System.Drawing.Point(369, 253);
+            this.LblEmpNum.Name = "LblEmpNum";
+            this.LblEmpNum.Size = new System.Drawing.Size(218, 24);
+            this.LblEmpNum.TabIndex = 0;
+            this.LblEmpNum.Text = "Number of Employees";
             // 
             // tabPage1
             // 
@@ -1204,6 +1288,7 @@
             this.LsbOutput.Size = new System.Drawing.Size(238, 563);
             this.LsbOutput.TabIndex = 1;
             this.LsbOutput.Visible = false;
+            this.LsbOutput.SelectedIndexChanged += new System.EventHandler(this.LsbOutput_SelectedIndexChanged);
             // 
             // CmdAddUser
             // 
@@ -1320,90 +1405,6 @@
             this.LblName.Size = new System.Drawing.Size(293, 39);
             this.LblName.TabIndex = 15;
             this.LblName.Text = "User  Dashboard";
-            // 
-            // LblEmpNum
-            // 
-            this.LblEmpNum.AutoSize = true;
-            this.LblEmpNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEmpNum.Location = new System.Drawing.Point(369, 253);
-            this.LblEmpNum.Name = "LblEmpNum";
-            this.LblEmpNum.Size = new System.Drawing.Size(218, 24);
-            this.LblEmpNum.TabIndex = 0;
-            this.LblEmpNum.Text = "Number of Employees";
-            // 
-            // LblCustNum
-            // 
-            this.LblCustNum.AutoSize = true;
-            this.LblCustNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCustNum.Location = new System.Drawing.Point(38, 253);
-            this.LblCustNum.Name = "LblCustNum";
-            this.LblCustNum.Size = new System.Drawing.Size(213, 24);
-            this.LblCustNum.TabIndex = 1;
-            this.LblCustNum.Text = "Number of Customers";
-            // 
-            // LblTraiNumb
-            // 
-            this.LblTraiNumb.AutoSize = true;
-            this.LblTraiNumb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTraiNumb.Location = new System.Drawing.Point(701, 253);
-            this.LblTraiNumb.Name = "LblTraiNumb";
-            this.LblTraiNumb.Size = new System.Drawing.Size(196, 24);
-            this.LblTraiNumb.TabIndex = 2;
-            this.LblTraiNumb.Text = "Number of Trainees";
-            // 
-            // LblTotCount
-            // 
-            this.LblTotCount.AutoSize = true;
-            this.LblTotCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotCount.Location = new System.Drawing.Point(369, 32);
-            this.LblTotCount.Name = "LblTotCount";
-            this.LblTotCount.Size = new System.Drawing.Size(219, 24);
-            this.LblTotCount.TabIndex = 3;
-            this.LblTotCount.Text = "Total Number of Users";
-            // 
-            // LblTotalCount
-            // 
-            this.LblTotalCount.AutoSize = true;
-            this.LblTotalCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.LblTotalCount.Location = new System.Drawing.Point(470, 71);
-            this.LblTotalCount.Name = "LblTotalCount";
-            this.LblTotalCount.Size = new System.Drawing.Size(28, 24);
-            this.LblTotalCount.TabIndex = 4;
-            this.LblTotalCount.Text = "...";
-            this.LblTotalCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // LblCustCount
-            // 
-            this.LblCustCount.AutoSize = true;
-            this.LblCustCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.LblCustCount.Location = new System.Drawing.Point(126, 291);
-            this.LblCustCount.Name = "LblCustCount";
-            this.LblCustCount.Size = new System.Drawing.Size(28, 24);
-            this.LblCustCount.TabIndex = 5;
-            this.LblCustCount.Text = "...";
-            this.LblCustCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // LblEmpCount
-            // 
-            this.LblEmpCount.AutoSize = true;
-            this.LblEmpCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.LblEmpCount.Location = new System.Drawing.Point(470, 291);
-            this.LblEmpCount.Name = "LblEmpCount";
-            this.LblEmpCount.Size = new System.Drawing.Size(28, 24);
-            this.LblEmpCount.TabIndex = 6;
-            this.LblEmpCount.Text = "...";
-            this.LblEmpCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // LblTraiCount
-            // 
-            this.LblTraiCount.AutoSize = true;
-            this.LblTraiCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.LblTraiCount.Location = new System.Drawing.Point(790, 291);
-            this.LblTraiCount.Name = "LblTraiCount";
-            this.LblTraiCount.Size = new System.Drawing.Size(28, 24);
-            this.LblTraiCount.TabIndex = 7;
-            this.LblTraiCount.Text = "...";
-            this.LblTraiCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Dashboard
             // 

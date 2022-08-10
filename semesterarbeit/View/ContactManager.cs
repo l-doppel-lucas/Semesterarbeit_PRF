@@ -28,13 +28,48 @@ namespace semesterarbeit
 
             //Get the last ID
             id = Db.ReturnLastID();
+
+            //Disable all text boxes
+            DisableAllTxtboxes();
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
         }
 
         /*---------------------------------------------------------------------
         Listbox
         -----------------------------------------------------------------------*/
+        private void LsbOutput_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Select first entry
+            if (LsbOutput.SelectedItem == null)
+            {
+                LsbOutput.SetSelected(0, true);
+            }
 
+            //Cast the selected object into  tyoe "Person"
+            Person selectedPerson = (Person)LsbOutput.SelectedItem;
 
+            //
+            TxtSalutation.Text = selectedPerson.Salutation;
+            TxtFirstname.Text = selectedPerson.Firstname;
+            TxtSecondname.Text = selectedPerson.Secondname;
+            TxtLastname.Text = selectedPerson.Lastname;
+            TxtBirthdate.Text = Convert.ToString(selectedPerson.Birthdate);
+            TxtGender.Text = selectedPerson.Gender;
+            TxtTitle.Text = selectedPerson.Title;
+            TxtBusinessPhone.Text = selectedPerson.BusinessPhone;
+            TxtBusinessFax.Text = selectedPerson.BusinessFax;
+            TxtMobileNumber.Text = selectedPerson.MobileNumber;
+            TxtEmail.Text = selectedPerson.Email;
+            TxtCity.Text = selectedPerson.City;
+            TxtStreet.Text = selectedPerson.Street;
+            TxtZipcode.Text = Convert.ToString(selectedPerson.Zipcode);
+            TxtCreationDate.Text = Convert.ToString(selectedPerson.CreationDate);
+            TxtLastModified.Text = Convert.ToString(selectedPerson.LastModified);
+        }
 
         /*---------------------------------------------------------------------
         Buttons
@@ -594,9 +629,6 @@ namespace semesterarbeit
             CmbCurrentApprentYear.Visible = false;
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }
