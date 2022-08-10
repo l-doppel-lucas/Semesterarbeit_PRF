@@ -1,4 +1,5 @@
-﻿using System;
+﻿using semesterarbeit.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,7 @@ namespace semesterarbeit
         private int id;
 
         //Create Contact List for Listbox
-        public Database Db = new Database;
+        public Database Db = new Database();
 
         public Dashboard()
         {
