@@ -113,6 +113,7 @@
             this.LblPrivatePhone = new System.Windows.Forms.Label();
             this.LblCurrentApprentYear = new System.Windows.Forms.Label();
             this.TxtNationality = new System.Windows.Forms.TextBox();
+            this.TxtBirthdate = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TxtNotesHistory = new System.Windows.Forms.TextBox();
             this.LblNotesHistory = new System.Windows.Forms.Label();
@@ -131,7 +132,6 @@
             this.CmdSave = new System.Windows.Forms.Button();
             this.CmdCancel = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
-            this.TxtBirthdate = new System.Windows.Forms.TextBox();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -489,9 +489,9 @@
             this.LblZipcode.AutoSize = true;
             this.LblZipcode.Location = new System.Drawing.Point(340, 186);
             this.LblZipcode.Name = "LblZipcode";
-            this.LblZipcode.Size = new System.Drawing.Size(46, 13);
+            this.LblZipcode.Size = new System.Drawing.Size(50, 13);
             this.LblZipcode.TabIndex = 131;
-            this.LblZipcode.Text = "Zipcode";
+            this.LblZipcode.Text = "Zipcode*";
             // 
             // CmbDepartment
             // 
@@ -526,9 +526,9 @@
             this.LblStreet.AutoSize = true;
             this.LblStreet.Location = new System.Drawing.Point(12, 187);
             this.LblStreet.Name = "LblStreet";
-            this.LblStreet.Size = new System.Drawing.Size(35, 13);
+            this.LblStreet.Size = new System.Drawing.Size(39, 13);
             this.LblStreet.TabIndex = 129;
-            this.LblStreet.Text = "Street";
+            this.LblStreet.Text = "Street*";
             // 
             // CmbMgmtLevel
             // 
@@ -576,9 +576,9 @@
             this.LblStartDate.AutoSize = true;
             this.LblStartDate.Location = new System.Drawing.Point(13, 341);
             this.LblStartDate.Name = "LblStartDate";
-            this.LblStartDate.Size = new System.Drawing.Size(57, 13);
+            this.LblStartDate.Size = new System.Drawing.Size(61, 13);
             this.LblStartDate.TabIndex = 145;
-            this.LblStartDate.Text = "Entry Date";
+            this.LblStartDate.Text = "Entry Date*";
             // 
             // CmbGender
             // 
@@ -621,9 +621,9 @@
             this.LblCity.AutoSize = true;
             this.LblCity.Location = new System.Drawing.Point(166, 187);
             this.LblCity.Name = "LblCity";
-            this.LblCity.Size = new System.Drawing.Size(24, 13);
+            this.LblCity.Size = new System.Drawing.Size(28, 13);
             this.LblCity.TabIndex = 133;
-            this.LblCity.Text = "City";
+            this.LblCity.Text = "City*";
             // 
             // TxtNotes
             // 
@@ -632,7 +632,7 @@
             this.TxtNotes.Multiline = true;
             this.TxtNotes.Name = "TxtNotes";
             this.TxtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtNotes.Size = new System.Drawing.Size(216, 317);
+            this.TxtNotes.Size = new System.Drawing.Size(272, 317);
             this.TxtNotes.TabIndex = 171;
             // 
             // LblMobileNumber
@@ -680,9 +680,9 @@
             this.LblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblGender.Location = new System.Drawing.Point(166, 135);
             this.LblGender.Name = "LblGender";
-            this.LblGender.Size = new System.Drawing.Size(42, 13);
+            this.LblGender.Size = new System.Drawing.Size(46, 13);
             this.LblGender.TabIndex = 119;
-            this.LblGender.Text = "Gender";
+            this.LblGender.Text = "Gender*";
             // 
             // LblFirstname
             // 
@@ -728,9 +728,9 @@
             this.LblBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblBirthdate.Location = new System.Drawing.Point(12, 135);
             this.LblBirthdate.Name = "LblBirthdate";
-            this.LblBirthdate.Size = new System.Drawing.Size(49, 13);
+            this.LblBirthdate.Size = new System.Drawing.Size(53, 13);
             this.LblBirthdate.TabIndex = 115;
-            this.LblBirthdate.Text = "Birthdate";
+            this.LblBirthdate.Text = "Birthdate*";
             // 
             // TxtMgmtLevel
             // 
@@ -790,7 +790,7 @@
             // LblAHVNumber
             // 
             this.LblAHVNumber.AutoSize = true;
-            this.LblAHVNumber.Location = new System.Drawing.Point(166, 239);
+            this.LblAHVNumber.Location = new System.Drawing.Point(340, 239);
             this.LblAHVNumber.Name = "LblAHVNumber";
             this.LblAHVNumber.Size = new System.Drawing.Size(69, 13);
             this.LblAHVNumber.TabIndex = 143;
@@ -810,14 +810,14 @@
             this.LblWorkPensum.AutoSize = true;
             this.LblWorkPensum.Location = new System.Drawing.Point(507, 288);
             this.LblWorkPensum.Name = "LblWorkPensum";
-            this.LblWorkPensum.Size = new System.Drawing.Size(74, 13);
+            this.LblWorkPensum.Size = new System.Drawing.Size(78, 13);
             this.LblWorkPensum.TabIndex = 161;
-            this.LblWorkPensum.Text = "Work Pensum";
+            this.LblWorkPensum.Text = "Work Pensum*";
             // 
             // LblBirthplace
             // 
             this.LblBirthplace.AutoSize = true;
-            this.LblBirthplace.Location = new System.Drawing.Point(508, 239);
+            this.LblBirthplace.Location = new System.Drawing.Point(13, 239);
             this.LblBirthplace.Name = "LblBirthplace";
             this.LblBirthplace.Size = new System.Drawing.Size(54, 13);
             this.LblBirthplace.TabIndex = 153;
@@ -835,7 +835,7 @@
             // TxtAHVNumber
             // 
             this.TxtAHVNumber.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtAHVNumber.Location = new System.Drawing.Point(169, 254);
+            this.TxtAHVNumber.Location = new System.Drawing.Point(343, 254);
             this.TxtAHVNumber.Margin = new System.Windows.Forms.Padding(2);
             this.TxtAHVNumber.Name = "TxtAHVNumber";
             this.TxtAHVNumber.Size = new System.Drawing.Size(138, 20);
@@ -907,7 +907,7 @@
             // LblNationality
             // 
             this.LblNationality.AutoSize = true;
-            this.LblNationality.Location = new System.Drawing.Point(341, 239);
+            this.LblNationality.Location = new System.Drawing.Point(508, 186);
             this.LblNationality.Name = "LblNationality";
             this.LblNationality.Size = new System.Drawing.Size(56, 13);
             this.LblNationality.TabIndex = 155;
@@ -961,11 +961,11 @@
             // LblEmplNr
             // 
             this.LblEmplNr.AutoSize = true;
-            this.LblEmplNr.Location = new System.Drawing.Point(14, 239);
+            this.LblEmplNr.Location = new System.Drawing.Point(166, 239);
             this.LblEmplNr.Name = "LblEmplNr";
-            this.LblEmplNr.Size = new System.Drawing.Size(93, 13);
+            this.LblEmplNr.Size = new System.Drawing.Size(97, 13);
             this.LblEmplNr.TabIndex = 149;
-            this.LblEmplNr.Text = "Employee Number";
+            this.LblEmplNr.Text = "Employee Number*";
             // 
             // LblCustomerType
             // 
@@ -988,7 +988,7 @@
             // TxtEmplNr
             // 
             this.TxtEmplNr.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtEmplNr.Location = new System.Drawing.Point(16, 254);
+            this.TxtEmplNr.Location = new System.Drawing.Point(168, 254);
             this.TxtEmplNr.Margin = new System.Windows.Forms.Padding(2);
             this.TxtEmplNr.Name = "TxtEmplNr";
             this.TxtEmplNr.Size = new System.Drawing.Size(138, 20);
@@ -1006,7 +1006,7 @@
             // TxtPrivatePhone
             // 
             this.TxtPrivatePhone.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtPrivatePhone.Location = new System.Drawing.Point(510, 202);
+            this.TxtPrivatePhone.Location = new System.Drawing.Point(510, 104);
             this.TxtPrivatePhone.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPrivatePhone.Name = "TxtPrivatePhone";
             this.TxtPrivatePhone.Size = new System.Drawing.Size(138, 20);
@@ -1051,7 +1051,7 @@
             // TxtBirthplace
             // 
             this.TxtBirthplace.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtBirthplace.Location = new System.Drawing.Point(510, 254);
+            this.TxtBirthplace.Location = new System.Drawing.Point(15, 254);
             this.TxtBirthplace.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBirthplace.Name = "TxtBirthplace";
             this.TxtBirthplace.Size = new System.Drawing.Size(138, 20);
@@ -1060,7 +1060,7 @@
             // LblPrivatePhone
             // 
             this.LblPrivatePhone.AutoSize = true;
-            this.LblPrivatePhone.Location = new System.Drawing.Point(506, 187);
+            this.LblPrivatePhone.Location = new System.Drawing.Point(506, 89);
             this.LblPrivatePhone.Name = "LblPrivatePhone";
             this.LblPrivatePhone.Size = new System.Drawing.Size(74, 13);
             this.LblPrivatePhone.TabIndex = 165;
@@ -1078,11 +1078,20 @@
             // TxtNationality
             // 
             this.TxtNationality.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtNationality.Location = new System.Drawing.Point(344, 254);
+            this.TxtNationality.Location = new System.Drawing.Point(511, 201);
             this.TxtNationality.Margin = new System.Windows.Forms.Padding(2);
             this.TxtNationality.Name = "TxtNationality";
             this.TxtNationality.Size = new System.Drawing.Size(138, 20);
             this.TxtNationality.TabIndex = 154;
+            // 
+            // TxtBirthdate
+            // 
+            this.TxtBirthdate.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtBirthdate.Location = new System.Drawing.Point(15, 155);
+            this.TxtBirthdate.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtBirthdate.Name = "TxtBirthdate";
+            this.TxtBirthdate.Size = new System.Drawing.Size(138, 20);
+            this.TxtBirthdate.TabIndex = 186;
             // 
             // tabPage2
             // 
@@ -1283,15 +1292,6 @@
             this.LblName.Size = new System.Drawing.Size(293, 39);
             this.LblName.TabIndex = 15;
             this.LblName.Text = "User  Dashboard";
-            // 
-            // TxtBirthdate
-            // 
-            this.TxtBirthdate.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtBirthdate.Location = new System.Drawing.Point(15, 155);
-            this.TxtBirthdate.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtBirthdate.Name = "TxtBirthdate";
-            this.TxtBirthdate.Size = new System.Drawing.Size(138, 20);
-            this.TxtBirthdate.TabIndex = 186;
             // 
             // Dashboard
             // 
