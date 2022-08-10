@@ -128,11 +128,8 @@
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.CmdSearch = new System.Windows.Forms.Button();
             this.LblSearch = new System.Windows.Forms.Label();
-            this.CmdResetSearchResults = new System.Windows.Forms.Button();
-            this.LblResetSearchResults = new System.Windows.Forms.Label();
-            this.CmdCancelAdd = new System.Windows.Forms.Button();
-            this.LblCancelAdd = new System.Windows.Forms.Label();
             this.CmdSave = new System.Windows.Forms.Button();
+            this.CmdCancel = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -1251,42 +1248,6 @@
             this.LblSearch.TabIndex = 8;
             this.LblSearch.Text = "Search Text";
             // 
-            // CmdResetSearchResults
-            // 
-            this.CmdResetSearchResults.Location = new System.Drawing.Point(480, 38);
-            this.CmdResetSearchResults.Name = "CmdResetSearchResults";
-            this.CmdResetSearchResults.Size = new System.Drawing.Size(34, 23);
-            this.CmdResetSearchResults.TabIndex = 9;
-            this.CmdResetSearchResults.Text = "X";
-            this.CmdResetSearchResults.UseVisualStyleBackColor = true;
-            // 
-            // LblResetSearchResults
-            // 
-            this.LblResetSearchResults.AutoSize = true;
-            this.LblResetSearchResults.Location = new System.Drawing.Point(369, 43);
-            this.LblResetSearchResults.Name = "LblResetSearchResults";
-            this.LblResetSearchResults.Size = new System.Drawing.Size(105, 13);
-            this.LblResetSearchResults.TabIndex = 10;
-            this.LblResetSearchResults.Text = "Reset Search Result";
-            // 
-            // CmdCancelAdd
-            // 
-            this.CmdCancelAdd.Location = new System.Drawing.Point(480, 62);
-            this.CmdCancelAdd.Name = "CmdCancelAdd";
-            this.CmdCancelAdd.Size = new System.Drawing.Size(34, 23);
-            this.CmdCancelAdd.TabIndex = 11;
-            this.CmdCancelAdd.Text = "X";
-            this.CmdCancelAdd.UseVisualStyleBackColor = true;
-            // 
-            // LblCancelAdd
-            // 
-            this.LblCancelAdd.AutoSize = true;
-            this.LblCancelAdd.Location = new System.Drawing.Point(434, 69);
-            this.LblCancelAdd.Name = "LblCancelAdd";
-            this.LblCancelAdd.Size = new System.Drawing.Size(40, 13);
-            this.LblCancelAdd.TabIndex = 12;
-            this.LblCancelAdd.Text = "Cancel";
-            // 
             // CmdSave
             // 
             this.CmdSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1300,16 +1261,25 @@
             this.CmdSave.Visible = false;
             this.CmdSave.Click += new System.EventHandler(this.CmdSave_Click);
             // 
+            // CmdCancel
+            // 
+            this.CmdCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdCancel.Location = new System.Drawing.Point(418, 43);
+            this.CmdCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.CmdCancel.Name = "CmdCancel";
+            this.CmdCancel.Size = new System.Drawing.Size(112, 42);
+            this.CmdCancel.TabIndex = 14;
+            this.CmdCancel.Text = "CANCEL";
+            this.CmdCancel.UseVisualStyleBackColor = true;
+            this.CmdCancel.Visible = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 687);
+            this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.CmdSave);
-            this.Controls.Add(this.LblCancelAdd);
-            this.Controls.Add(this.CmdCancelAdd);
-            this.Controls.Add(this.LblResetSearchResults);
-            this.Controls.Add(this.CmdResetSearchResults);
             this.Controls.Add(this.LblSearch);
             this.Controls.Add(this.CmdSearch);
             this.Controls.Add(this.TxtSearch);
@@ -1432,13 +1402,10 @@
         private System.Windows.Forms.TextBox TxtLastModified;
         private System.Windows.Forms.TextBox TxtCreationDate;
         private System.Windows.Forms.Label LblDirectReports;
-        private System.Windows.Forms.Button CmdResetSearchResults;
-        private System.Windows.Forms.Label LblResetSearchResults;
-        private System.Windows.Forms.Button CmdCancelAdd;
-        private System.Windows.Forms.Label LblCancelAdd;
         private System.Windows.Forms.TextBox TxtNotesHistory;
         private System.Windows.Forms.CheckBox ChkStatus;
         private System.Windows.Forms.Button CmdSave;
+        private System.Windows.Forms.Button CmdCancel;
     }
 }
 
