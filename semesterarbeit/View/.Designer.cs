@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.TabControl = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ChkStatus = new System.Windows.Forms.CheckBox();
             this.DtpLeaveDate = new System.Windows.Forms.DateTimePicker();
@@ -130,13 +131,24 @@
             this.LblSearch = new System.Windows.Forms.Label();
             this.CmdSave = new System.Windows.Forms.Button();
             this.CmdCancel = new System.Windows.Forms.Button();
+            this.LblName = new System.Windows.Forms.Label();
+            this.LblEmpNum = new System.Windows.Forms.Label();
+            this.LblCustNum = new System.Windows.Forms.Label();
+            this.LblTraiNumb = new System.Windows.Forms.Label();
+            this.LblTotCount = new System.Windows.Forms.Label();
+            this.LblTotalCount = new System.Windows.Forms.Label();
+            this.LblCustCount = new System.Windows.Forms.Label();
+            this.LblEmpCount = new System.Windows.Forms.Label();
+            this.LblTraiCount = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
             // 
+            this.TabControl.Controls.Add(this.tabPage3);
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Location = new System.Drawing.Point(28, 75);
@@ -145,6 +157,24 @@
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(982, 586);
             this.TabControl.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.LblTraiCount);
+            this.tabPage3.Controls.Add(this.LblEmpCount);
+            this.tabPage3.Controls.Add(this.LblCustCount);
+            this.tabPage3.Controls.Add(this.LblTotalCount);
+            this.tabPage3.Controls.Add(this.LblTotCount);
+            this.tabPage3.Controls.Add(this.LblTraiNumb);
+            this.tabPage3.Controls.Add(this.LblCustNum);
+            this.tabPage3.Controls.Add(this.LblEmpNum);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(974, 560);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "User Dashboard";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -237,7 +267,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(974, 560);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "GENERAL";
+            this.tabPage1.Text = "User Information";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
@@ -1106,7 +1136,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(974, 560);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "HISTORY";
+            this.tabPage2.Text = "User History";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // TxtNotesHistory
@@ -1173,6 +1203,7 @@
             this.LsbOutput.Name = "LsbOutput";
             this.LsbOutput.Size = new System.Drawing.Size(238, 563);
             this.LsbOutput.TabIndex = 1;
+            this.LsbOutput.Visible = false;
             // 
             // CmdAddUser
             // 
@@ -1184,6 +1215,7 @@
             this.CmdAddUser.TabIndex = 2;
             this.CmdAddUser.Text = "ADD USER";
             this.CmdAddUser.UseVisualStyleBackColor = true;
+            this.CmdAddUser.Visible = false;
             this.CmdAddUser.Click += new System.EventHandler(this.CmdAddUser_Click);
             // 
             // CmdEditUser
@@ -1196,6 +1228,7 @@
             this.CmdEditUser.TabIndex = 3;
             this.CmdEditUser.Text = "EDIT USER";
             this.CmdEditUser.UseVisualStyleBackColor = true;
+            this.CmdEditUser.Visible = false;
             // 
             // CmdDeleteUser
             // 
@@ -1207,6 +1240,7 @@
             this.CmdDeleteUser.TabIndex = 4;
             this.CmdDeleteUser.Text = "DELETE USER";
             this.CmdDeleteUser.UseVisualStyleBackColor = true;
+            this.CmdDeleteUser.Visible = false;
             // 
             // CmdExport
             // 
@@ -1218,6 +1252,7 @@
             this.CmdExport.TabIndex = 5;
             this.CmdExport.Text = "EXPORT CONTACTS";
             this.CmdExport.UseVisualStyleBackColor = true;
+            this.CmdExport.Visible = false;
             // 
             // TxtSearch
             // 
@@ -1226,6 +1261,7 @@
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(154, 20);
             this.TxtSearch.TabIndex = 6;
+            this.TxtSearch.Visible = false;
             this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // CmdSearch
@@ -1237,6 +1273,7 @@
             this.CmdSearch.TabIndex = 7;
             this.CmdSearch.Text = "SEARCH";
             this.CmdSearch.UseVisualStyleBackColor = true;
+            this.CmdSearch.Visible = false;
             // 
             // LblSearch
             // 
@@ -1247,6 +1284,7 @@
             this.LblSearch.Size = new System.Drawing.Size(65, 13);
             this.LblSearch.TabIndex = 8;
             this.LblSearch.Text = "Search Text";
+            this.LblSearch.Visible = false;
             // 
             // CmdSave
             // 
@@ -1273,11 +1311,106 @@
             this.CmdCancel.UseVisualStyleBackColor = true;
             this.CmdCancel.Visible = false;
             // 
+            // LblName
+            // 
+            this.LblName.AutoSize = true;
+            this.LblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblName.Location = new System.Drawing.Point(28, 23);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(293, 39);
+            this.LblName.TabIndex = 15;
+            this.LblName.Text = "User  Dashboard";
+            // 
+            // LblEmpNum
+            // 
+            this.LblEmpNum.AutoSize = true;
+            this.LblEmpNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEmpNum.Location = new System.Drawing.Point(369, 253);
+            this.LblEmpNum.Name = "LblEmpNum";
+            this.LblEmpNum.Size = new System.Drawing.Size(218, 24);
+            this.LblEmpNum.TabIndex = 0;
+            this.LblEmpNum.Text = "Number of Employees";
+            // 
+            // LblCustNum
+            // 
+            this.LblCustNum.AutoSize = true;
+            this.LblCustNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCustNum.Location = new System.Drawing.Point(38, 253);
+            this.LblCustNum.Name = "LblCustNum";
+            this.LblCustNum.Size = new System.Drawing.Size(213, 24);
+            this.LblCustNum.TabIndex = 1;
+            this.LblCustNum.Text = "Number of Customers";
+            // 
+            // LblTraiNumb
+            // 
+            this.LblTraiNumb.AutoSize = true;
+            this.LblTraiNumb.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTraiNumb.Location = new System.Drawing.Point(701, 253);
+            this.LblTraiNumb.Name = "LblTraiNumb";
+            this.LblTraiNumb.Size = new System.Drawing.Size(196, 24);
+            this.LblTraiNumb.TabIndex = 2;
+            this.LblTraiNumb.Text = "Number of Trainees";
+            // 
+            // LblTotCount
+            // 
+            this.LblTotCount.AutoSize = true;
+            this.LblTotCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotCount.Location = new System.Drawing.Point(369, 32);
+            this.LblTotCount.Name = "LblTotCount";
+            this.LblTotCount.Size = new System.Drawing.Size(219, 24);
+            this.LblTotCount.TabIndex = 3;
+            this.LblTotCount.Text = "Total Number of Users";
+            // 
+            // LblTotalCount
+            // 
+            this.LblTotalCount.AutoSize = true;
+            this.LblTotalCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblTotalCount.Location = new System.Drawing.Point(470, 71);
+            this.LblTotalCount.Name = "LblTotalCount";
+            this.LblTotalCount.Size = new System.Drawing.Size(28, 24);
+            this.LblTotalCount.TabIndex = 4;
+            this.LblTotalCount.Text = "...";
+            this.LblTotalCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblCustCount
+            // 
+            this.LblCustCount.AutoSize = true;
+            this.LblCustCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblCustCount.Location = new System.Drawing.Point(126, 291);
+            this.LblCustCount.Name = "LblCustCount";
+            this.LblCustCount.Size = new System.Drawing.Size(28, 24);
+            this.LblCustCount.TabIndex = 5;
+            this.LblCustCount.Text = "...";
+            this.LblCustCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblEmpCount
+            // 
+            this.LblEmpCount.AutoSize = true;
+            this.LblEmpCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblEmpCount.Location = new System.Drawing.Point(470, 291);
+            this.LblEmpCount.Name = "LblEmpCount";
+            this.LblEmpCount.Size = new System.Drawing.Size(28, 24);
+            this.LblEmpCount.TabIndex = 6;
+            this.LblEmpCount.Text = "...";
+            this.LblEmpCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // LblTraiCount
+            // 
+            this.LblTraiCount.AutoSize = true;
+            this.LblTraiCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblTraiCount.Location = new System.Drawing.Point(790, 291);
+            this.LblTraiCount.Name = "LblTraiCount";
+            this.LblTraiCount.Size = new System.Drawing.Size(28, 24);
+            this.LblTraiCount.TabIndex = 7;
+            this.LblTraiCount.Text = "...";
+            this.LblTraiCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 687);
+            this.Controls.Add(this.LblName);
             this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.CmdSave);
             this.Controls.Add(this.LblSearch);
@@ -1293,6 +1426,8 @@
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.TabControl.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1406,6 +1541,16 @@
         private System.Windows.Forms.CheckBox ChkStatus;
         private System.Windows.Forms.Button CmdSave;
         private System.Windows.Forms.Button CmdCancel;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label LblName;
+        private System.Windows.Forms.Label LblEmpNum;
+        private System.Windows.Forms.Label LblTraiNumb;
+        private System.Windows.Forms.Label LblCustNum;
+        private System.Windows.Forms.Label LblCustCount;
+        private System.Windows.Forms.Label LblTotalCount;
+        private System.Windows.Forms.Label LblTotCount;
+        private System.Windows.Forms.Label LblTraiCount;
+        private System.Windows.Forms.Label LblEmpCount;
     }
 }
 
