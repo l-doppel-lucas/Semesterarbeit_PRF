@@ -22,6 +22,12 @@ namespace semesterarbeit
         public Dashboard()
         {
             InitializeComponent();
+
+            //Show contact list in database
+            LsbOutput.DataSource = Db.contactList;
+
+            //Get the last ID
+            id = Db.ReturnLastID();
         }
 
         /*---------------------------------------------------------------------
@@ -78,6 +84,19 @@ namespace semesterarbeit
                 //Increase the value of the variable id
                 id++;
 
+
+                Employee empl1 = new Employee
+                    (
+                        true,
+                        id,
+                        TxtTitle.Text,
+                        Convert.ToString(CmbSalutation.SelectedItem),
+                        TxtFirstname.Text,
+                        TxtLastname.Text,
+                        DtpBirthdate.Value,
+
+
+                    )
             }
             else if (RadTrainee.Checked)
             {

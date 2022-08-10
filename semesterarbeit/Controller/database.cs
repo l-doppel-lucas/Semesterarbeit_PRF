@@ -39,9 +39,21 @@ namespace semesterarbeit.Controller
             return contactList.Count;
         }
 
- 
+        public Int32 ReturnLastID()
+        {
+            int id = 1;
+            try
+            {
+                Person temp = contactList.Last();
+                id = temp.Id;
+            }
+            catch (System.InvalidOperationException)
+            {
+                id = 1;
+            }
 
-
+            return id;
+        }
 
     }
 }
