@@ -20,6 +20,7 @@ namespace semesterarbeit
         public string Companyname { get; set; }
         public CustType Type { get; set; }
         public string Companycontact { get; set; }
+        public string NotesHistory { get; set; }
 
 
 

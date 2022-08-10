@@ -22,11 +22,11 @@ namespace semesterarbeit
         public string Departement { get; set; }
         public string Workpensum { get; set; }
         public string Ahv { get; set;}
+        public string Nationality { get; set; }
         public string Birthplace{ get; set; }
         public string Privatephone { get; set; }
         public DateTime Entrydate { get; set; }
         public DateTime Exitdate { get; set; }
-        public string Employmentlvl { get; set; }
         public string Role { get; set; }
         public MgmLvl Lvl { get; set; }
 
@@ -62,12 +62,12 @@ namespace semesterarbeit
 
         public override string ToString()
         {
-            return base.ToString() + ", " + Departement + ", " + Entrydate + ", " + Exitdate + ", " + Employmentlvl + ", " + Role + ", " + Lvl;
+            return base.ToString() + ", " + Departement + ", " + Entrydate + ", " + Exitdate + ", " + Workpensum + ", " + Role + ", " + Lvl;
         }
 
         public override string PrintAll()
         {
-            return base.PrintAll() + ", " + Departement + ", " + Entrydate + ", " + Exitdate + ", " + Employmentlvl + ", " + Role + ", " + Lvl;
+            return base.PrintAll() + ", " + Departement + ", " + Entrydate + ", " + Exitdate + ", " + Workpensum + ", " + Role + ", " + Lvl;
         }
 
         public override string GetClassName()

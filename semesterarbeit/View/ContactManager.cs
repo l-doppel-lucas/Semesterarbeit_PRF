@@ -68,6 +68,92 @@ namespace semesterarbeit
             TxtZipcode.Text = Convert.ToString(selectedPerson.Zipcode);
             TxtCreationDate.Text = Convert.ToString(selectedPerson.CreationDate);
             TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
+
+            // If the object is type of one of the subclasses (Employee, Apprentice or Customer) 
+            switch (selectedPerson.GetClassName())
+            {
+                case "Employee":
+                    //make all relevant textboxes and lables visible
+                    ShowAllEmp();
+
+                    //Hide irrelvant textboxes and lables
+                    HideAllCust();
+                    HideAllAppr();
+
+                    //Cast the selected object of the list into type "Employee" and write into the variable "selectedEmployee"
+                    Employee selectedEmployee = (Employee)selectedPerson;
+
+                    //Write the properties of the object of type "Employee" into the specific textboxes
+                    TxtDepartment.Text = selectedEmployee.Departement;
+                    TxtAHVNumber.Text = selectedEmployee.Ahv;
+                    TxtStartDate.Text = Convert.ToString(selectedEmployee.Entrydate);
+                    TxtLeaveDate.Text = Convert.ToString(selectedEmployee.Exitdate);
+                    TxtEmplNr.Text = Convert.ToString(selectedEmployee.EmplNr);
+                    TxtBirthplace.Text = selectedEmployee.Birthplace;
+                    TxtNationality.Text = selectedEmployee.Nationality;
+                    TxtRole.Text = selectedEmployee.Role;
+                    TxtMgmtLevel.Text = Convert.ToString(selectedEmployee.Lvl);
+                    TxtWorkPensum.Text = selectedEmployee.Workpensum;
+                    TxtPrivatePhone.Text = selectedEmployee.Privatephone;
+                    break;
+                case "Apprentice":
+                    //make all relevant textboxes and lables visible
+                    ShowAllEmp();
+                    ShowAllAppr();
+
+                    //Hide irrelvant textboxes and lables
+                    HideAllCust();
+
+                    //Cast the selected object of the list into type "Apprentice" and write into the variable "selectedApprentice"
+                    Trainee selectedApprentice = (Trainee)selectedPerson;
+
+                    //Write the properties of the object of type "Apprentice" into the specific textboxes
+                    TxtDepartment.Text = selectedApprentice.Departement;
+                    TxtAHVNumber.Text = selectedApprentice.Ahv;
+                    TxtStartDate.Text = Convert.ToString(selectedApprentice.Entrydate);
+                    TxtLeaveDate.Text = Convert.ToString(selectedApprentice.Exitdate);
+                    TxtEmplNr.Text = Convert.ToString(selectedApprentice.EmplNr);
+                    TxtBirthplace.Text = selectedApprentice.Birthplace;
+                    TxtNationality.Text = selectedApprentice.Nationality;
+                    TxtRole.Text = selectedApprentice.Role;
+                    TxtMgmtLevel.Text = Convert.ToString(selectedApprentice.Lvl);
+                    TxtWorkPensum.Text = selectedApprentice.Workpensum;
+                    TxtPrivatePhone.Text = selectedApprentice.Privatephone;
+                    TxtApprentYears.Text = Convert.ToString(selectedApprentice.Appyears);
+                    TxtCurrentApprentYear.Text = Convert.ToString(selectedApprentice.Currappyear);
+                    break;
+                case "Customer":
+                    //make all relevant textboxes and lables visible
+                    ShowAllCust();
+
+                    //Hide irrelvant textboxes and lables
+                    HideAllEmp();
+                    HideAllAppr();
+
+                    //Cast the selected object of the list into type "Customer" and write into the variable "selectedCustomer"
+                    Customer selectedCustomer = (Customer)selectedPerson;
+
+                    //Write the properties of the object of type "Customer" into the specific textboxes
+                    TxtCompanyName.Text = selectedCustomer.Companyname;
+                    TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
+                    TxtContacPerson.Text = selectedCustomer.Companycontact;
+                    TxtNotesHistory.Text = selectedCustomer.NotesHistory;
+                    break;
+            }
+
+            /*
+            //Check if the user is active or not
+            if (selectedPerson.Status == false)
+            {
+                //Call function for user status inactive
+                DeactivateUser();
+            }
+            else if (selectedPerson.Status == true)
+            {
+                //Call function for user status active
+                ActivateUser();
+            }
+            */
         }
 
         /*---------------------------------------------------------------------
@@ -141,11 +227,13 @@ namespace semesterarbeit
             }
             else if (RadTrainee.Checked)
             {
-
+                //Increase the value of the variable id
+                id++;
             }
             else if (RadCustomer.Checked)
             {
-
+                //Increase the value of the variable id
+                id++;
             }
             else
             {
@@ -156,6 +244,52 @@ namespace semesterarbeit
             CmdAddUser.Visible = true;
             CmdSave.Visible = false;
             CmdCancel.Visible = false;
+
+            //Activate buttons, combo boxes, and list boxes
+            ChkStatus.Enabled = true;
+            CmdTakeNotes.Enabled = true;
+            LsbOutput.Enabled = true;
+            CmdAddUser.Enabled = true;
+            CmdDeleteUser.Enabled = true;
+            CmdEditUser.Enabled = true;
+            CmdExport.Enabled = true;
+            CmdSearch.Enabled = true;
+        }
+
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(TabControl.SelectedIndex == 0)
+            {
+                HideButtons();
+            }
+            else
+            {
+                ShowButtons();
+            }
+        }
+
+        private void ShowButtons ()
+        {
+            CmdAddUser.Visible = true;
+            CmdDeleteUser.Visible = true;
+            CmdEditUser.Visible = true;
+            CmdExport.Visible = true;
+            CmdSearch.Visible = true;
+            TxtSearch.Visible = true;
+            LblSearch.Visible = true;
+            LsbOutput.Visible = true;
+        }
+
+        private void HideButtons ()
+        {
+            CmdAddUser.Visible = false;
+            CmdDeleteUser.Visible = false;
+            CmdEditUser.Visible = false;
+            CmdExport.Visible = false;
+            CmdSearch.Visible = false;
+            TxtSearch.Visible = false;
+            LblSearch.Visible = false;
+            LsbOutput.Visible = false;
         }
 
         /*---------------------------------------------------------------------
@@ -173,13 +307,22 @@ namespace semesterarbeit
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,
-                email: TxtEmail.Text,
-                department: Convert.ToString(CmbDepartment.SelectedItem),
-                role: TxtRole.Text
+                birthdate: DtpBirthdate.Value,
+                gender: Convert.ToString(CmbGender.SelectedItem),
+                mail: TxtEmail.Text,
+                street: TxtStreet.Text,
+                city: TxtCity.Text,
+                zip: Convert.ToInt32(TxtZipcode.Text),
+                emplnum: Convert.ToInt32(TxtEmplNr.Text),
+                departement: Convert.ToString(CmbDepartment.SelectedItem),
+                role: TxtRole.Text,
+                pens: Convert.ToString(CmbWorkPensum.SelectedItem),
+                entrdate: DtpStartDate.Value
                 );
         }
 
         //Set all optional attributes for employees
+        /*
         public void SetAttributesEmp_optional(Person p)
         {
             //Cast person into employee
@@ -187,30 +330,19 @@ namespace semesterarbeit
 
             //Call method to set optional attributes
             emp.SetOptionalAttributes(
-                    sn: TxtSecondname.Text,
-                    g: Convert.ToString(CmbGender.SelectedItem),
                     t: TxtTitle.Text,
                     bp: TxtBusinessPhone.Text,
                     bf: TxtBusinessFax.Text,
                     mn: TxtMobileNumber.Text,
-                    s: TxtStreet.Text,
-                    zc: TxtZipcode.Text,
-                    c: TxtCity.Text,
-                    bdate: Convert.ToString(DtpBirthdate.Value.ToShortDateString()),
                     ahv: TxtAHVNumber.Text,
-                    d: TxtDenomination.Text,
                     bipl: TxtBirthplace.Text,
                     nat: TxtNationality.Text,
                     mgmtl: Convert.ToString(CmbMgmtLevel.SelectedItem),
-                    dr: Convert.ToString(CmbDirectReports.SelectedItem),
-                    wp: Convert.ToString(CmbWorkPensum.SelectedItem),
-                    cs: Convert.ToString(CmbCivilStatus.SelectedItem),
                     pf: TxtPrivatePhone.Text,
-                    startdate: Convert.ToString(DtpStartDate.Value.ToShortDateString()),
                     leavedate: Convert.ToString(DtpLeaveDate.Value.ToShortDateString())
                     );
         }
-
+        */
         //Set all mandatory attributes for Customers
         public void SetAttributesCust_mandatory(Person p)
         {
@@ -222,13 +354,19 @@ namespace semesterarbeit
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,
-                email: TxtEmail.Text,
-                compn: TxtCompanyName.Text,
-                cutype: Convert.ToString(CmbCustomerType.SelectedItem)
+                birthdate: DtpBirthdate.Value,
+                gender: Convert.ToString(CmbGender.SelectedItem),
+                mail: TxtEmail.Text,
+                street: TxtStreet.Text,
+                city: TxtCity.Text,
+                zip: Convert.ToInt32(TxtZipcode.Text),
+                compname: TxtCompanyName.Text,
+                type: (CustType)CmbCustomerType.SelectedItem
                 );
         }
 
         //Set all optional attributes for customers
+        /*
         public void SetAttributesCust_optional(Person p)
         {
             //Cast person into customer
@@ -236,20 +374,15 @@ namespace semesterarbeit
 
             //Call method to set optional attributes
             cust.SetOptionalAttributes(
-                    sn: TxtSecondname.Text,
-                    g: Convert.ToString(CmbGender.SelectedItem),
                     t: TxtTitle.Text,
                     bp: TxtBusinessPhone.Text,
                     bf: TxtBusinessFax.Text,
                     mn: TxtMobileNumber.Text,
                     s: TxtStreet.Text,
-                    zc: TxtZipcode.Text,
-                    c: TxtCity.Text,
-                    bdate: Convert.ToString(DtpBirthdate.Value.ToShortDateString()),
                     cp: TxtContacPerson.Text
                     );
         }
-
+        */
         //Function to set all mandatory attributes for apprentices
         public void SetAttributesAppr_mandatory(Person p)
         {
@@ -261,46 +394,44 @@ namespace semesterarbeit
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,
-                email: TxtEmail.Text,
-                department: Convert.ToString(CmbDepartment.SelectedItem),
+                birthdate: DtpBirthdate.Value,
+                gender: Convert.ToString(CmbGender.SelectedItem),
+                mail: TxtEmail.Text,
+                street: TxtStreet.Text,
+                city: TxtCity.Text,
+                zip: Convert.ToInt32(TxtZipcode.Text),
+                emplnum: Convert.ToInt32(TxtEmplNr.Text),
+                departement: Convert.ToString(CmbDepartment.SelectedItem),
                 role: TxtRole.Text,
-                appryear: Convert.ToString(CmbApprentYears.SelectedItem)
+                pens: Convert.ToString(CmbWorkPensum.SelectedItem),
+                entrdate: DtpStartDate.Value,
+                appyears: Convert.ToString(CmbApprentYears.SelectedItem)
                 );
         }
 
         //Function to set all optional attributes for apprentices
+        /*
         public void SetAttributesAppr_optional(Person p)
         {
             //Cast variable p from type "Person" into type "Apprentice" in new variable "appr"
-            Apprentice appr = (Apprentice)p;
+            Trainee appr = (Trainee)p;
 
             //Call method to set optional attributes
             appr.SetOptionalAttributes(
-                    sn: TxtSecondname.Text,
-                    g: Convert.ToString(CmbGender.SelectedItem),
                     t: TxtTitle.Text,
                     bp: TxtBusinessPhone.Text,
                     bf: TxtBusinessFax.Text,
                     mn: TxtMobileNumber.Text,
-                    s: TxtStreet.Text,
-                    zc: TxtZipcode.Text,
-                    c: TxtCity.Text,
-                    bdate: Convert.ToString(DtpBirthdate.Value.ToShortDateString()),
                     ahv: TxtAHVNumber.Text,
-                    d: TxtDenomination.Text,
                     bipl: TxtBirthplace.Text,
                     nat: TxtNationality.Text,
                     mgmtl: Convert.ToString(CmbMgmtLevel.SelectedItem),
-                    dr: Convert.ToString(CmbDirectReports.SelectedItem),
-                    wp: Convert.ToString(CmbWorkPensum.SelectedItem),
-                    cs: Convert.ToString(CmbCivilStatus.SelectedItem),
                     pf: TxtPrivatePhone.Text,
-                    startdate: Convert.ToString(DtpStartDate.Value.ToShortDateString()),
                     leavedate: Convert.ToString(DtpLeaveDate.Value.ToShortDateString()),
                     capry: Convert.ToString(CmbCurrentApprentYear.SelectedItem)
                     );
         }
-
+        */
         /*---------------------------------------------------------------------
          * Radio Butoons
          * --------------------------------------------------------------------*/
@@ -738,5 +869,7 @@ namespace semesterarbeit
             CmbApprentYears.Visible = false;
             CmbCurrentApprentYear.Visible = false;
         }
+
+
     }
 }
