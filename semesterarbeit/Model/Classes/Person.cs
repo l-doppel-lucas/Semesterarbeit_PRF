@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace semesterarbeit
 {
@@ -14,6 +15,7 @@ namespace semesterarbeit
         public string Title { get; set; }
         public string Salutation { get; set; }
         public string Firstname { get; set; }
+        public string Secondname { get; set; }
         public string Lastname { get; set; }
         public DateTime Birthdate { get; set; }
         public string Gender { get; set; }
@@ -24,28 +26,23 @@ namespace semesterarbeit
         public string Businessphone { get; set; }
         public string Businessfax { get; set; }
         public string Mail { get; set; }
+        public DateTime CreationDate { get; set; }
+
         public string ChangeHistory{ get; set; }
 
 
         /******** Constructor ********/
 
-        public Person(bool status, int id, string title, string salutation, string firstname, string lastname, DateTime birthdate, string gender, string ahv,
-            string nationality, string privatephone, string mobilephone, string businessphone, string businessfax, string mail, string changehistory)
+        public Person(int id, string salutation, string firstname, string lastname, string email, Boolean status,
+            DateTime creationDate, string changehistory)
         {
-            Status = status;
             Id = id;
-            Title = title;
             Salutation = salutation;
             Firstname = firstname;
             Lastname = lastname;
-            Birthdate = birthdate;
-            Gender = gender;
-            Ahv = ahv;
-            Nationality = nationality;
-            Privatephone = privatephone;
-            Businessphone = businessphone;
-            Businessfax = businessfax;
-            Mail = mail;
+            Mail = Mail;
+            Status = status;
+            CreationDate = creationDate;
             ChangeHistory = changehistory;
         }
 
@@ -65,6 +62,29 @@ namespace semesterarbeit
                 + ", " + Gender + ", " + Ahv + ", " + Nationality + ", " + Privatephone + ", " + Businessphone + ", " + Businessfax + ", " + Mail + ", " + ChangeHistory;
         }
 
+        public void SetOptionalAtt(string sn, DateTime bd, string gd,  string ahv, string nat, string pph, string mph, string bph, string bfa)
+        {
+            Secondname = sn;
+            Birthdate = bd;
+            Gender = gd;
+            Ahv = ahv;
+            Nationality = nat;
+            Privatephone = pph;
+            Mobilephone = mph;
+            Businessphone = bph;
+            Businessfax = bfa;
+
+        }
+
+        public void SetMandatoryAtt(string sal, string fn, string ln, string ma)
+        {
+            Salutation = sal;
+            Firstname = fn;
+            Lastname = ln;
+            Mail = ma;
+
+        }
+        
         //Virtual method to return the name of the class as a string - virtual because this is individual for each class
         public virtual string GetClassName()
         {
