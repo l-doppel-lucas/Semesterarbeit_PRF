@@ -20,6 +20,7 @@ namespace semesterarbeit
     {
         public int EmplNr { get; set; }
         public string Departement { get; set; }
+        public string Workpensum { get; set; }
         public string Ahv { get; set;}
         public string Birthplace{ get; set; }
         public string Privatephone { get; set; }
@@ -46,6 +47,18 @@ namespace semesterarbeit
         /*---------------------------------------------------------------------
         Methods
         -----------------------------------------------------------------------*/
+
+        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, string street, string city, int zip, int emplnum, string departement, string role, string pens, DateTime entrdate)
+        {
+            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip);
+
+            EmplNr = emplnum;
+            Departement = departement;
+            Role = role;
+            Workpensum = pens;
+            Entrydate = entrdate;
+        }
+
 
         public override string ToString()
         {

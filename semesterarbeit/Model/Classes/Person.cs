@@ -62,24 +62,30 @@ namespace semesterarbeit
                 + ", " + Gender + ", " + Businessphone + ", " + Businessfax + ", " + Mail + ", " + ChangeHistory;
         }
 
-        public void SetOptionalAtt(DateTime bd, string gd, string mph, string bph, string bfa)
+
+        public void SetOptionalAttributes(string title = "", string mph = "",  string bph = "", string bfa = "")
         {
-            Birthdate = bd;
-            Gender = gd;
+            Title = title;
             Mobilephone = mph;
             Businessphone = bph;
             Businessfax = bfa;
-
         }
 
-        public void SetMandatoryAtt(string sal, string fn, string ln, string ma)
+        //Method to set all mandatory attributes
+        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, string street, string city, int zip)
         {
             Salutation = sal;
             Firstname = fn;
             Lastname = ln;
-            Mail = ma;
+            Birthdate = birthdate;
+            Gender = gender;
+            Mail = mail;
+            Street = street;
+            City = city;
+            Zipcode = zip;
+
         }
-        
+
         //Virtual method to return the name of the class as a string - virtual because this is individual for each class
         public virtual string GetClassName()
         {

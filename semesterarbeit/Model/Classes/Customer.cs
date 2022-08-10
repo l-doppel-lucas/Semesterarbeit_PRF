@@ -41,6 +41,15 @@ namespace semesterarbeit
         /*---------------------------------------------------------------------
              Methods
         -----------------------------------------------------------------------*/
+
+        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, string street, string city, int zip, string compname, CustType type)
+        {
+            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip);
+
+            Companyname = compname;
+            Type = type;
+        }
+
         public override string ToString()
         {
             return base.ToString() + ", " + Companyname + ", " + Type + ", " + Companycontact;
