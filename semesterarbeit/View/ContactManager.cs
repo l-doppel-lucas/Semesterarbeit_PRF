@@ -55,20 +55,19 @@ namespace semesterarbeit
             //
             TxtSalutation.Text = selectedPerson.Salutation;
             TxtFirstname.Text = selectedPerson.Firstname;
-            TxtSecondname.Text = selectedPerson.Secondname;
             TxtLastname.Text = selectedPerson.Lastname;
             TxtBirthdate.Text = Convert.ToString(selectedPerson.Birthdate);
             TxtGender.Text = selectedPerson.Gender;
             TxtTitle.Text = selectedPerson.Title;
-            TxtBusinessPhone.Text = selectedPerson.BusinessPhone;
-            TxtBusinessFax.Text = selectedPerson.BusinessFax;
-            TxtMobileNumber.Text = selectedPerson.MobileNumber;
-            TxtEmail.Text = selectedPerson.Email;
+            TxtBusinessPhone.Text = selectedPerson.Businessphone;
+            TxtBusinessFax.Text = selectedPerson.Businessfax;
+            TxtMobileNumber.Text = selectedPerson.Mobilephone;
+            TxtEmail.Text = selectedPerson.Mail;
             TxtCity.Text = selectedPerson.City;
             TxtStreet.Text = selectedPerson.Street;
             TxtZipcode.Text = Convert.ToString(selectedPerson.Zipcode);
             TxtCreationDate.Text = Convert.ToString(selectedPerson.CreationDate);
-            TxtLastModified.Text = Convert.ToString(selectedPerson.LastModified);
+            TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
         }
 
         /*---------------------------------------------------------------------
@@ -128,10 +127,11 @@ namespace semesterarbeit
                         Convert.ToString(CmbSalutation.SelectedItem),
                         TxtFirstname.Text,
                         TxtLastname.Text,
-                        DtpBirthdate.Value,
-
-
-                    )
+                        DateTime.Now, //Creation date
+                        Convert.ToString(CmbDepartment.SelectedItem),
+                        Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        TxtRole.Text
+                    );
             }
             else if (RadTrainee.Checked)
             {
@@ -218,7 +218,6 @@ namespace semesterarbeit
         {
             TxtSalutation.ReadOnly = false;
             TxtFirstname.ReadOnly = false;
-            TxtSecondname.ReadOnly = false;
             TxtLastname.ReadOnly = false;
             TxtBirthdate.ReadOnly = false;
             TxtGender.ReadOnly = false;
@@ -239,14 +238,12 @@ namespace semesterarbeit
             TxtAHVNumber.ReadOnly = false;
             TxtStartDate.ReadOnly = false;
             TxtLeaveDate.ReadOnly = false;
-            TxtDenomination.ReadOnly = false;
+            TxtEmplNr.ReadOnly = false;
             TxtBirthplace.ReadOnly = false;
             TxtNationality.ReadOnly = false;
             TxtRole.ReadOnly = false;
             TxtMgmtLevel.ReadOnly = false;
-            TxtDirectReports.ReadOnly = false;
             TxtWorkPensum.ReadOnly = false;
-            TxtCivilStatus.ReadOnly = false;
             TxtPrivatePhone.ReadOnly = false;
         }
 
@@ -279,7 +276,6 @@ namespace semesterarbeit
         {
             TxtSalutation.ReadOnly = true;
             TxtFirstname.ReadOnly = true;
-            TxtSecondname.ReadOnly = true;
             TxtLastname.ReadOnly = true;
             TxtBirthdate.ReadOnly = true;
             TxtGender.ReadOnly = true;
@@ -300,14 +296,12 @@ namespace semesterarbeit
             TxtAHVNumber.ReadOnly = true;
             TxtStartDate.ReadOnly = true;
             TxtLeaveDate.ReadOnly = true;
-            TxtDenomination.ReadOnly = true;
+            TxtEmplNr.ReadOnly = true;
             TxtBirthplace.ReadOnly = true;
             TxtNationality.ReadOnly = true;
             TxtRole.ReadOnly = true;
             TxtMgmtLevel.ReadOnly = true;
-            TxtDirectReports.ReadOnly = true;
             TxtWorkPensum.ReadOnly = true;
-            TxtCivilStatus.ReadOnly = true;
             TxtPrivatePhone.ReadOnly = true;
         }
 
@@ -342,27 +336,23 @@ namespace semesterarbeit
             TxtAHVNumber.Visible = false;
             TxtStartDate.Visible = false;
             TxtLeaveDate.Visible = false;
-            TxtDenomination.Visible = false;
+            TxtEmplNr.Visible = false;
             TxtBirthplace.Visible = false;
             TxtNationality.Visible = false;
             TxtRole.Visible = false;
             TxtMgmtLevel.Visible = false;
-            TxtDirectReports.Visible = false;
             TxtWorkPensum.Visible = false;
-            TxtCivilStatus.Visible = false;
             TxtPrivatePhone.Visible = false;
             LblDepartment.Visible = false;
             LblAHVNumber.Visible = false;
             LblStartDate.Visible = false;
             LblLeaveDate.Visible = false;
-            LblDenomination.Visible = false;
+            LblEmplNr.Visible = false;
             LblBirthplace.Visible = false;
             LblNationality.Visible = false;
             LblRole.Visible = false;
             LblMgmtLevel.Visible = false;
-            LblDirectReports.Visible = false;
             LblWorkPensum.Visible = false;
-            LblCivilStatus.Visible = false;
             LblPrivatePhone.Visible = false;
         }
 
@@ -397,27 +387,23 @@ namespace semesterarbeit
             TxtAHVNumber.Visible = true;
             TxtStartDate.Visible = true;
             TxtLeaveDate.Visible = true;
-            TxtDenomination.Visible = true;
+            TxtEmplNr.Visible = true;
             TxtBirthplace.Visible = true;
             TxtNationality.Visible = true;
             TxtRole.Visible = true;
             TxtMgmtLevel.Visible = true;
-            TxtDirectReports.Visible = true;
             TxtWorkPensum.Visible = true;
-            TxtCivilStatus.Visible = true;
             TxtPrivatePhone.Visible = true;
             LblDepartment.Visible = true;
             LblAHVNumber.Visible = true;
             LblStartDate.Visible = true;
             LblLeaveDate.Visible = true;
-            LblDenomination.Visible = true;
+            LblEmplNr.Visible = true;
             LblBirthplace.Visible = true;
             LblNationality.Visible = true;
             LblRole.Visible = true;
             LblMgmtLevel.Visible = true;
-            LblDirectReports.Visible = true;
             LblWorkPensum.Visible = true;
-            LblCivilStatus.Visible = true;
             LblPrivatePhone.Visible = true;
         }
 
@@ -450,7 +436,6 @@ namespace semesterarbeit
         {
             TxtSalutation.ResetText();
             TxtFirstname.ResetText();
-            TxtSecondname.ResetText();
             TxtLastname.ResetText();
             TxtBirthdate.ResetText();
             TxtGender.ResetText();
@@ -466,14 +451,12 @@ namespace semesterarbeit
             TxtAHVNumber.ResetText();
             TxtStartDate.ResetText();
             TxtLeaveDate.ResetText();
-            TxtDenomination.ResetText();
+            TxtEmplNr.ResetText();
             TxtBirthplace.ResetText();
             TxtNationality.ResetText();
             TxtRole.ResetText();
             TxtMgmtLevel.ResetText();
-            TxtDirectReports.ResetText();
             TxtWorkPensum.ResetText();
-            TxtCivilStatus.ResetText();
             TxtPrivatePhone.ResetText();
             TxtCompanyName.ResetText();
             TxtCustomerType.ResetText();
@@ -574,18 +557,15 @@ namespace semesterarbeit
         private void ShowAllCmbEmp()
         {
             CmbDepartment.Visible = true;
-            CmbCivilStatus.Visible = true;
             CmbMgmtLevel.Visible = true;
-            CmbDirectReports.Visible = true;
             CmbWorkPensum.Visible = true;
             DtpStartDate.Visible = true;
             DtpLeaveDate.Visible = true;
 
             //Set default selected item of combo box
             CmbDepartment.SelectedItem = TxtDepartment.Text;
-            CmbCivilStatus.SelectedItem = TxtCivilStatus.Text;
             CmbMgmtLevel.SelectedItem = TxtMgmtLevel.Text;
-            CmbDirectReports.SelectedItem = TxtDirectReports.Text;
+            //CmbDirectReports.SelectedItem = TxtDirectReports.Text;
             CmbWorkPensum.SelectedItem = TxtWorkPensum.Text;
 
             //Set default selected value of date time picker
@@ -604,9 +584,7 @@ namespace semesterarbeit
         private void HideAllCmbEmp()
         {
             CmbDepartment.Visible = false;
-            CmbCivilStatus.Visible = false;
             CmbMgmtLevel.Visible = false;
-            CmbDirectReports.Visible = false;
             CmbWorkPensum.Visible = false;
             DtpStartDate.Visible = false;
             DtpLeaveDate.Visible = false;
@@ -628,7 +606,5 @@ namespace semesterarbeit
             CmbApprentYears.Visible = false;
             CmbCurrentApprentYear.Visible = false;
         }
-
-
     }
 }

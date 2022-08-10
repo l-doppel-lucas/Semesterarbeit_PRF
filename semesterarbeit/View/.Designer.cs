@@ -49,14 +49,11 @@
             this.CmbWorkPensum = new System.Windows.Forms.ComboBox();
             this.TxtFirstname = new System.Windows.Forms.TextBox();
             this.CmbCurrentApprentYear = new System.Windows.Forms.ComboBox();
-            this.LblSecondname = new System.Windows.Forms.Label();
             this.CmbApprentYears = new System.Windows.Forms.ComboBox();
             this.LblTitle = new System.Windows.Forms.Label();
-            this.CmbDirectReports = new System.Windows.Forms.ComboBox();
             this.LblZipcode = new System.Windows.Forms.Label();
             this.CmbDepartment = new System.Windows.Forms.ComboBox();
             this.LblBusinessFax = new System.Windows.Forms.Label();
-            this.CmbCivilStatus = new System.Windows.Forms.ComboBox();
             this.LblStreet = new System.Windows.Forms.Label();
             this.CmbMgmtLevel = new System.Windows.Forms.ComboBox();
             this.LblRole = new System.Windows.Forms.Label();
@@ -84,10 +81,8 @@
             this.TxtStartDate = new System.Windows.Forms.TextBox();
             this.TxtTitle = new System.Windows.Forms.TextBox();
             this.LblAHVNumber = new System.Windows.Forms.Label();
-            this.TxtSecondname = new System.Windows.Forms.TextBox();
             this.TxtLastname = new System.Windows.Forms.TextBox();
             this.LblWorkPensum = new System.Windows.Forms.Label();
-            this.TxtBirthdate = new System.Windows.Forms.TextBox();
             this.LblBirthplace = new System.Windows.Forms.Label();
             this.TxtGender = new System.Windows.Forms.TextBox();
             this.TxtAHVNumber = new System.Windows.Forms.TextBox();
@@ -101,15 +96,13 @@
             this.LblNationality = new System.Windows.Forms.Label();
             this.TxtCustomerType = new System.Windows.Forms.TextBox();
             this.TxtApprentYears = new System.Windows.Forms.TextBox();
-            this.TxtDirectReports = new System.Windows.Forms.TextBox();
             this.TxtStreet = new System.Windows.Forms.TextBox();
             this.TxtCompanyName = new System.Windows.Forms.TextBox();
             this.TxtCity = new System.Windows.Forms.TextBox();
-            this.TxtCivilStatus = new System.Windows.Forms.TextBox();
-            this.LblDenomination = new System.Windows.Forms.Label();
+            this.LblEmplNr = new System.Windows.Forms.Label();
             this.LblCustomerType = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
-            this.TxtDenomination = new System.Windows.Forms.TextBox();
+            this.TxtEmplNr = new System.Windows.Forms.TextBox();
             this.LblLeaveDate = new System.Windows.Forms.Label();
             this.TxtPrivatePhone = new System.Windows.Forms.TextBox();
             this.LblApprentYears = new System.Windows.Forms.Label();
@@ -119,13 +112,11 @@
             this.TxtBirthplace = new System.Windows.Forms.TextBox();
             this.LblPrivatePhone = new System.Windows.Forms.Label();
             this.LblCurrentApprentYear = new System.Windows.Forms.Label();
-            this.LblCivilStatus = new System.Windows.Forms.Label();
             this.TxtNationality = new System.Windows.Forms.TextBox();
-            this.LblDirectReports = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TxtNotesHistory = new System.Windows.Forms.TextBox();
             this.LblNotesHistory = new System.Windows.Forms.Label();
-            this.LblLastModified = new System.Windows.Forms.Label();
+            this.LblChangeHistory = new System.Windows.Forms.Label();
             this.LblCreationDate = new System.Windows.Forms.Label();
             this.TxtLastModified = new System.Windows.Forms.TextBox();
             this.TxtCreationDate = new System.Windows.Forms.TextBox();
@@ -140,6 +131,7 @@
             this.CmdSave = new System.Windows.Forms.Button();
             this.CmdCancel = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
+            this.TxtBirthdate = new System.Windows.Forms.TextBox();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -272,14 +264,11 @@
             this.tabPage1.Controls.Add(this.CmbWorkPensum);
             this.tabPage1.Controls.Add(this.TxtFirstname);
             this.tabPage1.Controls.Add(this.CmbCurrentApprentYear);
-            this.tabPage1.Controls.Add(this.LblSecondname);
             this.tabPage1.Controls.Add(this.CmbApprentYears);
             this.tabPage1.Controls.Add(this.LblTitle);
-            this.tabPage1.Controls.Add(this.CmbDirectReports);
             this.tabPage1.Controls.Add(this.LblZipcode);
             this.tabPage1.Controls.Add(this.CmbDepartment);
             this.tabPage1.Controls.Add(this.LblBusinessFax);
-            this.tabPage1.Controls.Add(this.CmbCivilStatus);
             this.tabPage1.Controls.Add(this.LblStreet);
             this.tabPage1.Controls.Add(this.CmbMgmtLevel);
             this.tabPage1.Controls.Add(this.LblRole);
@@ -307,10 +296,8 @@
             this.tabPage1.Controls.Add(this.TxtStartDate);
             this.tabPage1.Controls.Add(this.TxtTitle);
             this.tabPage1.Controls.Add(this.LblAHVNumber);
-            this.tabPage1.Controls.Add(this.TxtSecondname);
             this.tabPage1.Controls.Add(this.TxtLastname);
             this.tabPage1.Controls.Add(this.LblWorkPensum);
-            this.tabPage1.Controls.Add(this.TxtBirthdate);
             this.tabPage1.Controls.Add(this.LblBirthplace);
             this.tabPage1.Controls.Add(this.TxtGender);
             this.tabPage1.Controls.Add(this.TxtAHVNumber);
@@ -324,15 +311,13 @@
             this.tabPage1.Controls.Add(this.LblNationality);
             this.tabPage1.Controls.Add(this.TxtCustomerType);
             this.tabPage1.Controls.Add(this.TxtApprentYears);
-            this.tabPage1.Controls.Add(this.TxtDirectReports);
             this.tabPage1.Controls.Add(this.TxtStreet);
             this.tabPage1.Controls.Add(this.TxtCompanyName);
             this.tabPage1.Controls.Add(this.TxtCity);
-            this.tabPage1.Controls.Add(this.TxtCivilStatus);
-            this.tabPage1.Controls.Add(this.LblDenomination);
+            this.tabPage1.Controls.Add(this.LblEmplNr);
             this.tabPage1.Controls.Add(this.LblCustomerType);
             this.tabPage1.Controls.Add(this.TxtEmail);
-            this.tabPage1.Controls.Add(this.TxtDenomination);
+            this.tabPage1.Controls.Add(this.TxtEmplNr);
             this.tabPage1.Controls.Add(this.LblLeaveDate);
             this.tabPage1.Controls.Add(this.TxtPrivatePhone);
             this.tabPage1.Controls.Add(this.LblApprentYears);
@@ -342,9 +327,8 @@
             this.tabPage1.Controls.Add(this.TxtBirthplace);
             this.tabPage1.Controls.Add(this.LblPrivatePhone);
             this.tabPage1.Controls.Add(this.LblCurrentApprentYear);
-            this.tabPage1.Controls.Add(this.LblCivilStatus);
             this.tabPage1.Controls.Add(this.TxtNationality);
-            this.tabPage1.Controls.Add(this.LblDirectReports);
+            this.tabPage1.Controls.Add(this.TxtBirthdate);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
@@ -368,7 +352,7 @@
             // DtpLeaveDate
             // 
             this.DtpLeaveDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpLeaveDate.Location = new System.Drawing.Point(492, 472);
+            this.DtpLeaveDate.Location = new System.Drawing.Point(168, 359);
             this.DtpLeaveDate.Name = "DtpLeaveDate";
             this.DtpLeaveDate.Size = new System.Drawing.Size(138, 20);
             this.DtpLeaveDate.TabIndex = 184;
@@ -389,7 +373,7 @@
             // DtpStartDate
             // 
             this.DtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpStartDate.Location = new System.Drawing.Point(326, 472);
+            this.DtpStartDate.Location = new System.Drawing.Point(15, 359);
             this.DtpStartDate.Name = "DtpStartDate";
             this.DtpStartDate.Size = new System.Drawing.Size(138, 20);
             this.DtpStartDate.TabIndex = 183;
@@ -410,7 +394,7 @@
             // DtpBirthdate
             // 
             this.DtpBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpBirthdate.Location = new System.Drawing.Point(16, 215);
+            this.DtpBirthdate.Location = new System.Drawing.Point(16, 154);
             this.DtpBirthdate.Name = "DtpBirthdate";
             this.DtpBirthdate.Size = new System.Drawing.Size(138, 20);
             this.DtpBirthdate.TabIndex = 182;
@@ -445,7 +429,7 @@
             "20%",
             "10%",
             ""});
-            this.CmbWorkPensum.Location = new System.Drawing.Point(326, 421);
+            this.CmbWorkPensum.Location = new System.Drawing.Point(509, 306);
             this.CmbWorkPensum.Name = "CmbWorkPensum";
             this.CmbWorkPensum.Size = new System.Drawing.Size(138, 21);
             this.CmbWorkPensum.TabIndex = 181;
@@ -469,21 +453,11 @@
             "3",
             "4",
             ""});
-            this.CmbCurrentApprentYear.Location = new System.Drawing.Point(168, 523);
+            this.CmbCurrentApprentYear.Location = new System.Drawing.Point(511, 363);
             this.CmbCurrentApprentYear.Name = "CmbCurrentApprentYear";
             this.CmbCurrentApprentYear.Size = new System.Drawing.Size(138, 21);
             this.CmbCurrentApprentYear.TabIndex = 180;
             this.CmbCurrentApprentYear.Visible = false;
-            // 
-            // LblSecondname
-            // 
-            this.LblSecondname.AllowDrop = true;
-            this.LblSecondname.AutoSize = true;
-            this.LblSecondname.Location = new System.Drawing.Point(166, 89);
-            this.LblSecondname.Name = "LblSecondname";
-            this.LblSecondname.Size = new System.Drawing.Size(70, 13);
-            this.LblSecondname.TabIndex = 111;
-            this.LblSecondname.Text = "Secondname";
             // 
             // CmbApprentYears
             // 
@@ -494,7 +468,7 @@
             "3",
             "4",
             ""});
-            this.CmbApprentYears.Location = new System.Drawing.Point(16, 523);
+            this.CmbApprentYears.Location = new System.Drawing.Point(343, 362);
             this.CmbApprentYears.Name = "CmbApprentYears";
             this.CmbApprentYears.Size = new System.Drawing.Size(138, 21);
             this.CmbApprentYears.TabIndex = 179;
@@ -510,36 +484,10 @@
             this.LblTitle.TabIndex = 117;
             this.LblTitle.Text = "Title";
             // 
-            // CmbDirectReports
-            // 
-            this.CmbDirectReports.FormattingEnabled = true;
-            this.CmbDirectReports.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            ""});
-            this.CmbDirectReports.Location = new System.Drawing.Point(168, 471);
-            this.CmbDirectReports.Name = "CmbDirectReports";
-            this.CmbDirectReports.Size = new System.Drawing.Size(138, 21);
-            this.CmbDirectReports.TabIndex = 178;
-            this.CmbDirectReports.Visible = false;
-            // 
             // LblZipcode
             // 
             this.LblZipcode.AutoSize = true;
-            this.LblZipcode.Location = new System.Drawing.Point(340, 245);
+            this.LblZipcode.Location = new System.Drawing.Point(340, 186);
             this.LblZipcode.Name = "LblZipcode";
             this.LblZipcode.Size = new System.Drawing.Size(46, 13);
             this.LblZipcode.TabIndex = 131;
@@ -558,7 +506,7 @@
             "IT",
             "Administration",
             ""});
-            this.CmbDepartment.Location = new System.Drawing.Point(16, 420);
+            this.CmbDepartment.Location = new System.Drawing.Point(15, 304);
             this.CmbDepartment.Name = "CmbDepartment";
             this.CmbDepartment.Size = new System.Drawing.Size(138, 21);
             this.CmbDepartment.TabIndex = 177;
@@ -573,25 +521,10 @@
             this.LblBusinessFax.TabIndex = 123;
             this.LblBusinessFax.Text = "Business Fax";
             // 
-            // CmbCivilStatus
-            // 
-            this.CmbCivilStatus.FormattingEnabled = true;
-            this.CmbCivilStatus.Items.AddRange(new object[] {
-            "single",
-            "married",
-            "divorced",
-            "widowed",
-            ""});
-            this.CmbCivilStatus.Location = new System.Drawing.Point(168, 317);
-            this.CmbCivilStatus.Name = "CmbCivilStatus";
-            this.CmbCivilStatus.Size = new System.Drawing.Size(138, 21);
-            this.CmbCivilStatus.TabIndex = 176;
-            this.CmbCivilStatus.Visible = false;
-            // 
             // LblStreet
             // 
             this.LblStreet.AutoSize = true;
-            this.LblStreet.Location = new System.Drawing.Point(340, 199);
+            this.LblStreet.Location = new System.Drawing.Point(12, 187);
             this.LblStreet.Name = "LblStreet";
             this.LblStreet.Size = new System.Drawing.Size(35, 13);
             this.LblStreet.TabIndex = 129;
@@ -607,7 +540,7 @@
             "4",
             "5",
             ""});
-            this.CmbMgmtLevel.Location = new System.Drawing.Point(16, 470);
+            this.CmbMgmtLevel.Location = new System.Drawing.Point(343, 305);
             this.CmbMgmtLevel.Name = "CmbMgmtLevel";
             this.CmbMgmtLevel.Size = new System.Drawing.Size(138, 21);
             this.CmbMgmtLevel.TabIndex = 175;
@@ -616,7 +549,7 @@
             // LblRole
             // 
             this.LblRole.AutoSize = true;
-            this.LblRole.Location = new System.Drawing.Point(166, 405);
+            this.LblRole.Location = new System.Drawing.Point(165, 288);
             this.LblRole.Name = "LblRole";
             this.LblRole.Size = new System.Drawing.Size(33, 13);
             this.LblRole.TabIndex = 151;
@@ -641,11 +574,11 @@
             // LblStartDate
             // 
             this.LblStartDate.AutoSize = true;
-            this.LblStartDate.Location = new System.Drawing.Point(324, 455);
+            this.LblStartDate.Location = new System.Drawing.Point(13, 341);
             this.LblStartDate.Name = "LblStartDate";
-            this.LblStartDate.Size = new System.Drawing.Size(55, 13);
+            this.LblStartDate.Size = new System.Drawing.Size(57, 13);
             this.LblStartDate.TabIndex = 145;
-            this.LblStartDate.Text = "Start Date";
+            this.LblStartDate.Text = "Entry Date";
             // 
             // CmbGender
             // 
@@ -654,7 +587,7 @@
             "Male",
             "Female",
             ""});
-            this.CmbGender.Location = new System.Drawing.Point(16, 260);
+            this.CmbGender.Location = new System.Drawing.Point(169, 154);
             this.CmbGender.Name = "CmbGender";
             this.CmbGender.Size = new System.Drawing.Size(138, 21);
             this.CmbGender.TabIndex = 173;
@@ -686,7 +619,7 @@
             // LblCity
             // 
             this.LblCity.AutoSize = true;
-            this.LblCity.Location = new System.Drawing.Point(506, 199);
+            this.LblCity.Location = new System.Drawing.Point(166, 187);
             this.LblCity.Name = "LblCity";
             this.LblCity.Size = new System.Drawing.Size(24, 13);
             this.LblCity.TabIndex = 133;
@@ -725,7 +658,7 @@
             // 
             this.LblBusinessPhone.AutoSize = true;
             this.LblBusinessPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblBusinessPhone.Location = new System.Drawing.Point(340, 47);
+            this.LblBusinessPhone.Location = new System.Drawing.Point(341, 47);
             this.LblBusinessPhone.Name = "LblBusinessPhone";
             this.LblBusinessPhone.Size = new System.Drawing.Size(83, 13);
             this.LblBusinessPhone.TabIndex = 121;
@@ -745,7 +678,7 @@
             // 
             this.LblGender.AutoSize = true;
             this.LblGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblGender.Location = new System.Drawing.Point(12, 245);
+            this.LblGender.Location = new System.Drawing.Point(166, 135);
             this.LblGender.Name = "LblGender";
             this.LblGender.Size = new System.Drawing.Size(42, 13);
             this.LblGender.TabIndex = 119;
@@ -764,7 +697,7 @@
             // TxtWorkPensum
             // 
             this.TxtWorkPensum.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtWorkPensum.Location = new System.Drawing.Point(326, 421);
+            this.TxtWorkPensum.Location = new System.Drawing.Point(509, 306);
             this.TxtWorkPensum.Margin = new System.Windows.Forms.Padding(2);
             this.TxtWorkPensum.Name = "TxtWorkPensum";
             this.TxtWorkPensum.Size = new System.Drawing.Size(138, 20);
@@ -774,7 +707,7 @@
             // 
             this.LblLastname.AutoSize = true;
             this.LblLastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLastname.Location = new System.Drawing.Point(12, 135);
+            this.LblLastname.Location = new System.Drawing.Point(166, 89);
             this.LblLastname.Name = "LblLastname";
             this.LblLastname.Size = new System.Drawing.Size(57, 13);
             this.LblLastname.TabIndex = 113;
@@ -783,7 +716,7 @@
             // LblMgmtLevel
             // 
             this.LblMgmtLevel.AutoSize = true;
-            this.LblMgmtLevel.Location = new System.Drawing.Point(12, 455);
+            this.LblMgmtLevel.Location = new System.Drawing.Point(341, 288);
             this.LblMgmtLevel.Name = "LblMgmtLevel";
             this.LblMgmtLevel.Size = new System.Drawing.Size(62, 13);
             this.LblMgmtLevel.TabIndex = 157;
@@ -793,7 +726,7 @@
             // 
             this.LblBirthdate.AutoSize = true;
             this.LblBirthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblBirthdate.Location = new System.Drawing.Point(12, 199);
+            this.LblBirthdate.Location = new System.Drawing.Point(12, 135);
             this.LblBirthdate.Name = "LblBirthdate";
             this.LblBirthdate.Size = new System.Drawing.Size(49, 13);
             this.LblBirthdate.TabIndex = 115;
@@ -802,7 +735,7 @@
             // TxtMgmtLevel
             // 
             this.TxtMgmtLevel.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtMgmtLevel.Location = new System.Drawing.Point(16, 470);
+            this.TxtMgmtLevel.Location = new System.Drawing.Point(344, 306);
             this.TxtMgmtLevel.Margin = new System.Windows.Forms.Padding(2);
             this.TxtMgmtLevel.Name = "TxtMgmtLevel";
             this.TxtMgmtLevel.Size = new System.Drawing.Size(138, 20);
@@ -811,7 +744,7 @@
             // TxtCurrentApprentYear
             // 
             this.TxtCurrentApprentYear.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCurrentApprentYear.Location = new System.Drawing.Point(168, 524);
+            this.TxtCurrentApprentYear.Location = new System.Drawing.Point(509, 363);
             this.TxtCurrentApprentYear.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCurrentApprentYear.Name = "TxtCurrentApprentYear";
             this.TxtCurrentApprentYear.Size = new System.Drawing.Size(138, 20);
@@ -820,7 +753,7 @@
             // TxtRole
             // 
             this.TxtRole.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtRole.Location = new System.Drawing.Point(168, 420);
+            this.TxtRole.Location = new System.Drawing.Point(168, 305);
             this.TxtRole.Margin = new System.Windows.Forms.Padding(2);
             this.TxtRole.Name = "TxtRole";
             this.TxtRole.Size = new System.Drawing.Size(138, 20);
@@ -838,7 +771,7 @@
             // TxtStartDate
             // 
             this.TxtStartDate.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtStartDate.Location = new System.Drawing.Point(326, 472);
+            this.TxtStartDate.Location = new System.Drawing.Point(15, 359);
             this.TxtStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.TxtStartDate.Name = "TxtStartDate";
             this.TxtStartDate.Size = new System.Drawing.Size(138, 20);
@@ -857,26 +790,16 @@
             // LblAHVNumber
             // 
             this.LblAHVNumber.AutoSize = true;
-            this.LblAHVNumber.Location = new System.Drawing.Point(12, 302);
+            this.LblAHVNumber.Location = new System.Drawing.Point(166, 239);
             this.LblAHVNumber.Name = "LblAHVNumber";
             this.LblAHVNumber.Size = new System.Drawing.Size(69, 13);
             this.LblAHVNumber.TabIndex = 143;
             this.LblAHVNumber.Text = "AHV Number";
             // 
-            // TxtSecondname
-            // 
-            this.TxtSecondname.AllowDrop = true;
-            this.TxtSecondname.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtSecondname.Location = new System.Drawing.Point(168, 104);
-            this.TxtSecondname.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtSecondname.Name = "TxtSecondname";
-            this.TxtSecondname.Size = new System.Drawing.Size(138, 20);
-            this.TxtSecondname.TabIndex = 110;
-            // 
             // TxtLastname
             // 
             this.TxtLastname.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtLastname.Location = new System.Drawing.Point(16, 150);
+            this.TxtLastname.Location = new System.Drawing.Point(168, 104);
             this.TxtLastname.Margin = new System.Windows.Forms.Padding(2);
             this.TxtLastname.Name = "TxtLastname";
             this.TxtLastname.Size = new System.Drawing.Size(138, 20);
@@ -885,25 +808,16 @@
             // LblWorkPensum
             // 
             this.LblWorkPensum.AutoSize = true;
-            this.LblWorkPensum.Location = new System.Drawing.Point(324, 406);
+            this.LblWorkPensum.Location = new System.Drawing.Point(507, 288);
             this.LblWorkPensum.Name = "LblWorkPensum";
             this.LblWorkPensum.Size = new System.Drawing.Size(74, 13);
             this.LblWorkPensum.TabIndex = 161;
             this.LblWorkPensum.Text = "Work Pensum";
             // 
-            // TxtBirthdate
-            // 
-            this.TxtBirthdate.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtBirthdate.Location = new System.Drawing.Point(16, 215);
-            this.TxtBirthdate.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtBirthdate.Name = "TxtBirthdate";
-            this.TxtBirthdate.Size = new System.Drawing.Size(138, 20);
-            this.TxtBirthdate.TabIndex = 114;
-            // 
             // LblBirthplace
             // 
             this.LblBirthplace.AutoSize = true;
-            this.LblBirthplace.Location = new System.Drawing.Point(166, 199);
+            this.LblBirthplace.Location = new System.Drawing.Point(508, 239);
             this.LblBirthplace.Name = "LblBirthplace";
             this.LblBirthplace.Size = new System.Drawing.Size(54, 13);
             this.LblBirthplace.TabIndex = 153;
@@ -912,7 +826,7 @@
             // TxtGender
             // 
             this.TxtGender.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtGender.Location = new System.Drawing.Point(16, 260);
+            this.TxtGender.Location = new System.Drawing.Point(169, 155);
             this.TxtGender.Margin = new System.Windows.Forms.Padding(2);
             this.TxtGender.Name = "TxtGender";
             this.TxtGender.Size = new System.Drawing.Size(138, 20);
@@ -921,7 +835,7 @@
             // TxtAHVNumber
             // 
             this.TxtAHVNumber.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtAHVNumber.Location = new System.Drawing.Point(16, 317);
+            this.TxtAHVNumber.Location = new System.Drawing.Point(169, 254);
             this.TxtAHVNumber.Margin = new System.Windows.Forms.Padding(2);
             this.TxtAHVNumber.Name = "TxtAHVNumber";
             this.TxtAHVNumber.Size = new System.Drawing.Size(138, 20);
@@ -939,7 +853,7 @@
             // TxtZipcode
             // 
             this.TxtZipcode.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtZipcode.Location = new System.Drawing.Point(344, 261);
+            this.TxtZipcode.Location = new System.Drawing.Point(344, 202);
             this.TxtZipcode.Margin = new System.Windows.Forms.Padding(2);
             this.TxtZipcode.Name = "TxtZipcode";
             this.TxtZipcode.Size = new System.Drawing.Size(138, 20);
@@ -948,7 +862,7 @@
             // TxtLeaveDate
             // 
             this.TxtLeaveDate.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtLeaveDate.Location = new System.Drawing.Point(492, 472);
+            this.TxtLeaveDate.Location = new System.Drawing.Point(168, 359);
             this.TxtLeaveDate.Margin = new System.Windows.Forms.Padding(2);
             this.TxtLeaveDate.Name = "TxtLeaveDate";
             this.TxtLeaveDate.Size = new System.Drawing.Size(138, 20);
@@ -957,7 +871,7 @@
             // LblDepartment
             // 
             this.LblDepartment.AutoSize = true;
-            this.LblDepartment.Location = new System.Drawing.Point(12, 406);
+            this.LblDepartment.Location = new System.Drawing.Point(12, 288);
             this.LblDepartment.Name = "LblDepartment";
             this.LblDepartment.Size = new System.Drawing.Size(66, 13);
             this.LblDepartment.TabIndex = 141;
@@ -993,7 +907,7 @@
             // LblNationality
             // 
             this.LblNationality.AutoSize = true;
-            this.LblNationality.Location = new System.Drawing.Point(166, 245);
+            this.LblNationality.Location = new System.Drawing.Point(341, 239);
             this.LblNationality.Name = "LblNationality";
             this.LblNationality.Size = new System.Drawing.Size(56, 13);
             this.LblNationality.TabIndex = 155;
@@ -1011,25 +925,16 @@
             // TxtApprentYears
             // 
             this.TxtApprentYears.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtApprentYears.Location = new System.Drawing.Point(16, 524);
+            this.TxtApprentYears.Location = new System.Drawing.Point(343, 362);
             this.TxtApprentYears.Margin = new System.Windows.Forms.Padding(2);
             this.TxtApprentYears.Name = "TxtApprentYears";
             this.TxtApprentYears.Size = new System.Drawing.Size(138, 20);
             this.TxtApprentYears.TabIndex = 166;
             // 
-            // TxtDirectReports
-            // 
-            this.TxtDirectReports.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtDirectReports.Location = new System.Drawing.Point(168, 472);
-            this.TxtDirectReports.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtDirectReports.Name = "TxtDirectReports";
-            this.TxtDirectReports.Size = new System.Drawing.Size(138, 20);
-            this.TxtDirectReports.TabIndex = 158;
-            // 
             // TxtStreet
             // 
             this.TxtStreet.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtStreet.Location = new System.Drawing.Point(344, 215);
+            this.TxtStreet.Location = new System.Drawing.Point(15, 202);
             this.TxtStreet.Margin = new System.Windows.Forms.Padding(2);
             this.TxtStreet.Name = "TxtStreet";
             this.TxtStreet.Size = new System.Drawing.Size(138, 20);
@@ -1047,29 +952,20 @@
             // TxtCity
             // 
             this.TxtCity.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCity.Location = new System.Drawing.Point(510, 215);
+            this.TxtCity.Location = new System.Drawing.Point(168, 202);
             this.TxtCity.Margin = new System.Windows.Forms.Padding(2);
             this.TxtCity.Name = "TxtCity";
             this.TxtCity.Size = new System.Drawing.Size(138, 20);
             this.TxtCity.TabIndex = 132;
             // 
-            // TxtCivilStatus
+            // LblEmplNr
             // 
-            this.TxtCivilStatus.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCivilStatus.Location = new System.Drawing.Point(168, 317);
-            this.TxtCivilStatus.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtCivilStatus.Name = "TxtCivilStatus";
-            this.TxtCivilStatus.Size = new System.Drawing.Size(138, 20);
-            this.TxtCivilStatus.TabIndex = 162;
-            // 
-            // LblDenomination
-            // 
-            this.LblDenomination.AutoSize = true;
-            this.LblDenomination.Location = new System.Drawing.Point(12, 352);
-            this.LblDenomination.Name = "LblDenomination";
-            this.LblDenomination.Size = new System.Drawing.Size(72, 13);
-            this.LblDenomination.TabIndex = 149;
-            this.LblDenomination.Text = "Denomination";
+            this.LblEmplNr.AutoSize = true;
+            this.LblEmplNr.Location = new System.Drawing.Point(14, 239);
+            this.LblEmplNr.Name = "LblEmplNr";
+            this.LblEmplNr.Size = new System.Drawing.Size(93, 13);
+            this.LblEmplNr.TabIndex = 149;
+            this.LblEmplNr.Text = "Employee Number";
             // 
             // LblCustomerType
             // 
@@ -1089,19 +985,19 @@
             this.TxtEmail.Size = new System.Drawing.Size(304, 20);
             this.TxtEmail.TabIndex = 126;
             // 
-            // TxtDenomination
+            // TxtEmplNr
             // 
-            this.TxtDenomination.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtDenomination.Location = new System.Drawing.Point(16, 367);
-            this.TxtDenomination.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtDenomination.Name = "TxtDenomination";
-            this.TxtDenomination.Size = new System.Drawing.Size(138, 20);
-            this.TxtDenomination.TabIndex = 148;
+            this.TxtEmplNr.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtEmplNr.Location = new System.Drawing.Point(16, 254);
+            this.TxtEmplNr.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtEmplNr.Name = "TxtEmplNr";
+            this.TxtEmplNr.Size = new System.Drawing.Size(138, 20);
+            this.TxtEmplNr.TabIndex = 148;
             // 
             // LblLeaveDate
             // 
             this.LblLeaveDate.AutoSize = true;
-            this.LblLeaveDate.Location = new System.Drawing.Point(490, 455);
+            this.LblLeaveDate.Location = new System.Drawing.Point(166, 341);
             this.LblLeaveDate.Name = "LblLeaveDate";
             this.LblLeaveDate.Size = new System.Drawing.Size(71, 13);
             this.LblLeaveDate.TabIndex = 147;
@@ -1110,7 +1006,7 @@
             // TxtPrivatePhone
             // 
             this.TxtPrivatePhone.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtPrivatePhone.Location = new System.Drawing.Point(510, 104);
+            this.TxtPrivatePhone.Location = new System.Drawing.Point(510, 202);
             this.TxtPrivatePhone.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPrivatePhone.Name = "TxtPrivatePhone";
             this.TxtPrivatePhone.Size = new System.Drawing.Size(138, 20);
@@ -1119,7 +1015,7 @@
             // LblApprentYears
             // 
             this.LblApprentYears.AutoSize = true;
-            this.LblApprentYears.Location = new System.Drawing.Point(12, 509);
+            this.LblApprentYears.Location = new System.Drawing.Point(341, 341);
             this.LblApprentYears.Name = "LblApprentYears";
             this.LblApprentYears.Size = new System.Drawing.Size(123, 13);
             this.LblApprentYears.TabIndex = 167;
@@ -1146,7 +1042,7 @@
             // TxtDepartment
             // 
             this.TxtDepartment.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtDepartment.Location = new System.Drawing.Point(16, 421);
+            this.TxtDepartment.Location = new System.Drawing.Point(15, 305);
             this.TxtDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.TxtDepartment.Name = "TxtDepartment";
             this.TxtDepartment.Size = new System.Drawing.Size(138, 20);
@@ -1155,7 +1051,7 @@
             // TxtBirthplace
             // 
             this.TxtBirthplace.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtBirthplace.Location = new System.Drawing.Point(168, 215);
+            this.TxtBirthplace.Location = new System.Drawing.Point(510, 254);
             this.TxtBirthplace.Margin = new System.Windows.Forms.Padding(2);
             this.TxtBirthplace.Name = "TxtBirthplace";
             this.TxtBirthplace.Size = new System.Drawing.Size(138, 20);
@@ -1164,7 +1060,7 @@
             // LblPrivatePhone
             // 
             this.LblPrivatePhone.AutoSize = true;
-            this.LblPrivatePhone.Location = new System.Drawing.Point(506, 89);
+            this.LblPrivatePhone.Location = new System.Drawing.Point(506, 187);
             this.LblPrivatePhone.Name = "LblPrivatePhone";
             this.LblPrivatePhone.Size = new System.Drawing.Size(74, 13);
             this.LblPrivatePhone.TabIndex = 165;
@@ -1173,44 +1069,26 @@
             // LblCurrentApprentYear
             // 
             this.LblCurrentApprentYear.AutoSize = true;
-            this.LblCurrentApprentYear.Location = new System.Drawing.Point(166, 509);
+            this.LblCurrentApprentYear.Location = new System.Drawing.Point(508, 341);
             this.LblCurrentApprentYear.Name = "LblCurrentApprentYear";
             this.LblCurrentApprentYear.Size = new System.Drawing.Size(151, 13);
             this.LblCurrentApprentYear.TabIndex = 169;
             this.LblCurrentApprentYear.Text = "Current Year of Apprenticeship";
             // 
-            // LblCivilStatus
-            // 
-            this.LblCivilStatus.AutoSize = true;
-            this.LblCivilStatus.Location = new System.Drawing.Point(166, 302);
-            this.LblCivilStatus.Name = "LblCivilStatus";
-            this.LblCivilStatus.Size = new System.Drawing.Size(59, 13);
-            this.LblCivilStatus.TabIndex = 163;
-            this.LblCivilStatus.Text = "Civil Status";
-            // 
             // TxtNationality
             // 
             this.TxtNationality.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtNationality.Location = new System.Drawing.Point(168, 260);
+            this.TxtNationality.Location = new System.Drawing.Point(344, 254);
             this.TxtNationality.Margin = new System.Windows.Forms.Padding(2);
             this.TxtNationality.Name = "TxtNationality";
             this.TxtNationality.Size = new System.Drawing.Size(138, 20);
             this.TxtNationality.TabIndex = 154;
             // 
-            // LblDirectReports
-            // 
-            this.LblDirectReports.AutoSize = true;
-            this.LblDirectReports.Location = new System.Drawing.Point(166, 455);
-            this.LblDirectReports.Name = "LblDirectReports";
-            this.LblDirectReports.Size = new System.Drawing.Size(75, 13);
-            this.LblDirectReports.TabIndex = 159;
-            this.LblDirectReports.Text = "Direct Reports";
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.TxtNotesHistory);
             this.tabPage2.Controls.Add(this.LblNotesHistory);
-            this.tabPage2.Controls.Add(this.LblLastModified);
+            this.tabPage2.Controls.Add(this.LblChangeHistory);
             this.tabPage2.Controls.Add(this.LblCreationDate);
             this.tabPage2.Controls.Add(this.TxtLastModified);
             this.tabPage2.Controls.Add(this.TxtCreationDate);
@@ -1242,15 +1120,15 @@
             this.LblNotesHistory.TabIndex = 5;
             this.LblNotesHistory.Text = "Notes History:";
             // 
-            // LblLastModified
+            // LblChangeHistory
             // 
-            this.LblLastModified.AutoSize = true;
-            this.LblLastModified.Location = new System.Drawing.Point(3, 88);
-            this.LblLastModified.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LblLastModified.Name = "LblLastModified";
-            this.LblLastModified.Size = new System.Drawing.Size(72, 13);
-            this.LblLastModified.TabIndex = 4;
-            this.LblLastModified.Text = "Last modified:";
+            this.LblChangeHistory.AutoSize = true;
+            this.LblChangeHistory.Location = new System.Drawing.Point(3, 88);
+            this.LblChangeHistory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LblChangeHistory.Name = "LblChangeHistory";
+            this.LblChangeHistory.Size = new System.Drawing.Size(72, 13);
+            this.LblChangeHistory.TabIndex = 4;
+            this.LblChangeHistory.Text = "Last modified:";
             // 
             // LblCreationDate
             // 
@@ -1406,6 +1284,15 @@
             this.LblName.TabIndex = 15;
             this.LblName.Text = "User  Dashboard";
             // 
+            // TxtBirthdate
+            // 
+            this.TxtBirthdate.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtBirthdate.Location = new System.Drawing.Point(15, 155);
+            this.TxtBirthdate.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtBirthdate.Name = "TxtBirthdate";
+            this.TxtBirthdate.Size = new System.Drawing.Size(138, 20);
+            this.TxtBirthdate.TabIndex = 186;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1460,20 +1347,16 @@
         private System.Windows.Forms.ComboBox CmbWorkPensum;
         private System.Windows.Forms.TextBox TxtFirstname;
         private System.Windows.Forms.ComboBox CmbCurrentApprentYear;
-        private System.Windows.Forms.Label LblSecondname;
         private System.Windows.Forms.ComboBox CmbApprentYears;
         private System.Windows.Forms.Label LblTitle;
-        private System.Windows.Forms.ComboBox CmbDirectReports;
         private System.Windows.Forms.Label LblZipcode;
         private System.Windows.Forms.ComboBox CmbDepartment;
         private System.Windows.Forms.Label LblBusinessFax;
-        private System.Windows.Forms.ComboBox CmbCivilStatus;
         private System.Windows.Forms.Label LblStreet;
         private System.Windows.Forms.ComboBox CmbMgmtLevel;
         private System.Windows.Forms.Label LblRole;
         private System.Windows.Forms.ComboBox CmbCustomerType;
         private System.Windows.Forms.Label LblStartDate;
-        private System.Windows.Forms.ComboBox CmbGender;
         private System.Windows.Forms.Label LblEmail;
         private System.Windows.Forms.ComboBox CmbSalutation;
         private System.Windows.Forms.Label LblCity;
@@ -1482,7 +1365,6 @@
         private System.Windows.Forms.Button CmdTakeNotes;
         private System.Windows.Forms.Label LblBusinessPhone;
         private System.Windows.Forms.Label LblSalutation;
-        private System.Windows.Forms.Label LblGender;
         private System.Windows.Forms.Label LblFirstname;
         private System.Windows.Forms.TextBox TxtWorkPensum;
         private System.Windows.Forms.Label LblLastname;
@@ -1495,10 +1377,8 @@
         private System.Windows.Forms.TextBox TxtStartDate;
         private System.Windows.Forms.TextBox TxtTitle;
         private System.Windows.Forms.Label LblAHVNumber;
-        private System.Windows.Forms.TextBox TxtSecondname;
         private System.Windows.Forms.TextBox TxtLastname;
         private System.Windows.Forms.Label LblWorkPensum;
-        private System.Windows.Forms.TextBox TxtBirthdate;
         private System.Windows.Forms.Label LblBirthplace;
         private System.Windows.Forms.TextBox TxtGender;
         private System.Windows.Forms.TextBox TxtAHVNumber;
@@ -1512,15 +1392,13 @@
         private System.Windows.Forms.Label LblNationality;
         private System.Windows.Forms.TextBox TxtCustomerType;
         private System.Windows.Forms.TextBox TxtApprentYears;
-        private System.Windows.Forms.TextBox TxtDirectReports;
         private System.Windows.Forms.TextBox TxtStreet;
         private System.Windows.Forms.TextBox TxtCompanyName;
         private System.Windows.Forms.TextBox TxtCity;
-        private System.Windows.Forms.TextBox TxtCivilStatus;
-        private System.Windows.Forms.Label LblDenomination;
+        private System.Windows.Forms.Label LblEmplNr;
         private System.Windows.Forms.Label LblCustomerType;
         private System.Windows.Forms.TextBox TxtEmail;
-        private System.Windows.Forms.TextBox TxtDenomination;
+        private System.Windows.Forms.TextBox TxtEmplNr;
         private System.Windows.Forms.Label LblLeaveDate;
         private System.Windows.Forms.TextBox TxtPrivatePhone;
         private System.Windows.Forms.Label LblApprentYears;
@@ -1530,14 +1408,12 @@
         private System.Windows.Forms.TextBox TxtBirthplace;
         private System.Windows.Forms.Label LblPrivatePhone;
         private System.Windows.Forms.Label LblCurrentApprentYear;
-        private System.Windows.Forms.Label LblCivilStatus;
         private System.Windows.Forms.TextBox TxtNationality;
         private System.Windows.Forms.Label LblNotesHistory;
-        private System.Windows.Forms.Label LblLastModified;
+        private System.Windows.Forms.Label LblChangeHistory;
         private System.Windows.Forms.Label LblCreationDate;
         private System.Windows.Forms.TextBox TxtLastModified;
         private System.Windows.Forms.TextBox TxtCreationDate;
-        private System.Windows.Forms.Label LblDirectReports;
         private System.Windows.Forms.TextBox TxtNotesHistory;
         private System.Windows.Forms.CheckBox ChkStatus;
         private System.Windows.Forms.Button CmdSave;
@@ -1552,6 +1428,9 @@
         private System.Windows.Forms.Label LblTotCount;
         private System.Windows.Forms.Label LblTraiCount;
         private System.Windows.Forms.Label LblEmpCount;
+        private System.Windows.Forms.ComboBox CmbGender;
+        private System.Windows.Forms.Label LblGender;
+        private System.Windows.Forms.TextBox TxtBirthdate;
     }
 }
 
