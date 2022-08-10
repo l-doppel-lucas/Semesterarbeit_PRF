@@ -18,7 +18,11 @@ namespace semesterarbeit
 
     class Employee : Person
     {
+        public int EmplNr { get; set; }
         public string Departement { get; set; }
+        public string Ahv { get; set;}
+        public string Birthplace{ get; set; }
+        public string Privatephone { get; set; }
         public DateTime Entrydate { get; set; }
         public DateTime Exitdate { get; set; }
         public string Employmentlvl { get; set; }
@@ -27,22 +31,14 @@ namespace semesterarbeit
 
 
         /******** Constructor ********/
-
-        public Employee(bool status, int id, string title, string salutation, string firstname, string lastname, DateTime birthdate, string gender, string ahv,
-            string nationality, string privatephone, string mobilephone, string businessphone, string businessfax, string mail, string changehistory, 
-            string departement, DateTime entrydate, DateTime exitdate, string employmentlvl, string role, MgmLvl lvl) : 
-
-            base(status, id, title, salutation, firstname, lastname, birthdate, gender, 
-                 ahv, nationality, privatephone, mobilephone, businessphone, businessfax, mail, changehistory)
-            
+        public Employee(int id, string salutation, string firstname, string lastname, string mail, Boolean status,
+            DateTime creationDate, string lastmodified, string department, string role) :
+            base(id, salutation, firstname, lastname, mail, status, creationDate, lastmodified)
         {
-            Departement = departement;
-            Entrydate = entrydate;
-            Exitdate = exitdate;
-            Employmentlvl = employmentlvl;
+            Departement = department;
             Role = role;
-            Lvl = lvl;
         }
+
 
 
         /******** Methods ********/

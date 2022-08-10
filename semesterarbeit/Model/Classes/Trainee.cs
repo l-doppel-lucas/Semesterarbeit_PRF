@@ -9,21 +9,17 @@ namespace semesterarbeit
     class Trainee : Employee
     {
 
-        public int Appyears { get; set; }
-        public int Currappyear { get; set; }
+        public string Appyears { get; set; }
+        public string Currappyear { get; set; }
 
 
         /******** Constructor ********/
 
-        public Trainee(bool status, int id, string title, string salutation, string firstname, string lastname, DateTime birthdate, string gender, string ahv,
-            string nationality, string privatephone, string mobilephone, string businessphone, string businessfax, string mail, string changehistory, string departement, DateTime entrydate, 
-            DateTime exitdate, string employmentlvl, string role, MgmLvl lvl, int appyears, int currappyear) : 
-            base(status, id, title, salutation, firstname, lastname, birthdate, gender, ahv, 
-                nationality, privatephone, mobilephone, businessphone, businessfax, mail, changehistory,
-                departement, entrydate, exitdate, role, employmentlvl, lvl)
+        public Trainee(int id, string salutation, string firstname, string lastname, string email, Boolean status,
+             DateTime creationDate, string lastmodified, string department, string role, string appyears) :
+             base(id, salutation, firstname, lastname, email, status, creationDate, lastmodified, department, role)
         {
             Appyears = appyears;
-            Currappyear = currappyear;
         }
 
 
