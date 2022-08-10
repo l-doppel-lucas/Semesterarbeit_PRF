@@ -121,17 +121,23 @@ namespace semesterarbeit
 
                 Employee empl1 = new Employee
                     (
-                        true,
                         id,
-                        TxtTitle.Text,
                         Convert.ToString(CmbSalutation.SelectedItem),
                         TxtFirstname.Text,
                         TxtLastname.Text,
+                        TxtEmail.Text,
+                        true, //User enabled
                         DateTime.Now, //Creation date
-                        Convert.ToString(CmbDepartment.SelectedItem),
                         Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        Convert.ToString(CmbDepartment.SelectedItem),
                         TxtRole.Text
                     );
+
+                //Add Employee to contact list (database)
+                Db.AddPerson(empl1);
+
+                //Deselect the affected radio button
+                RadEmployee.Checked = false;
             }
             else if (RadTrainee.Checked)
             {
@@ -152,10 +158,152 @@ namespace semesterarbeit
             CmdCancel.Visible = false;
         }
 
+        /*---------------------------------------------------------------------
+         * Functions
+         * -------------------------------------------------------------------*/
+
+        //Set all mandatory attributes for employees
+        public void SetAttributesEmp_mandatory(Person p)
+        {
+            //Cast person into employee
+            Employee emp = (Employee)p;
+
+            //Call method to set mandatory attributes
+            emp.SetMandatoryAttributes(
+                sal: Convert.ToString(CmbSalutation.SelectedItem),
+                fn: TxtFirstname.Text,
+                ln: TxtLastname.Text,
+                email: TxtEmail.Text,
+                department: Convert.ToString(CmbDepartment.SelectedItem),
+                role: TxtRole.Text
+                );
+        }
+
+        //Set all optional attributes for employees
+        public void SetAttributesEmp_optional(Person p)
+        {
+            //Cast person into employee
+            Employee emp = (Employee)p;
+
+            //Call method to set optional attributes
+            emp.SetOptionalAttributes(
+                    sn: TxtSecondname.Text,
+                    g: Convert.ToString(CmbGender.SelectedItem),
+                    t: TxtTitle.Text,
+                    bp: TxtBusinessPhone.Text,
+                    bf: TxtBusinessFax.Text,
+                    mn: TxtMobileNumber.Text,
+                    s: TxtStreet.Text,
+                    zc: TxtZipcode.Text,
+                    c: TxtCity.Text,
+                    bdate: Convert.ToString(DtpBirthdate.Value.ToShortDateString()),
+                    ahv: TxtAHVNumber.Text,
+                    d: TxtDenomination.Text,
+                    bipl: TxtBirthplace.Text,
+                    nat: TxtNationality.Text,
+                    mgmtl: Convert.ToString(CmbMgmtLevel.SelectedItem),
+                    dr: Convert.ToString(CmbDirectReports.SelectedItem),
+                    wp: Convert.ToString(CmbWorkPensum.SelectedItem),
+                    cs: Convert.ToString(CmbCivilStatus.SelectedItem),
+                    pf: TxtPrivatePhone.Text,
+                    startdate: Convert.ToString(DtpStartDate.Value.ToShortDateString()),
+                    leavedate: Convert.ToString(DtpLeaveDate.Value.ToShortDateString())
+                    );
+        }
+
+        //Set all mandatory attributes for Customers
+        public void SetAttributesCust_mandatory(Person p)
+        {
+            //Cast person into customer
+            Customer cust = (Customer)p;
+
+            //Call method to set mandatory attributes
+            cust.SetMandatoryAttributes(
+                sal: Convert.ToString(CmbSalutation.SelectedItem),
+                fn: TxtFirstname.Text,
+                ln: TxtLastname.Text,
+                email: TxtEmail.Text,
+                compn: TxtCompanyName.Text,
+                cutype: Convert.ToString(CmbCustomerType.SelectedItem)
+                );
+        }
+
+        //Set all optional attributes for customers
+        public void SetAttributesCust_optional(Person p)
+        {
+            //Cast person into customer
+            Customer cust = (Customer)p;
+
+            //Call method to set optional attributes
+            cust.SetOptionalAttributes(
+                    sn: TxtSecondname.Text,
+                    g: Convert.ToString(CmbGender.SelectedItem),
+                    t: TxtTitle.Text,
+                    bp: TxtBusinessPhone.Text,
+                    bf: TxtBusinessFax.Text,
+                    mn: TxtMobileNumber.Text,
+                    s: TxtStreet.Text,
+                    zc: TxtZipcode.Text,
+                    c: TxtCity.Text,
+                    bdate: Convert.ToString(DtpBirthdate.Value.ToShortDateString()),
+                    cp: TxtContacPerson.Text
+                    );
+        }
+
+        //Function to set all mandatory attributes for apprentices
+        public void SetAttributesAppr_mandatory(Person p)
+        {
+            //Cast person into Trainee
+            Trainee appr = (Trainee)p;
+
+            //Call method to set mandatory attributes
+            appr.SetMandatoryAttributes(
+                sal: Convert.ToString(CmbSalutation.SelectedItem),
+                fn: TxtFirstname.Text,
+                ln: TxtLastname.Text,
+                email: TxtEmail.Text,
+                department: Convert.ToString(CmbDepartment.SelectedItem),
+                role: TxtRole.Text,
+                appryear: Convert.ToString(CmbApprentYears.SelectedItem)
+                );
+        }
+
+        //Function to set all optional attributes for apprentices
+        public void SetAttributesAppr_optional(Person p)
+        {
+            //Cast variable p from type "Person" into type "Apprentice" in new variable "appr"
+            Apprentice appr = (Apprentice)p;
+
+            //Call method to set optional attributes
+            appr.SetOptionalAttributes(
+                    sn: TxtSecondname.Text,
+                    g: Convert.ToString(CmbGender.SelectedItem),
+                    t: TxtTitle.Text,
+                    bp: TxtBusinessPhone.Text,
+                    bf: TxtBusinessFax.Text,
+                    mn: TxtMobileNumber.Text,
+                    s: TxtStreet.Text,
+                    zc: TxtZipcode.Text,
+                    c: TxtCity.Text,
+                    bdate: Convert.ToString(DtpBirthdate.Value.ToShortDateString()),
+                    ahv: TxtAHVNumber.Text,
+                    d: TxtDenomination.Text,
+                    bipl: TxtBirthplace.Text,
+                    nat: TxtNationality.Text,
+                    mgmtl: Convert.ToString(CmbMgmtLevel.SelectedItem),
+                    dr: Convert.ToString(CmbDirectReports.SelectedItem),
+                    wp: Convert.ToString(CmbWorkPensum.SelectedItem),
+                    cs: Convert.ToString(CmbCivilStatus.SelectedItem),
+                    pf: TxtPrivatePhone.Text,
+                    startdate: Convert.ToString(DtpStartDate.Value.ToShortDateString()),
+                    leavedate: Convert.ToString(DtpLeaveDate.Value.ToShortDateString()),
+                    capry: Convert.ToString(CmbCurrentApprentYear.SelectedItem)
+                    );
+        }
 
         /*---------------------------------------------------------------------
-        Radio Buttons
-        -----------------------------------------------------------------------*/
+         * Radio Butoons
+         * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
         {
             //Make all Employee textboxes visible & enabled
@@ -494,22 +642,6 @@ namespace semesterarbeit
             HideAllEmp();
             HideAllCmbEmp();
         }
-
-        /*
-        //Make the button Reset Search Results and lable visible
-        private void ShowResetSearchResults()
-        {
-            CmdResetSearchResults.Visible = true;
-            LblResetSearchResults.Visible = true;
-        }
-
-        //Hide the button Reset Search Results and lable
-        private void HideResetSearchResults()
-        {
-            CmdResetSearchResults.Visible = false;
-            LblResetSearchResults.Visible = false;
-        }
-        */
 
 
         //Make all Person combo boxes visible 
