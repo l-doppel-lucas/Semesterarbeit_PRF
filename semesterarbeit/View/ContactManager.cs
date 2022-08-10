@@ -15,6 +15,9 @@ namespace semesterarbeit
         //Create variable for id
         private int id;
 
+        //Create Contact List for Listbox
+        public Data Db = new Database();
+
         public Dashboard()
         {
             InitializeComponent();
@@ -69,12 +72,29 @@ namespace semesterarbeit
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
+            if(RadEmployee.Checked)
+            {
+                //Increase the value of the variable id
+                id++;
+
+            }
+            else if (RadTrainee.Checked)
+            {
+
+            }
+            else if (RadCustomer.Checked)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Please select contact type!");
+            }
+
             //Change buttons
             CmdAddUser.Visible = true;
             CmdSave.Visible = false;
             CmdCancel.Visible = false;
-
-
         }
 
 
