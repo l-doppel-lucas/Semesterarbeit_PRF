@@ -323,7 +323,7 @@ namespace semesterarbeit
 
         //Set all optional attributes for employees
         /*
-        public void SetAttributesEmp_optional(Person p)
+        public void SetOptionalAttributes(Person p)
         {
             //Cast person into employee
             Employee emp = (Employee)p;
