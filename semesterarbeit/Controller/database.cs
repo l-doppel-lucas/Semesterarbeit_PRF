@@ -40,7 +40,7 @@ namespace semesterarbeit.Controller
             return contactList.Count;
         }
 
-        public Int32 ReturnLastID()
+        public int ReturnLastID()
         {
             int id = 1;
             try
