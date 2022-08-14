@@ -61,7 +61,7 @@ namespace semesterarbeit
         }
 
         public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string chahist = "", string ahv = "",
-            string pph = "", string birthpl = "", DateTime exdate = 31.12., string empllvl = "")
+            string pph = "", string birthpl = "", DateTime exdate = 31.12.)
         {
             base.SetOptionalAttributes(title, mph, bph, bfa, chahist);
 
@@ -69,7 +69,6 @@ namespace semesterarbeit
             Privatephone = pph;
             Birthplace = birthpl;
             Exitdate = exdate;
-            Employmentlvl = empllvl;
         }
 
 
