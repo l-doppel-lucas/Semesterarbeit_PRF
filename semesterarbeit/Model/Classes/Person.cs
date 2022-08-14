@@ -73,7 +73,8 @@ namespace semesterarbeit
         }
 
         //Method to set all mandatory attributes
-        public void SetMandatoryAttributes(int id, string sal, string fn, string ln, DateTime birthdate, string gender, string mail, DateTime crdate, string street, string city, int zip)
+        public void SetMandatoryAttributes(int id, string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
+            DateTime crdate, string street, string city, int zip)
         {
             Id = id;
             Salutation = sal;
