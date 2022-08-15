@@ -648,6 +648,9 @@ namespace semesterarbeit
             HideAllCmbTrnee();
             HideAllCmbCust();
             HideAllCmbEmp();
+
+            //Disable all boxes
+            DisableALl();
         }
         
         //Enables all Person Textboxes
@@ -666,6 +669,12 @@ namespace semesterarbeit
             TxtCity.ReadOnly = false;
             TxtStreet.ReadOnly = false;
             TxtZipcode.ReadOnly = false;
+
+            CmbSalutation.Enabled = true;
+
+            RadCustomer.Enabled = true;
+            RadEmployee.Enabled = true;
+            RadTrainee.Enabled = true;
         }
 
         //Enables all Employee Textboxes
@@ -682,6 +691,11 @@ namespace semesterarbeit
             TxtMgmtLevel.ReadOnly = false;
             TxtWorkPensum.ReadOnly = false;
             TxtPrivatePhone.ReadOnly = false;
+
+            CmbDepartment.Enabled = true;
+            CmbGender.Enabled = true;
+            CmbMgmtLevel.Enabled = true;
+            CmbWorkPensum.Enabled = true;
         }
 
         //Enables all Customer Textboxes
@@ -690,6 +704,8 @@ namespace semesterarbeit
             TxtCompanyName.ReadOnly = false;
             TxtCustomerType.ReadOnly = false;
             TxtContacPerson.ReadOnly = false;
+
+            CmbCustomerType.Enabled = true;
         }
 
         //Enables all Trainee Textboxes
@@ -697,6 +713,9 @@ namespace semesterarbeit
         {
             TxtApprentYears.ReadOnly = false;
             TxtCurrentApprentYear.ReadOnly = false;
+
+            CmbApprentYears.Enabled = true;
+            CmbCurrentApprentYear.Enabled = true;
         }
 
         //Enable all textboxes
@@ -724,6 +743,10 @@ namespace semesterarbeit
             CmbMgmtLevel.Enabled = false;
             CmbSalutation.Enabled = false;
             CmbWorkPensum.Enabled = false;
+
+            RadCustomer.Enabled = false;
+            RadEmployee.Enabled = false;
+            RadTrainee.Enabled = false;
         }
 
         //Disables all Employee Textboxes
