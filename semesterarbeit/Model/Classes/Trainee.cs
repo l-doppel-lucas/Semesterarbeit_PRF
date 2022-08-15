@@ -18,10 +18,10 @@ namespace semesterarbeit
         Constructor
         -----------------------------------------------------------------------*/
 
-        public Trainee(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
+        public Trainee(int id, string sal, string fn, string ln, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
              string street, string city, int zip, string changehistory, int emplnum, string departement, string pens, DateTime entrdate, string role, string appyears) :
-            base(id, salutation, firstname, lastname, birthdate, crdate, gender, mail, status,
-             street, city, zip, changehistory, emplnum, departement, pens, entrdate, role)
+                base(id, sal, fn, ln, birthdate, crdate, gender, mail, status, street, 
+                city, zip, changehistory, emplnum, departement, pens, entrdate, role)
         {
             Appyears = appyears;
         }
@@ -39,10 +39,10 @@ namespace semesterarbeit
             Appyears = appyears;
         }
 
-        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string ahv = "",
+        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string ahv = "", string nat = "",
             string pph = "", string birthpl = "", DateTime exdate = new DateTime(), MgmLvl lvl = 0, string currappyear = "")
         {
-            base.SetOptionalAttributes(title, mph, bph, bfa, ahv, pph, birthpl, exdate, lvl);
+            base.SetOptionalAttributes(title, mph, bph, bfa, ahv, nat, pph, birthpl, exdate, lvl);
 
                 Currappyear = currappyear;
         }
