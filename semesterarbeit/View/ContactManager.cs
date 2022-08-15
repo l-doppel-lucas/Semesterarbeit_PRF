@@ -333,6 +333,7 @@ namespace semesterarbeit
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
                 zip: Convert.ToInt32(TxtZipcode.Text),
+                changehistory: emp.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
                 emplnum: Convert.ToInt32(TxtEmplNr.Text),
                 departement: Convert.ToString(CmbDepartment.SelectedItem),
                 role: TxtRole.Text,
@@ -358,7 +359,7 @@ namespace semesterarbeit
                     pph: TxtPrivatePhone.Text,
                     birthpl: TxtBirthplace.Text,
                     exdate: DtpLeaveDate.Value,
-                    mgmtl: Convert.ToInt32(CmbMgmtLevel.SelectedItem)
+                    lvl: (MgmLvl) CmbMgmtLevel.SelectedItem
                     );
         }
         
