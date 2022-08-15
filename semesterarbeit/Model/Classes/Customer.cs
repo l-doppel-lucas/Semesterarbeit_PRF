@@ -27,10 +27,10 @@ namespace semesterarbeit
         /*---------------------------------------------------------------------
              Constructor
         -----------------------------------------------------------------------*/
-        public Customer(int id, string salutation, string firstname, string lastname, DateTime birthdate, string gender, string mail, Boolean status,
+        public Customer(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
              string street, string city, int zip, string changehistory, string companyname, CustType type, string companycontact)
             
-            :base(id, salutation, firstname, lastname, birthdate, gender, mail, status,
+            :base(id, salutation, firstname, lastname, birthdate, crdate, gender, mail, status,
              street, city, zip, changehistory)
         {
             Companyname = companyname;
@@ -44,9 +44,9 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
 
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
-            DateTime crdate, string street, string city, int zip, string compname, CustType type)
+            string street, string city, int zip, string compname, CustType type)
         {
-            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, crdate, street, city, zip);
+            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip);
 
             Companyname = compname;
             Type = type;
