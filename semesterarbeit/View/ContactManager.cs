@@ -342,15 +342,15 @@ namespace semesterarbeit
             //Call method to set optional attributes
             emp.SetOptionalAttributes(
                     title: TxtTitle.Text,
-                    bp: TxtBusinessPhone.Text,
-                    bf: TxtBusinessFax.Text,
-                    mn: TxtMobileNumber.Text,
+                    mph: TxtMobileNumber.Text,
+                    bph: TxtBusinessPhone.Text,
+                    bfa: TxtBusinessFax.Text,
                     ahv: TxtAHVNumber.Text,
-                    bipl: TxtBirthplace.Text,
                     nat: TxtNationality.Text,
-                    mgmtl: Convert.ToString(CmbMgmtLevel.SelectedItem),
-                    pf: TxtPrivatePhone.Text,
-                    leavedate: Convert.ToString(DtpLeaveDate.Value.ToShortDateString())
+                    pph: TxtPrivatePhone.Text,
+                    birthpl: TxtBirthplace.Text,
+                    exdate: DtpLeaveDate.Value,
+                    mgmtl: Convert.ToInt32(CmbMgmtLevel.SelectedItem)
                     );
         }
         
