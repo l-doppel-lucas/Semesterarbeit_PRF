@@ -63,6 +63,9 @@ namespace semesterarbeit
             //Hide comboboxes and date pickers
             HideAllCmbPers();
 
+            //disable all fields
+            DisableALl();
+
             //Cast the selected object into  Type "Person"
             Person selectedPerson = (Person)LsbOutput.SelectedItem;
 
@@ -290,7 +293,7 @@ namespace semesterarbeit
                         Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
                         Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
                         Convert.ToString(CmbDepartment.SelectedItem),
-                        CmbWorkPensum.SelectedText,
+                        Convert.ToString(CmbWorkPensum.SelectedItem),
                         DtpStartDate.Value, //EntryDate
                         TxtRole.Text,
                         CmbApprentYears.SelectedText
@@ -352,6 +355,9 @@ namespace semesterarbeit
             CmdEditUser.Enabled = true;
             CmdExport.Enabled = true;
             CmdSearch.Enabled = true;
+
+            //disable all fields
+            DisableALl();
 
             //Update Dashboard Numbers
             SetDashboardNumbers();
