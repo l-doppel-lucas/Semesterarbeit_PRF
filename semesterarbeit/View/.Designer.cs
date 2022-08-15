@@ -449,6 +449,7 @@
             // 
             // CmbCurrentApprentYear
             // 
+            this.CmbCurrentApprentYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCurrentApprentYear.FormattingEnabled = true;
             this.CmbCurrentApprentYear.Items.AddRange(new object[] {
             "1",
@@ -464,6 +465,7 @@
             // 
             // CmbApprentYears
             // 
+            this.CmbApprentYears.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbApprentYears.FormattingEnabled = true;
             this.CmbApprentYears.Items.AddRange(new object[] {
             "1",
@@ -562,6 +564,7 @@
             // 
             // CmbCustomerType
             // 
+            this.CmbCustomerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCustomerType.FormattingEnabled = true;
             this.CmbCustomerType.Items.AddRange(new object[] {
             "A",
@@ -587,6 +590,7 @@
             // 
             // CmbGender
             // 
+            this.CmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGender.FormattingEnabled = true;
             this.CmbGender.Items.AddRange(new object[] {
             "Male",
@@ -609,6 +613,7 @@
             // 
             // CmbSalutation
             // 
+            this.CmbSalutation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbSalutation.FormattingEnabled = true;
             this.CmbSalutation.Items.AddRange(new object[] {
             "Mr",

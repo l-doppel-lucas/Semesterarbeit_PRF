@@ -110,13 +110,13 @@ namespace semesterarbeit
                     //Write the properties of the object of type "Employee" into the specific textboxes
                     TxtDepartment.Text = selectedEmployee.Departement;
                     TxtAHVNumber.Text = selectedEmployee.Ahv;
-                    TxtStartDate.Text = Convert.ToString(selectedEmployee.Entrydate);
-                    TxtLeaveDate.Text = Convert.ToString(selectedEmployee.Exitdate);
+                    TxtStartDate.Text = selectedEmployee.Entrydate.ToShortDateString();
+                    TxtLeaveDate.Text = selectedEmployee.Exitdate.ToShortDateString();
                     TxtEmplNr.Text = Convert.ToString(selectedEmployee.EmplNr);
                     TxtBirthplace.Text = selectedEmployee.Birthplace;
                     TxtNationality.Text = selectedEmployee.Nationality;
                     TxtRole.Text = selectedEmployee.Role;
-                    TxtMgmtLevel.Text = Convert.ToString(selectedEmployee.Lvl);
+                    TxtMgmtLevel.Text = selectedEmployee.Lvl.ToString();
                     TxtWorkPensum.Text = selectedEmployee.Workpensum;
                     TxtPrivatePhone.Text = selectedEmployee.Privatephone;
                     break;
