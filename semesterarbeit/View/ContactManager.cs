@@ -37,14 +37,11 @@ namespace semesterarbeit
             //Get the last ID
             id = Db.ReturnLastID();
 
-            //Disable all text boxes
-            DisableAllTxtboxes();
+            //Disable all
+            DisableALl();
 
             //Show dashboard data
-            LblTotalCount.Text = Convert.ToString(Db.GetNumberOfPers());
-            LblCustCount.Text = Convert.ToString(Db.GetNumberofCust());
-            LblEmpCount.Text = Convert.ToString(Db.GetNumberofEmpl());
-            LblAppCount.Text = Convert.ToString(Db.GetNumberofAppr());
+            SetDashboardNumbers();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -205,6 +202,7 @@ namespace semesterarbeit
 
             //Uncheck radio buttons
             UncheckAllRad();
+            
 
             //Enables all "Person" related fields
             EnableAllPers();
@@ -354,6 +352,9 @@ namespace semesterarbeit
             CmdEditUser.Enabled = true;
             CmdExport.Enabled = true;
             CmdSearch.Enabled = true;
+
+            //Update Dashboard Numbers
+            SetDashboardNumbers();
         }
 
         private void CmdCancel_Click(object sender, EventArgs e)
@@ -541,6 +542,14 @@ namespace semesterarbeit
                     );
         }
 
+        private void SetDashboardNumbers()
+        {
+            LblTotalCount.Text = Convert.ToString(Db.GetNumberOfPers());
+            LblCustCount.Text = Convert.ToString(Db.GetNumberofCust());
+            LblEmpCount.Text = Convert.ToString(Db.GetNumberofEmpl());
+            LblAppCount.Text = Convert.ToString(Db.GetNumberofAppr());
+        }
+
 
         
         /*---------------------------------------------------------------------
@@ -699,6 +708,24 @@ namespace semesterarbeit
             EnableAllPers();
         }
 
+        //Disable all
+        private void DisableALl()
+        {
+            DisableAllAppr();
+            DisableAllCust();
+            DisableAllEmp();
+            DisableAllPers();
+
+            CmbApprentYears.Enabled = false;
+            CmbCurrentApprentYear.Enabled = false;
+            CmbCustomerType.Enabled = false;
+            CmbDepartment.Enabled = false;
+            CmbGender.Enabled = false;
+            CmbMgmtLevel.Enabled = false;
+            CmbSalutation.Enabled = false;
+            CmbWorkPensum.Enabled = false;
+        }
+
         //Disables all Employee Textboxes
         private void DisableAllPers()
         {
@@ -715,6 +742,8 @@ namespace semesterarbeit
             TxtCity.ReadOnly = true;
             TxtStreet.ReadOnly = true;
             TxtZipcode.ReadOnly = true;
+
+            
         }
 
         //Disable all Employee Textboxes
@@ -919,6 +948,7 @@ namespace semesterarbeit
             HideAllTrnee();
             HideAllCmbTrnee();
             HideAllCust();
+            HideAllCmbCust();
             HideAllEmp();
             HideAllCmbEmp();
         }
