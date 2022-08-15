@@ -231,6 +231,9 @@ namespace semesterarbeit
                 //Add Employee to contact list (database)
                 Db.AddPerson(empl1);
 
+                //Set optional fields
+                
+
                 //Deselect the affected radio button
                 RadEmployee.Checked = false;
             }
@@ -331,7 +334,6 @@ namespace semesterarbeit
         }
 
         //Set all optional attributes for employees
-        /*
         public void SetOptionalAttributes(Person p)
         {
             //Cast person into employee
@@ -339,7 +341,7 @@ namespace semesterarbeit
 
             //Call method to set optional attributes
             emp.SetOptionalAttributes(
-                    t: TxtTitle.Text,
+                    title: TxtTitle.Text,
                     bp: TxtBusinessPhone.Text,
                     bf: TxtBusinessFax.Text,
                     mn: TxtMobileNumber.Text,
@@ -351,7 +353,7 @@ namespace semesterarbeit
                     leavedate: Convert.ToString(DtpLeaveDate.Value.ToShortDateString())
                     );
         }
-        */
+        
         //Set all mandatory attributes for Customers
         public void SetAttributesCust_mandatory(Person p)
         {
@@ -879,6 +881,9 @@ namespace semesterarbeit
             CmbCurrentApprentYear.Visible = false;
         }
 
+        private void CmbMgmtLevel_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }
