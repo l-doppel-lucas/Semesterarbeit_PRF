@@ -32,16 +32,21 @@ namespace semesterarbeit
         Constructor
         -----------------------------------------------------------------------*/
 
-        public Person(int id, string salutation, string firstname, string lastname, string mail, Boolean status,
-            DateTime creationDate, string changehistory)
+        public Person(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
+             string street, string city, int zip, string changehistory)
         {
             Id = id;
             Salutation = salutation;
             Firstname = firstname;
             Lastname = lastname;
+            Birthdate = birthdate;
+            Gender = gender;
             Mail = mail;
             Status = status;
-            CreationDate = creationDate;
+            CreationDate = crdate;
+            Street = street;
+            City = city;
+            Zipcode = zip;
             ChangeHistory = changehistory;
         }
 
@@ -63,23 +68,27 @@ namespace semesterarbeit
         }
 
 
-        public void SetOptionalAttributes(string title = "", string mph = "",  string bph = "", string bfa = "")
+        public void SetOptionalAttributes(string title = "", string mph = "",  string bph = "", string bfa = "", string chahist = "")
         {
             Title = title;
             Mobilephone = mph;
             Businessphone = bph;
             Businessfax = bfa;
+            ChangeHistory = chahist;
         }
 
         //Method to set all mandatory attributes
-        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, string street, string city, int zip)
+        public void SetMandatoryAttributes(int id, string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
+            DateTime crdate, string street, string city, int zip)
         {
+            Id = id;
             Salutation = sal;
             Firstname = fn;
             Lastname = ln;
             Birthdate = birthdate;
             Gender = gender;
             Mail = mail;
+            CreationDate = crdate;
             Street = street;
             City = city;
             Zipcode = zip;

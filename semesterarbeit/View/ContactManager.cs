@@ -49,7 +49,7 @@ namespace semesterarbeit
                 LsbOutput.SetSelected(0, true);
             }
 
-            //Cast the selected object into  tyoe "Person"
+            //Cast the selected object into  Type "Person"
             Person selectedPerson = (Person)LsbOutput.SelectedItem;
 
             //
@@ -122,7 +122,8 @@ namespace semesterarbeit
                     TxtApprentYears.Text = Convert.ToString(selectedApprentice.Appyears);
                     TxtCurrentApprentYear.Text = Convert.ToString(selectedApprentice.Currappyear);
                     break;
-                case "Customer":
+
+                    case "Customer":
                     //make all relevant textboxes and lables visible
                     ShowAllCust();
 
@@ -323,7 +324,7 @@ namespace semesterarbeit
 
         //Set all optional attributes for employees
         /*
-        public void SetAttributesEmp_optional(Person p)
+        public void SetOptionalAttributes(Person p)
         {
             //Cast person into employee
             Employee emp = (Employee)p;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,11 +35,15 @@ namespace semesterarbeit
         /*---------------------------------------------------------------------
         Constructor
         -----------------------------------------------------------------------*/
-        public Employee(int id, string salutation, string firstname, string lastname, string mail, Boolean status,
-            DateTime creationDate, string lastmodified, string department, string role) :
-            base(id, salutation, firstname, lastname, mail, status, creationDate, lastmodified)
+        public Employee(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
+             string street, string city, int zip, string changehistory, int emplnum, string departement, string pens, DateTime entrdate, string role) :
+            base(id, salutation, firstname, lastname, birthdate, crdate, gender, mail, status,
+             street, city, zip, changehistory)
         {
-            Departement = department;
+            EmplNr = emplnum;
+            Departement = departement;
+            Workpensum = pens;
+            Entrydate = entrdate;
             Role = role;
         }
 
@@ -48,15 +53,27 @@ namespace semesterarbeit
         Methods
         -----------------------------------------------------------------------*/
 
-        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, string street, string city, int zip, int emplnum, string departement, string role, string pens, DateTime entrdate)
+        public void SetMandatoryAttributes(int id, string sal, string fn, string ln, DateTime birthdate, string gender, string mail, DateTime crdate, 
+            string street, string city, int zip, int emplnum, string departement, string role, string pens, DateTime entrdate)
         {
-            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip);
+            base.SetMandatoryAttributes(id, sal, fn, ln, birthdate, gender, mail, crdate, street, city, zip);
 
             EmplNr = emplnum;
             Departement = departement;
-            Role = role;
             Workpensum = pens;
             Entrydate = entrdate;
+            Role = role;
+        }
+
+        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string chahist = "", string ahv = "",
+            string pph = "", string birthpl = "", DateTime exdate = new DateTime())
+        {
+            base.SetOptionalAttributes(title, mph, bph, bfa, chahist);
+
+            Ahv = ahv;
+            Privatephone = pph;
+            Birthplace = birthpl;
+            Exitdate = exdate;
         }
 
 
