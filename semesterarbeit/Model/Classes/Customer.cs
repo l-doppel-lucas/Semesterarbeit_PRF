@@ -43,10 +43,10 @@ namespace semesterarbeit
              Methods
         -----------------------------------------------------------------------*/
 
-        public void SetMandatoryAttributes(int id, string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
+        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
             DateTime crdate, string street, string city, int zip, string compname, CustType type)
         {
-            base.SetMandatoryAttributes(id, sal, fn, ln, birthdate, gender, mail, crdate, street, city, zip);
+            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, crdate, street, city, zip);
 
             Companyname = compname;
             Type = type;

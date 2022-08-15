@@ -212,13 +212,21 @@ namespace semesterarbeit
                         Convert.ToString(CmbSalutation.SelectedItem),
                         TxtFirstname.Text,
                         TxtLastname.Text,
+                        DtpBirthdate.Value, //Birthdate
+                        DateTime.Now, //Creation date
+                        Convert.ToString(CmbGender.SelectedItem),
                         TxtEmail.Text,
                         true, //User enabled
-                        DateTime.Now, //Creation date
+                        TxtStreet.Text,
+                        TxtCity.Text,
+                        Convert.ToInt32(TxtZipcode.Text),
                         Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
                         Convert.ToString(CmbDepartment.SelectedItem),
+                        TxtWorkPensum.Text,
+                        DtpStartDate.Value, //EntryDate
                         TxtRole.Text
-                    );
+                    ) ;
 
                 //Add Employee to contact list (database)
                 Db.AddPerson(empl1);
