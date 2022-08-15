@@ -35,9 +35,9 @@ namespace semesterarbeit
         /*---------------------------------------------------------------------
         Constructor
         -----------------------------------------------------------------------*/
-        public Employee(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
+        public Employee(int id, string sal, string fn, string ln, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
              string street, string city, int zip, string changehistory, int emplnum, string departement, string pens, DateTime entrdate, string role) :
-            base(id, salutation, firstname, lastname, birthdate, crdate, gender, mail, status,
+            base(id, sal, fn, ln, birthdate, crdate, gender, mail, status,
              street, city, zip, changehistory)
         {
             EmplNr = emplnum;
