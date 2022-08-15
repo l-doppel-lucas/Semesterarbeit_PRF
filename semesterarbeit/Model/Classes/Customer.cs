@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace semesterarbeit
 {
-    enum CustType
+    public enum CustType
     {
         A,
         B,

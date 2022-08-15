@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace semesterarbeit
 {
-    enum MgmLvl
+    public enum MgmLvl
     {
         Level0,
         Level1,
