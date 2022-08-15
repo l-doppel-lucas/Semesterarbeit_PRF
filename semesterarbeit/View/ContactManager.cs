@@ -29,6 +29,9 @@ namespace semesterarbeit
             //Get the last ID
             id = Db.ReturnLastID();
 
+            //set dropdown items
+            CmbMgmtLevel.DataSource = ;
+
             //Disable all text boxes
             DisableAllTxtboxes();
         }
