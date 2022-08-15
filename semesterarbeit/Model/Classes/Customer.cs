@@ -27,11 +27,11 @@ namespace semesterarbeit
         /*---------------------------------------------------------------------
              Constructor
         -----------------------------------------------------------------------*/
-        public Customer(int id, string salutation, string firstname, string lastname, string mail, Boolean status,
-            DateTime creationDate, string changehistory, string companyname, CustType type, string companycontact)
+        public Customer(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
+             string street, string city, int zip, string changehistory, string companyname, CustType type, string companycontact)
             
-            :base( id,  salutation,  firstname, lastname, mail, status,
-            creationDate, changehistory)
+            :base(id, salutation, firstname, lastname, birthdate, crdate, gender, mail, status,
+             street, city, zip, changehistory)
         {
             Companyname = companyname;
             Type = type;

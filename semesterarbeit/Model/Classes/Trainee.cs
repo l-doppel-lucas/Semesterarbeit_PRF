@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace semesterarbeit
 {
@@ -17,9 +18,10 @@ namespace semesterarbeit
         Constructor
         -----------------------------------------------------------------------*/
 
-        public Trainee(int id, string salutation, string firstname, string lastname, string email, Boolean status,
-             DateTime creationDate, string lastmodified, string department, string role, string appyears) :
-             base(id, salutation, firstname, lastname, email, status, creationDate, lastmodified, department, role)
+        public Trainee(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
+             string street, string city, int zip, string changehistory, int emplnum, string departement, string pens, DateTime entrdate, string role, string appyears) :
+            base(id, salutation, firstname, lastname, birthdate, crdate, gender, mail, status,
+             street, city, zip, changehistory, emplnum, departement, pens, entrdate, role)
         {
             Appyears = appyears;
         }

@@ -32,16 +32,21 @@ namespace semesterarbeit
         Constructor
         -----------------------------------------------------------------------*/
 
-        public Person(int id, string salutation, string firstname, string lastname, string mail, Boolean status,
-            DateTime creationDate, string changehistory)
+        public Person(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
+             string street, string city, int zip, string changehistory)
         {
             Id = id;
             Salutation = salutation;
             Firstname = firstname;
             Lastname = lastname;
+            Birthdate = birthdate;
+            Gender = gender;
             Mail = mail;
             Status = status;
-            CreationDate = creationDate;
+            CreationDate = crdate;
+            Street = street;
+            City = city;
+            Zipcode = zip;
             ChangeHistory = changehistory;
         }
 
