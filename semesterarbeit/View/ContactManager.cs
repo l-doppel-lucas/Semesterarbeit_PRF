@@ -23,6 +23,14 @@ namespace semesterarbeit
         {
             InitializeComponent();
 
+            //Setting the Values in Combobox to the Enum Values
+            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+            CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
+
+            //Setting the Values in Combobox to the Enum Values
+            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+            CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
+
             //Show contact list in database
             LsbOutput.DataSource = Db.contactList;
 
