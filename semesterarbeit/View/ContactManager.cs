@@ -190,7 +190,7 @@ namespace semesterarbeit
             ChkStatus.Enabled = false;
             CmdTakeNotes.Enabled = false;
             LsbOutput.Enabled = false;
-            CmdAddUser.Enabled = false;
+            //CmdAddUser.Enabled = false;
             CmdDeleteUser.Enabled = false;
             CmdEditUser.Enabled = false;
             CmdExport.Enabled = false;
