@@ -32,9 +32,9 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
 
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
-            DateTime crdate, string street, string city, int zip, int emplnum, string departement, string role, string pens, DateTime entrdate, string appyears)
+            string street, string city, int zip, int emplnum, string departement, string role, string pens, DateTime entrdate, string appyears)
         {
-            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, crdate, street, city, zip, emplnum, departement, role, pens, entrdate);
+            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, emplnum, departement, role, pens, entrdate);
 
             Appyears = appyears;
         }
