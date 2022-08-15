@@ -30,7 +30,7 @@
         {
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.LblTraiCount = new System.Windows.Forms.Label();
+            this.LblAppCount = new System.Windows.Forms.Label();
             this.LblEmpCount = new System.Windows.Forms.Label();
             this.LblCustCount = new System.Windows.Forms.Label();
             this.LblTotalCount = new System.Windows.Forms.Label();
@@ -154,7 +154,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.LblTraiCount);
+            this.tabPage3.Controls.Add(this.LblAppCount);
             this.tabPage3.Controls.Add(this.LblEmpCount);
             this.tabPage3.Controls.Add(this.LblCustCount);
             this.tabPage3.Controls.Add(this.LblTotalCount);
@@ -170,16 +170,16 @@
             this.tabPage3.Text = "User Dashboard";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // LblTraiCount
+            // LblAppCount
             // 
-            this.LblTraiCount.AutoSize = true;
-            this.LblTraiCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.LblTraiCount.Location = new System.Drawing.Point(790, 291);
-            this.LblTraiCount.Name = "LblTraiCount";
-            this.LblTraiCount.Size = new System.Drawing.Size(28, 24);
-            this.LblTraiCount.TabIndex = 7;
-            this.LblTraiCount.Text = "...";
-            this.LblTraiCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LblAppCount.AutoSize = true;
+            this.LblAppCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblAppCount.Location = new System.Drawing.Point(790, 291);
+            this.LblAppCount.Name = "LblAppCount";
+            this.LblAppCount.Size = new System.Drawing.Size(28, 24);
+            this.LblAppCount.TabIndex = 7;
+            this.LblAppCount.Text = "...";
+            this.LblAppCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // LblEmpCount
             // 
@@ -391,7 +391,7 @@
             this.RadTrainee.TabIndex = 1;
             this.RadTrainee.Text = "Trainee";
             this.RadTrainee.UseVisualStyleBackColor = true;
-            this.RadTrainee.CheckedChanged += new System.EventHandler(this.RadApprentice_CheckedChanged);
+            this.RadTrainee.CheckedChanged += new System.EventHandler(this.RadTrainee_CheckedChanged);
             // 
             // DtpBirthdate
             // 
@@ -1431,7 +1431,7 @@
         private System.Windows.Forms.Label LblCustCount;
         private System.Windows.Forms.Label LblTotalCount;
         private System.Windows.Forms.Label LblTotCount;
-        private System.Windows.Forms.Label LblTraiCount;
+        private System.Windows.Forms.Label LblAppCount;
         private System.Windows.Forms.Label LblEmpCount;
         private System.Windows.Forms.ComboBox CmbGender;
         private System.Windows.Forms.Label LblGender;

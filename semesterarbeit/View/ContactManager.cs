@@ -41,7 +41,10 @@ namespace semesterarbeit
             DisableAllTxtboxes();
 
             //Show dashboard data
-            
+            LblTotalCount.Text = Convert.ToString(Db.GetNumberOfPers());
+            LblCustCount.Text = Convert.ToString(Db.GetNumberofCust());
+            LblEmpCount.Text = Convert.ToString(Db.GetNumberofEmpl());
+            LblAppCount.Text = Convert.ToString(Db.GetNumberofAppr());
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -84,7 +87,7 @@ namespace semesterarbeit
             TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
 
 
-            // If the object is type of one of the subclasses (Employee, Apprentice or Customer) 
+            // If the object is type of one of the subclasses (Employee, Trainee or Customer) 
             switch (selectedPerson.GetClassName())
             {
                 case "Employee":
@@ -93,7 +96,7 @@ namespace semesterarbeit
 
                     //Hide irrelvant textboxes and lables
                     HideAllCust();
-                    HideAllAppr();
+                    HideAllTrnee();
 
                     //Hide comboboxes and date pickers
                     HideAllCmbEmp();
@@ -117,37 +120,37 @@ namespace semesterarbeit
                     TxtWorkPensum.Text = selectedEmployee.Workpensum;
                     TxtPrivatePhone.Text = selectedEmployee.Privatephone;
                     break;
-                case "Apprentice":
+                case "Trainee":
                     //make all relevant textboxes and lables visible
                     ShowAllEmp();
-                    ShowAllAppr();
+                    ShowAllTrnee();
 
                     //Hide irrelvant textboxes and lables
                     HideAllCust();
 
                     //Hide comboboxes and date pickers
-                    HideAllCmbAppr();
+                    HideAllCmbTrnee();
 
-                    //Cast the selected object of the list into type "Apprentice" and write into the variable "selectedApprentice"
-                    Trainee selectedApprentice = (Trainee)selectedPerson;
+                    //Cast the selected object of the list into type "Trainee" and write into the variable "selectedTrainee"
+                    Trainee selectedTrainee = (Trainee)selectedPerson;
 
                     //Select radio button
                     RadTrainee.Checked = true;
 
-                    //Write the properties of the object of type "Apprentice" into the specific textboxes
-                    TxtDepartment.Text = selectedApprentice.Departement;
-                    TxtAHVNumber.Text = selectedApprentice.Ahv;
-                    TxtStartDate.Text = Convert.ToString(selectedApprentice.Entrydate);
-                    TxtLeaveDate.Text = Convert.ToString(selectedApprentice.Exitdate);
-                    TxtEmplNr.Text = Convert.ToString(selectedApprentice.EmplNr);
-                    TxtBirthplace.Text = selectedApprentice.Birthplace;
-                    TxtNationality.Text = selectedApprentice.Nationality;
-                    TxtRole.Text = selectedApprentice.Role;
-                    TxtMgmtLevel.Text = Convert.ToString(selectedApprentice.Lvl);
-                    TxtWorkPensum.Text = selectedApprentice.Workpensum;
-                    TxtPrivatePhone.Text = selectedApprentice.Privatephone;
-                    TxtApprentYears.Text = Convert.ToString(selectedApprentice.Appyears);
-                    TxtCurrentApprentYear.Text = Convert.ToString(selectedApprentice.Currappyear);
+                    //Write the properties of the object of type "Trainee" into the specific textboxes
+                    TxtDepartment.Text = selectedTrainee.Departement;
+                    TxtAHVNumber.Text = selectedTrainee.Ahv;
+                    TxtStartDate.Text = Convert.ToString(selectedTrainee.Entrydate);
+                    TxtLeaveDate.Text = Convert.ToString(selectedTrainee.Exitdate);
+                    TxtEmplNr.Text = Convert.ToString(selectedTrainee.EmplNr);
+                    TxtBirthplace.Text = selectedTrainee.Birthplace;
+                    TxtNationality.Text = selectedTrainee.Nationality;
+                    TxtRole.Text = selectedTrainee.Role;
+                    TxtMgmtLevel.Text = Convert.ToString(selectedTrainee.Lvl);
+                    TxtWorkPensum.Text = selectedTrainee.Workpensum;
+                    TxtPrivatePhone.Text = selectedTrainee.Privatephone;
+                    TxtApprentYears.Text = Convert.ToString(selectedTrainee.Appyears);
+                    TxtCurrentApprentYear.Text = Convert.ToString(selectedTrainee.Currappyear);
                     break;
 
                     case "Customer":
@@ -156,7 +159,7 @@ namespace semesterarbeit
 
                     //Hide irrelvant textboxes and lables
                     HideAllEmp();
-                    HideAllAppr();
+                    HideAllTrnee();
 
                     //Hide comboboxes and date pickers
                     HideAllCmbCust();
@@ -215,8 +218,8 @@ namespace semesterarbeit
             //Makes all comboboxes visible
             ShowAllCmbPers();
 
-            //Hides all "Apprentice", "Customer" and "Employee" related textboxes and labels
-            HideAllAppr();
+            //Hides all "Trainee", "Customer" and "Employee" related textboxes and labels
+            HideAllTrnee();
             HideAllCust();
             HideAllEmp();
 
@@ -490,8 +493,8 @@ namespace semesterarbeit
                     );
         }
         
-        //Function to set all mandatory attributes for apprentices
-        private void SetAttributesAppr_mandatory(Person p)
+        //Function to set all mandatory attributes for trainees
+        private void SetAttributesTrainee_mandatory(Person p)
         {
             //Cast person into Trainee
             Trainee appr = (Trainee)p;
@@ -517,14 +520,14 @@ namespace semesterarbeit
                 );
         }
 
-        //Function to set all optional attributes for apprentices
+        //Function to set all optional attributes for trainees
         private void SetAttributesAppr_optional(Person p)
         {
-            //Cast variable p from type "Person" into type "Apprentice" in new variable "appr"
-            Trainee appr = (Trainee)p;
+            //Cast variable p from type "Person" into type "Trainee" in new variable "appr"
+            Trainee trnee = (Trainee)p;
 
             //Call method to set optional attributes
-            appr.SetOptionalAttributes(
+            trnee.SetOptionalAttributes(
                     title: TxtTitle.Text,
                     mph: TxtMobileNumber.Text,
                     bph: TxtBusinessPhone.Text,
@@ -551,21 +554,21 @@ namespace semesterarbeit
             ShowAllCmbEmp();
 
             //hides all others
-            HideAllAppr();
+            HideAllTrnee();
             HideAllCust();
             HideAllCmbCust();
-            HideAllCmbAppr();
+            HideAllCmbTrnee();
         }
 
-        private void RadApprentice_CheckedChanged(object sender, EventArgs e)
+        private void RadTrainee_CheckedChanged(object sender, EventArgs e)
         {
             //Make all Trainee textboxes visible & enabled
             ShowAllEmp();
             EnableAllEmp();
-            ShowAllAppr();
-            EnableAllAppr();
+            ShowAllTrnee();
+            EnableAllTrnee();
             ShowAllCmbEmp();
-            ShowAllCmbAppr();
+            ShowAllCmbTrnee();
 
             //hides all others
             HideAllCust();
@@ -579,9 +582,9 @@ namespace semesterarbeit
             ShowAllCmbCust();
 
             //hides all others
-            HideAllAppr();
+            HideAllTrnee();
             HideAllEmp();
-            HideAllCmbAppr();
+            HideAllCmbTrnee();
             HideAllCmbEmp();
         }
 
@@ -629,11 +632,11 @@ namespace semesterarbeit
             //Makes all comboboxes visible
             ShowAllCmbPers();
 
-            //Hides all "Apprentice", "Customer" and "Employee" related textboxes and labels
-            HideAllAppr();
+            //Hides all "Trainee", "Customer" and "Employee" related textboxes and labels
+            HideAllTrnee();
             HideAllCust();
             HideAllEmp();
-            HideAllCmbAppr();
+            HideAllCmbTrnee();
             HideAllCmbCust();
             HideAllCmbEmp();
         }
@@ -680,8 +683,8 @@ namespace semesterarbeit
             TxtContacPerson.ReadOnly = false;
         }
 
-        //Enables all Apprentice Textboxes
-        private void EnableAllAppr()
+        //Enables all Trainee Textboxes
+        private void EnableAllTrnee()
         {
             TxtApprentYears.ReadOnly = false;
             TxtCurrentApprentYear.ReadOnly = false;
@@ -690,7 +693,7 @@ namespace semesterarbeit
         //Enable all textboxes
         private void EnableAllTxtboxes()
         {
-            EnableAllAppr();
+            EnableAllTrnee();
             EnableAllCust();
             EnableAllEmp();
             EnableAllPers();
@@ -797,7 +800,7 @@ namespace semesterarbeit
         }
 
         //Hide all Apprentice textboxes and labels
-        private void HideAllAppr()
+        private void HideAllTrnee()
         {
             TxtApprentYears.Visible = false;
             TxtCurrentApprentYear.Visible = false;
@@ -848,7 +851,7 @@ namespace semesterarbeit
         }
 
         //Make all Apprentice textboxes and labels visible
-        private void ShowAllAppr()
+        private void ShowAllTrnee()
         {
             TxtApprentYears.Visible = true;
             TxtCurrentApprentYear.Visible = true;
@@ -913,8 +916,8 @@ namespace semesterarbeit
             RadCustomer.Checked = false;
             RadEmployee.Checked = false;
 
-            HideAllAppr();
-            HideAllCmbAppr();
+            HideAllTrnee();
+            HideAllCmbTrnee();
             HideAllCust();
             HideAllEmp();
             HideAllCmbEmp();
@@ -999,7 +1002,7 @@ namespace semesterarbeit
             DtpLeaveDate.Visible = false;
         }
         //Make all Person combo boxes visible
-        private void ShowAllCmbAppr()
+        private void ShowAllCmbTrnee()
         {
             CmbApprentYears.Visible = true;
             CmbCurrentApprentYear.Visible = true;
@@ -1010,7 +1013,7 @@ namespace semesterarbeit
         }
 
         //Hide all Apprentice combo boxes 
-        private void HideAllCmbAppr()
+        private void HideAllCmbTrnee()
         {
             CmbApprentYears.Visible = false;
             CmbCurrentApprentYear.Visible = false;
