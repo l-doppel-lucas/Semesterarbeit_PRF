@@ -546,6 +546,7 @@
             this.CmbMgmtLevel.Size = new System.Drawing.Size(138, 21);
             this.CmbMgmtLevel.TabIndex = 175;
             this.CmbMgmtLevel.Visible = false;
+            this.CmbMgmtLevel.SelectedIndexChanged += new System.EventHandler(this.CmbMgmtLevel_SelectedIndexChanged);
             // 
             // LblRole
             // 
@@ -1290,9 +1291,9 @@
             this.LblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblName.Location = new System.Drawing.Point(28, 23);
             this.LblName.Name = "LblName";
-            this.LblName.Size = new System.Drawing.Size(293, 39);
+            this.LblName.Size = new System.Drawing.Size(264, 39);
             this.LblName.TabIndex = 15;
-            this.LblName.Text = "User  Dashboard";
+            this.LblName.Text = "Contact Center";
             // 
             // Dashboard
             // 
