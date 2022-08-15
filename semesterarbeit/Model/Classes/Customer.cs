@@ -44,17 +44,17 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
 
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
-            string street, string city, int zip, string compname, CustType type)
+            string street, string city, int zip, string changehistory, string compname, CustType type)
         {
-            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip);
+            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory);
 
             Companyname = compname;
             Type = type;
         }
 
-        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string chahist = "", string compcont = "")
+        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string compcont = "")
         {
-            base.SetOptionalAttributes(title, mph, bph, bfa, chahist);
+            base.SetOptionalAttributes(title, mph, bph, bfa);
 
             Companycontact = compcont;
 

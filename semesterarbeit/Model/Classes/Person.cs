@@ -68,18 +68,17 @@ namespace semesterarbeit
         }
 
 
-        public void SetOptionalAttributes(string title = "", string mph = "",  string bph = "", string bfa = "", string chahist = "")
+        public void SetOptionalAttributes(string title = "", string mph = "",  string bph = "", string bfa = "")
         {
             Title = title;
             Mobilephone = mph;
             Businessphone = bph;
             Businessfax = bfa;
-            ChangeHistory = chahist;
         }
 
         //Method to set all mandatory attributes
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
-            string street, string city, int zip)
+            string street, string city, int zip, string changehistory)
         {
             Salutation = sal;
             Firstname = fn;
@@ -90,6 +89,7 @@ namespace semesterarbeit
             Street = street;
             City = city;
             Zipcode = zip;
+            ChangeHistory = changehistory;
 
         }
 
