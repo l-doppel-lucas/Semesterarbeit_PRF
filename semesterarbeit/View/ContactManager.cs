@@ -57,10 +57,13 @@ namespace semesterarbeit
                 LsbOutput.SetSelected(0, true);
             }
 
+            //Hide comboboxes and date pickers
+            HideAllCmbPers();
+
             //Cast the selected object into  Type "Person"
             Person selectedPerson = (Person)LsbOutput.SelectedItem;
 
-            //
+            //Write person fields into text boxes
             TxtSalutation.Text = selectedPerson.Salutation;
             TxtFirstname.Text = selectedPerson.Firstname;
             TxtLastname.Text = selectedPerson.Lastname;
@@ -77,6 +80,7 @@ namespace semesterarbeit
             TxtCreationDate.Text = Convert.ToString(selectedPerson.CreationDate);
             TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
 
+
             // If the object is type of one of the subclasses (Employee, Apprentice or Customer) 
             switch (selectedPerson.GetClassName())
             {
@@ -88,8 +92,14 @@ namespace semesterarbeit
                     HideAllCust();
                     HideAllAppr();
 
+                    //Hide comboboxes and date pickers
+                    HideAllCmbEmp();
+
                     //Cast the selected object of the list into type "Employee" and write into the variable "selectedEmployee"
                     Employee selectedEmployee = (Employee)selectedPerson;
+
+                    //Select radio button
+                    RadEmployee.Checked = true;
 
                     //Write the properties of the object of type "Employee" into the specific textboxes
                     TxtDepartment.Text = selectedEmployee.Departement;
@@ -112,8 +122,14 @@ namespace semesterarbeit
                     //Hide irrelvant textboxes and lables
                     HideAllCust();
 
+                    //Hide comboboxes and date pickers
+                    HideAllCmbAppr();
+
                     //Cast the selected object of the list into type "Apprentice" and write into the variable "selectedApprentice"
                     Trainee selectedApprentice = (Trainee)selectedPerson;
+
+                    //Select radio button
+                    RadTrainee.Checked = true;
 
                     //Write the properties of the object of type "Apprentice" into the specific textboxes
                     TxtDepartment.Text = selectedApprentice.Departement;
@@ -139,8 +155,14 @@ namespace semesterarbeit
                     HideAllEmp();
                     HideAllAppr();
 
+                    //Hide comboboxes and date pickers
+                    HideAllCmbCust();
+
                     //Cast the selected object of the list into type "Customer" and write into the variable "selectedCustomer"
                     Customer selectedCustomer = (Customer)selectedPerson;
+
+                    //Select radio button
+                    RadCustomer.Checked = true;
 
                     //Write the properties of the object of type "Customer" into the specific textboxes
                     TxtCompanyName.Text = selectedCustomer.Companyname;
@@ -231,7 +253,7 @@ namespace semesterarbeit
                         Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
                         Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
                         Convert.ToString(CmbDepartment.SelectedItem),
-                        TxtWorkPensum.Text,
+                        CmbWorkPensum.SelectedText,
                         DtpStartDate.Value, //EntryDate
                         TxtRole.Text
                     ) ;
@@ -242,18 +264,71 @@ namespace semesterarbeit
                 //Set optional fields
                 SetAttributesEmpl_optional(empl1);
 
-                //Deselect the affected radio button
-                RadEmployee.Checked = false;
             }
             else if (RadTrainee.Checked)
             {
                 //Increase the value of the variable id
                 id++;
+
+                Trainee train1 = new Trainee
+                    (
+                        id,
+                        Convert.ToString(CmbSalutation.SelectedItem),
+                        TxtFirstname.Text,
+                        TxtLastname.Text,
+                        DtpBirthdate.Value, //Birthdate
+                        DateTime.Now, //Creation date
+                        Convert.ToString(CmbGender.SelectedItem),
+                        TxtEmail.Text,
+                        true, //User enabled
+                        TxtStreet.Text,
+                        TxtCity.Text,
+                        Convert.ToInt32(TxtZipcode.Text),
+                        Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
+                        Convert.ToString(CmbDepartment.SelectedItem),
+                        CmbWorkPensum.SelectedText,
+                        DtpStartDate.Value, //EntryDate
+                        TxtRole.Text,
+                        CmbApprentYears.SelectedText
+                    );
+
+                //Add Customer to contact list (database)
+                Db.AddPerson(train1);
+
+                //Set optional fields
+                SetAttributesAppr_optional(train1);
             }
             else if (RadCustomer.Checked)
             {
                 //Increase the value of the variable id
                 id++;
+
+                Customer cust1 = new Customer
+                    (
+                        id,
+                        Convert.ToString(CmbSalutation.SelectedItem),
+                        TxtFirstname.Text,
+                        TxtLastname.Text,
+                        DtpBirthdate.Value, //Birthdate
+                        DateTime.Now, //Creation date
+                        Convert.ToString(CmbGender.SelectedItem),
+                        TxtEmail.Text,
+                        true, //User enabled
+                        TxtStreet.Text,
+                        TxtCity.Text,
+                        Convert.ToInt32(TxtZipcode.Text),
+                        Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        TxtCompanyName.Text,
+                        (CustType)CmbCustomerType.SelectedValue,
+                        TxtContacPerson.Text
+                    );
+
+                //Add Customer to contact list (database)
+                Db.AddPerson(cust1);
+
+                //Set optional fields
+                SetAttributesCust_optional(cust1);
             }
             else
             {
