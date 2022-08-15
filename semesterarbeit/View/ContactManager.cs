@@ -300,7 +300,7 @@ namespace semesterarbeit
                 Db.AddPerson(train1);
 
                 //Set optional fields
-                SetAttributesAppr_optional(train1);
+                SetAttributesTrainee_optional(train1);
             }
             else if (RadCustomer.Checked)
             {
@@ -522,7 +522,7 @@ namespace semesterarbeit
         }
 
         //Function to set all optional attributes for trainees
-        private void SetAttributesAppr_optional(Person p)
+        private void SetAttributesTrainee_optional(Person p)
         {
             //Cast variable p from type "Person" into type "Trainee" in new variable "appr"
             Trainee trnee = (Trainee)p;
