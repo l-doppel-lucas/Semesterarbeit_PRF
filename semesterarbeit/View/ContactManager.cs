@@ -240,7 +240,7 @@ namespace semesterarbeit
                 Db.AddPerson(empl1);
 
                 //Set optional fields
-                
+                SetAttributesEmpl_optional(empl1);
 
                 //Deselect the affected radio button
                 RadEmployee.Checked = false;
@@ -343,7 +343,7 @@ namespace semesterarbeit
         }
 
         //Set all optional attributes for employees
-        public void SetOptionalAttributes(Person p)
+        public void SetAttributesEmpl_optional(Person p)
         {
             //Cast person into employee
             Employee emp = (Employee)p;
@@ -380,13 +380,13 @@ namespace semesterarbeit
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
                 zip: Convert.ToInt32(TxtZipcode.Text),
+                changehistory: cust.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
                 compname: TxtCompanyName.Text,
                 type: (CustType)CmbCustomerType.SelectedItem
                 );
         }
 
         //Set all optional attributes for customers
-        /*
         public void SetAttributesCust_optional(Person p)
         {
             //Cast person into customer
@@ -394,15 +394,14 @@ namespace semesterarbeit
 
             //Call method to set optional attributes
             cust.SetOptionalAttributes(
-                    t: TxtTitle.Text,
-                    bp: TxtBusinessPhone.Text,
-                    bf: TxtBusinessFax.Text,
-                    mn: TxtMobileNumber.Text,
-                    s: TxtStreet.Text,
-                    cp: TxtContacPerson.Text
+                    title: TxtTitle.Text,
+                    mph: TxtMobileNumber.Text, 
+                    bph: TxtBusinessPhone.Text,
+                    bfa : TxtBusinessFax.Text,
+                    compcont: TxtContacPerson.Text
                     );
         }
-        */
+        
         //Function to set all mandatory attributes for apprentices
         public void SetAttributesAppr_mandatory(Person p)
         {
@@ -420,6 +419,7 @@ namespace semesterarbeit
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
                 zip: Convert.ToInt32(TxtZipcode.Text),
+                changehistory: appr.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
                 emplnum: Convert.ToInt32(TxtEmplNr.Text),
                 departement: Convert.ToString(CmbDepartment.SelectedItem),
                 role: TxtRole.Text,
@@ -430,7 +430,6 @@ namespace semesterarbeit
         }
 
         //Function to set all optional attributes for apprentices
-        /*
         public void SetAttributesAppr_optional(Person p)
         {
             //Cast variable p from type "Person" into type "Apprentice" in new variable "appr"
@@ -438,20 +437,19 @@ namespace semesterarbeit
 
             //Call method to set optional attributes
             appr.SetOptionalAttributes(
-                    t: TxtTitle.Text,
-                    bp: TxtBusinessPhone.Text,
-                    bf: TxtBusinessFax.Text,
-                    mn: TxtMobileNumber.Text,
+                    title: TxtTitle.Text,
+                    mph: TxtMobileNumber.Text,
+                    bph: TxtBusinessPhone.Text,
+                    bfa: TxtBusinessFax.Text,
                     ahv: TxtAHVNumber.Text,
-                    bipl: TxtBirthplace.Text,
-                    nat: TxtNationality.Text,
-                    mgmtl: Convert.ToString(CmbMgmtLevel.SelectedItem),
-                    pf: TxtPrivatePhone.Text,
-                    leavedate: Convert.ToString(DtpLeaveDate.Value.ToShortDateString()),
-                    capry: Convert.ToString(CmbCurrentApprentYear.SelectedItem)
+                    pph: TxtPrivatePhone.Text,
+                    birthpl: TxtBirthplace.Text,
+                    exdate: DtpLeaveDate.Value,
+                    lvl: (MgmLvl) CmbMgmtLevel.SelectedItem,
+                    currappyear: Convert.ToString(CmbCurrentApprentYear.SelectedItem)
                     );
         }
-        */
+        
         /*---------------------------------------------------------------------
          * Radio Butoons
          * --------------------------------------------------------------------*/
