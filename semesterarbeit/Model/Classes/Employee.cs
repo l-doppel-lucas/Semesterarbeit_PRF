@@ -54,9 +54,9 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
 
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail,  
-            string street, string city, int zip, int emplnum, string departement, string role, string pens, DateTime entrdate)
+            string street, string city, int zip, string changehistory, int emplnum, string departement, string role, string pens, DateTime entrdate)
         {
-            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip);
+            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory);
 
             EmplNr = emplnum;
             Departement = departement;
@@ -65,12 +65,13 @@ namespace semesterarbeit
             Role = role;
         }
 
-        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string chahist = "", string ahv = "",
+        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string ahv = "", string nat = "",
             string pph = "", string birthpl = "", DateTime exdate = new DateTime(), MgmLvl lvl = 0)
         {
-            base.SetOptionalAttributes(title, mph, bph, bfa, chahist);
+            base.SetOptionalAttributes(title, mph, bph, bfa);
 
             Ahv = ahv;
+            Nationality = nat;
             Privatephone = pph;
             Birthplace = birthpl;
             Exitdate = exdate;
