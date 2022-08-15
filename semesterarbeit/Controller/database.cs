@@ -40,6 +40,48 @@ namespace semesterarbeit.Controller
             return contactList.Count;
         }
 
+        public int GetNumberofEmpl()
+        {
+            int NumberOfEmpl = 0;
+
+            foreach (Person p in contactList)
+            {
+                if (p.GetClassName() == "Employee")
+                {
+                    NumberOfEmpl++;
+                }
+            }
+            return NumberOfEmpl;
+        }
+
+        public int GetNumberofAppr()
+        {
+            int NumberOfAppr = 0;
+
+            foreach (Person p in contactList)
+            {
+                if (p.GetClassName() == "Trainee")
+                {
+                    NumberOfAppr++;
+                }
+            }
+            return NumberOfAppr;
+        }
+
+        public int GetNumberofCust()
+        {
+            int NumberOfCust = 0;
+
+            foreach (Person p in contactList)
+            {
+                if (p.GetClassName() == "Customer")
+                {
+                    NumberOfCust++;
+                }
+            }
+            return NumberOfCust;
+        }
+
         public int ReturnLastID()
         {
             int id = 1;
@@ -55,6 +97,8 @@ namespace semesterarbeit.Controller
 
             return id;
         }
+
+
 
     }
 }

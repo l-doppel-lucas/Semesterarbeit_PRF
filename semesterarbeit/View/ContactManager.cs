@@ -39,6 +39,9 @@ namespace semesterarbeit
 
             //Disable all text boxes
             DisableAllTxtboxes();
+
+            //Show dashboard data
+            
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -221,7 +224,6 @@ namespace semesterarbeit
             ChkStatus.Enabled = false;
             CmdTakeNotes.Enabled = false;
             LsbOutput.Enabled = false;
-            //CmdAddUser.Enabled = false;
             CmdDeleteUser.Enabled = false;
             CmdEditUser.Enabled = false;
             CmdExport.Enabled = false;
@@ -351,13 +353,24 @@ namespace semesterarbeit
             CmdSearch.Enabled = true;
         }
 
+        private void CmdCancel_Click(object sender, EventArgs e)
+        {
+            ShowStartScreen();
+        }
+
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(TabControl.SelectedIndex == 0)
             {
                 HideButtons();
             }
-            else
+            else if(TabControl.SelectedIndex == 1)
+            {
+                ShowButtons();
+
+                ShowStartScreen();
+            }
+            else if(TabControl.SelectedIndex == 2)
             {
                 ShowButtons();
             }
@@ -392,7 +405,7 @@ namespace semesterarbeit
          * -------------------------------------------------------------------*/
 
         //Set all mandatory attributes for employees
-        public void SetAttributesEmp_mandatory(Person p)
+        private void SetAttributesEmp_mandatory(Person p)
         {
             //Cast person into employee
             Employee emp = (Employee)p;
@@ -418,7 +431,7 @@ namespace semesterarbeit
         }
 
         //Set all optional attributes for employees
-        public void SetAttributesEmpl_optional(Person p)
+        private void SetAttributesEmpl_optional(Person p)
         {
             //Cast person into employee
             Employee emp = (Employee)p;
@@ -439,7 +452,7 @@ namespace semesterarbeit
         }
         
         //Set all mandatory attributes for Customers
-        public void SetAttributesCust_mandatory(Person p)
+        private void SetAttributesCust_mandatory(Person p)
         {
             //Cast person into customer
             Customer cust = (Customer)p;
@@ -462,7 +475,7 @@ namespace semesterarbeit
         }
 
         //Set all optional attributes for customers
-        public void SetAttributesCust_optional(Person p)
+        private void SetAttributesCust_optional(Person p)
         {
             //Cast person into customer
             Customer cust = (Customer)p;
@@ -478,7 +491,7 @@ namespace semesterarbeit
         }
         
         //Function to set all mandatory attributes for apprentices
-        public void SetAttributesAppr_mandatory(Person p)
+        private void SetAttributesAppr_mandatory(Person p)
         {
             //Cast person into Trainee
             Trainee appr = (Trainee)p;
@@ -505,7 +518,7 @@ namespace semesterarbeit
         }
 
         //Function to set all optional attributes for apprentices
-        public void SetAttributesAppr_optional(Person p)
+        private void SetAttributesAppr_optional(Person p)
         {
             //Cast variable p from type "Person" into type "Apprentice" in new variable "appr"
             Trainee appr = (Trainee)p;
@@ -524,6 +537,8 @@ namespace semesterarbeit
                     currappyear: Convert.ToString(CmbCurrentApprentYear.SelectedItem)
                     );
         }
+
+
         
         /*---------------------------------------------------------------------
          * Radio Butoons
@@ -585,6 +600,44 @@ namespace semesterarbeit
         Text Boxes and Labels
         -----------------------------------------------------------------------*/
 
+        private void ShowStartScreen()
+        {
+            //Change buttons
+            CmdAddUser.Visible = true;
+            CmdSave.Visible = false;
+            CmdCancel.Visible = false;
+
+            //Activate buttons, combo boxes, and list boxes
+            ChkStatus.Enabled = true;
+            CmdTakeNotes.Enabled = true;
+            LsbOutput.Enabled = true;
+            CmdAddUser.Enabled = true;
+            CmdDeleteUser.Enabled = true;
+            CmdEditUser.Enabled = true;
+            CmdExport.Enabled = true;
+            CmdSearch.Enabled = true;
+
+            //Uncheck radio buttons
+            UncheckAllRad();
+
+            //Clears all textboxes
+            ClearAllTextboxes();
+
+            //Makes all radio buttos visible
+            ShowAllRad();
+
+            //Makes all comboboxes visible
+            ShowAllCmbPers();
+
+            //Hides all "Apprentice", "Customer" and "Employee" related textboxes and labels
+            HideAllAppr();
+            HideAllCust();
+            HideAllEmp();
+            HideAllCmbAppr();
+            HideAllCmbCust();
+            HideAllCmbEmp();
+        }
+        
         //Enables all Person Textboxes
         private void EnableAllPers()
         {
@@ -967,5 +1020,7 @@ namespace semesterarbeit
         {
 
         }
+
+
     }
 }

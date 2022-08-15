@@ -132,6 +132,7 @@
             this.CmdSave = new System.Windows.Forms.Button();
             this.CmdCancel = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -417,6 +418,7 @@
             // 
             // CmbWorkPensum
             // 
+            this.CmbWorkPensum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbWorkPensum.FormattingEnabled = true;
             this.CmbWorkPensum.Items.AddRange(new object[] {
             "100%",
@@ -533,6 +535,7 @@
             // 
             // CmbMgmtLevel
             // 
+            this.CmbMgmtLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbMgmtLevel.FormattingEnabled = true;
             this.CmbMgmtLevel.Items.AddRange(new object[] {
             "1",
@@ -588,7 +591,7 @@
             this.CmbGender.Items.AddRange(new object[] {
             "Male",
             "Female",
-            ""});
+            "Other"});
             this.CmbGender.Location = new System.Drawing.Point(169, 154);
             this.CmbGender.Name = "CmbGender";
             this.CmbGender.Size = new System.Drawing.Size(138, 21);
@@ -610,8 +613,7 @@
             this.CmbSalutation.Items.AddRange(new object[] {
             "Mr",
             "Ms",
-            "Mrs",
-            ""});
+            "Mrs"});
             this.CmbSalutation.Location = new System.Drawing.Point(16, 62);
             this.CmbSalutation.Name = "CmbSalutation";
             this.CmbSalutation.Size = new System.Drawing.Size(138, 21);
@@ -1284,6 +1286,7 @@
             this.CmdCancel.Text = "CANCEL";
             this.CmdCancel.UseVisualStyleBackColor = true;
             this.CmdCancel.Visible = false;
+            this.CmdCancel.Click += new System.EventHandler(this.CmdCancel_Click);
             // 
             // LblName
             // 
@@ -1433,6 +1436,7 @@
         private System.Windows.Forms.ComboBox CmbGender;
         private System.Windows.Forms.Label LblGender;
         private System.Windows.Forms.TextBox TxtBirthdate;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
