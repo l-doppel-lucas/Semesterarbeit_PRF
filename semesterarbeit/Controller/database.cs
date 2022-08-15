@@ -54,18 +54,18 @@ namespace semesterarbeit.Controller
             return NumberOfEmpl;
         }
 
-        public int GetNumberofAppr()
+        public int GetNumberofTrnee()
         {
-            int NumberOfAppr = 0;
+            int NumberOfTrnee = 0;
 
             foreach (Person p in contactList)
             {
                 if (p.GetClassName() == "Trainee")
                 {
-                    NumberOfAppr++;
+                    NumberOfTrnee++;
                 }
             }
-            return NumberOfAppr;
+            return NumberOfTrnee;
         }
 
         public int GetNumberofCust()
