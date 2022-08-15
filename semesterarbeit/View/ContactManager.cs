@@ -547,7 +547,7 @@ namespace semesterarbeit
             LblTotalCount.Text = Convert.ToString(Db.GetNumberOfPers());
             LblCustCount.Text = Convert.ToString(Db.GetNumberofCust());
             LblEmpCount.Text = Convert.ToString(Db.GetNumberofEmpl());
-            LblAppCount.Text = Convert.ToString(Db.GetNumberofAppr());
+            LblAppCount.Text = Convert.ToString(Db.GetNumberofTrnee());
         }
 
 
