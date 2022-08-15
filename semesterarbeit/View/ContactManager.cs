@@ -84,7 +84,7 @@ namespace semesterarbeit
             TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
 
 
-            // If the object is type of one of the subclasses (Employee, Apprentice or Customer) 
+            // If the object is type of one of the subclasses (Employee, Trainee or Customer) 
             switch (selectedPerson.GetClassName())
             {
                 case "Employee":
@@ -107,17 +107,17 @@ namespace semesterarbeit
                     //Write the properties of the object of type "Employee" into the specific textboxes
                     TxtDepartment.Text = selectedEmployee.Departement;
                     TxtAHVNumber.Text = selectedEmployee.Ahv;
-                    TxtStartDate.Text = Convert.ToString(selectedEmployee.Entrydate);
-                    TxtLeaveDate.Text = Convert.ToString(selectedEmployee.Exitdate);
+                    TxtStartDate.Text = selectedEmployee.Entrydate.ToShortDateString();
+                    TxtLeaveDate.Text = selectedEmployee.Exitdate.ToShortDateString();
                     TxtEmplNr.Text = Convert.ToString(selectedEmployee.EmplNr);
                     TxtBirthplace.Text = selectedEmployee.Birthplace;
                     TxtNationality.Text = selectedEmployee.Nationality;
                     TxtRole.Text = selectedEmployee.Role;
-                    TxtMgmtLevel.Text = Convert.ToString(selectedEmployee.Lvl);
+                    TxtMgmtLevel.Text = selectedEmployee.Lvl.ToString();
                     TxtWorkPensum.Text = selectedEmployee.Workpensum;
                     TxtPrivatePhone.Text = selectedEmployee.Privatephone;
                     break;
-                case "Apprentice":
+                case "Trainee":
                     //make all relevant textboxes and lables visible
                     ShowAllEmp();
                     ShowAllAppr();
@@ -137,13 +137,13 @@ namespace semesterarbeit
                     //Write the properties of the object of type "Apprentice" into the specific textboxes
                     TxtDepartment.Text = selectedApprentice.Departement;
                     TxtAHVNumber.Text = selectedApprentice.Ahv;
-                    TxtStartDate.Text = Convert.ToString(selectedApprentice.Entrydate);
-                    TxtLeaveDate.Text = Convert.ToString(selectedApprentice.Exitdate);
+                    TxtStartDate.Text = selectedApprentice.Entrydate.ToShortDateString();
+                    TxtLeaveDate.Text = selectedApprentice.Exitdate.ToShortDateString();
                     TxtEmplNr.Text = Convert.ToString(selectedApprentice.EmplNr);
                     TxtBirthplace.Text = selectedApprentice.Birthplace;
                     TxtNationality.Text = selectedApprentice.Nationality;
                     TxtRole.Text = selectedApprentice.Role;
-                    TxtMgmtLevel.Text = Convert.ToString(selectedApprentice.Lvl);
+                    TxtMgmtLevel.Text = selectedApprentice.Lvl.ToString();
                     TxtWorkPensum.Text = selectedApprentice.Workpensum;
                     TxtPrivatePhone.Text = selectedApprentice.Privatephone;
                     TxtApprentYears.Text = Convert.ToString(selectedApprentice.Appyears);
