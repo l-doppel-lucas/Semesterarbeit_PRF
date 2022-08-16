@@ -12,7 +12,7 @@ using System.Xml.Serialization;
 
 namespace semesterarbeit.Controller
 {
-    [Serializable]
+    [Serializable()]
     public class Database
     {
         //Create new binding list "contactList" of type "Person"
@@ -198,15 +198,19 @@ namespace semesterarbeit.Controller
             return output;
         }
 
+        /*
+
         public void XmlSerialize()
         {
             string filepath = Environment.CurrentDirectory + @"\contacts.xml";
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof BindingList<Person>);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof );
             if (File.Exists(filepath)) File.Delete(filepath);
             TextWriter writer = new StreamWriter(filepath);
             xmlSerializer.Serialize(writer, contactList);
             writer.Close();
         }
+
+        
 
         public bool XmlDeserialize(Type dataType)
         {
@@ -214,7 +218,7 @@ namespace semesterarbeit.Controller
 
             try
             {
-                XmlSerializer xmlSerializer = new XmlSerializer(BindingList<Sequence>);
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof BindingList<Person>);
                 TextReader textReader = new StringReader(filepath);
                 contactList = (BindingList<Person>)XmlSerializer.Deserialize(textReader);
                 textReader.Close();
@@ -223,6 +227,7 @@ namespace semesterarbeit.Controller
             catch (FileNotFoundException)
             { return false; }
         }
+        */
 
         //Method for the serialisation of all objects of the list "contactlist" 
         public void Serialisation()
@@ -232,6 +237,8 @@ namespace semesterarbeit.Controller
             formatter.Serialize(file, contactList);
             file.Close();
         }
+
+        
 
         //Function for the deserialisation of all objects of the list "contactlist"
         public Boolean Deserialisation()

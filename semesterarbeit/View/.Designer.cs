@@ -133,17 +133,20 @@
             this.CmdCancel = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.DgrdBrowse = new System.Windows.Forms.DataGridView();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl
             // 
             this.TabControl.Controls.Add(this.tabPage3);
+            this.TabControl.Controls.Add(this.tabPage4);
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Location = new System.Drawing.Point(28, 75);
@@ -258,7 +261,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.DgrdBrowse);
             this.tabPage1.Controls.Add(this.ChkStatus);
             this.tabPage1.Controls.Add(this.DtpLeaveDate);
             this.tabPage1.Controls.Add(this.RadCustomer);
@@ -1306,13 +1308,24 @@
             this.LblName.TabIndex = 15;
             this.LblName.Text = "Contact Center";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.DgrdBrowse);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(974, 560);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Browse";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // DgrdBrowse
             // 
             this.DgrdBrowse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgrdBrowse.Location = new System.Drawing.Point(15, 407);
+            this.DgrdBrowse.Location = new System.Drawing.Point(6, 6);
             this.DgrdBrowse.Name = "DgrdBrowse";
-            this.DgrdBrowse.Size = new System.Drawing.Size(943, 148);
-            this.DgrdBrowse.TabIndex = 187;
+            this.DgrdBrowse.Size = new System.Drawing.Size(962, 548);
+            this.DgrdBrowse.TabIndex = 188;
             // 
             // Dashboard
             // 
@@ -1341,6 +1354,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1454,6 +1468,7 @@
         private System.Windows.Forms.Label LblGender;
         private System.Windows.Forms.TextBox TxtBirthdate;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView DgrdBrowse;
     }
 }

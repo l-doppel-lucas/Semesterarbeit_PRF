@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace semesterarbeit
+{ 
 
     [Serializable()]
 class Trainee : Employee
