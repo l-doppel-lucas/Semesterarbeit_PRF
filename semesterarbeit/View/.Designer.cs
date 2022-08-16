@@ -133,10 +133,12 @@
             this.CmdCancel = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.DgrdBrowse = new System.Windows.Forms.DataGridView();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl
@@ -256,6 +258,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.DgrdBrowse);
             this.tabPage1.Controls.Add(this.ChkStatus);
             this.tabPage1.Controls.Add(this.DtpLeaveDate);
             this.tabPage1.Controls.Add(this.RadCustomer);
@@ -641,7 +644,7 @@
             this.TxtNotes.Multiline = true;
             this.TxtNotes.Name = "TxtNotes";
             this.TxtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtNotes.Size = new System.Drawing.Size(272, 317);
+            this.TxtNotes.Size = new System.Drawing.Size(272, 156);
             this.TxtNotes.TabIndex = 171;
             // 
             // LblMobileNumber
@@ -1303,11 +1306,19 @@
             this.LblName.TabIndex = 15;
             this.LblName.Text = "Contact Center";
             // 
+            // DgrdBrowse
+            // 
+            this.DgrdBrowse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgrdBrowse.Location = new System.Drawing.Point(15, 407);
+            this.DgrdBrowse.Name = "DgrdBrowse";
+            this.DgrdBrowse.Size = new System.Drawing.Size(943, 148);
+            this.DgrdBrowse.TabIndex = 187;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 687);
+            this.ClientSize = new System.Drawing.Size(1278, 923);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.CmdSave);
@@ -1330,6 +1341,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1442,6 +1454,7 @@
         private System.Windows.Forms.Label LblGender;
         private System.Windows.Forms.TextBox TxtBirthdate;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridView DgrdBrowse;
     }
 }
 
