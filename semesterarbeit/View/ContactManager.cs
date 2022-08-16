@@ -272,6 +272,9 @@ namespace semesterarbeit
                 //Add Employee to contact list (database)
                 Db.AddPerson(empl1);
 
+                //Call method to save the new object on the harddisk
+                Db.Serialisation();
+
                 //Set optional fields
                 SetAttributesEmpl_optional(empl1);
 
@@ -307,6 +310,9 @@ namespace semesterarbeit
                 //Add Customer to contact list (database)
                 Db.AddPerson(train1);
 
+                //Call method to save the new object on the harddisk
+                Db.Serialisation();
+
                 //Set optional fields
                 SetAttributesTrainee_optional(train1);
             }
@@ -337,6 +343,9 @@ namespace semesterarbeit
 
                 //Add Customer to contact list (database)
                 Db.AddPerson(cust1);
+
+                //Call method to save the new object on the harddisk
+                Db.Serialisation();
 
                 //Set optional fields
                 SetAttributesCust_optional(cust1);
