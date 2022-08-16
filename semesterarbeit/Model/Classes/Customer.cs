@@ -15,6 +15,7 @@ namespace semesterarbeit
         E
     }
 
+    [Serializable()]
     class Customer : Person
     {
         public string Companyname { get; set; }

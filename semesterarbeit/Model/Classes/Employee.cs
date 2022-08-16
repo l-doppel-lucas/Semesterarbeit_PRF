@@ -17,6 +17,7 @@ namespace semesterarbeit
         Level5
     }
 
+    [Serializable()]
     class Employee : Person
     {
         public int EmplNr { get; set; }

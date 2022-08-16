@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace semesterarbeit.Controller
 {
+    [Serializable]
     public class Database
     {
         //Create new binding list "contactList" of type "Person"
@@ -194,6 +196,32 @@ namespace semesterarbeit.Controller
 
             }
             return output;
+        }
+
+        public void XmlSerialize()
+        {
+            string filepath = Environment.CurrentDirectory + @"\contacts.xml";
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof BindingList<Person>);
+            if (File.Exists(filepath)) File.Delete(filepath);
+            TextWriter writer = new StreamWriter(filepath);
+            xmlSerializer.Serialize(writer, contactList);
+            writer.Close();
+        }
+
+        public bool XmlDeserialize(Type dataType)
+        {
+            string filepath = Environment.CurrentDirectory + @"\contacts.xml";
+
+            try
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(BindingList<Sequence>);
+                TextReader textReader = new StringReader(filepath);
+                contactList = (BindingList<Person>)XmlSerializer.Deserialize(textReader);
+                textReader.Close();
+                return true;
+            }
+            catch (FileNotFoundException)
+            { return false; }
         }
 
         //Method for the serialisation of all objects of the list "contactlist" 

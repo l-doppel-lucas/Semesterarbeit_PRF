@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace semesterarbeit
-{
-    class Trainee : Employee
+
+    [Serializable()]
+class Trainee : Employee
     {
 
         public string Appyears { get; set; }
