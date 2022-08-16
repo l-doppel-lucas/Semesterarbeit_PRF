@@ -19,7 +19,7 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
 
         public Trainee(int id, string sal, string fn, string ln, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
-             string street, string city, int zip, string changehistory, int emplnum, string departement, string pens, DateTime entrdate, string role, string appyears) :
+             string street, string city, string zip, string changehistory, int emplnum, string departement, string pens, DateTime entrdate, string role, string appyears) :
                 base(id, sal, fn, ln, birthdate, crdate, gender, mail, status, street, 
                 city, zip, changehistory, emplnum, departement, pens, entrdate, role)
         {
@@ -32,7 +32,7 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
 
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
-            string street, string city, int zip, string changehistory, int emplnum, string departement, string role, string pens, DateTime entrdate, string appyears)
+            string street, string city, string zip, string changehistory, int emplnum, string departement, string role, string pens, DateTime entrdate, string appyears)
         {
             base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory, emplnum, departement, role, pens, entrdate);
 

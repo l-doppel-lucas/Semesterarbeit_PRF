@@ -24,7 +24,7 @@ namespace semesterarbeit
         public DateTime CreationDate { get; set; }
         public string City { get; set; }
         public string Street { get; set; }
-        public int Zipcode { get; set;}
+        public string Zipcode { get; set;}
         public string ChangeHistory{ get; set; }
 
 
@@ -33,7 +33,7 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
 
         public Person(int id, string sal, string fn, string ln, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
-             string street, string city, int zip, string changehistory)
+             string street, string city, string zip, string changehistory)
         {
             Id = id;
             Salutation = sal;
@@ -78,7 +78,7 @@ namespace semesterarbeit
 
         //Method to set all mandatory attributes
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
-            string street, string city, int zip, string changehistory)
+            string street, string city, string zip, string changehistory)
         {
             Salutation = sal;
             Firstname = fn;

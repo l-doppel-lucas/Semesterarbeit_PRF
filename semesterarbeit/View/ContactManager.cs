@@ -260,7 +260,7 @@ namespace semesterarbeit
                         true, //User enabled
                         TxtStreet.Text,
                         TxtCity.Text,
-                        Convert.ToInt32(TxtZipcode.Text),
+                        TxtZipcode.Text,
                         Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
                         Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
                         Convert.ToString(CmbDepartment.SelectedItem),
@@ -297,7 +297,7 @@ namespace semesterarbeit
                         true, //User enabled
                         TxtStreet.Text,
                         TxtCity.Text,
-                        Convert.ToInt32(TxtZipcode.Text),
+                        TxtZipcode.Text,
                         Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
                         Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
                         Convert.ToString(CmbDepartment.SelectedItem),
@@ -334,7 +334,7 @@ namespace semesterarbeit
                         true, //User enabled
                         TxtStreet.Text,
                         TxtCity.Text,
-                        Convert.ToInt32(TxtZipcode.Text),
+                        TxtZipcode.Text,
                         Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
                         TxtCompanyName.Text,
                         (CustType)CmbCustomerType.SelectedValue,
@@ -444,7 +444,7 @@ namespace semesterarbeit
                 mail: TxtEmail.Text,
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
-                zip: Convert.ToInt32(TxtZipcode.Text),
+                zip: TxtZipcode.Text,
                 changehistory: emp.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
                 emplnum: Convert.ToInt32(TxtEmplNr.Text),
                 departement: Convert.ToString(CmbDepartment.SelectedItem),
@@ -491,7 +491,7 @@ namespace semesterarbeit
                 mail: TxtEmail.Text,
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
-                zip: Convert.ToInt32(TxtZipcode.Text),
+                zip: TxtZipcode.Text,
                 changehistory: cust.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
                 compname: TxtCompanyName.Text,
                 type: (CustType)CmbCustomerType.SelectedItem
@@ -530,7 +530,7 @@ namespace semesterarbeit
                 mail: TxtEmail.Text,
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
-                zip: Convert.ToInt32(TxtZipcode.Text),
+                zip: TxtZipcode.Text,
                 changehistory: appr.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
                 emplnum: Convert.ToInt32(TxtEmplNr.Text),
                 departement: Convert.ToString(CmbDepartment.SelectedItem),

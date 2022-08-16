@@ -28,7 +28,7 @@ namespace semesterarbeit
              Constructor
         -----------------------------------------------------------------------*/
         public Customer(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
-             string street, string city, int zip, string changehistory, string companyname, CustType type, string companycontact)
+             string street, string city, string zip, string changehistory, string companyname, CustType type, string companycontact)
             
             :base(id, salutation, firstname, lastname, birthdate, crdate, gender, mail, status,
              street, city, zip, changehistory)
@@ -44,7 +44,7 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
 
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
-            string street, string city, int zip, string changehistory, string compname, CustType type)
+            string street, string city, string zip, string changehistory, string compname, CustType type)
         {
             base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory);
 
