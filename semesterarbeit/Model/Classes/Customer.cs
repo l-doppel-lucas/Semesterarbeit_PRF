@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Build.Framework;
+using System;
 
 namespace semesterarbeit
 {
@@ -14,28 +15,15 @@ namespace semesterarbeit
     [Serializable()]
     class Customer : Person
     {
+        [Required]
+
         public string Companyname { get; set; }
         public CustType Type { get; set; }
         public string Companycontact { get; set; }
         public string NotesHistory { get; set; }
 
 
-
-        /*---------------------------------------------------------------------
-             Constructor
-        -----------------------------------------------------------------------*/
-        public Customer(int id, string salutation, string firstname, string lastname, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
-             string street, string city, string zip, string changehistory, string companyname, CustType type, string companycontact)
-            
-            :base(id, salutation, firstname, lastname, birthdate, crdate, gender, mail, status,
-             street, city, zip, changehistory)
-        {
-            Companyname = companyname;
-            Type = type;
-            Companycontact = companycontact;
-        }
-
-
+       
         /*---------------------------------------------------------------------
              Methods
         -----------------------------------------------------------------------*/

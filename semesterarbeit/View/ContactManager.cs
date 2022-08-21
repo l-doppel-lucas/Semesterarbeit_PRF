@@ -238,26 +238,26 @@ namespace semesterarbeit
 
 
                 Employee empl1 = new Employee
-                    (
-                        id,
-                        Convert.ToString(CmbSalutation.SelectedItem),
-                        TxtFirstname.Text,
-                        TxtLastname.Text,
-                        DtpBirthdate.Value, //Birthdate
-                        DateTime.Now, //Creation date
-                        Convert.ToString(CmbGender.SelectedItem),
-                        TxtEmail.Text,
-                        true, //User enabled
-                        TxtStreet.Text,
-                        TxtCity.Text,
-                        TxtZipcode.Text,
-                        Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
-                        Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
-                        Convert.ToString(CmbDepartment.SelectedItem),
-                        CmbWorkPensum.SelectedText,
-                        DtpStartDate.Value, //EntryDate
-                        TxtRole.Text
-                    );
+                {
+                        Id = id,
+                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                        Firstname = TxtFirstname.Text,
+                        Lastname = TxtLastname.Text,
+                        Birthdate = DtpBirthdate.Value, //Birthdate
+                        CreationDate = DateTime.Now, //Creation date
+                        Gender = Convert.ToString(CmbGender.SelectedItem),
+                        Mail = TxtEmail.Text,
+                        Status = true, //User enabled
+                        Street = TxtStreet.Text,
+                        City = TxtCity.Text,
+                        Zipcode = TxtZipcode.Text,
+                        ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        EmplNr = Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
+                        Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                        Workpensum = CmbWorkPensum.SelectedText,
+                        Entrydate = DtpStartDate.Value, //EntryDate
+                        Role = TxtRole.Text
+                };
 
                 //Add Employee to contact list (database)
                 Db.AddPerson(empl1);
@@ -275,27 +275,27 @@ namespace semesterarbeit
                 id++;
 
                 Trainee train1 = new Trainee
-                    (
-                        id,
-                        Convert.ToString(CmbSalutation.SelectedItem),
-                        TxtFirstname.Text,
-                        TxtLastname.Text,
-                        DtpBirthdate.Value, //Birthdate
-                        DateTime.Now, //Creation date
-                        Convert.ToString(CmbGender.SelectedItem),
-                        TxtEmail.Text,
-                        true, //User enabled
-                        TxtStreet.Text,
-                        TxtCity.Text,
-                        TxtZipcode.Text,
-                        Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
-                        Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
-                        Convert.ToString(CmbDepartment.SelectedItem),
-                        Convert.ToString(CmbWorkPensum.SelectedItem),
-                        DtpStartDate.Value, //EntryDate
-                        TxtRole.Text,
-                        CmbApprentYears.SelectedText
-                    );
+                {
+                        Id = id,
+                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                        Firstname = TxtFirstname.Text,
+                        Lastname = TxtLastname.Text,
+                        Birthdate = DtpBirthdate.Value, //Birthdate
+                        CreationDate = DateTime.Now, //Creation date
+                        Gender = Convert.ToString(CmbGender.SelectedItem),
+                        Mail = TxtEmail.Text,
+                        Status = true, //User enabled
+                        Street = TxtStreet.Text,
+                        City = TxtCity.Text,
+                        Zipcode = TxtZipcode.Text,
+                        ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        EmplNr = Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
+                        Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                        Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                        Entrydate = DtpStartDate.Value, //EntryDate
+                        Role = TxtRole.Text,
+                        Appyears = CmbApprentYears.SelectedText
+                };
 
                 //Add Customer to contact list (database)
                 Db.AddPerson(train1);
@@ -312,24 +312,24 @@ namespace semesterarbeit
                 id++;
 
                 Customer cust1 = new Customer
-                    (
-                        id,
-                        Convert.ToString(CmbSalutation.SelectedItem),
-                        TxtFirstname.Text,
-                        TxtLastname.Text,
-                        DtpBirthdate.Value, //Birthdate
-                        DateTime.Now, //Creation date
-                        Convert.ToString(CmbGender.SelectedItem),
-                        TxtEmail.Text,
-                        true, //User enabled
-                        TxtStreet.Text,
-                        TxtCity.Text,
-                        TxtZipcode.Text,
-                        Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
-                        TxtCompanyName.Text,
-                        (CustType)CmbCustomerType.SelectedValue,
-                        TxtContacPerson.Text
-                    );
+                {
+                    Id = id,
+                    Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                    Firstname = TxtFirstname.Text,
+                    Lastname = TxtLastname.Text,
+                    Birthdate = DtpBirthdate.Value, //Birthdate
+                    CreationDate = DateTime.Now, //Creation date
+                    Gender = Convert.ToString(CmbGender.SelectedItem),
+                    Mail = TxtEmail.Text,
+                    Status = true, //User enabled
+                    Street = TxtStreet.Text,
+                    City = TxtCity.Text,
+                    Zipcode = TxtZipcode.Text,
+                    ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                    Companyname = TxtCompanyName.Text,
+                    Type = (CustType)CmbCustomerType.SelectedValue,
+                    Companycontact = TxtContacPerson.Text
+                };
 
                 //Add Customer to contact list (database)
                 Db.AddPerson(cust1);

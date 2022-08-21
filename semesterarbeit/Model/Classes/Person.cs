@@ -25,30 +25,6 @@ namespace semesterarbeit
 
 
         /*---------------------------------------------------------------------
-        Constructor
-        -----------------------------------------------------------------------*/
-
-        public Person(int id, string sal, string fn, string ln, DateTime birthdate, DateTime crdate, string gender, string mail, Boolean status,
-             string street, string city, string zip, string changehistory)
-        {
-            Id = id;
-            Salutation = sal;
-            Firstname = fn;
-            Lastname = ln;
-            Birthdate = birthdate;
-            Gender = gender;
-            Mail = mail;
-            Status = status;
-            CreationDate = crdate;
-            Street = street;
-            City = city;
-            Zipcode = zip;
-            ChangeHistory = changehistory;
-        }
-
-
-
-        /*---------------------------------------------------------------------
                 Methods
         -----------------------------------------------------------------------*/
         public override string ToString()
