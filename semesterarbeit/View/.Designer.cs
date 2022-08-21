@@ -1234,6 +1234,7 @@
             this.CmdEditUser.Text = "EDIT USER";
             this.CmdEditUser.UseVisualStyleBackColor = true;
             this.CmdEditUser.Visible = false;
+            this.CmdEditUser.Click += new System.EventHandler(this.CmdEditUser_Click);
             // 
             // CmdDeleteUser
             // 
@@ -1246,6 +1247,7 @@
             this.CmdDeleteUser.Text = "DELETE USER";
             this.CmdDeleteUser.UseVisualStyleBackColor = true;
             this.CmdDeleteUser.Visible = false;
+            this.CmdDeleteUser.Click += new System.EventHandler(this.CmdDeleteUser_Click);
             // 
             // CmdExport
             // 

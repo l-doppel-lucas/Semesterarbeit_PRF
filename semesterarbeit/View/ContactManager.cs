@@ -366,6 +366,24 @@ namespace semesterarbeit
             //Update Dashboard Numbers
             SetDashboardNumbers();
         }
+        private void CmdEditUser_Click(object sender, EventArgs e)
+        {
+            CmdAddUser.Visible = false;
+            CmdEditUser.Visible = false;
+            CmdSave.Visible = true;
+            CmdCancel.Visible = true;
+
+
+        }
+
+        private void CmdDeleteUser_Click(object sender, EventArgs e)
+        {
+            //Variable of type "Person" which is containing the object of the currently selected item in the listbox
+            Person selectedPerson = (Person)LsbOutput.SelectedItem;
+
+            //Call function to delete the user
+            Db.DeletePerson(selectedPerson);
+        }
 
         private void CmdCancel_Click(object sender, EventArgs e)
         {
@@ -1086,7 +1104,5 @@ namespace semesterarbeit
         {
 
         }
-
-
     }
 }
