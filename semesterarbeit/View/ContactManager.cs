@@ -68,7 +68,7 @@ namespace semesterarbeit
             TxtSalutation.Text = selectedPerson.Salutation;
             TxtFirstname.Text = selectedPerson.Firstname;
             TxtLastname.Text = selectedPerson.Lastname;
-            TxtBirthdate.Text = Convert.ToString(selectedPerson.Birthdate);
+            TxtBirthdate.Text = selectedPerson.Birthdate.ToShortDateString();
             TxtGender.Text = selectedPerson.Gender;
             TxtTitle.Text = selectedPerson.Title;
             TxtBusinessPhone.Text = selectedPerson.Businessphone;
