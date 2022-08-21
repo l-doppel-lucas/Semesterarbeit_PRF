@@ -24,6 +24,9 @@ namespace semesterarbeit
             //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
             CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
 
+            //Import person objects on the start of the program
+            if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
+
             //Show contact list in database
             LsbOutput.DataSource = Db.contactList;
 
@@ -52,12 +55,6 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
         private void LsbOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Select first entry
-            if (LsbOutput.SelectedItem == null)
-            {
-                LsbOutput.SetSelected(0, true);
-            }
-
             //Hide comboboxes and date pickers
             HideAllCmbPers();
 
@@ -265,6 +262,9 @@ namespace semesterarbeit
                 //Add Employee to contact list (database)
                 Db.AddPerson(empl1);
 
+                //Call method to save the new object on the harddisk
+                Db.Serialisation();
+
                 //Set optional fields
                 SetAttributesEmpl_optional(empl1);
 
@@ -300,6 +300,9 @@ namespace semesterarbeit
                 //Add Customer to contact list (database)
                 Db.AddPerson(train1);
 
+                //Call method to save the new object on the harddisk
+                Db.Serialisation();
+
                 //Set optional fields
                 SetAttributesTrainee_optional(train1);
             }
@@ -330,6 +333,9 @@ namespace semesterarbeit
 
                 //Add Customer to contact list (database)
                 Db.AddPerson(cust1);
+
+                //Call method to save the new object on the harddisk
+                Db.Serialisation();
 
                 //Set optional fields
                 SetAttributesCust_optional(cust1);

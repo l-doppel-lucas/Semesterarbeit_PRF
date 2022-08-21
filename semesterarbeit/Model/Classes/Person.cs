@@ -2,7 +2,8 @@
 
 namespace semesterarbeit
 {
-   public class Person
+    [Serializable()]
+    public class Person
     {
         public bool Status { get; set; }
         public int Id { get; set; }

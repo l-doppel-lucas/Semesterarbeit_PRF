@@ -1,8 +1,10 @@
 ﻿using System;
 
 namespace semesterarbeit
-{
-    class Trainee : Employee
+{ 
+
+    [Serializable()]
+class Trainee : Employee
     {
 
         public string Appyears { get; set; }
