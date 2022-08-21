@@ -39,6 +39,7 @@
             this.LblCustNum = new System.Windows.Forms.Label();
             this.LblEmpNum = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DgrdBrowse = new System.Windows.Forms.DataGridView();
             this.ChkStatus = new System.Windows.Forms.CheckBox();
             this.DtpLeaveDate = new System.Windows.Forms.DateTimePicker();
             this.RadCustomer = new System.Windows.Forms.RadioButton();
@@ -133,12 +134,11 @@
             this.CmdCancel = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.DgrdBrowse = new System.Windows.Forms.DataGridView();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabControl
@@ -343,6 +343,14 @@
             this.tabPage1.Text = "User Information";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // DgrdBrowse
+            // 
+            this.DgrdBrowse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgrdBrowse.Location = new System.Drawing.Point(15, 407);
+            this.DgrdBrowse.Name = "DgrdBrowse";
+            this.DgrdBrowse.Size = new System.Drawing.Size(943, 148);
+            this.DgrdBrowse.TabIndex = 187;
             // 
             // ChkStatus
             // 
@@ -1306,14 +1314,6 @@
             this.LblName.TabIndex = 15;
             this.LblName.Text = "Contact Center";
             // 
-            // DgrdBrowse
-            // 
-            this.DgrdBrowse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgrdBrowse.Location = new System.Drawing.Point(15, 407);
-            this.DgrdBrowse.Name = "DgrdBrowse";
-            this.DgrdBrowse.Size = new System.Drawing.Size(943, 148);
-            this.DgrdBrowse.TabIndex = 187;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1339,9 +1339,9 @@
             this.tabPage3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
