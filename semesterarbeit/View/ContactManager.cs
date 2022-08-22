@@ -355,7 +355,21 @@ namespace semesterarbeit
             }
             else if (CmdEditUser.Tag.ToString() == "Clicked")
             {
-
+                if (RadCustomer.Checked)
+                {
+                    SetAttributesCust_mandatory(LsbOutput.SelectedItem as Customer);
+                    SetAttributesCust_optional(LsbOutput.SelectedItem as Customer);
+                }
+                else if (RadEmployee.Checked)
+                {
+                    SetAttributesEmp_mandatory(LsbOutput.SelectedItem as Employee);
+                    SetAttributesEmpl_optional(LsbOutput.SelectedItem as Employee);
+                }
+                else if (RadTrainee.Checked)
+                {
+                    SetAttributesTrainee_mandatory(LsbOutput.SelectedItem as Trainee);
+                    SetAttributesTrainee_optional(LsbOutput.SelectedItem as Trainee);
+                }
 
             }
 
