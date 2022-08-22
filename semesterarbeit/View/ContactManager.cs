@@ -1104,5 +1104,23 @@ namespace semesterarbeit
         {
 
         }
+
+        private void TxtFirstname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
+                if (string.IsNullOrWhiteSpace(TxtFirstname.Text))
+                {
+                    e.Cancel = true;
+                    TxtFirstname.Focus();
+                    errorProvider1.SetError(TxtFirstname, "Name should not be left blank!");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    errorProvider1.SetError(TxtFirstname, "");
+                }
+        }
+
+
     }
 }
