@@ -497,7 +497,7 @@
             "3",
             "4",
             ""});
-            this.CmbApprentYears.Location = new System.Drawing.Point(343, 362);
+            this.CmbApprentYears.Location = new System.Drawing.Point(343, 363);
             this.CmbApprentYears.Name = "CmbApprentYears";
             this.CmbApprentYears.Size = new System.Drawing.Size(138, 21);
             this.CmbApprentYears.TabIndex = 179;
@@ -1218,6 +1218,7 @@
             this.CmdAddUser.Name = "CmdAddUser";
             this.CmdAddUser.Size = new System.Drawing.Size(112, 42);
             this.CmdAddUser.TabIndex = 2;
+            this.CmdAddUser.Tag = "AddUser";
             this.CmdAddUser.Text = "ADD USER";
             this.CmdAddUser.UseVisualStyleBackColor = true;
             this.CmdAddUser.Visible = false;
@@ -1231,6 +1232,7 @@
             this.CmdEditUser.Name = "CmdEditUser";
             this.CmdEditUser.Size = new System.Drawing.Size(112, 42);
             this.CmdEditUser.TabIndex = 3;
+            this.CmdEditUser.Tag = "EditUser";
             this.CmdEditUser.Text = "EDIT USER";
             this.CmdEditUser.UseVisualStyleBackColor = true;
             this.CmdEditUser.Visible = false;

@@ -42,7 +42,7 @@ namespace semesterarbeit
             //Set datasource for Datagrid
             DgrdBrowse.DataSource = Db.contactList;
             DgrdBrowse.ReadOnly = true;
-            
+
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -144,11 +144,12 @@ namespace semesterarbeit
                     TxtMgmtLevel.Text = Convert.ToString(selectedTrainee.Lvl);
                     TxtWorkPensum.Text = selectedTrainee.Workpensum;
                     TxtPrivatePhone.Text = selectedTrainee.Privatephone;
-                    TxtApprentYears.Text = Convert.ToString(selectedTrainee.Appyears);
-                    TxtCurrentApprentYear.Text = Convert.ToString(selectedTrainee.Currappyear);
+                    TxtApprentYears.Text = selectedTrainee.Appyears;
+                    CmbApprentYears.SelectedValue = selectedTrainee.Appyears;
+                    TxtCurrentApprentYear.Text = selectedTrainee.Currappyear;
                     break;
 
-                    case "Customer":
+                case "Customer":
                     //make all relevant textboxes and lables visible
                     ShowAllCust();
 
@@ -193,6 +194,8 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
         private void CmdAddUser_Click(object sender, EventArgs e)
         {
+            CmdAddUser.Tag = "Clicked";
+
             //Change buttons
             CmdAddUser.Visible = false;
             CmdSave.Visible = true;
@@ -200,7 +203,7 @@ namespace semesterarbeit
 
             //Uncheck radio buttons
             UncheckAllRad();
-            
+
 
             //Enables all "Person" related fields
             EnableAllPers();
@@ -227,18 +230,23 @@ namespace semesterarbeit
             CmdEditUser.Enabled = false;
             CmdExport.Enabled = false;
             CmdSearch.Enabled = false;
-            
+
+            CmdAddUser.Tag = "";
+
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            if(RadEmployee.Checked)
+            if (CmdAddUser.Tag.ToString() == "Clicked")
             {
-                //Increase the value of the variable id
-                id++;
 
-
-                Employee empl1 = new Employee
+                if (RadEmployee.Checked)
                 {
+                    //Increase the value of the variable id
+                    id++;
+
+
+                    Employee empl1 = new Employee
+                    {
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -257,25 +265,25 @@ namespace semesterarbeit
                         Workpensum = CmbWorkPensum.SelectedText,
                         Entrydate = DtpStartDate.Value, //EntryDate
                         Role = TxtRole.Text
-                };
+                    };
 
-                //Add Employee to contact list (database)
-                Db.AddPerson(empl1);
+                    //Add Employee to contact list (database)
+                    Db.AddPerson(empl1);
 
-                //Call method to save the new object on the harddisk
-                Db.Serialisation();
+                    //Call method to save the new object on the harddisk
+                    Db.Serialisation();
 
-                //Set optional fields
-                SetAttributesEmpl_optional(empl1);
+                    //Set optional fields
+                    SetAttributesEmpl_optional(empl1);
 
-            }
-            else if (RadTrainee.Checked)
-            {
-                //Increase the value of the variable id
-                id++;
-
-                Trainee train1 = new Trainee
+                }
+                else if (RadTrainee.Checked)
                 {
+                    //Increase the value of the variable id
+                    id++;
+
+                    Trainee train1 = new Trainee
+                    {
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -295,54 +303,60 @@ namespace semesterarbeit
                         Entrydate = DtpStartDate.Value, //EntryDate
                         Role = TxtRole.Text,
                         Appyears = CmbApprentYears.SelectedText
-                };
+                    };
 
-                //Add Customer to contact list (database)
-                Db.AddPerson(train1);
+                    //Add Customer to contact list (database)
+                    Db.AddPerson(train1);
 
-                //Call method to save the new object on the harddisk
-                Db.Serialisation();
+                    //Call method to save the new object on the harddisk
+                    Db.Serialisation();
 
-                //Set optional fields
-                SetAttributesTrainee_optional(train1);
-            }
-            else if (RadCustomer.Checked)
-            {
-                //Increase the value of the variable id
-                id++;
-
-                Customer cust1 = new Customer
+                    //Set optional fields
+                    SetAttributesTrainee_optional(train1);
+                }
+                else if (RadCustomer.Checked)
                 {
-                    Id = id,
-                    Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                    Firstname = TxtFirstname.Text,
-                    Lastname = TxtLastname.Text,
-                    Birthdate = DtpBirthdate.Value, //Birthdate
-                    CreationDate = DateTime.Now, //Creation date
-                    Gender = Convert.ToString(CmbGender.SelectedItem),
-                    Mail = TxtEmail.Text,
-                    Status = true, //User enabled
-                    Street = TxtStreet.Text,
-                    City = TxtCity.Text,
-                    Zipcode = TxtZipcode.Text,
-                    ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
-                    Companyname = TxtCompanyName.Text,
-                    Type = (CustType)CmbCustomerType.SelectedValue,
-                    Companycontact = TxtContacPerson.Text
-                };
+                    //Increase the value of the variable id
+                    id++;
 
-                //Add Customer to contact list (database)
-                Db.AddPerson(cust1);
+                    Customer cust1 = new Customer
+                    {
+                        Id = id,
+                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                        Firstname = TxtFirstname.Text,
+                        Lastname = TxtLastname.Text,
+                        Birthdate = DtpBirthdate.Value, //Birthdate
+                        CreationDate = DateTime.Now, //Creation date
+                        Gender = Convert.ToString(CmbGender.SelectedItem),
+                        Mail = TxtEmail.Text,
+                        Status = true, //User enabled
+                        Street = TxtStreet.Text,
+                        City = TxtCity.Text,
+                        Zipcode = TxtZipcode.Text,
+                        ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        Companyname = TxtCompanyName.Text,
+                        Type = (CustType)CmbCustomerType.SelectedValue,
+                        Companycontact = TxtContacPerson.Text
+                    };
 
-                //Call method to save the new object on the harddisk
-                Db.Serialisation();
+                    //Add Customer to contact list (database)
+                    Db.AddPerson(cust1);
 
-                //Set optional fields
-                SetAttributesCust_optional(cust1);
+                    //Call method to save the new object on the harddisk
+                    Db.Serialisation();
+
+                    //Set optional fields
+                    SetAttributesCust_optional(cust1);
+                }
+                else
+                {
+                    MessageBox.Show("Please select contact type!");
+                }
             }
-            else
+            else if (CmdEditUser.Tag.ToString() == "Clicked")
             {
-                MessageBox.Show("Please select contact type!");
+
+
             }
 
             //Change buttons
@@ -366,9 +380,13 @@ namespace semesterarbeit
 
             //Update Dashboard Numbers
             SetDashboardNumbers();
+
         }
+
         private void CmdEditUser_Click(object sender, EventArgs e)
         {
+            CmdEditUser.Tag = "Clicked";
+
             CmdAddUser.Visible = false;
             CmdEditUser.Visible = false;
             CmdSave.Visible = true;
@@ -408,6 +426,8 @@ namespace semesterarbeit
 
             //Call method to update the Object on the HDD
             Db.Serialisation();
+
+            CmdEditUser.Tag = "";
         }
 
         private void CmdDeleteUser_Click(object sender, EventArgs e)
@@ -426,23 +446,23 @@ namespace semesterarbeit
 
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(TabControl.SelectedIndex == 0)
+            if (TabControl.SelectedIndex == 0)
             {
                 HideButtons();
             }
-            else if(TabControl.SelectedIndex == 1)
+            else if (TabControl.SelectedIndex == 1)
             {
                 ShowButtons();
 
                 ShowStartScreen();
             }
-            else if(TabControl.SelectedIndex == 2)
+            else if (TabControl.SelectedIndex == 2)
             {
                 ShowButtons();
             }
         }
 
-        private void ShowButtons ()
+        private void ShowButtons()
         {
             CmdAddUser.Visible = true;
             CmdDeleteUser.Visible = true;
@@ -454,7 +474,7 @@ namespace semesterarbeit
             LsbOutput.Visible = true;
         }
 
-        private void HideButtons ()
+        private void HideButtons()
         {
             CmdAddUser.Visible = false;
             CmdDeleteUser.Visible = false;
@@ -513,10 +533,10 @@ namespace semesterarbeit
                     pph: TxtPrivatePhone.Text,
                     birthpl: TxtBirthplace.Text,
                     exdate: DtpLeaveDate.Value,
-                    lvl: (MgmLvl) CmbMgmtLevel.SelectedItem
+                    lvl: (MgmLvl)CmbMgmtLevel.SelectedItem
                     );
         }
-        
+
         //Set all mandatory attributes for Customers
         private void SetAttributesCust_mandatory(Person p)
         {
@@ -549,13 +569,13 @@ namespace semesterarbeit
             //Call method to set optional attributes
             cust.SetOptionalAttributes(
                     title: TxtTitle.Text,
-                    mph: TxtMobileNumber.Text, 
+                    mph: TxtMobileNumber.Text,
                     bph: TxtBusinessPhone.Text,
-                    bfa : TxtBusinessFax.Text,
+                    bfa: TxtBusinessFax.Text,
                     compcont: TxtContacPerson.Text
                     );
         }
-        
+
         //Function to set all mandatory attributes for trainees
         private void SetAttributesTrainee_mandatory(Person p)
         {
@@ -599,7 +619,7 @@ namespace semesterarbeit
                     pph: TxtPrivatePhone.Text,
                     birthpl: TxtBirthplace.Text,
                     exdate: DtpLeaveDate.Value,
-                    lvl: (MgmLvl) CmbMgmtLevel.SelectedItem,
+                    lvl: (MgmLvl)CmbMgmtLevel.SelectedItem,
                     currappyear: Convert.ToString(CmbCurrentApprentYear.SelectedItem)
                     );
         }
@@ -613,7 +633,7 @@ namespace semesterarbeit
         }
 
 
-        
+
         /*---------------------------------------------------------------------
          * Radio Butoons
          * --------------------------------------------------------------------*/
@@ -715,7 +735,7 @@ namespace semesterarbeit
             //Disable all boxes
             DisableALl();
         }
-        
+
         //Enables all Person Textboxes
         private void EnableAllPers()
         {
@@ -829,7 +849,7 @@ namespace semesterarbeit
             TxtStreet.ReadOnly = true;
             TxtZipcode.ReadOnly = true;
 
-            
+
         }
 
         //Disable all Employee Textboxes
