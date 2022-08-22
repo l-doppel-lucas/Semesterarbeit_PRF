@@ -347,6 +347,7 @@ namespace semesterarbeit
 
             //Change buttons
             CmdAddUser.Visible = true;
+            CmdEditUser.Visible = true;
             CmdSave.Visible = false;
             CmdCancel.Visible = false;
 
@@ -373,27 +374,40 @@ namespace semesterarbeit
             CmdSave.Visible = true;
             CmdCancel.Visible = true;
 
+            //Show all Comboboxes and enable them
+            ShowAllCmbPers();
+            EnableAllCmb();
+
+
             //Makes all radio buttos visible
             ShowAllRad();
+
+            RadCustomer.Enabled = true;
+            RadEmployee.Enabled = true;
+            RadTrainee.Enabled = true;
+
+            EnableAllPers();
 
 
             if (RadEmployee.Checked)
             {
-                
-
+                DisableALl();
+                EnableAllEmp();
             }
             else if (RadTrainee.Checked)
             {
-                
+                DisableALl();
+                EnableAllTrnee();
             }
             else if (RadCustomer.Checked)
             {
-
+                DisableALl();
+                EnableAllCust();
             }
 
 
-                //Call method to update the Object on the HDD
-                Db.Serialisation();
+            //Call method to update the Object on the HDD
+            Db.Serialisation();
         }
 
         private void CmdDeleteUser_Click(object sender, EventArgs e)
@@ -664,6 +678,7 @@ namespace semesterarbeit
         {
             //Change buttons
             CmdAddUser.Visible = true;
+            CmdEditUser.Visible = true;
             CmdSave.Visible = false;
             CmdCancel.Visible = false;
 
@@ -1041,6 +1056,15 @@ namespace semesterarbeit
                 DtpBirthdate.Value = Convert.ToDateTime(TxtBirthdate.Text);
             else
                 DtpBirthdate.Value = Convert.ToDateTime("01.01.1990");
+        }
+
+        //Enable all Comboboxes
+        private void EnableAllCmb()
+        {
+            CmbSalutation.Enabled = true;
+            CmbGender.Enabled = true;
+            DtpBirthdate.Enabled = true;
+
         }
 
         //Hide all Person combo boxes 
