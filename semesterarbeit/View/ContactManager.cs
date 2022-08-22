@@ -373,7 +373,27 @@ namespace semesterarbeit
             CmdSave.Visible = true;
             CmdCancel.Visible = true;
 
+            //Makes all radio buttos visible
+            ShowAllRad();
 
+
+            if (RadEmployee.Checked)
+            {
+                
+
+            }
+            else if (RadTrainee.Checked)
+            {
+                
+            }
+            else if (RadCustomer.Checked)
+            {
+
+            }
+
+
+                //Call method to update the Object on the HDD
+                Db.Serialisation();
         }
 
         private void CmdDeleteUser_Click(object sender, EventArgs e)
