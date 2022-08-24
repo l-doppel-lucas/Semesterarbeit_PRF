@@ -1189,8 +1189,31 @@ namespace semesterarbeit
             CmbCurrentApprentYear.Visible = false;
         }
 
-        private void CmbMgmtLevel_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        // Methoden zur Validierung
+
+
+        //private void TxtFirstname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
+
+        //    if (string.IsNullOrEmpty(TxtFirstname.Text))
+        //    {
+        //        e.Cancel = true;
+        //        TxtFirstname.Focus();
+        //        errorProvider1.SetError(TxtFirstname, "Please Enter Firstname");
+        //    }
+
+        //    else
+        //    {
+        //        e.Cancel = false; 
+        //        TxtFirstname.Focus();
+        //        errorProvider1.SetError(TxtFirstname, "fffff");
+        //    }
+
+        //}
+
+
+
+
 
         }
 
