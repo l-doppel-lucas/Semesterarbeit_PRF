@@ -196,6 +196,16 @@ namespace semesterarbeit
         {
             CmdAddUser.Tag = "Clicked";
 
+            LsbOutput.Enabled = false;
+
+            //Disables unusable buttons, combo boxes, and list boxes
+            ChkStatus.Enabled = false;
+            CmdTakeNotes.Enabled = false;
+            CmdDeleteUser.Enabled = false;
+            CmdEditUser.Enabled = false;
+            CmdExport.Enabled = false;
+            CmdSearch.Enabled = false;
+
             //Change buttons
             CmdAddUser.Visible = false;
             CmdSave.Visible = true;
@@ -221,15 +231,6 @@ namespace semesterarbeit
             HideAllTrnee();
             HideAllCust();
             HideAllEmp();
-
-            //Disables unusable buttons, combo boxes, and list boxes
-            ChkStatus.Enabled = false;
-            CmdTakeNotes.Enabled = false;
-            LsbOutput.Enabled = false;
-            CmdDeleteUser.Enabled = false;
-            CmdEditUser.Enabled = false;
-            CmdExport.Enabled = false;
-            CmdSearch.Enabled = false;
 
         }
         private void CmdSave_Click(object sender, EventArgs e)
@@ -413,6 +414,7 @@ namespace semesterarbeit
         {
             CmdEditUser.Tag = "Clicked";
 
+            LsbOutput.Enabled = false;
             CmdAddUser.Visible = false;
             CmdEditUser.Visible = false;
             CmdSave.Visible = true;
