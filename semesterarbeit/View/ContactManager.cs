@@ -1219,6 +1219,7 @@ namespace semesterarbeit
 
         }
 
+        /*
         private void TxtFirstname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             
@@ -1233,8 +1234,8 @@ namespace semesterarbeit
                     e.Cancel = false;
                     errorProvider1.SetError(TxtFirstname, "");
                 }
-        }
+        }*/
 
 
     }
-}
+
