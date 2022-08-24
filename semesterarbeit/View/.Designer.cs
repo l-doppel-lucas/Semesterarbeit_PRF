@@ -391,7 +391,7 @@
             // RadCustomer
             // 
             this.RadCustomer.AutoSize = true;
-            this.RadCustomer.Location = new System.Drawing.Point(144, 6);
+            this.RadCustomer.Location = new System.Drawing.Point(152, 17);
             this.RadCustomer.Margin = new System.Windows.Forms.Padding(1);
             this.RadCustomer.Name = "RadCustomer";
             this.RadCustomer.Size = new System.Drawing.Size(69, 17);
@@ -412,7 +412,7 @@
             // RadTrainee
             // 
             this.RadTrainee.AutoSize = true;
-            this.RadTrainee.Location = new System.Drawing.Point(81, 6);
+            this.RadTrainee.Location = new System.Drawing.Point(89, 17);
             this.RadTrainee.Margin = new System.Windows.Forms.Padding(1);
             this.RadTrainee.Name = "RadTrainee";
             this.RadTrainee.Size = new System.Drawing.Size(61, 17);
@@ -434,7 +434,7 @@
             // 
             this.RadEmployee.AutoSize = true;
             this.RadEmployee.Checked = true;
-            this.RadEmployee.Location = new System.Drawing.Point(8, 6);
+            this.RadEmployee.Location = new System.Drawing.Point(16, 17);
             this.RadEmployee.Margin = new System.Windows.Forms.Padding(1);
             this.RadEmployee.Name = "RadEmployee";
             this.RadEmployee.Size = new System.Drawing.Size(71, 17);
