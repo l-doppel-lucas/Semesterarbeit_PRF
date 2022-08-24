@@ -231,8 +231,6 @@ namespace semesterarbeit
             CmdExport.Enabled = false;
             CmdSearch.Enabled = false;
 
-            CmdAddUser.Tag = "";
-
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
@@ -276,6 +274,7 @@ namespace semesterarbeit
                     //Set optional fields
                     SetAttributesEmpl_optional(empl1);
 
+                    CmdAddUser.Tag = "";
                 }
                 else if (RadTrainee.Checked)
                 {
@@ -313,6 +312,8 @@ namespace semesterarbeit
 
                     //Set optional fields
                     SetAttributesTrainee_optional(train1);
+
+                    CmdAddUser.Tag = "";
                 }
                 else if (RadCustomer.Checked)
                 {
@@ -347,6 +348,8 @@ namespace semesterarbeit
 
                     //Set optional fields
                     SetAttributesCust_optional(cust1);
+
+                    CmdAddUser.Tag = "";
                 }
                 else
                 {
@@ -359,16 +362,25 @@ namespace semesterarbeit
                 {
                     SetAttributesCust_mandatory(LsbOutput.SelectedItem as Customer);
                     SetAttributesCust_optional(LsbOutput.SelectedItem as Customer);
+
+                    Db.Serialisation();
+                    CmdEditUser.Tag = "";
                 }
                 else if (RadEmployee.Checked)
                 {
                     SetAttributesEmp_mandatory(LsbOutput.SelectedItem as Employee);
                     SetAttributesEmpl_optional(LsbOutput.SelectedItem as Employee);
+
+                    Db.Serialisation();
+                    CmdEditUser.Tag = "";
                 }
                 else if (RadTrainee.Checked)
                 {
                     SetAttributesTrainee_mandatory(LsbOutput.SelectedItem as Trainee);
                     SetAttributesTrainee_optional(LsbOutput.SelectedItem as Trainee);
+
+                    Db.Serialisation();
+                    CmdEditUser.Tag = "";
                 }
 
             }
@@ -441,7 +453,6 @@ namespace semesterarbeit
             //Call method to update the Object on the HDD
             Db.Serialisation();
 
-            CmdEditUser.Tag = "";
         }
 
         private void CmdDeleteUser_Click(object sender, EventArgs e)
