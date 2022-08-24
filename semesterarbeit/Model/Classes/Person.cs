@@ -1,13 +1,10 @@
 ﻿using System;
-using Microsoft.Build.Framework;
 
 namespace semesterarbeit
 {
     [Serializable()]
     public class Person
     {
-        [Required]
-
         public bool Status { get; set; }
         public int Id { get; set; }
         public string Title { get; set; }
@@ -40,6 +37,11 @@ namespace semesterarbeit
         {
             return Status + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString()
                 + ", " + Gender + ", " + Businessphone + ", " + Businessfax + ", " + Mail + ", " + ChangeHistory;
+        }
+
+        public string ShortText()
+        {
+            return Id + " - " + Firstname + " " + Lastname;
         }
 
 

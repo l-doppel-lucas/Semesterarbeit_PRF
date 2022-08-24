@@ -6,7 +6,7 @@ namespace semesterarbeit
 {
     public partial class Dashboard : Form
     {
-        //Create variable for id
+        //Create variable for id/EmpID
         private int id;
 
         //Create Contact List for Listbox
@@ -135,8 +135,8 @@ namespace semesterarbeit
                     //Write the properties of the object of type "Trainee" into the specific textboxes
                     TxtDepartment.Text = selectedTrainee.Departement;
                     TxtAHVNumber.Text = selectedTrainee.Ahv;
-                    TxtStartDate.Text = Convert.ToString(selectedTrainee.Entrydate);
-                    TxtLeaveDate.Text = Convert.ToString(selectedTrainee.Exitdate);
+                    TxtStartDate.Text = selectedTrainee.Entrydate.ToShortDateString(); 
+                    TxtLeaveDate.Text = selectedTrainee.Exitdate.ToShortDateString() ;
                     TxtEmplNr.Text = Convert.ToString(selectedTrainee.EmplNr);
                     TxtBirthplace.Text = selectedTrainee.Birthplace;
                     TxtNationality.Text = selectedTrainee.Nationality;
@@ -145,7 +145,6 @@ namespace semesterarbeit
                     TxtWorkPensum.Text = selectedTrainee.Workpensum;
                     TxtPrivatePhone.Text = selectedTrainee.Privatephone;
                     TxtApprentYears.Text = selectedTrainee.Appyears;
-                    CmbApprentYears.SelectedValue = selectedTrainee.Appyears;
                     TxtCurrentApprentYear.Text = selectedTrainee.Currappyear;
                     break;
 
@@ -187,6 +186,18 @@ namespace semesterarbeit
                 ActivateUser();
             }
             */
+        }
+
+        private void LsbOutput_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string id = ((Person)e.ListItem).Id.ToString();
+            string firstname = ((Person)e.ListItem).Firstname.ToString();
+            string lastname = ((Person)e.ListItem).Lastname.ToString();
+            string type = ((Person)e.ListItem).GetClassName();
+
+            string output = id + " - " + firstname + " " + lastname + " - " + type;
+
+            e.Value = output;
         }
 
         /*---------------------------------------------------------------------
@@ -259,10 +270,11 @@ namespace semesterarbeit
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
                         ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
-                        EmplNr = Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
+                        EmplNr = id, //EmplNumber
                         Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                        Workpensum = CmbWorkPensum.SelectedText,
+                        Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
                         Entrydate = DtpStartDate.Value, //EntryDate
+                        Exitdate = DtpLeaveDate.Value, //Exitdate
                         Role = TxtRole.Text
                     };
 
@@ -297,12 +309,14 @@ namespace semesterarbeit
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
                         ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
-                        EmplNr = Convert.ToInt32(TxtEmplNr.Text), //EmplNumber
+                        EmplNr = id, //EmplNumber
                         Departement = Convert.ToString(CmbDepartment.SelectedItem),
                         Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
                         Entrydate = DtpStartDate.Value, //EntryDate
+                        Exitdate = DtpLeaveDate.Value, //ExitDate
                         Role = TxtRole.Text,
-                        Appyears = CmbApprentYears.SelectedText
+                        Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
+                        Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
                     };
 
                     //Add Customer to contact list (database)
@@ -408,6 +422,9 @@ namespace semesterarbeit
             //Update Dashboard Numbers
             SetDashboardNumbers();
 
+            //Set Selected Index to 0 
+            ShowStartScreen();
+
         }
 
         private void CmdEditUser_Click(object sender, EventArgs e)
@@ -437,18 +454,20 @@ namespace semesterarbeit
 
             if (RadEmployee.Checked)
             {
-                DisableALl();
                 EnableAllEmp();
+                ShowAllCmbEmp();
             }
             else if (RadTrainee.Checked)
             {
-                DisableALl();
+                EnableAllEmp();
                 EnableAllTrnee();
+                ShowAllCmbEmp();
+                ShowAllCmbTrnee();
             }
             else if (RadCustomer.Checked)
             {
-                DisableALl();
                 EnableAllCust();
+                ShowAllCmbCust();
             }
 
 
@@ -535,7 +554,6 @@ namespace semesterarbeit
                 city: TxtCity.Text,
                 zip: TxtZipcode.Text,
                 changehistory: emp.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
-                emplnum: Convert.ToInt32(TxtEmplNr.Text),
                 departement: Convert.ToString(CmbDepartment.SelectedItem),
                 role: TxtRole.Text,
                 pens: Convert.ToString(CmbWorkPensum.SelectedItem),
@@ -621,7 +639,6 @@ namespace semesterarbeit
                 city: TxtCity.Text,
                 zip: TxtZipcode.Text,
                 changehistory: appr.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
-                emplnum: Convert.ToInt32(TxtEmplNr.Text),
                 departement: Convert.ToString(CmbDepartment.SelectedItem),
                 role: TxtRole.Text,
                 pens: Convert.ToString(CmbWorkPensum.SelectedItem),
@@ -666,10 +683,14 @@ namespace semesterarbeit
          * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
         {
+            if(CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                ShowAllCmbEmp();
+                EnableAllEmp();
+            }
+
             //Make all Employee textboxes visible & enabled
             ShowAllEmp();
-            EnableAllEmp();
-            ShowAllCmbEmp();
 
             //hides all others
             HideAllTrnee();
@@ -680,13 +701,17 @@ namespace semesterarbeit
 
         private void RadTrainee_CheckedChanged(object sender, EventArgs e)
         {
+            if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                ShowAllCmbEmp();
+                ShowAllCmbTrnee();
+                EnableAllTrnee();
+                EnableAllEmp();
+            }
+
             //Make all Trainee textboxes visible & enabled
             ShowAllEmp();
-            EnableAllEmp();
             ShowAllTrnee();
-            EnableAllTrnee();
-            ShowAllCmbEmp();
-            ShowAllCmbTrnee();
 
             //hides all others
             HideAllCust();
@@ -694,10 +719,14 @@ namespace semesterarbeit
         }
         private void RadCustomer_CheckedChanged(object sender, EventArgs e)
         {
+            if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                ShowAllCmbCust();
+                EnableAllCust();
+            }
+
             //Make all Customer textboxes visible & enabled
             ShowAllCust();
-            EnableAllCust();
-            ShowAllCmbCust();
 
             //hides all others
             HideAllTrnee();
@@ -794,7 +823,6 @@ namespace semesterarbeit
             TxtAHVNumber.ReadOnly = false;
             TxtStartDate.ReadOnly = false;
             TxtLeaveDate.ReadOnly = false;
-            TxtEmplNr.ReadOnly = false;
             TxtBirthplace.ReadOnly = false;
             TxtNationality.ReadOnly = false;
             TxtRole.ReadOnly = false;

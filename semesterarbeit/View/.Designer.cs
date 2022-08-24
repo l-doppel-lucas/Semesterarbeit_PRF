@@ -485,7 +485,7 @@
             "3",
             "4",
             ""});
-            this.CmbCurrentApprentYear.Location = new System.Drawing.Point(511, 363);
+            this.CmbCurrentApprentYear.Location = new System.Drawing.Point(511, 362);
             this.CmbCurrentApprentYear.Name = "CmbCurrentApprentYear";
             this.CmbCurrentApprentYear.Size = new System.Drawing.Size(138, 21);
             this.CmbCurrentApprentYear.TabIndex = 180;
@@ -780,7 +780,7 @@
             // TxtCurrentApprentYear
             // 
             this.TxtCurrentApprentYear.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCurrentApprentYear.Location = new System.Drawing.Point(511, 364);
+            this.TxtCurrentApprentYear.Location = new System.Drawing.Point(511, 363);
             this.TxtCurrentApprentYear.Margin = new System.Windows.Forms.Padding(1);
             this.TxtCurrentApprentYear.Name = "TxtCurrentApprentYear";
             this.TxtCurrentApprentYear.Size = new System.Drawing.Size(138, 20);
@@ -1152,7 +1152,7 @@
             this.TxtNotesHistory.Margin = new System.Windows.Forms.Padding(1);
             this.TxtNotesHistory.Multiline = true;
             this.TxtNotesHistory.Name = "TxtNotesHistory";
-            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 455);
+            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 510);
             this.TxtNotesHistory.TabIndex = 6;
             // 
             // LblNotesHistory
@@ -1212,6 +1212,7 @@
             this.LsbOutput.TabIndex = 1;
             this.LsbOutput.Visible = false;
             this.LsbOutput.SelectedIndexChanged += new System.EventHandler(this.LsbOutput_SelectedIndexChanged);
+            this.LsbOutput.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.LsbOutput_Format);
             // 
             // CmdAddUser
             // 
