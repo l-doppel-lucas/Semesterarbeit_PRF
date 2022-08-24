@@ -33,7 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,7 +49,6 @@
     <Compile Include="Controller\Database.cs" />
     <Compile Include="Model\Classes\Customer.cs" />
     <Compile Include="Model\Classes\Employee.cs" />
-    <Compile Include="Model\Classes\Validation.cs" />
     <Compile Include="View\ContactManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +72,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\ContactManager.resx">
+      <DependentUpon>ContactManager.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

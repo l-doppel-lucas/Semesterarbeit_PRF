@@ -1152,7 +1152,7 @@
             this.TxtNotesHistory.Margin = new System.Windows.Forms.Padding(1);
             this.TxtNotesHistory.Multiline = true;
             this.TxtNotesHistory.Name = "TxtNotesHistory";
-            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 510);
+            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 455);
             this.TxtNotesHistory.TabIndex = 6;
             // 
             // LblNotesHistory
