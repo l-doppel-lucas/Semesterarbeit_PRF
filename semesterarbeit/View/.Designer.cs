@@ -1148,7 +1148,7 @@
             // 
             // TxtNotesHistory
             // 
-            this.TxtNotesHistory.Location = new System.Drawing.Point(140, 25);
+            this.TxtNotesHistory.Location = new System.Drawing.Point(280, 50);
             this.TxtNotesHistory.Margin = new System.Windows.Forms.Padding(1);
             this.TxtNotesHistory.Multiline = true;
             this.TxtNotesHistory.Name = "TxtNotesHistory";
@@ -1187,7 +1187,7 @@
             // 
             // TxtLastModified
             // 
-            this.TxtLastModified.Location = new System.Drawing.Point(2, 53);
+            this.TxtLastModified.Location = new System.Drawing.Point(6, 104);
             this.TxtLastModified.Margin = new System.Windows.Forms.Padding(1);
             this.TxtLastModified.Multiline = true;
             this.TxtLastModified.Name = "TxtLastModified";
@@ -1196,7 +1196,7 @@
             // 
             // TxtCreationDate
             // 
-            this.TxtCreationDate.Location = new System.Drawing.Point(2, 24);
+            this.TxtCreationDate.Location = new System.Drawing.Point(6, 50);
             this.TxtCreationDate.Margin = new System.Windows.Forms.Padding(1);
             this.TxtCreationDate.Name = "TxtCreationDate";
             this.TxtCreationDate.Size = new System.Drawing.Size(260, 20);
