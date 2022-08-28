@@ -25,7 +25,7 @@ namespace semesterarbeit
             CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
 
             //Import person objects on the start of the program
-            if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
+            if (Db.Deserialisation() == false) {MessageBox.Show("No existing Contacts!"); }
 
             //Show contact list in database
             LsbOutput.DataSource = Db.contactList;
@@ -191,11 +191,12 @@ namespace semesterarbeit
         private void LsbOutput_Format(object sender, ListControlConvertEventArgs e)
         {
             string id = ((Person)e.ListItem).Id.ToString();
+            string sal = ((Person)e.ListItem).Salutation.ToString();
             string firstname = ((Person)e.ListItem).Firstname.ToString();
             string lastname = ((Person)e.ListItem).Lastname.ToString();
             string type = ((Person)e.ListItem).GetClassName();
 
-            string output = id + " - " + firstname + " " + lastname + " - " + type;
+            var output = $"{id}: {sal} {firstname} {lastname} - {type}";
 
             e.Value = output;
         }
