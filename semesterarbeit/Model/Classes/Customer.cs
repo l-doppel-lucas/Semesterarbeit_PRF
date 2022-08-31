@@ -43,6 +43,11 @@ namespace semesterarbeit
 
         }
 
+        public void TakeNotes(string notes)
+        {
+            NotesHistory += DateTime.Now + Environment.NewLine +  notes + Environment.NewLine + Environment.NewLine;
+        }
+
         public override string ToString()
         {
             return base.ToString() + ", " + Companyname + ", " + Type + ", " + Companycontact;

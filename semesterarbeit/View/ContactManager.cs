@@ -553,7 +553,34 @@ namespace semesterarbeit
 
         private void CmdTakeNotes_Click(object sender, EventArgs e)
         {
+            if(CmdTakeNotes.Text == "Take notes")
+            {
+                //Enable Text Box
+                TxtNotes.Enabled = true;
+                TxtNotes.ReadOnly = false;
+                CmdTakeNotes.Text = "Save";
+            }
+            else if (CmdTakeNotes.Text == "Save")
+            {
+                //Cast into customer to run Take Notes function
+                Customer cust = LsbOutput.SelectedItem as Customer;
+                cust.TakeNotes(TxtNotes.Text);
 
+                //Display Changes in Notes History
+                TxtNotesHistory.Text = cust.NotesHistory;
+
+                //Save Notes
+                Db.Serialisation();
+
+                //Disable Textbox
+                TxtNotes.Enabled = false;
+                TxtNotes.ReadOnly = true;
+                CmdTakeNotes.Text = "Take notes";
+
+                //Reset Textbox
+                TxtNotes.ResetText();
+            }
+            
         }
 
         /*---------------------------------------------------------------------
