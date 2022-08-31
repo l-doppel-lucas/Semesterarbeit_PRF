@@ -1,5 +1,8 @@
 ﻿using semesterarbeit.Controller;
 using System;
+using System.Diagnostics.Eventing.Reader;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace semesterarbeit
@@ -173,19 +176,20 @@ namespace semesterarbeit
                     break;
             }
 
-            /*
+            
             //Check if the user is active or not
-            if (selectedPerson.Status == false)
+            if (selectedPerson.Disabled == true)
             {
                 //Call function for user status inactive
-                DeactivateUser();
+                selectedPerson.DeactivateUser();
+
             }
-            else if (selectedPerson.Status == true)
+            else if (selectedPerson.Disabled == false)
             {
                 //Call function for user status active
-                ActivateUser();
+                selectedPerson.ActivateUser();
             }
-            */
+           
         }
 
         private void LsbOutput_Format(object sender, ListControlConvertEventArgs e)
@@ -258,6 +262,7 @@ namespace semesterarbeit
 
                     Employee empl1 = new Employee
                     {
+                        Disabled = false, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -266,7 +271,6 @@ namespace semesterarbeit
                         CreationDate = DateTime.Now, //Creation date
                         Gender = Convert.ToString(CmbGender.SelectedItem),
                         Mail = TxtEmail.Text,
-                        Status = true, //User enabled
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
@@ -297,6 +301,7 @@ namespace semesterarbeit
 
                     Trainee train1 = new Trainee
                     {
+                        Disabled = false, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -305,7 +310,6 @@ namespace semesterarbeit
                         CreationDate = DateTime.Now, //Creation date
                         Gender = Convert.ToString(CmbGender.SelectedItem),
                         Mail = TxtEmail.Text,
-                        Status = true, //User enabled
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
@@ -338,6 +342,7 @@ namespace semesterarbeit
 
                     Customer cust1 = new Customer
                     {
+                        Disabled = false, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -346,7 +351,6 @@ namespace semesterarbeit
                         CreationDate = DateTime.Now, //Creation date
                         Gender = Convert.ToString(CmbGender.SelectedItem),
                         Mail = TxtEmail.Text,
-                        Status = true, //User enabled
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
@@ -545,6 +549,7 @@ namespace semesterarbeit
 
             //Call method to set mandatory attributes
             emp.SetMandatoryAttributes(
+                disabled: ChkStatus.Checked,
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,
@@ -559,7 +564,7 @@ namespace semesterarbeit
                 role: TxtRole.Text,
                 pens: Convert.ToString(CmbWorkPensum.SelectedItem),
                 entrdate: DtpStartDate.Value
-                );
+                ) ;
         }
 
         //Set all optional attributes for employees
@@ -591,6 +596,7 @@ namespace semesterarbeit
 
             //Call method to set mandatory attributes
             cust.SetMandatoryAttributes(
+                disabled: ChkStatus.Checked,
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,
@@ -630,6 +636,7 @@ namespace semesterarbeit
 
             //Call method to set mandatory attributes
             appr.SetMandatoryAttributes(
+                disabled: ChkStatus.Checked,
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,

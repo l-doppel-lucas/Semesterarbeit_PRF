@@ -1484,6 +1484,8 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView DgrdBrowse;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+
+        
     }
 }
 
