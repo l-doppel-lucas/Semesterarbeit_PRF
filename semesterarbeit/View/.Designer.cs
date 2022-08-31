@@ -39,11 +39,6 @@
             this.LblTraiNumb = new System.Windows.Forms.Label();
             this.LblCustNum = new System.Windows.Forms.Label();
             this.LblEmpNum = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.RadCustomerBrowse = new System.Windows.Forms.RadioButton();
-            this.RadTraineeBrowse = new System.Windows.Forms.RadioButton();
-            this.RadEmployeeBrowse = new System.Windows.Forms.RadioButton();
-            this.DgrdBrowse = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ChkStatus = new System.Windows.Forms.CheckBox();
             this.DtpLeaveDate = new System.Windows.Forms.DateTimePicker();
@@ -142,8 +137,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -152,7 +145,6 @@
             // TabControl
             // 
             this.TabControl.Controls.Add(this.tabPage3);
-            this.TabControl.Controls.Add(this.tabPage4);
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Location = new System.Drawing.Point(14, 63);
@@ -264,64 +256,6 @@
             this.LblEmpNum.Size = new System.Drawing.Size(218, 24);
             this.LblEmpNum.TabIndex = 0;
             this.LblEmpNum.Text = "Number of Employees";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.RadCustomerBrowse);
-            this.tabPage4.Controls.Add(this.RadTraineeBrowse);
-            this.tabPage4.Controls.Add(this.RadEmployeeBrowse);
-            this.tabPage4.Controls.Add(this.DgrdBrowse);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(974, 560);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Browse";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // RadCustomerBrowse
-            // 
-            this.RadCustomerBrowse.AutoSize = true;
-            this.RadCustomerBrowse.Location = new System.Drawing.Point(152, 17);
-            this.RadCustomerBrowse.Margin = new System.Windows.Forms.Padding(1);
-            this.RadCustomerBrowse.Name = "RadCustomerBrowse";
-            this.RadCustomerBrowse.Size = new System.Drawing.Size(69, 17);
-            this.RadCustomerBrowse.TabIndex = 191;
-            this.RadCustomerBrowse.Text = "Customer";
-            this.RadCustomerBrowse.UseVisualStyleBackColor = true;
-            // 
-            // RadTraineeBrowse
-            // 
-            this.RadTraineeBrowse.AutoSize = true;
-            this.RadTraineeBrowse.Location = new System.Drawing.Point(89, 17);
-            this.RadTraineeBrowse.Margin = new System.Windows.Forms.Padding(1);
-            this.RadTraineeBrowse.Name = "RadTraineeBrowse";
-            this.RadTraineeBrowse.Size = new System.Drawing.Size(61, 17);
-            this.RadTraineeBrowse.TabIndex = 190;
-            this.RadTraineeBrowse.Text = "Trainee";
-            this.RadTraineeBrowse.UseVisualStyleBackColor = true;
-            // 
-            // RadEmployeeBrowse
-            // 
-            this.RadEmployeeBrowse.AutoSize = true;
-            this.RadEmployeeBrowse.Checked = true;
-            this.RadEmployeeBrowse.Location = new System.Drawing.Point(16, 17);
-            this.RadEmployeeBrowse.Margin = new System.Windows.Forms.Padding(1);
-            this.RadEmployeeBrowse.Name = "RadEmployeeBrowse";
-            this.RadEmployeeBrowse.Size = new System.Drawing.Size(71, 17);
-            this.RadEmployeeBrowse.TabIndex = 189;
-            this.RadEmployeeBrowse.TabStop = true;
-            this.RadEmployeeBrowse.Text = "Employee";
-            this.RadEmployeeBrowse.UseVisualStyleBackColor = true;
-            // 
-            // DgrdBrowse
-            // 
-            this.DgrdBrowse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgrdBrowse.Location = new System.Drawing.Point(16, 38);
-            this.DgrdBrowse.Name = "DgrdBrowse";
-            this.DgrdBrowse.RowHeadersWidth = 82;
-            this.DgrdBrowse.Size = new System.Drawing.Size(944, 505);
-            this.DgrdBrowse.TabIndex = 188;
             // 
             // tabPage1
             // 
@@ -1403,9 +1337,6 @@
             this.TabControl.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1523,12 +1454,7 @@
         private System.Windows.Forms.Label LblGender;
         private System.Windows.Forms.TextBox TxtBirthdate;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView DgrdBrowse;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.RadioButton RadCustomerBrowse;
-        private System.Windows.Forms.RadioButton RadTraineeBrowse;
-        private System.Windows.Forms.RadioButton RadEmployeeBrowse;
     }
 }
 
