@@ -664,6 +664,7 @@
             this.CmdTakeNotes.TabIndex = 170;
             this.CmdTakeNotes.Text = "Take notes";
             this.CmdTakeNotes.UseVisualStyleBackColor = true;
+            this.CmdTakeNotes.Click += new System.EventHandler(this.CmdTakeNotes_Click);
             // 
             // LblBusinessPhone
             // 

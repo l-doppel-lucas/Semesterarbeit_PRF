@@ -537,6 +537,11 @@ namespace semesterarbeit
             LsbOutput.Visible = false;
         }
 
+        private void CmdTakeNotes_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /*---------------------------------------------------------------------
          * Functions
          * -------------------------------------------------------------------*/
