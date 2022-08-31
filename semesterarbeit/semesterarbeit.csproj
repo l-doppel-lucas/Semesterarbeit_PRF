@@ -49,6 +49,7 @@
     <Compile Include="Controller\Database.cs" />
     <Compile Include="Model\Classes\Customer.cs" />
     <Compile Include="Model\Classes\Employee.cs" />
+    <Compile Include="Model\Classes\GuiFunctions.cs" />
     <Compile Include="View\ContactManager.cs">
       <SubType>Form</SubType>
     </Compile>

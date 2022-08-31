@@ -137,6 +137,9 @@
             this.LblName = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.RadioButton1 = new System.Windows.Forms.RadioButton();
+            this.RadTraineeBrowse = new System.Windows.Forms.RadioButton();
+            this.RadEmployeeBrowse = new System.Windows.Forms.RadioButton();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -264,6 +267,9 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.RadioButton1);
+            this.tabPage4.Controls.Add(this.RadTraineeBrowse);
+            this.tabPage4.Controls.Add(this.RadEmployeeBrowse);
             this.tabPage4.Controls.Add(this.DgrdBrowse);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -276,10 +282,10 @@
             // DgrdBrowse
             // 
             this.DgrdBrowse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgrdBrowse.Location = new System.Drawing.Point(6, 6);
+            this.DgrdBrowse.Location = new System.Drawing.Point(16, 38);
             this.DgrdBrowse.Name = "DgrdBrowse";
             this.DgrdBrowse.RowHeadersWidth = 82;
-            this.DgrdBrowse.Size = new System.Drawing.Size(963, 549);
+            this.DgrdBrowse.Size = new System.Drawing.Size(944, 505);
             this.DgrdBrowse.TabIndex = 188;
             // 
             // tabPage1
@@ -1339,6 +1345,41 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // RadioButton1
+            // 
+            this.RadioButton1.AutoSize = true;
+            this.RadioButton1.Location = new System.Drawing.Point(152, 17);
+            this.RadioButton1.Margin = new System.Windows.Forms.Padding(1);
+            this.RadioButton1.Name = "RadioButton1";
+            this.RadioButton1.Size = new System.Drawing.Size(69, 17);
+            this.RadioButton1.TabIndex = 191;
+            this.RadioButton1.Text = "Customer";
+            this.RadioButton1.UseVisualStyleBackColor = true;
+            // 
+            // RadTraineeBrowse
+            // 
+            this.RadTraineeBrowse.AutoSize = true;
+            this.RadTraineeBrowse.Location = new System.Drawing.Point(89, 17);
+            this.RadTraineeBrowse.Margin = new System.Windows.Forms.Padding(1);
+            this.RadTraineeBrowse.Name = "RadTraineeBrowse";
+            this.RadTraineeBrowse.Size = new System.Drawing.Size(61, 17);
+            this.RadTraineeBrowse.TabIndex = 190;
+            this.RadTraineeBrowse.Text = "Trainee";
+            this.RadTraineeBrowse.UseVisualStyleBackColor = true;
+            // 
+            // RadEmployeeBrowse
+            // 
+            this.RadEmployeeBrowse.AutoSize = true;
+            this.RadEmployeeBrowse.Checked = true;
+            this.RadEmployeeBrowse.Location = new System.Drawing.Point(16, 17);
+            this.RadEmployeeBrowse.Margin = new System.Windows.Forms.Padding(1);
+            this.RadEmployeeBrowse.Name = "RadEmployeeBrowse";
+            this.RadEmployeeBrowse.Size = new System.Drawing.Size(71, 17);
+            this.RadEmployeeBrowse.TabIndex = 189;
+            this.RadEmployeeBrowse.TabStop = true;
+            this.RadEmployeeBrowse.Text = "Employee";
+            this.RadEmployeeBrowse.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1363,6 +1404,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgrdBrowse)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1484,6 +1526,9 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView DgrdBrowse;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.RadioButton RadioButton1;
+        private System.Windows.Forms.RadioButton RadTraineeBrowse;
+        private System.Windows.Forms.RadioButton RadEmployeeBrowse;
     }
 }
 
