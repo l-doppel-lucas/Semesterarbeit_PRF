@@ -664,6 +664,7 @@
             this.CmdTakeNotes.TabIndex = 170;
             this.CmdTakeNotes.Text = "Take notes";
             this.CmdTakeNotes.UseVisualStyleBackColor = true;
+            this.CmdTakeNotes.Click += new System.EventHandler(this.CmdTakeNotes_Click);
             // 
             // LblBusinessPhone
             // 
@@ -1127,6 +1128,7 @@
             this.TxtNotesHistory.Margin = new System.Windows.Forms.Padding(1);
             this.TxtNotesHistory.Multiline = true;
             this.TxtNotesHistory.Name = "TxtNotesHistory";
+            this.TxtNotesHistory.ReadOnly = true;
             this.TxtNotesHistory.Size = new System.Drawing.Size(679, 510);
             this.TxtNotesHistory.TabIndex = 6;
             // 
