@@ -54,138 +54,142 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
         private void LsbOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Hide comboboxes and date pickers
-            HideAllCmbPers();
+            if (LsbOutput.SelectedIndex > 0)
+            { //Hide comboboxes and date pickers
+                HideAllCmbPers();
 
-            //disable all fields
-            DisableALl();
+                //disable all fields
+                DisableALl();
 
-            //Cast the selected object into  Type "Person"
-            Person selectedPerson = (Person)LsbOutput.SelectedItem;
+                //Cast the selected object into  Type "Person"
+                Person selectedPerson = (Person)LsbOutput.SelectedItem;
 
-            //Write person fields into text boxes
-            TxtSalutation.Text = selectedPerson.Salutation;
-            TxtFirstname.Text = selectedPerson.Firstname;
-            TxtLastname.Text = selectedPerson.Lastname;
-            TxtBirthdate.Text = selectedPerson.Birthdate.ToShortDateString();
-            TxtGender.Text = selectedPerson.Gender;
-            TxtTitle.Text = selectedPerson.Title;
-            TxtBusinessPhone.Text = selectedPerson.Businessphone;
-            TxtBusinessFax.Text = selectedPerson.Businessfax;
-            TxtMobileNumber.Text = selectedPerson.Mobilephone;
-            TxtEmail.Text = selectedPerson.Mail;
-            TxtCity.Text = selectedPerson.City;
-            TxtStreet.Text = selectedPerson.Street;
-            TxtZipcode.Text = Convert.ToString(selectedPerson.Zipcode);
-            TxtCreationDate.Text = Convert.ToString(selectedPerson.CreationDate);
-            TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
+                //Write person fields into text boxes
+                TxtSalutation.Text = selectedPerson.Salutation;
+                TxtFirstname.Text = selectedPerson.Firstname;
+                TxtLastname.Text = selectedPerson.Lastname;
+                TxtBirthdate.Text = selectedPerson.Birthdate.ToShortDateString();
+                TxtGender.Text = selectedPerson.Gender;
+                TxtTitle.Text = selectedPerson.Title;
+                TxtBusinessPhone.Text = selectedPerson.Businessphone;
+                TxtBusinessFax.Text = selectedPerson.Businessfax;
+                TxtMobileNumber.Text = selectedPerson.Mobilephone;
+                TxtEmail.Text = selectedPerson.Mail;
+                TxtCity.Text = selectedPerson.City;
+                TxtStreet.Text = selectedPerson.Street;
+                TxtZipcode.Text = Convert.ToString(selectedPerson.Zipcode);
+                TxtCreationDate.Text = Convert.ToString(selectedPerson.CreationDate);
+                TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
+
+                //Checkbox
+                ChkStatus.Checked = selectedPerson.Disabled;
 
 
-            // If the object is type of one of the subclasses (Employee, Trainee or Customer) 
-            switch (selectedPerson.GetClassName())
-            {
-                case "Employee":
-                    //make all relevant textboxes and lables visible
-                    ShowAllEmp();
+                // If the object is type of one of the subclasses (Employee, Trainee or Customer) 
+                switch (selectedPerson.GetClassName())
+                {
+                    case "Employee":
+                        //make all relevant textboxes and lables visible
+                        ShowAllEmp();
 
-                    //Hide irrelvant textboxes and lables
-                    HideAllCust();
-                    HideAllTrnee();
+                        //Hide irrelvant textboxes and lables
+                        HideAllCust();
+                        HideAllTrnee();
 
-                    //Hide comboboxes and date pickers
-                    HideAllCmbEmp();
+                        //Hide comboboxes and date pickers
+                        HideAllCmbEmp();
 
-                    //Cast the selected object of the list into type "Employee" and write into the variable "selectedEmployee"
-                    Employee selectedEmployee = (Employee)selectedPerson;
+                        //Cast the selected object of the list into type "Employee" and write into the variable "selectedEmployee"
+                        Employee selectedEmployee = (Employee)selectedPerson;
 
-                    //Select radio button
-                    RadEmployee.Checked = true;
+                        //Select radio button
+                        RadEmployee.Checked = true;
 
-                    //Write the properties of the object of type "Employee" into the specific textboxes
-                    TxtDepartment.Text = selectedEmployee.Departement;
-                    TxtAHVNumber.Text = selectedEmployee.Ahv;
-                    TxtStartDate.Text = selectedEmployee.Entrydate.ToShortDateString();
-                    TxtLeaveDate.Text = selectedEmployee.Exitdate.ToShortDateString();
-                    TxtEmplNr.Text = Convert.ToString(selectedEmployee.EmplNr);
-                    TxtBirthplace.Text = selectedEmployee.Birthplace;
-                    TxtNationality.Text = selectedEmployee.Nationality;
-                    TxtRole.Text = selectedEmployee.Role;
-                    TxtMgmtLevel.Text = selectedEmployee.Lvl.ToString();
-                    TxtWorkPensum.Text = selectedEmployee.Workpensum;
-                    TxtPrivatePhone.Text = selectedEmployee.Privatephone;
-                    break;
-                case "Trainee":
-                    //make all relevant textboxes and lables visible
-                    ShowAllEmp();
-                    ShowAllTrnee();
+                        //Write the properties of the object of type "Employee" into the specific textboxes
+                        TxtDepartment.Text = selectedEmployee.Departement;
+                        TxtAHVNumber.Text = selectedEmployee.Ahv;
+                        TxtStartDate.Text = selectedEmployee.Entrydate.ToShortDateString();
+                        TxtLeaveDate.Text = selectedEmployee.Exitdate.ToShortDateString();
+                        TxtEmplNr.Text = Convert.ToString(selectedEmployee.EmplNr);
+                        TxtBirthplace.Text = selectedEmployee.Birthplace;
+                        TxtNationality.Text = selectedEmployee.Nationality;
+                        TxtRole.Text = selectedEmployee.Role;
+                        TxtMgmtLevel.Text = selectedEmployee.Lvl.ToString();
+                        TxtWorkPensum.Text = selectedEmployee.Workpensum;
+                        TxtPrivatePhone.Text = selectedEmployee.Privatephone;
+                        break;
+                    case "Trainee":
+                        //make all relevant textboxes and lables visible
+                        ShowAllEmp();
+                        ShowAllTrnee();
 
-                    //Hide irrelvant textboxes and lables
-                    HideAllCust();
+                        //Hide irrelvant textboxes and lables
+                        HideAllCust();
 
-                    //Hide comboboxes and date pickers
-                    HideAllCmbTrnee();
+                        //Hide comboboxes and date pickers
+                        HideAllCmbTrnee();
 
-                    //Cast the selected object of the list into type "Trainee" and write into the variable "selectedTrainee"
-                    Trainee selectedTrainee = (Trainee)selectedPerson;
+                        //Cast the selected object of the list into type "Trainee" and write into the variable "selectedTrainee"
+                        Trainee selectedTrainee = (Trainee)selectedPerson;
 
-                    //Select radio button
-                    RadTrainee.Checked = true;
+                        //Select radio button
+                        RadTrainee.Checked = true;
 
-                    //Write the properties of the object of type "Trainee" into the specific textboxes
-                    TxtDepartment.Text = selectedTrainee.Departement;
-                    TxtAHVNumber.Text = selectedTrainee.Ahv;
-                    TxtStartDate.Text = selectedTrainee.Entrydate.ToShortDateString();
-                    TxtLeaveDate.Text = selectedTrainee.Exitdate.ToShortDateString();
-                    TxtEmplNr.Text = Convert.ToString(selectedTrainee.EmplNr);
-                    TxtBirthplace.Text = selectedTrainee.Birthplace;
-                    TxtNationality.Text = selectedTrainee.Nationality;
-                    TxtRole.Text = selectedTrainee.Role;
-                    TxtMgmtLevel.Text = Convert.ToString(selectedTrainee.Lvl);
-                    TxtWorkPensum.Text = selectedTrainee.Workpensum;
-                    TxtPrivatePhone.Text = selectedTrainee.Privatephone;
-                    TxtApprentYears.Text = selectedTrainee.Appyears;
-                    TxtCurrentApprentYear.Text = selectedTrainee.Currappyear;
-                    break;
+                        //Write the properties of the object of type "Trainee" into the specific textboxes
+                        TxtDepartment.Text = selectedTrainee.Departement;
+                        TxtAHVNumber.Text = selectedTrainee.Ahv;
+                        TxtStartDate.Text = selectedTrainee.Entrydate.ToShortDateString();
+                        TxtLeaveDate.Text = selectedTrainee.Exitdate.ToShortDateString();
+                        TxtEmplNr.Text = Convert.ToString(selectedTrainee.EmplNr);
+                        TxtBirthplace.Text = selectedTrainee.Birthplace;
+                        TxtNationality.Text = selectedTrainee.Nationality;
+                        TxtRole.Text = selectedTrainee.Role;
+                        TxtMgmtLevel.Text = Convert.ToString(selectedTrainee.Lvl);
+                        TxtWorkPensum.Text = selectedTrainee.Workpensum;
+                        TxtPrivatePhone.Text = selectedTrainee.Privatephone;
+                        TxtApprentYears.Text = selectedTrainee.Appyears;
+                        TxtCurrentApprentYear.Text = selectedTrainee.Currappyear;
+                        break;
 
-                case "Customer":
-                    //make all relevant textboxes and lables visible
-                    ShowAllCust();
+                    case "Customer":
+                        //make all relevant textboxes and lables visible
+                        ShowAllCust();
 
-                    //Hide irrelvant textboxes and lables
-                    HideAllEmp();
-                    HideAllTrnee();
+                        //Hide irrelvant textboxes and lables
+                        HideAllEmp();
+                        HideAllTrnee();
 
-                    //Hide comboboxes and date pickers
-                    HideAllCmbCust();
+                        //Hide comboboxes and date pickers
+                        HideAllCmbCust();
 
-                    //Cast the selected object of the list into type "Customer" and write into the variable "selectedCustomer"
-                    Customer selectedCustomer = (Customer)selectedPerson;
+                        //Cast the selected object of the list into type "Customer" and write into the variable "selectedCustomer"
+                        Customer selectedCustomer = (Customer)selectedPerson;
 
-                    //Select radio button
-                    RadCustomer.Checked = true;
+                        //Select radio button
+                        RadCustomer.Checked = true;
 
-                    //Write the properties of the object of type "Customer" into the specific textboxes
-                    TxtCompanyName.Text = selectedCustomer.Companyname;
-                    TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
-                    TxtContacPerson.Text = selectedCustomer.Companycontact;
-                    TxtNotesHistory.Text = selectedCustomer.NotesHistory;
-                    break;
-            }
+                        //Write the properties of the object of type "Customer" into the specific textboxes
+                        TxtCompanyName.Text = selectedCustomer.Companyname;
+                        TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
+                        TxtContacPerson.Text = selectedCustomer.Companycontact;
+                        TxtNotesHistory.Text = selectedCustomer.NotesHistory;
+                        break;
+                }
 
-            
-            //Check if the user is active or not
-            if (selectedPerson.Disabled == true)
-            {
-                //Call function for user status inactive
-                DisableAllPers();
 
-            }
-            else if (selectedPerson.Disabled == false)
-            {
-                //Call function for user status active
-                EnableAllPers();
-            }
-           
+                //Check if the user is active or not
+                if (selectedPerson.Disabled == true)
+                {
+                    //Call function for user status inactive
+                    DisableAllPers();
+
+                }
+                else if (selectedPerson.Disabled == false)
+                {
+                    //Call function for user status active
+                    //EnableAllPers();
+                }
+            }           
         }
 
         private void LsbOutput_Format(object sender, ListControlConvertEventArgs e)
@@ -258,7 +262,7 @@ namespace semesterarbeit
 
                     Employee empl1 = new Employee
                     {
-                        Disabled = false, // User enabled
+                        Disabled = ChkStatus.Checked, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -297,7 +301,7 @@ namespace semesterarbeit
 
                     Trainee train1 = new Trainee
                     {
-                        Disabled = false, // User enabled
+                        Disabled = ChkStatus.Checked, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -338,7 +342,7 @@ namespace semesterarbeit
 
                     Customer cust1 = new Customer
                     {
-                        Disabled = false, // User enabled
+                        Disabled = ChkStatus.Checked, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -763,7 +767,6 @@ namespace semesterarbeit
             CmdCancel.Visible = false;
 
             //Activate buttons, combo boxes, and list boxes
-            ChkStatus.Enabled = true;
             CmdTakeNotes.Enabled = true;
             LsbOutput.Enabled = true;
             CmdAddUser.Enabled = true;
@@ -771,6 +774,10 @@ namespace semesterarbeit
             CmdEditUser.Enabled = true;
             CmdExport.Enabled = true;
             CmdSearch.Enabled = true;
+
+            //Deaktivate checkbox
+            ChkStatus.Enabled = false;
+            ChkStatus.Checked = false;
 
             //Uncheck radio buttons
             UncheckAllRad();
@@ -794,6 +801,9 @@ namespace semesterarbeit
 
             //Disable all boxes
             DisableALl();
+
+            //unselect listbox
+            LsbOutput.ClearSelected();
         }
 
         //Enables all Person Textboxes
