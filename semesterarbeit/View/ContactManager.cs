@@ -181,13 +181,13 @@ namespace semesterarbeit
             if (selectedPerson.Disabled == true)
             {
                 //Call function for user status inactive
-                selectedPerson.DeactivateUser();
+                DisableAllPers();
 
             }
             else if (selectedPerson.Disabled == false)
             {
                 //Call function for user status active
-                selectedPerson.ActivateUser();
+                EnableAllPers();
             }
            
         }

@@ -72,16 +72,6 @@ namespace semesterarbeit
 
         }
 
-        public void ActivateUser()
-        {
-            Disabled = false;
-        }
-
-        public void DeactivateUser()
-        {
-            Disabled = true;
-        }
-
         //Virtual method to return the name of the class as a string - virtual because this is individual for each class
         public virtual string GetClassName()
         {
