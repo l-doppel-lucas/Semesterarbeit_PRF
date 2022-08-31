@@ -485,7 +485,7 @@
             "3",
             "4",
             ""});
-            this.CmbCurrentApprentYear.Location = new System.Drawing.Point(511, 363);
+            this.CmbCurrentApprentYear.Location = new System.Drawing.Point(511, 362);
             this.CmbCurrentApprentYear.Name = "CmbCurrentApprentYear";
             this.CmbCurrentApprentYear.Size = new System.Drawing.Size(138, 21);
             this.CmbCurrentApprentYear.TabIndex = 180;
@@ -780,7 +780,7 @@
             // TxtCurrentApprentYear
             // 
             this.TxtCurrentApprentYear.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtCurrentApprentYear.Location = new System.Drawing.Point(511, 364);
+            this.TxtCurrentApprentYear.Location = new System.Drawing.Point(511, 363);
             this.TxtCurrentApprentYear.Margin = new System.Windows.Forms.Padding(1);
             this.TxtCurrentApprentYear.Name = "TxtCurrentApprentYear";
             this.TxtCurrentApprentYear.Size = new System.Drawing.Size(138, 20);
@@ -1148,11 +1148,11 @@
             // 
             // TxtNotesHistory
             // 
-            this.TxtNotesHistory.Location = new System.Drawing.Point(279, 54);
+            this.TxtNotesHistory.Location = new System.Drawing.Point(280, 50);
             this.TxtNotesHistory.Margin = new System.Windows.Forms.Padding(1);
             this.TxtNotesHistory.Multiline = true;
             this.TxtNotesHistory.Name = "TxtNotesHistory";
-            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 455);
+            this.TxtNotesHistory.Size = new System.Drawing.Size(679, 510);
             this.TxtNotesHistory.TabIndex = 6;
             // 
             // LblNotesHistory
@@ -1187,7 +1187,7 @@
             // 
             // TxtLastModified
             // 
-            this.TxtLastModified.Location = new System.Drawing.Point(2, 53);
+            this.TxtLastModified.Location = new System.Drawing.Point(6, 104);
             this.TxtLastModified.Margin = new System.Windows.Forms.Padding(1);
             this.TxtLastModified.Multiline = true;
             this.TxtLastModified.Name = "TxtLastModified";
@@ -1196,7 +1196,7 @@
             // 
             // TxtCreationDate
             // 
-            this.TxtCreationDate.Location = new System.Drawing.Point(2, 24);
+            this.TxtCreationDate.Location = new System.Drawing.Point(6, 50);
             this.TxtCreationDate.Margin = new System.Windows.Forms.Padding(1);
             this.TxtCreationDate.Name = "TxtCreationDate";
             this.TxtCreationDate.Size = new System.Drawing.Size(260, 20);
@@ -1212,6 +1212,7 @@
             this.LsbOutput.TabIndex = 1;
             this.LsbOutput.Visible = false;
             this.LsbOutput.SelectedIndexChanged += new System.EventHandler(this.LsbOutput_SelectedIndexChanged);
+            this.LsbOutput.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.LsbOutput_Format);
             // 
             // CmdAddUser
             // 

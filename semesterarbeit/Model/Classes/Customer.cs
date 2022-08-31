@@ -1,5 +1,4 @@
-﻿using Microsoft.Build.Framework;
-using System;
+﻿using System;
 
 namespace semesterarbeit
 {
@@ -15,7 +14,6 @@ namespace semesterarbeit
     [Serializable()]
     class Customer : Person
     {
-        [Required]
 
         public string Companyname { get; set; }
         public CustType Type { get; set; }

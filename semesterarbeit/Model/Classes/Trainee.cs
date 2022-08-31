@@ -17,9 +17,9 @@ class Trainee : Employee
         -----------------------------------------------------------------------*/
 
         public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
-            string street, string city, string zip, string changehistory, int emplnum, string departement, string role, string pens, DateTime entrdate, string appyears)
+            string street, string city, string zip, string changehistory, string departement, string role, string pens, DateTime entrdate, string appyears)
         {
-            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory, emplnum, departement, role, pens, entrdate);
+            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory, departement, role, pens, entrdate);
 
             Appyears = appyears;
         }
