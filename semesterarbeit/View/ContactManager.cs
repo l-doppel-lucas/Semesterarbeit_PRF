@@ -683,6 +683,7 @@ namespace semesterarbeit
                     bfa: TxtBusinessFax.Text,
                     ahv: TxtAHVNumber.Text,
                     pph: TxtPrivatePhone.Text,
+                    nat: TxtNationality.Text,
                     birthpl: TxtBirthplace.Text,
                     exdate: DtpLeaveDate.Value,
                     lvl: (MgmLvl)CmbMgmtLevel.SelectedItem,
@@ -820,7 +821,7 @@ namespace semesterarbeit
             LsbOutput.ClearSelected();
         }
 
-        //Enables all Person Textboxes
+        //Enables all Person Textboxes, Comboboxes and Radio Buttons
         private void EnableAllPers()
         {
             TxtSalutation.ReadOnly = false;
@@ -838,6 +839,7 @@ namespace semesterarbeit
             TxtZipcode.ReadOnly = false;
 
             CmbSalutation.Enabled = true;
+            CmbGender.Enabled = true;
 
             ChkStatus.Enabled = true;
 

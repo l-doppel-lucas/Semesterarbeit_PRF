@@ -35,7 +35,7 @@ namespace semesterarbeit
             Type = type;
         }
 
-        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string compcont = "")
+        public void SetOptionalAttributes(string title, string mph, string bph, string bfa, string compcont)
         {
             base.SetOptionalAttributes(title, mph, bph, bfa);
 

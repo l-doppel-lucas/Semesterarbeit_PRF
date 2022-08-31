@@ -43,8 +43,8 @@ namespace semesterarbeit
             Role = role;
         }
 
-        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string ahv = "", string nat = "",
-            string pph = "", string birthpl = "", DateTime exdate = new DateTime(), MgmLvl lvl = 0)
+        public void SetOptionalAttributes(string title, string mph, string bph, string bfa, string ahv, string nat,
+            string pph, string birthpl, DateTime exdate, MgmLvl lvl)
         {
             base.SetOptionalAttributes(title, mph, bph, bfa);
 

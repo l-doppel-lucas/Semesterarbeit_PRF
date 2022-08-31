@@ -46,7 +46,7 @@ namespace semesterarbeit
         }
 
 
-        public void SetOptionalAttributes(string title = "", string mph = "",  string bph = "", string bfa = "")
+        public void SetOptionalAttributes(string title, string mph,  string bph, string bfa)
         {
             Title = title;
             Mobilephone = mph;
