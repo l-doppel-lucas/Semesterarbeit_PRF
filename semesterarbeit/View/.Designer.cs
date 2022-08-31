@@ -40,6 +40,9 @@
             this.LblCustNum = new System.Windows.Forms.Label();
             this.LblEmpNum = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.RadCustomerBrowse = new System.Windows.Forms.RadioButton();
+            this.RadTraineeBrowse = new System.Windows.Forms.RadioButton();
+            this.RadEmployeeBrowse = new System.Windows.Forms.RadioButton();
             this.DgrdBrowse = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ChkStatus = new System.Windows.Forms.CheckBox();
@@ -137,9 +140,6 @@
             this.LblName = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.RadioButton1 = new System.Windows.Forms.RadioButton();
-            this.RadTraineeBrowse = new System.Windows.Forms.RadioButton();
-            this.RadEmployeeBrowse = new System.Windows.Forms.RadioButton();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -267,7 +267,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.RadioButton1);
+            this.tabPage4.Controls.Add(this.RadCustomerBrowse);
             this.tabPage4.Controls.Add(this.RadTraineeBrowse);
             this.tabPage4.Controls.Add(this.RadEmployeeBrowse);
             this.tabPage4.Controls.Add(this.DgrdBrowse);
@@ -278,6 +278,41 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Browse";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // RadCustomerBrowse
+            // 
+            this.RadCustomerBrowse.AutoSize = true;
+            this.RadCustomerBrowse.Location = new System.Drawing.Point(152, 17);
+            this.RadCustomerBrowse.Margin = new System.Windows.Forms.Padding(1);
+            this.RadCustomerBrowse.Name = "RadCustomerBrowse";
+            this.RadCustomerBrowse.Size = new System.Drawing.Size(69, 17);
+            this.RadCustomerBrowse.TabIndex = 191;
+            this.RadCustomerBrowse.Text = "Customer";
+            this.RadCustomerBrowse.UseVisualStyleBackColor = true;
+            // 
+            // RadTraineeBrowse
+            // 
+            this.RadTraineeBrowse.AutoSize = true;
+            this.RadTraineeBrowse.Location = new System.Drawing.Point(89, 17);
+            this.RadTraineeBrowse.Margin = new System.Windows.Forms.Padding(1);
+            this.RadTraineeBrowse.Name = "RadTraineeBrowse";
+            this.RadTraineeBrowse.Size = new System.Drawing.Size(61, 17);
+            this.RadTraineeBrowse.TabIndex = 190;
+            this.RadTraineeBrowse.Text = "Trainee";
+            this.RadTraineeBrowse.UseVisualStyleBackColor = true;
+            // 
+            // RadEmployeeBrowse
+            // 
+            this.RadEmployeeBrowse.AutoSize = true;
+            this.RadEmployeeBrowse.Checked = true;
+            this.RadEmployeeBrowse.Location = new System.Drawing.Point(16, 17);
+            this.RadEmployeeBrowse.Margin = new System.Windows.Forms.Padding(1);
+            this.RadEmployeeBrowse.Name = "RadEmployeeBrowse";
+            this.RadEmployeeBrowse.Size = new System.Drawing.Size(71, 17);
+            this.RadEmployeeBrowse.TabIndex = 189;
+            this.RadEmployeeBrowse.TabStop = true;
+            this.RadEmployeeBrowse.Text = "Employee";
+            this.RadEmployeeBrowse.UseVisualStyleBackColor = true;
             // 
             // DgrdBrowse
             // 
@@ -1345,41 +1380,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // RadioButton1
-            // 
-            this.RadioButton1.AutoSize = true;
-            this.RadioButton1.Location = new System.Drawing.Point(152, 17);
-            this.RadioButton1.Margin = new System.Windows.Forms.Padding(1);
-            this.RadioButton1.Name = "RadioButton1";
-            this.RadioButton1.Size = new System.Drawing.Size(69, 17);
-            this.RadioButton1.TabIndex = 191;
-            this.RadioButton1.Text = "Customer";
-            this.RadioButton1.UseVisualStyleBackColor = true;
-            // 
-            // RadTraineeBrowse
-            // 
-            this.RadTraineeBrowse.AutoSize = true;
-            this.RadTraineeBrowse.Location = new System.Drawing.Point(89, 17);
-            this.RadTraineeBrowse.Margin = new System.Windows.Forms.Padding(1);
-            this.RadTraineeBrowse.Name = "RadTraineeBrowse";
-            this.RadTraineeBrowse.Size = new System.Drawing.Size(61, 17);
-            this.RadTraineeBrowse.TabIndex = 190;
-            this.RadTraineeBrowse.Text = "Trainee";
-            this.RadTraineeBrowse.UseVisualStyleBackColor = true;
-            // 
-            // RadEmployeeBrowse
-            // 
-            this.RadEmployeeBrowse.AutoSize = true;
-            this.RadEmployeeBrowse.Checked = true;
-            this.RadEmployeeBrowse.Location = new System.Drawing.Point(16, 17);
-            this.RadEmployeeBrowse.Margin = new System.Windows.Forms.Padding(1);
-            this.RadEmployeeBrowse.Name = "RadEmployeeBrowse";
-            this.RadEmployeeBrowse.Size = new System.Drawing.Size(71, 17);
-            this.RadEmployeeBrowse.TabIndex = 189;
-            this.RadEmployeeBrowse.TabStop = true;
-            this.RadEmployeeBrowse.Text = "Employee";
-            this.RadEmployeeBrowse.UseVisualStyleBackColor = true;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1526,7 +1526,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView DgrdBrowse;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.RadioButton RadioButton1;
+        private System.Windows.Forms.RadioButton RadCustomerBrowse;
         private System.Windows.Forms.RadioButton RadTraineeBrowse;
         private System.Windows.Forms.RadioButton RadEmployeeBrowse;
     }

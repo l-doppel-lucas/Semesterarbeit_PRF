@@ -25,7 +25,7 @@ namespace semesterarbeit
             CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
 
             //Import person objects on the start of the program
-            if (Db.Deserialisation() == false) {MessageBox.Show("No existing Contacts!"); }
+            if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
 
             //Show contact list in database
             LsbOutput.DataSource = Db.contactList;
@@ -135,8 +135,8 @@ namespace semesterarbeit
                     //Write the properties of the object of type "Trainee" into the specific textboxes
                     TxtDepartment.Text = selectedTrainee.Departement;
                     TxtAHVNumber.Text = selectedTrainee.Ahv;
-                    TxtStartDate.Text = selectedTrainee.Entrydate.ToShortDateString(); 
-                    TxtLeaveDate.Text = selectedTrainee.Exitdate.ToShortDateString() ;
+                    TxtStartDate.Text = selectedTrainee.Entrydate.ToShortDateString();
+                    TxtLeaveDate.Text = selectedTrainee.Exitdate.ToShortDateString();
                     TxtEmplNr.Text = Convert.ToString(selectedTrainee.EmplNr);
                     TxtBirthplace.Text = selectedTrainee.Birthplace;
                     TxtNationality.Text = selectedTrainee.Nationality;
@@ -684,7 +684,7 @@ namespace semesterarbeit
          * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
         {
-            if(CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 ShowAllCmbEmp();
                 EnableAllEmp();
@@ -812,6 +812,8 @@ namespace semesterarbeit
 
             CmbSalutation.Enabled = true;
 
+            ChkStatus.Enabled = true;
+
             RadCustomer.Enabled = true;
             RadEmployee.Enabled = true;
             RadTrainee.Enabled = true;
@@ -905,7 +907,7 @@ namespace semesterarbeit
             TxtStreet.ReadOnly = true;
             TxtZipcode.ReadOnly = true;
 
-
+            ChkStatus.Enabled = false;
         }
 
         //Disable all Employee Textboxes
@@ -1220,51 +1222,7 @@ namespace semesterarbeit
             CmbCurrentApprentYear.Visible = false;
         }
 
-        // Methoden zur Validierung
-
-
-        //private void TxtFirstname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-
-        //    if (string.IsNullOrEmpty(TxtFirstname.Text))
-        //    {
-        //        e.Cancel = true;
-        //        TxtFirstname.Focus();
-        //        errorProvider1.SetError(TxtFirstname, "Please Enter Firstname");
-        //    }
-
-        //    else
-        //    {
-        //        e.Cancel = false; 
-        //        TxtFirstname.Focus();
-        //        errorProvider1.SetError(TxtFirstname, "fffff");
-        //    }
-
-        //}
-
-
-
-
 
     }
-
-        /*
-        private void TxtFirstname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            
-                if (string.IsNullOrWhiteSpace(TxtFirstname.Text))
-                {
-                    e.Cancel = true;
-                    TxtFirstname.Focus();
-                    errorProvider1.SetError(TxtFirstname, "Name should not be left blank!");
-                }
-                else
-                {
-                    e.Cancel = false;
-                    errorProvider1.SetError(TxtFirstname, "");
-                }
-        }*/
-
-
-    }
+}
 
