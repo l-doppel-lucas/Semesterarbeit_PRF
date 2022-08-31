@@ -520,7 +520,6 @@ namespace semesterarbeit
                 ShowButtons();
                 LsbOutput.Visible = true;
 
-                ShowStartScreen();
             }
             else if (TabControl.SelectedIndex == 2)
             {
@@ -1098,10 +1097,11 @@ namespace semesterarbeit
             LblCompanyName.Visible = true;
             LblCustomerType.Visible = true;
             LblContactPerson.Visible = true;
-            CmdTakeNotes.Visible = true;
             TxtNotes.Visible = true;
             TxtNotesHistory.Visible = true;
             LblNotesHistory.Visible = true;
+            CmdTakeNotes.Visible = true;
+            CmdTakeNotes.Enabled = true;
         }
 
         //Make all Apprentice textboxes and labels visible
