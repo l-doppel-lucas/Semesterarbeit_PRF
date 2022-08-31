@@ -54,7 +54,7 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
         private void LsbOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (LsbOutput.SelectedIndex > 0)
+            if (LsbOutput.SelectedIndex >= 0)
             { //Hide comboboxes and date pickers
                 HideAllCmbPers();
 
@@ -289,6 +289,8 @@ namespace semesterarbeit
                     //Call method to save the new object on the harddisk
                     Db.Serialisation();
 
+                    SetDashboardNumbers();
+
                     //Set optional fields
                     SetAttributesEmpl_optional(empl1);
 
@@ -330,6 +332,8 @@ namespace semesterarbeit
                     //Call method to save the new object on the harddisk
                     Db.Serialisation();
 
+                    SetDashboardNumbers();
+
                     //Set optional fields
                     SetAttributesTrainee_optional(train1);
 
@@ -366,6 +370,8 @@ namespace semesterarbeit
                     //Call method to save the new object on the harddisk
                     Db.Serialisation();
 
+                    SetDashboardNumbers();
+
                     //Set optional fields
                     SetAttributesCust_optional(cust1);
 
@@ -384,6 +390,7 @@ namespace semesterarbeit
                     SetAttributesCust_optional(LsbOutput.SelectedItem as Customer);
 
                     Db.Serialisation();
+                    SetDashboardNumbers();
                     CmdEditUser.Tag = "";
                 }
                 else if (RadEmployee.Checked)
@@ -400,6 +407,7 @@ namespace semesterarbeit
                     SetAttributesTrainee_optional(LsbOutput.SelectedItem as Trainee);
 
                     Db.Serialisation();
+                    SetDashboardNumbers();
                     CmdEditUser.Tag = "";
                 }
 
@@ -478,6 +486,7 @@ namespace semesterarbeit
 
             //Call method to update the Object on the HDD
             Db.Serialisation();
+            SetDashboardNumbers();
 
         }
 
@@ -488,6 +497,10 @@ namespace semesterarbeit
 
             //Call function to delete the user
             Db.DeletePerson(selectedPerson);
+
+            Db.Serialisation();
+            SetDashboardNumbers();
+
         }
 
         private void CmdCancel_Click(object sender, EventArgs e)
@@ -500,16 +513,19 @@ namespace semesterarbeit
             if (TabControl.SelectedIndex == 0)
             {
                 HideButtons();
+                LsbOutput.Visible = false;
             }
             else if (TabControl.SelectedIndex == 1)
             {
                 ShowButtons();
+                LsbOutput.Visible = true;
 
                 ShowStartScreen();
             }
             else if (TabControl.SelectedIndex == 2)
             {
-                ShowButtons();
+                HideButtons();
+                LsbOutput.Visible = true;
             }
         }
 
@@ -522,7 +538,6 @@ namespace semesterarbeit
             CmdSearch.Visible = true;
             TxtSearch.Visible = true;
             LblSearch.Visible = true;
-            LsbOutput.Visible = true;
         }
 
         private void HideButtons()
@@ -534,7 +549,6 @@ namespace semesterarbeit
             CmdSearch.Visible = false;
             TxtSearch.Visible = false;
             LblSearch.Visible = false;
-            LsbOutput.Visible = false;
         }
 
         /*---------------------------------------------------------------------
