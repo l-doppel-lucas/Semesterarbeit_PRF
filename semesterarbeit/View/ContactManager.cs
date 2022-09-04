@@ -1,5 +1,6 @@
 ﻿using semesterarbeit.Controller;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace semesterarbeit
@@ -11,7 +12,7 @@ namespace semesterarbeit
 
         //Create Contact List for Listbox
         public Database Db = new Database();
-
+        private System.Windows.Forms.ErrorProvider emailErrorProvider;
         public Dashboard()
         {
             InitializeComponent();
@@ -43,6 +44,33 @@ namespace semesterarbeit
             DgrdBrowse.DataSource = Db.contactList;
             DgrdBrowse.ReadOnly = true;
 
+            // Create and set the ErrorProvider for each data entry control.
+
+            emailErrorProvider = new System.Windows.Forms.ErrorProvider();
+            emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
+            emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
+            emailErrorProvider.BlinkRate = 1000;
+            emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
+        }
+
+        private void TxtEmail_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            var mail = this.TxtEmail.Text;
+            Match match = regex.Match(mail);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                emailErrorProvider.SetError(this.TxtEmail, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                emailErrorProvider.SetError(this.TxtEmail, "Ungültiges Email Format!");
+            }
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
