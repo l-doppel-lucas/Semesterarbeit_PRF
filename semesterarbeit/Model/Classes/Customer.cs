@@ -1,5 +1,4 @@
-﻿using Microsoft.Build.Framework;
-using System;
+﻿using System;
 
 namespace semesterarbeit
 {
@@ -15,7 +14,6 @@ namespace semesterarbeit
     [Serializable()]
     class Customer : Person
     {
-        [Required]
 
         public string Companyname { get; set; }
         public CustType Type { get; set; }
@@ -28,21 +26,26 @@ namespace semesterarbeit
              Methods
         -----------------------------------------------------------------------*/
 
-        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
+        public void SetMandatoryAttributes(bool disabled, string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
             string street, string city, string zip, string changehistory, string compname, CustType type)
         {
-            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory);
+            base.SetMandatoryAttributes(disabled, sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory);
 
             Companyname = compname;
             Type = type;
         }
 
-        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string compcont = "")
+        public void SetOptionalAttributes(string title, string mph, string bph, string bfa, string compcont)
         {
             base.SetOptionalAttributes(title, mph, bph, bfa);
 
             Companycontact = compcont;
 
+        }
+
+        public void TakeNotes(string notes)
+        {
+            NotesHistory += DateTime.Now + Environment.NewLine +  notes + Environment.NewLine + Environment.NewLine;
         }
 
         public override string ToString()
