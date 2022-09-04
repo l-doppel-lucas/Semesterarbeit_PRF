@@ -683,7 +683,6 @@
             this.CmbSalutation.Size = new System.Drawing.Size(272, 33);
             this.CmbSalutation.TabIndex = 172;
             this.CmbSalutation.Visible = false;
-            this.CmbSalutation.SelectedIndexChanged += new System.EventHandler(this.CmbSalutation_SelectedIndexChanged);
             // 
             // LblCity
             // 

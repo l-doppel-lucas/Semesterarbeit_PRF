@@ -1165,9 +1165,6 @@ namespace semesterarbeit
                 }
         }
 
-        private void CmbSalutation_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }
