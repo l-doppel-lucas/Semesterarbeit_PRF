@@ -59,7 +59,7 @@ namespace semesterarbeit
             firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
             firstnameErrorProvider.SetIconAlignment(this.TxtFirstname, ErrorIconAlignment.MiddleRight);
             firstnameErrorProvider.SetIconPadding(this.TxtFirstname, 2);
-            firstnameErrorProvider.BlinkRate = 1000;
+            firstnameErrorProvider.BlinkRate = 0;
             firstnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtFirstname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
@@ -70,7 +70,7 @@ namespace semesterarbeit
             lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
             lastnameErrorProvider.SetIconAlignment(this.TxtLastname, ErrorIconAlignment.MiddleRight);
             lastnameErrorProvider.SetIconPadding(this.TxtLastname, 2);
-            lastnameErrorProvider.BlinkRate = 1000;
+            lastnameErrorProvider.BlinkRate = 0;
             lastnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtLastname.Validated += new System.EventHandler(this.TxtLastname_Validated);
@@ -80,7 +80,7 @@ namespace semesterarbeit
             emailErrorProvider = new System.Windows.Forms.ErrorProvider();
             emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
             emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
-            emailErrorProvider.BlinkRate = 1000;
+            emailErrorProvider.BlinkRate = 0;
             emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
@@ -91,7 +91,7 @@ namespace semesterarbeit
             zipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
             zipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
             zipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
-            zipcodeErrorProvider.BlinkRate = 1000;
+            zipcodeErrorProvider.BlinkRate = 0;
             zipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
