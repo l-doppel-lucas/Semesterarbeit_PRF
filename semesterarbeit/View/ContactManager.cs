@@ -20,7 +20,8 @@ namespace semesterarbeit
         //Create Contact List for Listbox
         public Database Db = new Database();
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
-        public Dashboard(string us1, string pw1)
+        private System.Windows.Forms.ErrorProvider ZipcodeErrorProvider;
+        public Dashboard()
         {
             InitializeComponent();
 
@@ -59,6 +60,17 @@ namespace semesterarbeit
             emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
+
+
+            // Create and set the ZipcodeProvider for each data entry control.
+
+            ZipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
+            ZipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
+            ZipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
+            ZipcodeErrorProvider.BlinkRate = 1000;
+            ZipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
         }
 
         private void TxtEmail_Validated(object sender, EventArgs e)
@@ -78,7 +90,28 @@ namespace semesterarbeit
                 emailErrorProvider.SetError(this.TxtEmail, "Invalid Email Format!");
             }
         }
-    
+
+
+
+        private void TxtZipcode_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^[0-9]{4}(?:-[0-9]{4})?$");
+            var zip = this.TxtZipcode.Text;
+            Match match = regex.Match(zip);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                ZipcodeErrorProvider.SetError(this.TxtZipcode, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                ZipcodeErrorProvider.SetError(this.TxtZipcode, "Ungültige PLZ!");
+            }
+        }
+
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -239,6 +272,80 @@ namespace semesterarbeit
             var output = $"{id}: {sal} {firstname} {lastname} - {type}";
 
             e.Value = output;
+        }
+
+        private void CmdSearch_Click(object sender, EventArgs e)
+        {
+            // Reset search results
+            Db.search.Clear();
+
+            //Check if search or cancel search
+            if(CmdSearch.Text == "Search")
+            {
+                if (TxtSearch.Text.Length > 0)
+                {
+                    foreach (Person p in Db.contactList)
+                    {
+                        //Serarch in Firstname, Lastname, City, Zip Code, Businessphone and Mobilephone
+                        //More attributs can be added to the if statement
+                        if
+                            (
+                                //lower text that the search is not case sensetive (not needed in number fields)
+                                p.Firstname.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.Lastname.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.City.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.Zipcode.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                        else if
+                            (
+                                p.Businessphone != null && p.Businessphone.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                        else if
+                            (
+                                p.Mobilephone != null && p.Mobilephone.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                    }
+
+                    // Change listbox datasource to Search Results
+                    LsbOutput.DataSource = Db.search;
+
+                    //Disables add user and export
+                    CmdAddUser.Enabled = false;
+                    CmdExport.Enabled = false;
+
+                    //Change Button text to cancel
+                    CmdSearch.Text = "Cancel Search";
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a search string!");
+                }
+            }
+            else
+            {
+                //Change datasource to all contacts
+                LsbOutput.DataSource = Db.contactList;
+
+                //activate add user and export
+                CmdAddUser.Enabled = true;
+                CmdExport.Enabled = true;
+
+                //Reset Search Text
+                TxtSearch.Text = "";
+
+                //Change search button text
+                CmdSearch.Text = "Search";
+            }
+
         }
 
         /*---------------------------------------------------------------------
@@ -933,6 +1040,9 @@ namespace semesterarbeit
             CmbGender.Enabled = true;
             CmbMgmtLevel.Enabled = true;
             CmbWorkPensum.Enabled = true;
+
+            //Employee Number is always grayed out
+            TxtEmplNr.Enabled = false;
         }
 
         //Enables all Customer Textboxes

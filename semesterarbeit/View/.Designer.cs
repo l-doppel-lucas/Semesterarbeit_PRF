@@ -1261,9 +1261,10 @@
             this.CmdSearch.Name = "CmdSearch";
             this.CmdSearch.Size = new System.Drawing.Size(72, 22);
             this.CmdSearch.TabIndex = 7;
-            this.CmdSearch.Text = "SEARCH";
+            this.CmdSearch.Text = "Search";
             this.CmdSearch.UseVisualStyleBackColor = true;
             this.CmdSearch.Visible = false;
+            this.CmdSearch.Click += new System.EventHandler(this.CmdSearch_Click);
             // 
             // LblSearch
             // 

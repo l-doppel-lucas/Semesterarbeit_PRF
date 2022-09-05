@@ -14,8 +14,8 @@ namespace semesterarbeit.Controller
         //Source: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox
         public BindingList<Person> contactList = new BindingList<Person>();
 
-        //Create new binding list "searchResults" of type "Person"
-        public BindingList<Person> searchResults = new BindingList<Person>();
+        //New Bindig List for Search results
+        public BindingList<Person> search = new BindingList<Person>();
 
         /*---------------------------------------------------------------------
             Methods
@@ -249,6 +249,20 @@ namespace semesterarbeit.Controller
             { return false; }
 
         }
+
+
+        //Method to add Objects to Search Result
+        public void AddSearchResult(Person p)
+        {
+            search.Add(p);
+        }
+
+        //Method to reset Search Resuls
+        public void ClearSearchResults()
+        {
+            search.Clear();
+        }
+
     }
- }
+}
 
