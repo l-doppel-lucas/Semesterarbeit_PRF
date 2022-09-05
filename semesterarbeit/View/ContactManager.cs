@@ -127,7 +127,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                firstnameErrorProvider.SetError(this.TxtFirstname, "Invalid Format!");
+                firstnameErrorProvider.SetError(this.TxtFirstname, "Invalid Firstname Format!");
             }
         }
 
@@ -146,7 +146,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Format!");
+                lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Lastname Format!");
             }
         }
 
@@ -185,7 +185,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!!");
+                zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!");
             }
 
         }
@@ -204,7 +204,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                lastnameErrorProvider.SetError(this.TxtRole, "Invalid Format!");
+                lastnameErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
             }
         }
 
