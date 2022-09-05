@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace semesterarbeit
 {
     public partial class Dashboard : Form
-    { 
+    {
 
         //Create variable for id/EmpID
         private int id;
@@ -33,106 +33,72 @@ namespace semesterarbeit
             //Set user variable
             user = us1;
 
-            if (user == "User")
-            {
-                //Setting the Values in Combobox to the Enum Values
-                //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
-                CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
+            //Setting the Values in Combobox to the Enum Values
+            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+            CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
 
-                //Setting the Values in Combobox to the Enum Values
-                //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
-                CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
+            //Setting the Values in Combobox to the Enum Values
+            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+            CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
 
-                //Import person objects on the start of the program
-                if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
+            //Import person objects on the start of the program
+            if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
 
-                //Show contact list in database
-                LsbOutput.DataSource = Db.contactList;
+            //Show contact list in database
+            LsbOutput.DataSource = Db.contactList;
 
-                //Get the last ID
-                id = Db.ReturnLastID();
+            //Get the last ID
+            id = Db.ReturnLastID();
 
-                //Show dashboard data
-                SetDashboardNumbers();
+            //Disable all
+            DisableAll();
 
-                //Disable all
-                CmdAddUser.Visible = false;
-                CmdCancel.Visible = false;
-                CmdDeleteUser.Visible = false;
-                CmdEditUser.Visible = false;
-                CmdExport.Visible = false;
-                CmdSave.Visible = false;
-            }
-            else
-            {
+            //Show dashboard data
+            SetDashboardNumbers();
 
-                //Setting the Values in Combobox to the Enum Values
-                //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
-                CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
+            // Create and set the ErrorProvider for each data entry control.
 
-                //Setting the Values in Combobox to the Enum Values
-                //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
-                CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
+            // ErrorProvider firstname
 
-                //Import person objects on the start of the program
-                if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
-
-                //Show contact list in database
-                LsbOutput.DataSource = Db.contactList;
-
-                //Get the last ID
-                id = Db.ReturnLastID();
-
-                //Disable all
-                DisableAll();
-
-                //Show dashboard data
-                SetDashboardNumbers();
-
-                // Create and set the ErrorProvider for each data entry control.
-
-                // ErrorProvider firstname
-
-                firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
             firstnameErrorProvider.SetIconAlignment(this.TxtFirstname, ErrorIconAlignment.MiddleRight);
             firstnameErrorProvider.SetIconPadding(this.TxtFirstname, 2);
-            firstnameErrorProvider.BlinkRate = 1000;
+            firstnameErrorProvider.BlinkRate = 0;
             firstnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtFirstname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
 
 
-                // ErrorProvider lastname
+            // ErrorProvider lastname
 
-                lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
             lastnameErrorProvider.SetIconAlignment(this.TxtLastname, ErrorIconAlignment.MiddleRight);
             lastnameErrorProvider.SetIconPadding(this.TxtLastname, 2);
-            lastnameErrorProvider.BlinkRate = 1000;
+            lastnameErrorProvider.BlinkRate = 0;
             lastnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
-            this.TxtLastname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
+            this.TxtLastname.Validated += new System.EventHandler(this.TxtLastname_Validated);
 
-                // ErrorProvider email
+            // ErrorProvider email
 
-                emailErrorProvider = new System.Windows.Forms.ErrorProvider();
-                emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
-                emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
-                emailErrorProvider.BlinkRate = 1000;
-                emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            emailErrorProvider = new System.Windows.Forms.ErrorProvider();
+            emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
+            emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
+            emailErrorProvider.BlinkRate = 0;
+            emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
-                this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
+            this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
 
 
-                // ErrorProvider ZIP Code
+            // ErrorProvider ZIP Code
 
-                zipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
+            zipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
             zipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
             zipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
-            zipcodeErrorProvider.BlinkRate = 1000;
+            zipcodeErrorProvider.BlinkRate = 0;
             zipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
-                this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
-            }
+            this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
         }
 
 
@@ -358,7 +324,7 @@ namespace semesterarbeit
                     //Call function for user status active
                     //EnableAllPers();
                 }
-            }           
+            }
         }
 
         private void LsbOutput_Format(object sender, ListControlConvertEventArgs e)
@@ -380,7 +346,7 @@ namespace semesterarbeit
             Db.search.Clear();
 
             //Check if search or cancel search
-            if(CmdSearch.Text == "Search")
+            if (CmdSearch.Text == "Search")
             {
                 if (TxtSearch.Text.Length > 0)
                 {
@@ -760,7 +726,14 @@ namespace semesterarbeit
             }
             else if (TabControl.SelectedIndex == 1)
             {
-                ShowButtons();
+                if (user == "Admin")
+                {
+                    ShowButtons();
+                }
+                else
+                {
+                    CmdExport.Visible = true;
+                }
                 ShowListBox();
 
             }
@@ -805,7 +778,7 @@ namespace semesterarbeit
 
         private void CmdTakeNotes_Click(object sender, EventArgs e)
         {
-            if(CmdTakeNotes.Text == "Take notes")
+            if (CmdTakeNotes.Text == "Take notes")
             {
                 //Enable Text Box
                 TxtNotes.Enabled = true;
@@ -832,7 +805,7 @@ namespace semesterarbeit
                 //Reset Textbox
                 TxtNotes.ResetText();
             }
-            
+
         }
 
         /*---------------------------------------------------------------------
@@ -862,7 +835,7 @@ namespace semesterarbeit
                 role: TxtRole.Text,
                 pens: Convert.ToString(CmbWorkPensum.SelectedItem),
                 entrdate: DtpStartDate.Value
-                ) ;
+                );
         }
 
         //Set all optional attributes for employees
