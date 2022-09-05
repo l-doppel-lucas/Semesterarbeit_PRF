@@ -43,8 +43,7 @@ namespace semesterarbeit
             SetDashboardNumbers();
 
             //Set datasource for Datagrid
-            DgrdBrowse.DataSource = Db.contactList;
-            DgrdBrowse.ReadOnly = true;
+
 
         }
 
