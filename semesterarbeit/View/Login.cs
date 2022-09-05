@@ -28,7 +28,7 @@ namespace semesterarbeit.View
         {
             if(TxtUsername.Text.Equals(us1) && TxtPassword.Text.Equals(pw1))
             {
-                Dashboard cm1 = new Dashboard(us1, pw1);
+                Dashboard cm1 = new Dashboard(us1);
                 this.Hide();
                 cm1.Show();
             }

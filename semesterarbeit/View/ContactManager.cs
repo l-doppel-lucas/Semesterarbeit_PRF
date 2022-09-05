@@ -21,7 +21,7 @@ namespace semesterarbeit
         public Database Db = new Database();
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider ZipcodeErrorProvider;
-        public Dashboard()
+        public Dashboard(string us1)
         {
             InitializeComponent();
 
