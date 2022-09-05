@@ -85,10 +85,11 @@ namespace semesterarbeit
                 //Show dashboard data
                 SetDashboardNumbers();
 
+                // Create and set the ErrorProvider for each data entry control.
 
-            // Create and set the FirstnameProvider for each data entry control.
+                // ErrorProvider firstname
 
-            firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+                firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
             firstnameErrorProvider.SetIconAlignment(this.TxtFirstname, ErrorIconAlignment.MiddleRight);
             firstnameErrorProvider.SetIconPadding(this.TxtFirstname, 2);
             firstnameErrorProvider.BlinkRate = 1000;
@@ -97,9 +98,9 @@ namespace semesterarbeit
             this.TxtFirstname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
 
 
-            // Create and set the LastnameProvider for each data entry control.
+                // ErrorProvider lastname
 
-            lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+                lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
             lastnameErrorProvider.SetIconAlignment(this.TxtLastname, ErrorIconAlignment.MiddleRight);
             lastnameErrorProvider.SetIconPadding(this.TxtLastname, 2);
             lastnameErrorProvider.BlinkRate = 1000;
@@ -107,7 +108,7 @@ namespace semesterarbeit
 
             this.TxtLastname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
 
-            // Create and set the ErrorProvider for each data entry control.
+                // ErrorProvider email
 
                 emailErrorProvider = new System.Windows.Forms.ErrorProvider();
                 emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
@@ -118,13 +119,13 @@ namespace semesterarbeit
                 this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
 
 
-                // Create and set the ZipcodeProvider for each data entry control.
+                // ErrorProvider ZIP Code
 
-            ZipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
-            ZipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
-            ZipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
-            ZipcodeErrorProvider.BlinkRate = 1000;
-            ZipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+                zipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
+            zipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
+            zipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
+            zipcodeErrorProvider.BlinkRate = 1000;
+            zipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
                 this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
             }
