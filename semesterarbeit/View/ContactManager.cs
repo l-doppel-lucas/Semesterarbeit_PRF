@@ -1,9 +1,9 @@
 ﻿using semesterarbeit.Controller;
 using System;
-using System.Diagnostics.Eventing.Reader;
-using System.Net;
-using System.Net.NetworkInformation;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+
+
 
 namespace semesterarbeit
 {
@@ -37,15 +37,40 @@ namespace semesterarbeit
             id = Db.ReturnLastID();
 
             //Disable all
-            DisableALl();
+            DisableAll();
 
             //Show dashboard data
             SetDashboardNumbers();
 
-            //Set datasource for Datagrid
+            // Create and set the ErrorProvider for each data entry control.
 
+            emailErrorProvider = new System.Windows.Forms.ErrorProvider();
+            emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
+            emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
+            emailErrorProvider.BlinkRate = 1000;
+            emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
+            this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
         }
+
+        private void TxtEmail_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            var mail = this.TxtEmail.Text;
+            Match match = regex.Match(mail);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                emailErrorProvider.SetError(this.TxtEmail, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                emailErrorProvider.SetError(this.TxtEmail, "Ungültiges Email Format!");
+            }
+        }
+    
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -62,7 +87,7 @@ namespace semesterarbeit
                 HideAllCmbPers();
 
                 //disable all fields
-                DisableALl();
+                DisableAll();
 
                 //Cast the selected object into  Type "Person"
                 Person selectedPerson = (Person)LsbOutput.SelectedItem;
@@ -433,7 +458,7 @@ namespace semesterarbeit
             CmdSearch.Enabled = true;
 
             //disable all fields
-            DisableALl();
+            DisableAll();
 
             //Update Dashboard Numbers
             SetDashboardNumbers();
@@ -849,7 +874,7 @@ namespace semesterarbeit
             HideAllCmbEmp();
 
             //Disable all boxes
-            DisableALl();
+            DisableAll();
 
             //unselect listbox
             LsbOutput.ClearSelected();
@@ -932,7 +957,7 @@ namespace semesterarbeit
         }
 
         //Disable all
-        private void DisableALl()
+        private void DisableAll()
         {
             DisableAllAppr();
             DisableAllCust();
