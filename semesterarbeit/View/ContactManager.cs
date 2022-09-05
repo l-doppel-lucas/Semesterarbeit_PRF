@@ -15,7 +15,8 @@ namespace semesterarbeit
         //Create Contact List for Listbox
         public Database Db = new Database();
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
-        private System.Windows.Forms.ErrorProvider ZipcodeErrorProvider;
+        private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
+        private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         public Dashboard()
         {
             InitializeComponent();
@@ -43,6 +44,17 @@ namespace semesterarbeit
             //Show dashboard data
             SetDashboardNumbers();
 
+
+            // Create and set the FirstnameProvider for each data entry control.
+
+            firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            firstnameErrorProvider.SetIconAlignment(this.TxtFirstname, ErrorIconAlignment.MiddleRight);
+            firstnameErrorProvider.SetIconPadding(this.TxtFirstname, 2);
+            firstnameErrorProvider.BlinkRate = 1000;
+            firstnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtFirstname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
+
             // Create and set the ErrorProvider for each data entry control.
 
             emailErrorProvider = new System.Windows.Forms.ErrorProvider();
@@ -56,13 +68,33 @@ namespace semesterarbeit
 
             // Create and set the ZipcodeProvider for each data entry control.
 
-            ZipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
-            ZipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
-            ZipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
-            ZipcodeErrorProvider.BlinkRate = 1000;
-            ZipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+            zipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
+            zipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
+            zipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
+            zipcodeErrorProvider.BlinkRate = 1000;
+            zipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
+
+        }
+
+
+        private void TxtFirstname_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var firstname = this.TxtFirstname.Text;
+            Match match = regex.Match(firstname);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                firstnameErrorProvider.SetError(this.TxtFirstname, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                firstnameErrorProvider.SetError(this.TxtFirstname, "Ungültiges Format!");
+            }
         }
 
         private void TxtEmail_Validated(object sender, EventArgs e)
@@ -95,12 +127,12 @@ namespace semesterarbeit
             if (match.Success)
             {
                 // Clear the error, if any, in the error provider.
-                ZipcodeErrorProvider.SetError(this.TxtZipcode, String.Empty);
+                zipcodeErrorProvider.SetError(this.TxtZipcode, String.Empty);
             }
             else
             {
                 // Set the error if the name is not valid.
-                ZipcodeErrorProvider.SetError(this.TxtZipcode, "Ungültige PLZ!");
+                zipcodeErrorProvider.SetError(this.TxtZipcode, "Ungültige PLZ!");
             }
         }
 
