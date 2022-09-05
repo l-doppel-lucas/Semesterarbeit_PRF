@@ -1,4 +1,5 @@
 ﻿using semesterarbeit.Controller;
+using semesterarbeit.View;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -8,16 +9,23 @@ using System.Windows.Forms;
 namespace semesterarbeit
 {
     public partial class Dashboard : Form
-    {
+    { 
+
         //Create variable for id/EmpID
         private int id;
+
+        //Creat user variables
+        private string user;
 
         //Create Contact List for Listbox
         public Database Db = new Database();
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
-        public Dashboard()
+        public Dashboard(string us1, string pw1)
         {
             InitializeComponent();
+
+            //Set user variable
+            user = us1;
 
             //Setting the Values in Combobox to the Enum Values
             //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
@@ -200,7 +208,7 @@ namespace semesterarbeit
                         TxtCompanyName.Text = selectedCustomer.Companyname;
                         TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
                         TxtContacPerson.Text = selectedCustomer.Companycontact;
-                        TxtNotesHistory.Text = selectedCustomer.NotesHistory;
+                        TxtNotesHistory.Text = selectedCustomer.NotesHistory + " - " + user;
                         break;
                 }
 
@@ -594,7 +602,7 @@ namespace semesterarbeit
                 cust.TakeNotes(TxtNotes.Text);
 
                 //Display Changes in Notes History
-                TxtNotesHistory.Text = cust.NotesHistory;
+                TxtNotesHistory.Text = cust.NotesHistory + " - " + user;
 
                 //Save Notes
                 Db.Serialisation();
