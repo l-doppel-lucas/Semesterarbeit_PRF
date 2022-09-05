@@ -8,53 +8,117 @@ using System.Windows.Forms;
 namespace semesterarbeit
 {
     public partial class Dashboard : Form
-    {
+    { 
+
         //Create variable for id/EmpID
         private int id;
+
+        //Creat user variables
+        private string user;
 
         //Create Contact List for Listbox
         public Database Db = new Database();
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
-        private System.Windows.Forms.ErrorProvider ZipcodeErrorProvider;
-        public Dashboard()
+        private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
+        private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
+        private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
+        public Dashboard(string us1)
         {
             InitializeComponent();
 
-            //Setting the Values in Combobox to the Enum Values
-            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
-            CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
+            //Set user variable
+            user = us1;
 
-            //Setting the Values in Combobox to the Enum Values
-            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
-            CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
+            if (user == "User")
+            {
+                //Setting the Values in Combobox to the Enum Values
+                //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+                CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
 
-            //Import person objects on the start of the program
-            if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
+                //Setting the Values in Combobox to the Enum Values
+                //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+                CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
 
-            //Show contact list in database
-            LsbOutput.DataSource = Db.contactList;
+                //Import person objects on the start of the program
+                if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
 
-            //Get the last ID
-            id = Db.ReturnLastID();
+                //Show contact list in database
+                LsbOutput.DataSource = Db.contactList;
 
-            //Disable all
-            DisableAll();
+                //Get the last ID
+                id = Db.ReturnLastID();
 
-            //Show dashboard data
-            SetDashboardNumbers();
+                //Show dashboard data
+                SetDashboardNumbers();
+
+                //Disable all
+                CmdAddUser.Visible = false;
+                CmdCancel.Visible = false;
+                CmdDeleteUser.Visible = false;
+                CmdEditUser.Visible = false;
+                CmdExport.Visible = false;
+                CmdSave.Visible = false;
+            }
+            else
+            {
+
+                //Setting the Values in Combobox to the Enum Values
+                //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+                CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
+
+                //Setting the Values in Combobox to the Enum Values
+                //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+                CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
+
+                //Import person objects on the start of the program
+                if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
+
+                //Show contact list in database
+                LsbOutput.DataSource = Db.contactList;
+
+                //Get the last ID
+                id = Db.ReturnLastID();
+
+                //Disable all
+                DisableAll();
+
+                //Show dashboard data
+                SetDashboardNumbers();
+
+
+            // Create and set the FirstnameProvider for each data entry control.
+
+            firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            firstnameErrorProvider.SetIconAlignment(this.TxtFirstname, ErrorIconAlignment.MiddleRight);
+            firstnameErrorProvider.SetIconPadding(this.TxtFirstname, 2);
+            firstnameErrorProvider.BlinkRate = 1000;
+            firstnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtFirstname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
+
+
+            // Create and set the LastnameProvider for each data entry control.
+
+            lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            lastnameErrorProvider.SetIconAlignment(this.TxtLastname, ErrorIconAlignment.MiddleRight);
+            lastnameErrorProvider.SetIconPadding(this.TxtLastname, 2);
+            lastnameErrorProvider.BlinkRate = 1000;
+            lastnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtLastname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
 
             // Create and set the ErrorProvider for each data entry control.
 
-            emailErrorProvider = new System.Windows.Forms.ErrorProvider();
-            emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
-            emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
-            emailErrorProvider.BlinkRate = 1000;
-            emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+                emailErrorProvider = new System.Windows.Forms.ErrorProvider();
+                emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
+                emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
+                emailErrorProvider.BlinkRate = 1000;
+                emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
-            this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
+                this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
 
 
-            // Create and set the ZipcodeProvider for each data entry control.
+                // Create and set the ZipcodeProvider for each data entry control.
 
             ZipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
             ZipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
@@ -62,7 +126,46 @@ namespace semesterarbeit
             ZipcodeErrorProvider.BlinkRate = 1000;
             ZipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
-            this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
+                this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
+            }
+        }
+
+
+        private void TxtFirstname_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var firstname = this.TxtFirstname.Text;
+            Match match = regex.Match(firstname);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                firstnameErrorProvider.SetError(this.TxtFirstname, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                firstnameErrorProvider.SetError(this.TxtFirstname, "Invalid Format!");
+            }
+        }
+
+
+        private void TxtLastname_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var lastname = this.TxtLastname.Text;
+            Match match = regex.Match(lastname);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                lastnameErrorProvider.SetError(this.TxtLastname, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Format!");
+            }
         }
 
         private void TxtEmail_Validated(object sender, EventArgs e)
@@ -95,12 +198,12 @@ namespace semesterarbeit
             if (match.Success)
             {
                 // Clear the error, if any, in the error provider.
-                ZipcodeErrorProvider.SetError(this.TxtZipcode, String.Empty);
+                zipcodeErrorProvider.SetError(this.TxtZipcode, String.Empty);
             }
             else
             {
                 // Set the error if the name is not valid.
-                ZipcodeErrorProvider.SetError(this.TxtZipcode, "Ungültige PLZ!");
+                zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!!");
             }
         }
 
@@ -233,7 +336,7 @@ namespace semesterarbeit
                         TxtCompanyName.Text = selectedCustomer.Companyname;
                         TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
                         TxtContacPerson.Text = selectedCustomer.Companycontact;
-                        TxtNotesHistory.Text = selectedCustomer.NotesHistory;
+                        TxtNotesHistory.Text = selectedCustomer.NotesHistory + " - " + user;
                         break;
                 }
 
@@ -711,7 +814,7 @@ namespace semesterarbeit
                 cust.TakeNotes(TxtNotes.Text);
 
                 //Display Changes in Notes History
-                TxtNotesHistory.Text = cust.NotesHistory;
+                TxtNotesHistory.Text = cust.NotesHistory + " - " + user;
 
                 //Save Notes
                 Db.Serialisation();
