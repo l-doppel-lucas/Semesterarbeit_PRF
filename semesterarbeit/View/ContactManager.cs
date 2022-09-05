@@ -818,7 +818,7 @@ namespace semesterarbeit
             {
                 //Cast into customer to run Take Notes function
                 Customer cust = LsbOutput.SelectedItem as Customer;
-                cust.TakeNotes(TxtNotes.Text);
+                cust.TakeNotes(TxtNotes.Text + " - " + user);
 
                 //Display Changes in Notes History
                 TxtNotesHistory.Text = cust.NotesHistory;
