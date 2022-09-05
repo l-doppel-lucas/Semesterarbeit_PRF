@@ -439,6 +439,8 @@ namespace semesterarbeit
             //Uncheck radio buttons
             UncheckAllRad();
 
+            //Disable Take notes for customer
+            CmdTakeNotes.Enabled = false;
 
             //Enables all "Person" related fields
             EnableAllPers();
@@ -1330,7 +1332,15 @@ namespace semesterarbeit
             TxtNotesHistory.Visible = true;
             LblNotesHistory.Visible = true;
             CmdTakeNotes.Visible = true;
-            CmdTakeNotes.Enabled = true;
+            if (CmdAddUser.Tag.ToString() == "Clicked") 
+            {
+                CmdTakeNotes.Enabled = false;
+            }
+            else
+            {
+                CmdTakeNotes.Enabled = true;
+            }
+            
         }
 
         //Make all Apprentice textboxes and labels visible
