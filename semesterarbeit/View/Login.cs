@@ -15,10 +15,10 @@ namespace semesterarbeit.View
 
     public partial class Login : Form
     {
-        string us1 = "Admin";
+        string us1 = "admin";
         string pw1 = "asdf1234";
 
-        string us2 = "User";
+        string us2 = "user";
         string pw2 = "asdf1234";
 
         public Login()
@@ -32,13 +32,13 @@ namespace semesterarbeit.View
 
            
 
-            if(TxtUsername.Text.Equals(us1) && TxtPassword.Text.Equals(pw1))
+            if(TxtUsername.Text.ToLower().Equals(us1) && TxtPassword.Text.ToLower().Equals(pw1))
             {
                 Dashboard cm1 = new Dashboard(us1);
                 this.Hide();
                 cm1.Show();
             }
-            else if (TxtUsername.Text.Equals(us2) && TxtPassword.Text.Equals(pw2))
+            else if (TxtUsername.Text.ToLower().Equals(us2) && TxtPassword.Text.ToLower().Equals(pw2))
             {
                 Dashboard cm1 = new Dashboard(us2);
                 this.Hide();

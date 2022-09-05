@@ -755,7 +755,7 @@ namespace semesterarbeit
             }
             else if (TabControl.SelectedIndex == 1)
             {
-                if (user == "Admin")
+                if (user == "admin")
                 {
                     ShowButtons();
                 }
