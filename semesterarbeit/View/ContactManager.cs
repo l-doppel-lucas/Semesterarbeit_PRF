@@ -18,10 +18,14 @@ namespace semesterarbeit
 
         //Create Contact List for Listbox
         public Database Db = new Database();
+
+
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
+
+
         public Dashboard(string us1)
         {
             InitializeComponent();
@@ -52,46 +56,46 @@ namespace semesterarbeit
             //Show dashboard data
             SetDashboardNumbers();
 
-                // Create and set the ErrorProvider for each data entry control.
+            // Create and set the ErrorProvider for each data entry control.
 
-                // ErrorProvider firstname
+            // ErrorProvider firstname
 
-                firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
             firstnameErrorProvider.SetIconAlignment(this.TxtFirstname, ErrorIconAlignment.MiddleRight);
             firstnameErrorProvider.SetIconPadding(this.TxtFirstname, 2);
-            firstnameErrorProvider.BlinkRate = 1000;
+            firstnameErrorProvider.BlinkRate = 0;
             firstnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtFirstname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
 
 
-                // ErrorProvider lastname
+            // ErrorProvider lastname
 
-                lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
             lastnameErrorProvider.SetIconAlignment(this.TxtLastname, ErrorIconAlignment.MiddleRight);
             lastnameErrorProvider.SetIconPadding(this.TxtLastname, 2);
-            lastnameErrorProvider.BlinkRate = 1000;
+            lastnameErrorProvider.BlinkRate = 0;
             lastnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
-            this.TxtLastname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
+            this.TxtLastname.Validated += new System.EventHandler(this.TxtLastname_Validated);
 
-                // ErrorProvider email
+            // ErrorProvider email
 
             emailErrorProvider = new System.Windows.Forms.ErrorProvider();
             emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
             emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
-            emailErrorProvider.BlinkRate = 1000;
+            emailErrorProvider.BlinkRate = 0;
             emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
 
 
-                // ErrorProvider ZIP Code
+            // ErrorProvider ZIP Code
 
-                zipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
+            zipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
             zipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
             zipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
-            zipcodeErrorProvider.BlinkRate = 1000;
+            zipcodeErrorProvider.BlinkRate = 0;
             zipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
