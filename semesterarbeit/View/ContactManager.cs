@@ -18,6 +18,8 @@ namespace semesterarbeit
 
         //Create Contact List for Listbox
         public Database Db = new Database();
+
+
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
@@ -334,7 +336,7 @@ namespace semesterarbeit
                         TxtCompanyName.Text = selectedCustomer.Companyname;
                         TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
                         TxtContacPerson.Text = selectedCustomer.Companycontact;
-                        TxtNotesHistory.Text = selectedCustomer.NotesHistory + " - " + user;
+                        TxtNotesHistory.Text = selectedCustomer.NotesHistory;
                         break;
                 }
 
@@ -510,7 +512,7 @@ namespace semesterarbeit
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
                         EmplNr = id, //EmplNumber
                         Departement = Convert.ToString(CmbDepartment.SelectedItem),
                         Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
@@ -551,7 +553,7 @@ namespace semesterarbeit
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
                         EmplNr = id, //EmplNumber
                         Departement = Convert.ToString(CmbDepartment.SelectedItem),
                         Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
@@ -594,7 +596,7 @@ namespace semesterarbeit
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + Environment.NewLine, //change history
+                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
                         Companyname = TxtCompanyName.Text,
                         Type = (CustType)CmbCustomerType.SelectedValue,
                         Companycontact = TxtContacPerson.Text
@@ -777,7 +779,6 @@ namespace semesterarbeit
             CmdDeleteUser.Visible = true;
             CmdEditUser.Visible = true;
             CmdExport.Visible = true;
-            CmdSearch.Visible = true;
         }
 
         private void HideButtons()
@@ -786,7 +787,6 @@ namespace semesterarbeit
             CmdDeleteUser.Visible = false;
             CmdEditUser.Visible = false;
             CmdExport.Visible = false;
-            CmdSearch.Visible = false;
         }
 
         private void ShowListBox()
@@ -794,6 +794,7 @@ namespace semesterarbeit
             LsbOutput.Visible = true;
             TxtSearch.Visible = true;
             TxtSearchHint.Visible = true;
+            CmdSearch.Visible = true;
         }
 
         private void HideListBox()
@@ -801,6 +802,7 @@ namespace semesterarbeit
             LsbOutput.Visible = false;
             TxtSearch.Visible = false;
             TxtSearchHint.Visible = false;
+            CmdSearch.Visible = false;
         }
 
         private void CmdTakeNotes_Click(object sender, EventArgs e)
@@ -819,7 +821,7 @@ namespace semesterarbeit
                 cust.TakeNotes(TxtNotes.Text);
 
                 //Display Changes in Notes History
-                TxtNotesHistory.Text = cust.NotesHistory + " - " + user;
+                TxtNotesHistory.Text = cust.NotesHistory;
 
                 //Save Notes
                 Db.Serialisation();
@@ -857,7 +859,7 @@ namespace semesterarbeit
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
                 zip: TxtZipcode.Text,
-                changehistory: emp.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
+                changehistory: emp.ChangeHistory + DateTime.Now.ToString() + " - " + user + Environment.NewLine,
                 departement: Convert.ToString(CmbDepartment.SelectedItem),
                 role: TxtRole.Text,
                 pens: Convert.ToString(CmbWorkPensum.SelectedItem),
@@ -904,7 +906,7 @@ namespace semesterarbeit
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
                 zip: TxtZipcode.Text,
-                changehistory: cust.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
+                changehistory: cust.ChangeHistory + DateTime.Now.ToString() + " - " + user + Environment.NewLine,
                 compname: TxtCompanyName.Text,
                 type: (CustType)CmbCustomerType.SelectedItem
                 );
@@ -944,7 +946,7 @@ namespace semesterarbeit
                 street: TxtStreet.Text,
                 city: TxtCity.Text,
                 zip: TxtZipcode.Text,
-                changehistory: appr.ChangeHistory + DateTime.Now.ToString() + Environment.NewLine,
+                changehistory: appr.ChangeHistory + DateTime.Now.ToString() + " - " + user + Environment.NewLine,
                 departement: Convert.ToString(CmbDepartment.SelectedItem),
                 role: TxtRole.Text,
                 pens: Convert.ToString(CmbWorkPensum.SelectedItem),
