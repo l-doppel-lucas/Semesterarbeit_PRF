@@ -233,6 +233,80 @@ namespace semesterarbeit
             e.Value = output;
         }
 
+        private void CmdSearch_Click(object sender, EventArgs e)
+        {
+            // Reset search results
+            Db.search.Clear();
+
+            //Check if search or cancel search
+            if(CmdSearch.Text == "Search")
+            {
+                if (TxtSearch.Text.Length > 0)
+                {
+                    foreach (Person p in Db.contactList)
+                    {
+                        //Serarch in Firstname, Lastname, City, Zip Code, Businessphone and Mobilephone
+                        //More attributs can be added to the if statement
+                        if
+                            (
+                                //lower text that the search is not case sensetive (not needed in number fields)
+                                p.Firstname.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.Lastname.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.City.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.Zipcode.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                        else if
+                            (
+                                p.Businessphone != null && p.Businessphone.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                        else if
+                            (
+                                p.Mobilephone != null && p.Mobilephone.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                    }
+
+                    // Change listbox datasource to Search Results
+                    LsbOutput.DataSource = Db.search;
+
+                    //Disables add user and export
+                    CmdAddUser.Enabled = false;
+                    CmdExport.Enabled = false;
+
+                    //Change Button text to cancel
+                    CmdSearch.Text = "Cancel Search";
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a search string!");
+                }
+            }
+            else
+            {
+                //Change datasource to all contacts
+                LsbOutput.DataSource = Db.contactList;
+
+                //activate add user and export
+                CmdAddUser.Enabled = true;
+                CmdExport.Enabled = true;
+
+                //Reset Search Text
+                TxtSearch.Text = "";
+
+                //Change search button text
+                CmdSearch.Text = "Search";
+            }
+
+        }
+
         /*---------------------------------------------------------------------
         Buttons
         -----------------------------------------------------------------------*/
@@ -925,6 +999,9 @@ namespace semesterarbeit
             CmbGender.Enabled = true;
             CmbMgmtLevel.Enabled = true;
             CmbWorkPensum.Enabled = true;
+
+            //Employee Number is always grayed out
+            TxtEmplNr.Enabled = false;
         }
 
         //Enables all Customer Textboxes
