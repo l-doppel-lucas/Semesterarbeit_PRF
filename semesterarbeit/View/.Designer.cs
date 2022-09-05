@@ -129,12 +129,12 @@
             this.CmdExport = new System.Windows.Forms.Button();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.CmdSearch = new System.Windows.Forms.Button();
-            this.LblSearch = new System.Windows.Forms.Label();
             this.CmdSave = new System.Windows.Forms.Button();
             this.CmdCancel = new System.Windows.Forms.Button();
             this.LblName = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TxtSearchHint = new System.Windows.Forms.TextBox();
             this.TabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1246,7 +1246,7 @@
             // 
             // TxtSearch
             // 
-            this.TxtSearch.Location = new System.Drawing.Point(1013, 50);
+            this.TxtSearch.Location = new System.Drawing.Point(1013, 28);
             this.TxtSearch.Margin = new System.Windows.Forms.Padding(1);
             this.TxtSearch.Name = "TxtSearch";
             this.TxtSearch.Size = new System.Drawing.Size(154, 20);
@@ -1256,7 +1256,7 @@
             // 
             // CmdSearch
             // 
-            this.CmdSearch.Location = new System.Drawing.Point(1179, 50);
+            this.CmdSearch.Location = new System.Drawing.Point(1179, 26);
             this.CmdSearch.Margin = new System.Windows.Forms.Padding(1);
             this.CmdSearch.Name = "CmdSearch";
             this.CmdSearch.Size = new System.Drawing.Size(72, 22);
@@ -1265,17 +1265,6 @@
             this.CmdSearch.UseVisualStyleBackColor = true;
             this.CmdSearch.Visible = false;
             this.CmdSearch.Click += new System.EventHandler(this.CmdSearch_Click);
-            // 
-            // LblSearch
-            // 
-            this.LblSearch.AutoSize = true;
-            this.LblSearch.Location = new System.Drawing.Point(1010, 28);
-            this.LblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LblSearch.Name = "LblSearch";
-            this.LblSearch.Size = new System.Drawing.Size(65, 13);
-            this.LblSearch.TabIndex = 8;
-            this.LblSearch.Text = "Search Text";
-            this.LblSearch.Visible = false;
             // 
             // CmdSave
             // 
@@ -1317,15 +1306,30 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // TxtSearchHint
+            // 
+            this.TxtSearchHint.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.TxtSearchHint.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtSearchHint.Enabled = false;
+            this.TxtSearchHint.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.25F);
+            this.TxtSearchHint.Location = new System.Drawing.Point(1013, 52);
+            this.TxtSearchHint.Multiline = true;
+            this.TxtSearchHint.Name = "TxtSearchHint";
+            this.TxtSearchHint.ReadOnly = true;
+            this.TxtSearchHint.Size = new System.Drawing.Size(238, 30);
+            this.TxtSearchHint.TabIndex = 17;
+            this.TxtSearchHint.Text = "*Search in First Name, Last Name, City, Zipcode, Business Phone or Mobile Number";
+            this.TxtSearchHint.Visible = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1286, 654);
+            this.Controls.Add(this.TxtSearchHint);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.CmdCancel);
             this.Controls.Add(this.CmdSave);
-            this.Controls.Add(this.LblSearch);
             this.Controls.Add(this.CmdSearch);
             this.Controls.Add(this.TxtSearch);
             this.Controls.Add(this.CmdExport);
@@ -1362,7 +1366,6 @@
         private System.Windows.Forms.Button CmdExport;
         private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.Button CmdSearch;
-        private System.Windows.Forms.Label LblSearch;
         private System.Windows.Forms.DateTimePicker DtpLeaveDate;
         private System.Windows.Forms.RadioButton RadCustomer;
         private System.Windows.Forms.DateTimePicker DtpStartDate;
@@ -1458,6 +1461,7 @@
         private System.Windows.Forms.TextBox TxtBirthdate;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox TxtSearchHint;
     }
 }
 

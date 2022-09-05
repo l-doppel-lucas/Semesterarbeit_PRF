@@ -648,18 +648,18 @@ namespace semesterarbeit
             if (TabControl.SelectedIndex == 0)
             {
                 HideButtons();
-                LsbOutput.Visible = false;
+                HideListBox();
             }
             else if (TabControl.SelectedIndex == 1)
             {
                 ShowButtons();
-                LsbOutput.Visible = true;
+                ShowListBox();
 
             }
             else if (TabControl.SelectedIndex == 2)
             {
                 HideButtons();
-                LsbOutput.Visible = true;
+                ShowListBox();
             }
         }
 
@@ -670,8 +670,6 @@ namespace semesterarbeit
             CmdEditUser.Visible = true;
             CmdExport.Visible = true;
             CmdSearch.Visible = true;
-            TxtSearch.Visible = true;
-            LblSearch.Visible = true;
         }
 
         private void HideButtons()
@@ -681,8 +679,20 @@ namespace semesterarbeit
             CmdEditUser.Visible = false;
             CmdExport.Visible = false;
             CmdSearch.Visible = false;
+        }
+
+        private void ShowListBox()
+        {
+            LsbOutput.Visible = true;
+            TxtSearch.Visible = true;
+            TxtSearchHint.Visible = true;
+        }
+
+        private void HideListBox()
+        {
+            LsbOutput.Visible = false;
             TxtSearch.Visible = false;
-            LblSearch.Visible = false;
+            TxtSearchHint.Visible = false;
         }
 
         private void CmdTakeNotes_Click(object sender, EventArgs e)
@@ -1420,8 +1430,6 @@ namespace semesterarbeit
             CmbApprentYears.Visible = false;
             CmbCurrentApprentYear.Visible = false;
         }
-
-
     }
 }
 
