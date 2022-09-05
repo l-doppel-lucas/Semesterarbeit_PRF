@@ -18,10 +18,14 @@ namespace semesterarbeit
 
         //Create Contact List for Listbox
         public Database Db = new Database();
+
+
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
+
+
         public Dashboard(string us1)
         {
             InitializeComponent();
