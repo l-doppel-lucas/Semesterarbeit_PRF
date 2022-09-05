@@ -127,7 +127,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                firstnameErrorProvider.SetError(this.TxtFirstname, "Invalid Format!");
+                firstnameErrorProvider.SetError(this.TxtFirstname, "Invalid Firstname Format!");
             }
         }
 
@@ -146,7 +146,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Format!");
+                lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Lastname Format!");
             }
         }
 
@@ -185,7 +185,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!!");
+                zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!");
             }
 
         }
@@ -204,7 +204,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                lastnameErrorProvider.SetError(this.TxtRole, "Invalid Format!");
+                lastnameErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
             }
         }
 
@@ -468,6 +468,8 @@ namespace semesterarbeit
             //Uncheck radio buttons
             UncheckAllRad();
 
+            //Disable Take notes for customer
+            CmdTakeNotes.Enabled = false;
 
             //Enables all "Person" related fields
             EnableAllPers();
@@ -1359,7 +1361,15 @@ namespace semesterarbeit
             TxtNotesHistory.Visible = true;
             LblNotesHistory.Visible = true;
             CmdTakeNotes.Visible = true;
-            CmdTakeNotes.Enabled = true;
+            if (CmdAddUser.Tag.ToString() == "Clicked") 
+            {
+                CmdTakeNotes.Enabled = false;
+            }
+            else
+            {
+                CmdTakeNotes.Enabled = true;
+            }
+            
         }
 
         //Make all Apprentice textboxes and labels visible
