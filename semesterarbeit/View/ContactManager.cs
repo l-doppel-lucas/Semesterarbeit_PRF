@@ -24,8 +24,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
-
-
+        private System.Windows.Forms.ErrorProvider roleErrorProvider;
         public Dashboard(string us1)
         {
             InitializeComponent();
@@ -99,6 +98,18 @@ namespace semesterarbeit
             zipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
+
+
+
+            // ErrorProvider role
+
+            roleErrorProvider = new System.Windows.Forms.ErrorProvider();
+            roleErrorProvider.SetIconAlignment(this.TxtRole, ErrorIconAlignment.MiddleRight);
+            roleErrorProvider.SetIconPadding(this.TxtRole, 2);
+            roleErrorProvider.BlinkRate = 0;
+            roleErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtRole.Validated += new System.EventHandler(this.TxtRole_Validated);
         }
 
 
@@ -176,8 +187,26 @@ namespace semesterarbeit
                 // Set the error if the name is not valid.
                 zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!!");
             }
+
         }
 
+        private void TxtRole_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var role = this.TxtRole.Text;
+            Match match = regex.Match(role);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                lastnameErrorProvider.SetError(this.TxtRole, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                lastnameErrorProvider.SetError(this.TxtRole, "Invalid Format!");
+            }
+        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
