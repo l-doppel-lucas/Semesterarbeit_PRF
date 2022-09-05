@@ -73,7 +73,7 @@ namespace semesterarbeit
             lastnameErrorProvider.BlinkRate = 1000;
             lastnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
-            this.TxtLastname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
+            this.TxtLastname.Validated += new System.EventHandler(this.TxtLastname_Validated);
 
             // ErrorProvider email
 
