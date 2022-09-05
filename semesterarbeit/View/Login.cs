@@ -18,6 +18,9 @@ namespace semesterarbeit.View
         string us1 = "Admin";
         string pw1 = "asdf1234";
 
+        string us2 = "User";
+        string pw2 = "asdf1234";
+
         public Login()
         {
             InitializeComponent();
@@ -26,9 +29,18 @@ namespace semesterarbeit.View
 
         private void CmdLogin_Click(object sender, EventArgs e)
         {
+
+           
+
             if(TxtUsername.Text.Equals(us1) && TxtPassword.Text.Equals(pw1))
             {
                 Dashboard cm1 = new Dashboard(us1);
+                this.Hide();
+                cm1.Show();
+            }
+            else if (TxtUsername.Text.Equals(us2) && TxtPassword.Text.Equals(pw2))
+            {
+                Dashboard cm1 = new Dashboard(us2);
                 this.Hide();
                 cm1.Show();
             }
