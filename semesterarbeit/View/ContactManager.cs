@@ -15,6 +15,7 @@ namespace semesterarbeit
         //Create Contact List for Listbox
         public Database Db = new Database();
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
+        private System.Windows.Forms.ErrorProvider ZipcodeErrorProvider;
         public Dashboard()
         {
             InitializeComponent();
@@ -51,6 +52,17 @@ namespace semesterarbeit
             emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
+
+
+            // Create and set the ZipcodeProvider for each data entry control.
+
+            ZipcodeErrorProvider = new System.Windows.Forms.ErrorProvider();
+            ZipcodeErrorProvider.SetIconAlignment(this.TxtZipcode, ErrorIconAlignment.MiddleRight);
+            ZipcodeErrorProvider.SetIconPadding(this.TxtZipcode, 2);
+            ZipcodeErrorProvider.BlinkRate = 1000;
+            ZipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
         }
 
         private void TxtEmail_Validated(object sender, EventArgs e)
@@ -70,7 +82,28 @@ namespace semesterarbeit
                 emailErrorProvider.SetError(this.TxtEmail, "Ungültiges Email Format!");
             }
         }
-    
+
+
+
+        private void TxtZipcode_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^[0-9]{4}(?:-[0-9]{4})?$");
+            var zip = this.TxtZipcode.Text;
+            Match match = regex.Match(zip);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                ZipcodeErrorProvider.SetError(this.TxtZipcode, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                ZipcodeErrorProvider.SetError(this.TxtZipcode, "Ungültige PLZ!");
+            }
+        }
+
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
