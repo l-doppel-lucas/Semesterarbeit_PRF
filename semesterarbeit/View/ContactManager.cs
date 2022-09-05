@@ -79,7 +79,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                emailErrorProvider.SetError(this.TxtEmail, "Ungültiges Email Format!");
+                emailErrorProvider.SetError(this.TxtEmail, "Invalid Email Format!");
             }
         }
 
