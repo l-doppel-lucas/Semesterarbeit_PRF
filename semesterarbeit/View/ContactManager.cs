@@ -1,4 +1,5 @@
 ﻿using semesterarbeit.Controller;
+using semesterarbeit.View;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -8,9 +9,13 @@ using System.Windows.Forms;
 namespace semesterarbeit
 {
     public partial class Dashboard : Form
-    {
+    { 
+
         //Create variable for id/EmpID
         private int id;
+
+        //Creat user variables
+        private string user;
 
         //Create Contact List for Listbox
         public Database Db = new Database();
@@ -20,6 +25,9 @@ namespace semesterarbeit
         public Dashboard()
         {
             InitializeComponent();
+
+            //Set user variable
+            user = us1;
 
             //Setting the Values in Combobox to the Enum Values
             //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
@@ -265,7 +273,7 @@ namespace semesterarbeit
                         TxtCompanyName.Text = selectedCustomer.Companyname;
                         TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
                         TxtContacPerson.Text = selectedCustomer.Companycontact;
-                        TxtNotesHistory.Text = selectedCustomer.NotesHistory;
+                        TxtNotesHistory.Text = selectedCustomer.NotesHistory + " - " + user;
                         break;
                 }
 
@@ -296,6 +304,80 @@ namespace semesterarbeit
             var output = $"{id}: {sal} {firstname} {lastname} - {type}";
 
             e.Value = output;
+        }
+
+        private void CmdSearch_Click(object sender, EventArgs e)
+        {
+            // Reset search results
+            Db.search.Clear();
+
+            //Check if search or cancel search
+            if(CmdSearch.Text == "Search")
+            {
+                if (TxtSearch.Text.Length > 0)
+                {
+                    foreach (Person p in Db.contactList)
+                    {
+                        //Serarch in Firstname, Lastname, City, Zip Code, Businessphone and Mobilephone
+                        //More attributs can be added to the if statement
+                        if
+                            (
+                                //lower text that the search is not case sensetive (not needed in number fields)
+                                p.Firstname.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.Lastname.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.City.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                                p.Zipcode.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                        else if
+                            (
+                                p.Businessphone != null && p.Businessphone.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                        else if
+                            (
+                                p.Mobilephone != null && p.Mobilephone.Contains(TxtSearch.Text)
+                            )
+                        {
+                            Db.AddSearchResult(p);
+                        }
+                    }
+
+                    // Change listbox datasource to Search Results
+                    LsbOutput.DataSource = Db.search;
+
+                    //Disables add user and export
+                    CmdAddUser.Enabled = false;
+                    CmdExport.Enabled = false;
+
+                    //Change Button text to cancel
+                    CmdSearch.Text = "Cancel Search";
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a search string!");
+                }
+            }
+            else
+            {
+                //Change datasource to all contacts
+                LsbOutput.DataSource = Db.contactList;
+
+                //activate add user and export
+                CmdAddUser.Enabled = true;
+                CmdExport.Enabled = true;
+
+                //Reset Search Text
+                TxtSearch.Text = "";
+
+                //Change search button text
+                CmdSearch.Text = "Search";
+            }
+
         }
 
         /*---------------------------------------------------------------------
@@ -659,7 +741,7 @@ namespace semesterarbeit
                 cust.TakeNotes(TxtNotes.Text);
 
                 //Display Changes in Notes History
-                TxtNotesHistory.Text = cust.NotesHistory;
+                TxtNotesHistory.Text = cust.NotesHistory + " - " + user;
 
                 //Save Notes
                 Db.Serialisation();
@@ -990,6 +1072,9 @@ namespace semesterarbeit
             CmbGender.Enabled = true;
             CmbMgmtLevel.Enabled = true;
             CmbWorkPensum.Enabled = true;
+
+            //Employee Number is always grayed out
+            TxtEmplNr.Enabled = false;
         }
 
         //Enables all Customer Textboxes
