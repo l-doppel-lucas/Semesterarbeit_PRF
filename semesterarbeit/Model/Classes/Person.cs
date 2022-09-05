@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace semesterarbeit
 {
     [Serializable()]
     public class Person
     {
-        public bool Status { get; set; }
+        public bool Disabled { get; set; }
         public int Id { get; set; }
         public string Title { get; set; }
         public string Salutation { get; set; }
@@ -29,13 +30,13 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
         public override string ToString()
         {
-            return Status + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString() 
+            return Disabled + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString() 
                 + ", " + Gender + ", " + Businessphone + ", " + Businessfax + ", " + Mail;
         }
 
         public virtual string PrintAll()
         {
-            return Status + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString()
+            return Disabled + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString()
                 + ", " + Gender + ", " + Businessphone + ", " + Businessfax + ", " + Mail + ", " + ChangeHistory;
         }
 
@@ -45,7 +46,7 @@ namespace semesterarbeit
         }
 
 
-        public void SetOptionalAttributes(string title = "", string mph = "",  string bph = "", string bfa = "")
+        public void SetOptionalAttributes(string title, string mph,  string bph, string bfa)
         {
             Title = title;
             Mobilephone = mph;
@@ -54,9 +55,10 @@ namespace semesterarbeit
         }
 
         //Method to set all mandatory attributes
-        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
+        public void SetMandatoryAttributes(bool disabled, string sal, string fn, string ln, DateTime birthdate, string gender, string mail, 
             string street, string city, string zip, string changehistory)
         {
+            Disabled = disabled;
             Salutation = sal;
             Firstname = fn;
             Lastname = ln;

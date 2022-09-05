@@ -32,10 +32,10 @@ namespace semesterarbeit
         Methods
         -----------------------------------------------------------------------*/
 
-        public void SetMandatoryAttributes(string sal, string fn, string ln, DateTime birthdate, string gender, string mail,  
+        public void SetMandatoryAttributes(bool disabled, string sal, string fn, string ln, DateTime birthdate, string gender, string mail,  
             string street, string city, string zip, string changehistory, string departement, string role, string pens, DateTime entrdate)
         {
-            base.SetMandatoryAttributes(sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory);
+            base.SetMandatoryAttributes(disabled, sal, fn, ln, birthdate, gender, mail, street, city, zip, changehistory);
 
             Departement = departement;
             Workpensum = pens;
@@ -43,8 +43,8 @@ namespace semesterarbeit
             Role = role;
         }
 
-        public void SetOptionalAttributes(string title = "", string mph = "", string bph = "", string bfa = "", string ahv = "", string nat = "",
-            string pph = "", string birthpl = "", DateTime exdate = new DateTime(), MgmLvl lvl = 0)
+        public void SetOptionalAttributes(string title, string mph, string bph, string bfa, string ahv, string nat,
+            string pph, string birthpl, DateTime exdate, MgmLvl lvl)
         {
             base.SetOptionalAttributes(title, mph, bph, bfa);
 

@@ -1,6 +1,8 @@
 ﻿using semesterarbeit.Controller;
 using System;
-using System.Text.RegularExpressions;
+using System.Diagnostics.Eventing.Reader;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace semesterarbeit
@@ -44,33 +46,6 @@ namespace semesterarbeit
             DgrdBrowse.DataSource = Db.contactList;
             DgrdBrowse.ReadOnly = true;
 
-            // Create and set the ErrorProvider for each data entry control.
-
-            emailErrorProvider = new System.Windows.Forms.ErrorProvider();
-            emailErrorProvider.SetIconAlignment(this.TxtEmail, ErrorIconAlignment.MiddleRight);
-            emailErrorProvider.SetIconPadding(this.TxtEmail, 2);
-            emailErrorProvider.BlinkRate = 1000;
-            emailErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
-
-            this.TxtEmail.Validated += new System.EventHandler(this.TxtEmail_Validated);
-        }
-
-        private void TxtEmail_Validated(object sender, EventArgs e)
-        {
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            var mail = this.TxtEmail.Text;
-            Match match = regex.Match(mail);
-
-            if (match.Success)
-            {
-                // Clear the error, if any, in the error provider.
-                emailErrorProvider.SetError(this.TxtEmail, String.Empty);
-            }
-            else
-            {
-                // Set the error if the name is not valid.
-                emailErrorProvider.SetError(this.TxtEmail, "Ungültiges Email Format!");
-            }
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -83,147 +58,153 @@ namespace semesterarbeit
         -----------------------------------------------------------------------*/
         private void LsbOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Hide comboboxes and date pickers
-            HideAllCmbPers();
+            if (LsbOutput.SelectedIndex >= 0)
+            { //Hide comboboxes and date pickers
+                HideAllCmbPers();
 
-            //disable all fields
-            DisableALl();
+                //disable all fields
+                DisableALl();
 
-            //Cast the selected object into  Type "Person"
-            Person selectedPerson = (Person)LsbOutput.SelectedItem;
+                //Cast the selected object into  Type "Person"
+                Person selectedPerson = (Person)LsbOutput.SelectedItem;
 
-            //Write person fields into text boxes
-            TxtSalutation.Text = selectedPerson.Salutation;
-            TxtFirstname.Text = selectedPerson.Firstname;
-            TxtLastname.Text = selectedPerson.Lastname;
-            TxtBirthdate.Text = selectedPerson.Birthdate.ToShortDateString();
-            TxtGender.Text = selectedPerson.Gender;
-            TxtTitle.Text = selectedPerson.Title;
-            TxtBusinessPhone.Text = selectedPerson.Businessphone;
-            TxtBusinessFax.Text = selectedPerson.Businessfax;
-            TxtMobileNumber.Text = selectedPerson.Mobilephone;
-            TxtEmail.Text = selectedPerson.Mail;
-            TxtCity.Text = selectedPerson.City;
-            TxtStreet.Text = selectedPerson.Street;
-            TxtZipcode.Text = Convert.ToString(selectedPerson.Zipcode);
-            TxtCreationDate.Text = Convert.ToString(selectedPerson.CreationDate);
-            TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
+                //Write person fields into text boxes
+                TxtSalutation.Text = selectedPerson.Salutation;
+                TxtFirstname.Text = selectedPerson.Firstname;
+                TxtLastname.Text = selectedPerson.Lastname;
+                TxtBirthdate.Text = selectedPerson.Birthdate.ToShortDateString();
+                TxtGender.Text = selectedPerson.Gender;
+                TxtTitle.Text = selectedPerson.Title;
+                TxtBusinessPhone.Text = selectedPerson.Businessphone;
+                TxtBusinessFax.Text = selectedPerson.Businessfax;
+                TxtMobileNumber.Text = selectedPerson.Mobilephone;
+                TxtEmail.Text = selectedPerson.Mail;
+                TxtCity.Text = selectedPerson.City;
+                TxtStreet.Text = selectedPerson.Street;
+                TxtZipcode.Text = Convert.ToString(selectedPerson.Zipcode);
+                TxtCreationDate.Text = Convert.ToString(selectedPerson.CreationDate);
+                TxtLastModified.Text = Convert.ToString(selectedPerson.ChangeHistory);
+
+                //Checkbox
+                ChkStatus.Checked = selectedPerson.Disabled;
 
 
-            // If the object is type of one of the subclasses (Employee, Trainee or Customer) 
-            switch (selectedPerson.GetClassName())
-            {
-                case "Employee":
-                    //make all relevant textboxes and lables visible
-                    ShowAllEmp();
+                // If the object is type of one of the subclasses (Employee, Trainee or Customer) 
+                switch (selectedPerson.GetClassName())
+                {
+                    case "Employee":
+                        //make all relevant textboxes and lables visible
+                        ShowAllEmp();
 
-                    //Hide irrelvant textboxes and lables
-                    HideAllCust();
-                    HideAllTrnee();
+                        //Hide irrelvant textboxes and lables
+                        HideAllCust();
+                        HideAllTrnee();
 
-                    //Hide comboboxes and date pickers
-                    HideAllCmbEmp();
+                        //Hide comboboxes and date pickers
+                        HideAllCmbEmp();
 
-                    //Cast the selected object of the list into type "Employee" and write into the variable "selectedEmployee"
-                    Employee selectedEmployee = (Employee)selectedPerson;
+                        //Cast the selected object of the list into type "Employee" and write into the variable "selectedEmployee"
+                        Employee selectedEmployee = (Employee)selectedPerson;
 
-                    //Select radio button
-                    RadEmployee.Checked = true;
+                        //Select radio button
+                        RadEmployee.Checked = true;
 
-                    //Write the properties of the object of type "Employee" into the specific textboxes
-                    TxtDepartment.Text = selectedEmployee.Departement;
-                    TxtAHVNumber.Text = selectedEmployee.Ahv;
-                    TxtStartDate.Text = selectedEmployee.Entrydate.ToShortDateString();
-                    TxtLeaveDate.Text = selectedEmployee.Exitdate.ToShortDateString();
-                    TxtEmplNr.Text = Convert.ToString(selectedEmployee.EmplNr);
-                    TxtBirthplace.Text = selectedEmployee.Birthplace;
-                    TxtNationality.Text = selectedEmployee.Nationality;
-                    TxtRole.Text = selectedEmployee.Role;
-                    TxtMgmtLevel.Text = selectedEmployee.Lvl.ToString();
-                    TxtWorkPensum.Text = selectedEmployee.Workpensum;
-                    TxtPrivatePhone.Text = selectedEmployee.Privatephone;
-                    break;
-                case "Trainee":
-                    //make all relevant textboxes and lables visible
-                    ShowAllEmp();
-                    ShowAllTrnee();
+                        //Write the properties of the object of type "Employee" into the specific textboxes
+                        TxtDepartment.Text = selectedEmployee.Departement;
+                        TxtAHVNumber.Text = selectedEmployee.Ahv;
+                        TxtStartDate.Text = selectedEmployee.Entrydate.ToShortDateString();
+                        TxtLeaveDate.Text = selectedEmployee.Exitdate.ToShortDateString();
+                        TxtEmplNr.Text = Convert.ToString(selectedEmployee.EmplNr);
+                        TxtBirthplace.Text = selectedEmployee.Birthplace;
+                        TxtNationality.Text = selectedEmployee.Nationality;
+                        TxtRole.Text = selectedEmployee.Role;
+                        TxtMgmtLevel.Text = selectedEmployee.Lvl.ToString();
+                        TxtWorkPensum.Text = selectedEmployee.Workpensum;
+                        TxtPrivatePhone.Text = selectedEmployee.Privatephone;
+                        break;
+                    case "Trainee":
+                        //make all relevant textboxes and lables visible
+                        ShowAllEmp();
+                        ShowAllTrnee();
 
-                    //Hide irrelvant textboxes and lables
-                    HideAllCust();
+                        //Hide irrelvant textboxes and lables
+                        HideAllCust();
 
-                    //Hide comboboxes and date pickers
-                    HideAllCmbTrnee();
+                        //Hide comboboxes and date pickers
+                        HideAllCmbTrnee();
 
-                    //Cast the selected object of the list into type "Trainee" and write into the variable "selectedTrainee"
-                    Trainee selectedTrainee = (Trainee)selectedPerson;
+                        //Cast the selected object of the list into type "Trainee" and write into the variable "selectedTrainee"
+                        Trainee selectedTrainee = (Trainee)selectedPerson;
 
-                    //Select radio button
-                    RadTrainee.Checked = true;
+                        //Select radio button
+                        RadTrainee.Checked = true;
 
-                    //Write the properties of the object of type "Trainee" into the specific textboxes
-                    TxtDepartment.Text = selectedTrainee.Departement;
-                    TxtAHVNumber.Text = selectedTrainee.Ahv;
-                    TxtStartDate.Text = selectedTrainee.Entrydate.ToShortDateString(); 
-                    TxtLeaveDate.Text = selectedTrainee.Exitdate.ToShortDateString() ;
-                    TxtEmplNr.Text = Convert.ToString(selectedTrainee.EmplNr);
-                    TxtBirthplace.Text = selectedTrainee.Birthplace;
-                    TxtNationality.Text = selectedTrainee.Nationality;
-                    TxtRole.Text = selectedTrainee.Role;
-                    TxtMgmtLevel.Text = Convert.ToString(selectedTrainee.Lvl);
-                    TxtWorkPensum.Text = selectedTrainee.Workpensum;
-                    TxtPrivatePhone.Text = selectedTrainee.Privatephone;
-                    TxtApprentYears.Text = selectedTrainee.Appyears;
-                    TxtCurrentApprentYear.Text = selectedTrainee.Currappyear;
-                    break;
+                        //Write the properties of the object of type "Trainee" into the specific textboxes
+                        TxtDepartment.Text = selectedTrainee.Departement;
+                        TxtAHVNumber.Text = selectedTrainee.Ahv;
+                        TxtStartDate.Text = selectedTrainee.Entrydate.ToShortDateString();
+                        TxtLeaveDate.Text = selectedTrainee.Exitdate.ToShortDateString();
+                        TxtEmplNr.Text = Convert.ToString(selectedTrainee.EmplNr);
+                        TxtBirthplace.Text = selectedTrainee.Birthplace;
+                        TxtNationality.Text = selectedTrainee.Nationality;
+                        TxtRole.Text = selectedTrainee.Role;
+                        TxtMgmtLevel.Text = Convert.ToString(selectedTrainee.Lvl);
+                        TxtWorkPensum.Text = selectedTrainee.Workpensum;
+                        TxtPrivatePhone.Text = selectedTrainee.Privatephone;
+                        TxtApprentYears.Text = selectedTrainee.Appyears;
+                        TxtCurrentApprentYear.Text = selectedTrainee.Currappyear;
+                        break;
 
-                case "Customer":
-                    //make all relevant textboxes and lables visible
-                    ShowAllCust();
+                    case "Customer":
+                        //make all relevant textboxes and lables visible
+                        ShowAllCust();
 
-                    //Hide irrelvant textboxes and lables
-                    HideAllEmp();
-                    HideAllTrnee();
+                        //Hide irrelvant textboxes and lables
+                        HideAllEmp();
+                        HideAllTrnee();
 
-                    //Hide comboboxes and date pickers
-                    HideAllCmbCust();
+                        //Hide comboboxes and date pickers
+                        HideAllCmbCust();
 
-                    //Cast the selected object of the list into type "Customer" and write into the variable "selectedCustomer"
-                    Customer selectedCustomer = (Customer)selectedPerson;
+                        //Cast the selected object of the list into type "Customer" and write into the variable "selectedCustomer"
+                        Customer selectedCustomer = (Customer)selectedPerson;
 
-                    //Select radio button
-                    RadCustomer.Checked = true;
+                        //Select radio button
+                        RadCustomer.Checked = true;
 
-                    //Write the properties of the object of type "Customer" into the specific textboxes
-                    TxtCompanyName.Text = selectedCustomer.Companyname;
-                    TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
-                    TxtContacPerson.Text = selectedCustomer.Companycontact;
-                    TxtNotesHistory.Text = selectedCustomer.NotesHistory;
-                    break;
-            }
+                        //Write the properties of the object of type "Customer" into the specific textboxes
+                        TxtCompanyName.Text = selectedCustomer.Companyname;
+                        TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
+                        TxtContacPerson.Text = selectedCustomer.Companycontact;
+                        TxtNotesHistory.Text = selectedCustomer.NotesHistory;
+                        break;
+                }
 
-            /*
-            //Check if the user is active or not
-            if (selectedPerson.Status == false)
-            {
-                //Call function for user status inactive
-                DeactivateUser();
-            }
-            else if (selectedPerson.Status == true)
-            {
-                //Call function for user status active
-                ActivateUser();
-            }
-            */
+
+                //Check if the user is active or not
+                if (selectedPerson.Disabled == true)
+                {
+                    //Call function for user status inactive
+                    DisableAllPers();
+
+                }
+                else if (selectedPerson.Disabled == false)
+                {
+                    //Call function for user status active
+                    //EnableAllPers();
+                }
+            }           
         }
 
         private void LsbOutput_Format(object sender, ListControlConvertEventArgs e)
         {
             string id = ((Person)e.ListItem).Id.ToString();
+            string sal = ((Person)e.ListItem).Salutation.ToString();
             string firstname = ((Person)e.ListItem).Firstname.ToString();
             string lastname = ((Person)e.ListItem).Lastname.ToString();
             string type = ((Person)e.ListItem).GetClassName();
 
-            string output = id + " - " + firstname + " " + lastname + " - " + type;
+            var output = $"{id}: {sal} {firstname} {lastname} - {type}";
 
             e.Value = output;
         }
@@ -285,6 +266,7 @@ namespace semesterarbeit
 
                     Employee empl1 = new Employee
                     {
+                        Disabled = ChkStatus.Checked, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -293,7 +275,6 @@ namespace semesterarbeit
                         CreationDate = DateTime.Now, //Creation date
                         Gender = Convert.ToString(CmbGender.SelectedItem),
                         Mail = TxtEmail.Text,
-                        Status = true, //User enabled
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
@@ -312,6 +293,8 @@ namespace semesterarbeit
                     //Call method to save the new object on the harddisk
                     Db.Serialisation();
 
+                    SetDashboardNumbers();
+
                     //Set optional fields
                     SetAttributesEmpl_optional(empl1);
 
@@ -324,6 +307,7 @@ namespace semesterarbeit
 
                     Trainee train1 = new Trainee
                     {
+                        Disabled = ChkStatus.Checked, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -332,7 +316,6 @@ namespace semesterarbeit
                         CreationDate = DateTime.Now, //Creation date
                         Gender = Convert.ToString(CmbGender.SelectedItem),
                         Mail = TxtEmail.Text,
-                        Status = true, //User enabled
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
@@ -353,6 +336,8 @@ namespace semesterarbeit
                     //Call method to save the new object on the harddisk
                     Db.Serialisation();
 
+                    SetDashboardNumbers();
+
                     //Set optional fields
                     SetAttributesTrainee_optional(train1);
 
@@ -365,6 +350,7 @@ namespace semesterarbeit
 
                     Customer cust1 = new Customer
                     {
+                        Disabled = ChkStatus.Checked, // User enabled
                         Id = id,
                         Salutation = Convert.ToString(CmbSalutation.SelectedItem),
                         Firstname = TxtFirstname.Text,
@@ -373,7 +359,6 @@ namespace semesterarbeit
                         CreationDate = DateTime.Now, //Creation date
                         Gender = Convert.ToString(CmbGender.SelectedItem),
                         Mail = TxtEmail.Text,
-                        Status = true, //User enabled
                         Street = TxtStreet.Text,
                         City = TxtCity.Text,
                         Zipcode = TxtZipcode.Text,
@@ -388,6 +373,8 @@ namespace semesterarbeit
 
                     //Call method to save the new object on the harddisk
                     Db.Serialisation();
+
+                    SetDashboardNumbers();
 
                     //Set optional fields
                     SetAttributesCust_optional(cust1);
@@ -407,6 +394,7 @@ namespace semesterarbeit
                     SetAttributesCust_optional(LsbOutput.SelectedItem as Customer);
 
                     Db.Serialisation();
+                    SetDashboardNumbers();
                     CmdEditUser.Tag = "";
                 }
                 else if (RadEmployee.Checked)
@@ -423,6 +411,7 @@ namespace semesterarbeit
                     SetAttributesTrainee_optional(LsbOutput.SelectedItem as Trainee);
 
                     Db.Serialisation();
+                    SetDashboardNumbers();
                     CmdEditUser.Tag = "";
                 }
 
@@ -501,6 +490,7 @@ namespace semesterarbeit
 
             //Call method to update the Object on the HDD
             Db.Serialisation();
+            SetDashboardNumbers();
 
         }
 
@@ -511,6 +501,10 @@ namespace semesterarbeit
 
             //Call function to delete the user
             Db.DeletePerson(selectedPerson);
+
+            Db.Serialisation();
+            SetDashboardNumbers();
+
         }
 
         private void CmdCancel_Click(object sender, EventArgs e)
@@ -523,16 +517,18 @@ namespace semesterarbeit
             if (TabControl.SelectedIndex == 0)
             {
                 HideButtons();
+                LsbOutput.Visible = false;
             }
             else if (TabControl.SelectedIndex == 1)
             {
                 ShowButtons();
+                LsbOutput.Visible = true;
 
-                ShowStartScreen();
             }
             else if (TabControl.SelectedIndex == 2)
             {
-                ShowButtons();
+                HideButtons();
+                LsbOutput.Visible = true;
             }
         }
 
@@ -545,7 +541,6 @@ namespace semesterarbeit
             CmdSearch.Visible = true;
             TxtSearch.Visible = true;
             LblSearch.Visible = true;
-            LsbOutput.Visible = true;
         }
 
         private void HideButtons()
@@ -557,7 +552,38 @@ namespace semesterarbeit
             CmdSearch.Visible = false;
             TxtSearch.Visible = false;
             LblSearch.Visible = false;
-            LsbOutput.Visible = false;
+        }
+
+        private void CmdTakeNotes_Click(object sender, EventArgs e)
+        {
+            if(CmdTakeNotes.Text == "Take notes")
+            {
+                //Enable Text Box
+                TxtNotes.Enabled = true;
+                TxtNotes.ReadOnly = false;
+                CmdTakeNotes.Text = "Save";
+            }
+            else if (CmdTakeNotes.Text == "Save")
+            {
+                //Cast into customer to run Take Notes function
+                Customer cust = LsbOutput.SelectedItem as Customer;
+                cust.TakeNotes(TxtNotes.Text);
+
+                //Display Changes in Notes History
+                TxtNotesHistory.Text = cust.NotesHistory;
+
+                //Save Notes
+                Db.Serialisation();
+
+                //Disable Textbox
+                TxtNotes.Enabled = false;
+                TxtNotes.ReadOnly = true;
+                CmdTakeNotes.Text = "Take notes";
+
+                //Reset Textbox
+                TxtNotes.ResetText();
+            }
+            
         }
 
         /*---------------------------------------------------------------------
@@ -572,6 +598,7 @@ namespace semesterarbeit
 
             //Call method to set mandatory attributes
             emp.SetMandatoryAttributes(
+                disabled: ChkStatus.Checked,
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,
@@ -586,7 +613,7 @@ namespace semesterarbeit
                 role: TxtRole.Text,
                 pens: Convert.ToString(CmbWorkPensum.SelectedItem),
                 entrdate: DtpStartDate.Value
-                );
+                ) ;
         }
 
         //Set all optional attributes for employees
@@ -618,6 +645,7 @@ namespace semesterarbeit
 
             //Call method to set mandatory attributes
             cust.SetMandatoryAttributes(
+                disabled: ChkStatus.Checked,
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,
@@ -657,6 +685,7 @@ namespace semesterarbeit
 
             //Call method to set mandatory attributes
             appr.SetMandatoryAttributes(
+                disabled: ChkStatus.Checked,
                 sal: Convert.ToString(CmbSalutation.SelectedItem),
                 fn: TxtFirstname.Text,
                 ln: TxtLastname.Text,
@@ -689,6 +718,7 @@ namespace semesterarbeit
                     bfa: TxtBusinessFax.Text,
                     ahv: TxtAHVNumber.Text,
                     pph: TxtPrivatePhone.Text,
+                    nat: TxtNationality.Text,
                     birthpl: TxtBirthplace.Text,
                     exdate: DtpLeaveDate.Value,
                     lvl: (MgmLvl)CmbMgmtLevel.SelectedItem,
@@ -711,7 +741,7 @@ namespace semesterarbeit
          * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
         {
-            if(CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 ShowAllCmbEmp();
                 EnableAllEmp();
@@ -787,7 +817,6 @@ namespace semesterarbeit
             CmdCancel.Visible = false;
 
             //Activate buttons, combo boxes, and list boxes
-            ChkStatus.Enabled = true;
             CmdTakeNotes.Enabled = true;
             LsbOutput.Enabled = true;
             CmdAddUser.Enabled = true;
@@ -795,6 +824,10 @@ namespace semesterarbeit
             CmdEditUser.Enabled = true;
             CmdExport.Enabled = true;
             CmdSearch.Enabled = true;
+
+            //Deaktivate checkbox
+            ChkStatus.Enabled = false;
+            ChkStatus.Checked = false;
 
             //Uncheck radio buttons
             UncheckAllRad();
@@ -818,9 +851,12 @@ namespace semesterarbeit
 
             //Disable all boxes
             DisableALl();
+
+            //unselect listbox
+            LsbOutput.ClearSelected();
         }
 
-        //Enables all Person Textboxes
+        //Enables all Person Textboxes, Comboboxes and Radio Buttons
         private void EnableAllPers()
         {
             TxtSalutation.ReadOnly = false;
@@ -838,6 +874,9 @@ namespace semesterarbeit
             TxtZipcode.ReadOnly = false;
 
             CmbSalutation.Enabled = true;
+            CmbGender.Enabled = true;
+
+            ChkStatus.Enabled = true;
 
             RadCustomer.Enabled = true;
             RadEmployee.Enabled = true;
@@ -932,7 +971,7 @@ namespace semesterarbeit
             TxtStreet.ReadOnly = true;
             TxtZipcode.ReadOnly = true;
 
-
+            ChkStatus.Enabled = false;
         }
 
         //Disable all Employee Textboxes
@@ -1062,10 +1101,11 @@ namespace semesterarbeit
             LblCompanyName.Visible = true;
             LblCustomerType.Visible = true;
             LblContactPerson.Visible = true;
-            CmdTakeNotes.Visible = true;
             TxtNotes.Visible = true;
             TxtNotesHistory.Visible = true;
             LblNotesHistory.Visible = true;
+            CmdTakeNotes.Visible = true;
+            CmdTakeNotes.Enabled = true;
         }
 
         //Make all Apprentice textboxes and labels visible
@@ -1247,51 +1287,7 @@ namespace semesterarbeit
             CmbCurrentApprentYear.Visible = false;
         }
 
-        // Methoden zur Validierung
-
-
-        //private void TxtFirstname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-
-        //    if (string.IsNullOrEmpty(TxtFirstname.Text))
-        //    {
-        //        e.Cancel = true;
-        //        TxtFirstname.Focus();
-        //        errorProvider1.SetError(TxtFirstname, "Please Enter Firstname");
-        //    }
-
-        //    else
-        //    {
-        //        e.Cancel = false; 
-        //        TxtFirstname.Focus();
-        //        errorProvider1.SetError(TxtFirstname, "fffff");
-        //    }
-
-        //}
-
-
-
-
 
     }
-
-        /*
-        private void TxtFirstname_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            
-                if (string.IsNullOrWhiteSpace(TxtFirstname.Text))
-                {
-                    e.Cancel = true;
-                    TxtFirstname.Focus();
-                    errorProvider1.SetError(TxtFirstname, "Name should not be left blank!");
-                }
-                else
-                {
-                    e.Cancel = false;
-                    errorProvider1.SetError(TxtFirstname, "");
-                }
-        }*/
-
-
-    }
+}
 
