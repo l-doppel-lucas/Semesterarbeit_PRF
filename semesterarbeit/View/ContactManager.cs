@@ -1,5 +1,4 @@
 ﻿using semesterarbeit.Controller;
-using semesterarbeit.View;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -22,7 +21,8 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
-        public Dashboard()
+        private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
+        public Dashboard(string us1)
         {
             InitializeComponent();
 
@@ -63,6 +63,17 @@ namespace semesterarbeit
 
             this.TxtFirstname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
 
+
+            // Create and set the LastnameProvider for each data entry control.
+
+            lastnameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            lastnameErrorProvider.SetIconAlignment(this.TxtLastname, ErrorIconAlignment.MiddleRight);
+            lastnameErrorProvider.SetIconPadding(this.TxtLastname, 2);
+            lastnameErrorProvider.BlinkRate = 1000;
+            lastnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtLastname.Validated += new System.EventHandler(this.TxtFirstname_Validated);
+
             // Create and set the ErrorProvider for each data entry control.
 
             emailErrorProvider = new System.Windows.Forms.ErrorProvider();
@@ -83,7 +94,6 @@ namespace semesterarbeit
             zipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
-
         }
 
 
@@ -101,7 +111,26 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                firstnameErrorProvider.SetError(this.TxtFirstname, "Ungültiges Format!");
+                firstnameErrorProvider.SetError(this.TxtFirstname, "Invalid Format!");
+            }
+        }
+
+
+        private void TxtLastname_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var lastname = this.TxtLastname.Text;
+            Match match = regex.Match(lastname);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                lastnameErrorProvider.SetError(this.TxtLastname, String.Empty);
+            }
+            else
+            {
+                // Set the error if the name is not valid.
+                lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Format!");
             }
         }
 
@@ -140,7 +169,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the name is not valid.
-                zipcodeErrorProvider.SetError(this.TxtZipcode, "Ungültige PLZ!");
+                zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!!");
             }
         }
 
