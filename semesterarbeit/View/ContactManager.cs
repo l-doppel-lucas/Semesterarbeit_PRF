@@ -276,9 +276,9 @@ namespace semesterarbeit
             }
         }
 
-
-        private bool Validate_mandetory()
+        private bool Validation()
         {
+            //validate each field with the error message
             bool validated = true;
 
             string error = firstnameErrorProvider.GetError(this.TxtFirstname);
@@ -289,6 +289,13 @@ namespace semesterarbeit
             }
 
             error = lastnameErrorProvider.GetError(this.TxtLastname);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = cityErrorProvider.GetError(this.TxtCity);
 
             if (error != String.Empty)
             {
@@ -327,29 +334,12 @@ namespace semesterarbeit
             }
             if (RadTrainee.Checked)
             {
+                error = roleErrorProvider.GetError(this.TxtRole);
 
-            }
-            if (RadCustomer.Checked)
-            {
-
-            }
-
-
-            return validated;
-        }
-
-        private bool Validate_optional()
-        {
-            bool validated = true;
-
-            string error = firstnameErrorProvider.GetError(this.TxtFirstname);
-
-            if (RadEmployee.Checked)
-            {
-                
-            }
-            if (RadTrainee.Checked)
-            {
+                if (error != String.Empty)
+                {
+                    validated = false;
+                }
 
             }
             if (RadCustomer.Checked)
@@ -647,7 +637,8 @@ namespace semesterarbeit
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            bool validated = Validate_mandetory();
+            bool validated = Validation();
+
             if (validated)
             {
                 if (CmdAddUser.Tag.ToString() == "Clicked")
@@ -775,6 +766,30 @@ namespace semesterarbeit
                         SetAttributesCust_optional(cust1);
 
                         CmdAddUser.Tag = "";
+
+                        //Change buttons
+                        CmdAddUser.Visible = true;
+                        CmdEditUser.Visible = true;
+                        CmdSave.Visible = false;
+                        CmdCancel.Visible = false;
+
+                        //Activate buttons, combo boxes, and list boxes
+                        ChkStatus.Enabled = true;
+                        CmdTakeNotes.Enabled = true;
+                        LsbOutput.Enabled = true;
+                        CmdAddUser.Enabled = true;
+                        CmdDeleteUser.Enabled = true;
+                        CmdEditUser.Enabled = true;
+                        CmdSearch.Enabled = true;
+
+                        //disable all fields
+                        DisableAll();
+
+                        //Update Dashboard Numbers
+                        SetDashboardNumbers();
+
+                        //Set Selected Index to 0 
+                        ShowStartScreen();
                     }
                     else
                     {
@@ -810,31 +825,30 @@ namespace semesterarbeit
                         CmdEditUser.Tag = "";
                     }
 
+                    //Change buttons
+                    CmdAddUser.Visible = true;
+                    CmdEditUser.Visible = true;
+                    CmdSave.Visible = false;
+                    CmdCancel.Visible = false;
+
+                    //Activate buttons, combo boxes, and list boxes
+                    ChkStatus.Enabled = true;
+                    CmdTakeNotes.Enabled = true;
+                    LsbOutput.Enabled = true;
+                    CmdAddUser.Enabled = true;
+                    CmdDeleteUser.Enabled = true;
+                    CmdEditUser.Enabled = true;
+                    CmdSearch.Enabled = true;
+
+                    //disable all fields
+                    DisableAll();
+
+                    //Update Dashboard Numbers
+                    SetDashboardNumbers();
+
+                    //Set Selected Index to 0 
+                    ShowStartScreen();
                 }
-
-                //Change buttons
-                CmdAddUser.Visible = true;
-                CmdEditUser.Visible = true;
-                CmdSave.Visible = false;
-                CmdCancel.Visible = false;
-
-                //Activate buttons, combo boxes, and list boxes
-                ChkStatus.Enabled = true;
-                CmdTakeNotes.Enabled = true;
-                LsbOutput.Enabled = true;
-                CmdAddUser.Enabled = true;
-                CmdDeleteUser.Enabled = true;
-                CmdEditUser.Enabled = true;
-                CmdSearch.Enabled = true;
-
-                //disable all fields
-                DisableAll();
-
-                //Update Dashboard Numbers
-                SetDashboardNumbers();
-
-                //Set Selected Index to 0 
-                ShowStartScreen();
             }
             else
             {
@@ -978,7 +992,7 @@ namespace semesterarbeit
             {
                 //Cast into customer to run Take Notes function
                 Customer cust = LsbOutput.SelectedItem as Customer;
-                cust.TakeNotes(TxtNotes.Text + " - " + user);
+                cust.TakeNotes(user + " - " + TxtNotes.Text);
 
                 //Display Changes in Notes History
                 TxtNotesHistory.Text = cust.NotesHistory;
@@ -1145,20 +1159,7 @@ namespace semesterarbeit
             LblAppCount.Text = Convert.ToString(Db.GetNumberofTrnee());
         }
 
-
-        private void CheckMandatoryFields()
-        {
-            
-        }
-
-        private void CheckOptionalFields()
-        {
-
-        }
-
-
-
-        /*---------------------------------------------------------------------
+         /*---------------------------------------------------------------------
          * Radio Butoons
          * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
