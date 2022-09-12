@@ -24,6 +24,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
+        private System.Windows.Forms.ErrorProvider salutationErrorProvider;
 
         public Dashboard(string us1)
         {
@@ -117,6 +118,17 @@ namespace semesterarbeit
             roleErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtRole.Validated += new System.EventHandler(this.TxtRole_Validated);
+
+
+            // ErrorProvider salutation
+
+            salutationErrorProvider = new System.Windows.Forms.ErrorProvider();
+            salutationErrorProvider.SetIconAlignment(this.CmbSalutation, ErrorIconAlignment.MiddleRight);
+            salutationErrorProvider.SetIconPadding(this.CmbSalutation, 2);
+            salutationErrorProvider.BlinkRate = 0;
+            salutationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbSalutation.Validated += new System.EventHandler(this.CmbSalutation_Validated);
         }
 
 
@@ -215,6 +227,24 @@ namespace semesterarbeit
                 lastnameErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
             }
         }
+
+
+        private void CmbSalutation_Validated(object sender, EventArgs e)
+        {
+       
+
+            if (CmbSalutation.SelectedItem == null)
+            {
+                salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");         
+            }
+            else
+            {
+                salutationErrorProvider.Clear(); 
+            }
+        }
+
+
+
 
 
 
