@@ -379,6 +379,27 @@ namespace semesterarbeit
             //Check if mandetory fields have some input
             bool check = true;
 
+            //Person Fields
+            if(CmbSalutation.SelectedText.Length < 1)
+            {
+                check = false;
+            }
+            if(TxtFirstname.Text.Length < 1)
+            {
+                check = false;
+            }
+            if(TxtLastname.Text.Length < 1)
+            {
+                check = false;
+            }
+            if(CmbGender.SelectedText.Length < 1)
+            {
+                check = false;
+            }
+            if(TxtEmail.Text.Length < 1)
+            {
+                check = false;
+            }
 
 
             if (RadEmployee.Checked)
