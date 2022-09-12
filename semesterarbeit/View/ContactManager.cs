@@ -239,12 +239,12 @@ namespace semesterarbeit
             if (match.Success)
             {
                 // Clear the error, if any, in the error provider.
-                lastnameErrorProvider.SetError(this.TxtRole, String.Empty);
+                roleErrorProvider.SetError(this.TxtRole, String.Empty);
             }
             else
             {
                 // Set the error if the role is not valid.
-                lastnameErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
+                roleErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
             }
         }
 
