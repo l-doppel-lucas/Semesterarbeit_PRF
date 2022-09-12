@@ -126,7 +126,6 @@ namespace semesterarbeit
             this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
 
 
-
             // ErrorProvider role
 
             roleErrorProvider = new System.Windows.Forms.ErrorProvider();
@@ -276,6 +275,7 @@ namespace semesterarbeit
                 roleErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
             }
         }
+
 
         private bool Validate_mandetory()
         {
