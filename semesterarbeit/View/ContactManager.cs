@@ -26,6 +26,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
+        private System.Windows.Forms.ErrorProvider salutationErrorProvider;
 
         public Dashboard(string us1)
         {
@@ -126,7 +127,6 @@ namespace semesterarbeit
             this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
 
 
-
             // ErrorProvider role
 
             roleErrorProvider = new System.Windows.Forms.ErrorProvider();
@@ -136,6 +136,17 @@ namespace semesterarbeit
             roleErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtRole.Validated += new System.EventHandler(this.TxtRole_Validated);
+
+
+            // ErrorProvider salutation
+
+            salutationErrorProvider = new System.Windows.Forms.ErrorProvider();
+            salutationErrorProvider.SetIconAlignment(this.CmbSalutation, ErrorIconAlignment.MiddleRight);
+            salutationErrorProvider.SetIconPadding(this.CmbSalutation, 2);
+            salutationErrorProvider.BlinkRate = 0;
+            salutationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbSalutation.Validated += new System.EventHandler(this.CmbSalutation_Validated);
         }
 
 
@@ -277,14 +288,14 @@ namespace semesterarbeit
             }
         }
 
-        private bool Validate()
+        private bool Validation()
         {
             //validate each field with the error message
             bool validated = true;
 
             string error = firstnameErrorProvider.GetError(this.TxtFirstname);
 
-            if(error != String.Empty)
+            if (error != String.Empty)
             {
                 validated = false;
             }
@@ -347,9 +358,20 @@ namespace semesterarbeit
             {
 
             }
-
-
             return validated;
+        }
+        private void CmbSalutation_Validated(object sender, EventArgs e)
+        {
+
+
+            if (CmbSalutation.SelectedItem == null)
+            {
+                salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");
+            }
+            else
+            {
+                salutationErrorProvider.Clear();
+            }
         }
 
         private bool CheckMandetoryFields ()
@@ -662,7 +684,7 @@ namespace semesterarbeit
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            bool validated = Validate();
+            bool validated = Validation();
 
             if (validated)
             {
@@ -963,7 +985,7 @@ namespace semesterarbeit
                 {
                     ShowButtons();
                 }
-           
+
                 ShowListBox();
 
             }
@@ -1184,9 +1206,9 @@ namespace semesterarbeit
             LblAppCount.Text = Convert.ToString(Db.GetNumberofTrnee());
         }
 
-         /*---------------------------------------------------------------------
-         * Radio Butoons
-         * --------------------------------------------------------------------*/
+        /*---------------------------------------------------------------------
+        * Radio Butoons
+        * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
         {
             if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
@@ -1240,17 +1262,6 @@ namespace semesterarbeit
             HideAllCmbTrnee();
             HideAllCmbEmp();
         }
-
-        private void TxtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         /*---------------------------------------------------------------------
         Text Boxes and Labels
@@ -1555,7 +1566,7 @@ namespace semesterarbeit
             TxtNotesHistory.Visible = true;
             LblNotesHistory.Visible = true;
             CmdTakeNotes.Visible = true;
-            if (CmdAddUser.Tag.ToString() == "Clicked") 
+            if (CmdAddUser.Tag.ToString() == "Clicked")
             {
                 CmdTakeNotes.Enabled = false;
             }
@@ -1563,7 +1574,7 @@ namespace semesterarbeit
             {
                 CmdTakeNotes.Enabled = true;
             }
-            
+
         }
 
         //Make all Apprentice textboxes and labels visible
@@ -1615,14 +1626,6 @@ namespace semesterarbeit
             RadTrainee.Visible = true;
             RadCustomer.Visible = true;
             RadEmployee.Visible = true;
-        }
-
-        //Hide all radio buttons 
-        private void HideAllRad()
-        {
-            RadTrainee.Visible = false;
-            RadCustomer.Visible = false;
-            RadEmployee.Visible = false;
         }
 
         //Uncheck all redio buttons
