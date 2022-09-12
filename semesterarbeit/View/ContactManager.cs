@@ -208,6 +208,9 @@ namespace semesterarbeit
             }
         }
 
+
+
+
         private void Dashboard_Load(object sender, EventArgs e)
         {
 
@@ -991,6 +994,17 @@ namespace semesterarbeit
             LblCustCount.Text = Convert.ToString(Db.GetNumberofCust());
             LblEmpCount.Text = Convert.ToString(Db.GetNumberofEmpl());
             LblAppCount.Text = Convert.ToString(Db.GetNumberofTrnee());
+        }
+
+
+        private void CheckMandatoryFields()
+        {
+            
+        }
+
+        private void CheckOptionalFields()
+        {
+
         }
 
 
