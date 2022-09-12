@@ -277,7 +277,7 @@ namespace semesterarbeit
             }
         }
 
-        private bool Validate_mandetory()
+        private bool Validate()
         {
             bool validated = true;
 
@@ -289,6 +289,13 @@ namespace semesterarbeit
             }
 
             error = lastnameErrorProvider.GetError(this.TxtLastname);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = cityErrorProvider.GetError(this.TxtCity);
 
             if (error != String.Empty)
             {
@@ -327,29 +334,12 @@ namespace semesterarbeit
             }
             if (RadTrainee.Checked)
             {
+                error = roleErrorProvider.GetError(this.TxtRole);
 
-            }
-            if (RadCustomer.Checked)
-            {
-
-            }
-
-
-            return validated;
-        }
-
-        private bool Validate_optional()
-        {
-            bool validated = true;
-
-            string error = firstnameErrorProvider.GetError(this.TxtFirstname);
-
-            if (RadEmployee.Checked)
-            {
-                
-            }
-            if (RadTrainee.Checked)
-            {
+                if (error != String.Empty)
+                {
+                    validated = false;
+                }
 
             }
             if (RadCustomer.Checked)
@@ -647,7 +637,8 @@ namespace semesterarbeit
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            bool validated = Validate_mandetory();
+            bool validated = Validate();
+
             if (validated)
             {
                 if (CmdAddUser.Tag.ToString() == "Clicked")
@@ -978,7 +969,7 @@ namespace semesterarbeit
             {
                 //Cast into customer to run Take Notes function
                 Customer cust = LsbOutput.SelectedItem as Customer;
-                cust.TakeNotes(TxtNotes.Text + " - " + user);
+                cust.TakeNotes(user + " - " + TxtNotes.Text);
 
                 //Display Changes in Notes History
                 TxtNotesHistory.Text = cust.NotesHistory;
