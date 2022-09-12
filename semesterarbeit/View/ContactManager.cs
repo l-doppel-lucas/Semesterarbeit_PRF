@@ -1160,20 +1160,7 @@ namespace semesterarbeit
             LblAppCount.Text = Convert.ToString(Db.GetNumberofTrnee());
         }
 
-
-        private void CheckMandatoryFields()
-        {
-            
-        }
-
-        private void CheckOptionalFields()
-        {
-
-        }
-
-
-
-        /*---------------------------------------------------------------------
+         /*---------------------------------------------------------------------
          * Radio Butoons
          * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
