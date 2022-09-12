@@ -295,7 +295,7 @@ namespace semesterarbeit
 
             string error = firstnameErrorProvider.GetError(this.TxtFirstname);
 
-            if(error != String.Empty)
+            if (error != String.Empty)
             {
                 validated = false;
             }
@@ -358,27 +358,20 @@ namespace semesterarbeit
             {
 
             }
-
+            return validated;
+        }
         private void CmbSalutation_Validated(object sender, EventArgs e)
         {
-       
+
 
             if (CmbSalutation.SelectedItem == null)
             {
-                salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");         
+                salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");
             }
             else
             {
-                salutationErrorProvider.Clear(); 
+                salutationErrorProvider.Clear();
             }
-        }
-
-
-
-
-
-
-            return validated;
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
