@@ -202,19 +202,19 @@ namespace semesterarbeit
 
         private void TxtCity_Validated(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^(?<name>\w[\s\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
-            var city = this.TxtStreet.Text;
+            Regex regex = new Regex("^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$");
+            var city = this.TxtCity.Text;
             Match match = regex.Match(city);
 
             if (match.Success)
             {
                 // Clear the error, if any, in the error provider.
-                streetErrorProvider.SetError(this.TxtStreet, String.Empty);
+                cityErrorProvider.SetError(this.TxtCity, String.Empty);
             }
             else
             {
-                // Set the error if the street is not valid.
-                streetErrorProvider.SetError(this.TxtStreet, "Invalid Street Format!");
+                // Set the error if the city is not valid.
+                cityErrorProvider.SetError(this.TxtCity, "Invalid City Format!");
             }
         }
 
