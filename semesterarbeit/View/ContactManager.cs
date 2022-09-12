@@ -21,15 +21,13 @@ namespace semesterarbeit
 
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
+        private System.Windows.Forms.ErrorProvider streetErrorProvider;
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
 
         public Dashboard(string us1)
         {
-
-            
-
 
             InitializeComponent();
 
@@ -63,6 +61,19 @@ namespace semesterarbeit
 
 
             // Create and set the ErrorProvider for each data entry control.
+
+
+            // ErrorProvider streetname
+
+            streetErrorProvider = new System.Windows.Forms.ErrorProvider();
+            streetErrorProvider.SetIconAlignment(this.TxtStreet, ErrorIconAlignment.MiddleRight);
+            streetErrorProvider.SetIconPadding(this.TxtStreet, 2);
+            streetErrorProvider.BlinkRate = 0;
+            streetErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtStreet.Validated += new System.EventHandler(this.TxtStreet_Validated);
+
+
 
             // ErrorProvider firstname
 
@@ -153,10 +164,30 @@ namespace semesterarbeit
             }
             else
             {
-                // Set the error if the name is not valid.
+                // Set the error if the lastname is not valid.
                 lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Lastname Format!");
             }
         }
+
+
+        private void TxtStreet_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"^(?<name>\w[\s\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
+            var firstname = this.TxtStreet.Text;
+            Match match = regex.Match(firstname);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                streetErrorProvider.SetError(this.TxtStreet, String.Empty);
+            }
+            else
+            {
+                // Set the error if the street is not valid.
+                streetErrorProvider.SetError(this.TxtStreet, "Invalid Street Format!");
+            }
+        }
+
 
         private void TxtEmail_Validated(object sender, EventArgs e)
         {
@@ -192,7 +223,7 @@ namespace semesterarbeit
             }
             else
             {
-                // Set the error if the name is not valid.
+                // Set the error if the zip is not valid.
                 zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!");
             }
 
@@ -211,7 +242,7 @@ namespace semesterarbeit
             }
             else
             {
-                // Set the error if the name is not valid.
+                // Set the error if the role is not valid.
                 lastnameErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
             }
         }
