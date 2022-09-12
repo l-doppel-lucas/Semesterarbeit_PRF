@@ -28,6 +28,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
         private System.Windows.Forms.ErrorProvider salutationErrorProvider;
         private System.Windows.Forms.ErrorProvider genderErrorProvider;
+        private System.Windows.Forms.ErrorProvider companynameErrorProvider;
 
         public Dashboard(string us1)
         {
@@ -159,6 +160,17 @@ namespace semesterarbeit
 
             this.CmbGender.Validated += new System.EventHandler(this.CmbGender_Validated);
 
+
+            // ErrorProvider companyname
+
+            companynameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            companynameErrorProvider.SetIconAlignment(this.TxtCompanyName, ErrorIconAlignment.MiddleRight);
+            companynameErrorProvider.SetIconPadding(this.TxtCompanyName, 2);
+            companynameErrorProvider.BlinkRate = 0;
+            companynameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtCompanyName.Validated += new System.EventHandler(this.TxtCompanyName_Validated);
+
         }
 
 
@@ -218,7 +230,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the street is not valid.
-                streetErrorProvider.SetError(this.TxtStreet, "Invalid Street Format!");
+                streetErrorProvider.SetError(this.TxtStreet, "Invalid Street and Number Format!");
             }
         }
 
@@ -297,6 +309,24 @@ namespace semesterarbeit
             {
                 // Set the error if the role is not valid.
                 roleErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
+            }
+        }
+
+        private void TxtCompanyName_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var companyname = this.TxtCompanyName.Text;
+            Match match = regex.Match(companyname);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                companynameErrorProvider.SetError(this.TxtCompanyName, String.Empty);
+            }
+            else
+            {
+                // Set the error if the companyname is not valid.
+                companynameErrorProvider.SetError(this.TxtCompanyName, "Invalid Company Format!");
             }
         }
 
