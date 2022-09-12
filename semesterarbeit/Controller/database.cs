@@ -81,7 +81,7 @@ namespace semesterarbeit.Controller
 
         public int ReturnLastID()
         {
-            int id = 1;
+            int id;
             try
             {
                 Person temp = contactList.Last();
@@ -89,7 +89,7 @@ namespace semesterarbeit.Controller
             }
             catch (System.InvalidOperationException)
             {
-                id = 1;
+                id = 0;
             }
 
             return id;
