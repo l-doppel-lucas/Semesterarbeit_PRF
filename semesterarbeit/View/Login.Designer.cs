@@ -37,17 +37,19 @@
             // 
             // TxtUsername
             // 
-            this.TxtUsername.Location = new System.Drawing.Point(161, 55);
+            this.TxtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtUsername.Location = new System.Drawing.Point(161, 49);
             this.TxtUsername.Name = "TxtUsername";
-            this.TxtUsername.Size = new System.Drawing.Size(196, 20);
+            this.TxtUsername.Size = new System.Drawing.Size(196, 26);
             this.TxtUsername.TabIndex = 0;
             // 
             // TxtPassword
             // 
-            this.TxtPassword.Location = new System.Drawing.Point(161, 129);
+            this.TxtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPassword.Location = new System.Drawing.Point(161, 123);
             this.TxtPassword.Name = "TxtPassword";
             this.TxtPassword.PasswordChar = '*';
-            this.TxtPassword.Size = new System.Drawing.Size(196, 20);
+            this.TxtPassword.Size = new System.Drawing.Size(196, 26);
             this.TxtPassword.TabIndex = 1;
             // 
             // LblUsername
