@@ -46,7 +46,7 @@ namespace semesterarbeit.View
             }
             else
             {
-                MessageBox.Show("Please enter correct Username or Password");
+                MessageBox.Show("Username or Password is incorrect!");
             }
 
             

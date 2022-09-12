@@ -13,7 +13,7 @@ namespace semesterarbeit
         //Create variable for id/EmpID
         private int id;
 
-        //Creat user variables
+        //Creat user variables to get username for login 
         private string user;
 
         //Create Contact List for Listbox
@@ -421,7 +421,6 @@ namespace semesterarbeit
 
                     //Disables add user and export
                     CmdAddUser.Enabled = false;
-                    CmdExport.Enabled = false;
 
                     //Change Button text to cancel
                     CmdSearch.Text = "Cancel Search";
@@ -438,7 +437,6 @@ namespace semesterarbeit
 
                 //activate add user and export
                 CmdAddUser.Enabled = true;
-                CmdExport.Enabled = true;
 
                 //Reset Search Text
                 TxtSearch.Text = "";
@@ -463,7 +461,6 @@ namespace semesterarbeit
             CmdTakeNotes.Enabled = false;
             CmdDeleteUser.Enabled = false;
             CmdEditUser.Enabled = false;
-            CmdExport.Enabled = false;
             CmdSearch.Enabled = false;
 
             //Change buttons
@@ -675,7 +672,6 @@ namespace semesterarbeit
             CmdAddUser.Enabled = true;
             CmdDeleteUser.Enabled = true;
             CmdEditUser.Enabled = true;
-            CmdExport.Enabled = true;
             CmdSearch.Enabled = true;
 
             //disable all fields
@@ -770,10 +766,7 @@ namespace semesterarbeit
                 {
                     ShowButtons();
                 }
-                else
-                {
-                    CmdExport.Visible = true;
-                }
+           
                 ShowListBox();
 
             }
@@ -789,7 +782,6 @@ namespace semesterarbeit
             CmdAddUser.Visible = true;
             CmdDeleteUser.Visible = true;
             CmdEditUser.Visible = true;
-            CmdExport.Visible = true;
         }
 
         private void HideButtons()
@@ -797,7 +789,6 @@ namespace semesterarbeit
             CmdAddUser.Visible = false;
             CmdDeleteUser.Visible = false;
             CmdEditUser.Visible = false;
-            CmdExport.Visible = false;
         }
 
         private void ShowListBox()
@@ -1084,7 +1075,6 @@ namespace semesterarbeit
             CmdAddUser.Enabled = true;
             CmdDeleteUser.Enabled = true;
             CmdEditUser.Enabled = true;
-            CmdExport.Enabled = true;
             CmdSearch.Enabled = true;
 
             //Deaktivate checkbox

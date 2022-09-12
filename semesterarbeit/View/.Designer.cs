@@ -126,7 +126,6 @@
             this.CmdAddUser = new System.Windows.Forms.Button();
             this.CmdEditUser = new System.Windows.Forms.Button();
             this.CmdDeleteUser = new System.Windows.Forms.Button();
-            this.CmdExport = new System.Windows.Forms.Button();
             this.TxtSearch = new System.Windows.Forms.TextBox();
             this.CmdSearch = new System.Windows.Forms.Button();
             this.CmdSave = new System.Windows.Forms.Button();
@@ -1208,7 +1207,7 @@
             // CmdEditUser
             // 
             this.CmdEditUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdEditUser.Location = new System.Drawing.Point(652, 28);
+            this.CmdEditUser.Location = new System.Drawing.Point(766, 28);
             this.CmdEditUser.Margin = new System.Windows.Forms.Padding(1);
             this.CmdEditUser.Name = "CmdEditUser";
             this.CmdEditUser.Size = new System.Drawing.Size(112, 42);
@@ -1222,7 +1221,7 @@
             // CmdDeleteUser
             // 
             this.CmdDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdDeleteUser.Location = new System.Drawing.Point(766, 28);
+            this.CmdDeleteUser.Location = new System.Drawing.Point(880, 28);
             this.CmdDeleteUser.Margin = new System.Windows.Forms.Padding(1);
             this.CmdDeleteUser.Name = "CmdDeleteUser";
             this.CmdDeleteUser.Size = new System.Drawing.Size(112, 42);
@@ -1231,18 +1230,6 @@
             this.CmdDeleteUser.UseVisualStyleBackColor = true;
             this.CmdDeleteUser.Visible = false;
             this.CmdDeleteUser.Click += new System.EventHandler(this.CmdDeleteUser_Click);
-            // 
-            // CmdExport
-            // 
-            this.CmdExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdExport.Location = new System.Drawing.Point(880, 28);
-            this.CmdExport.Margin = new System.Windows.Forms.Padding(1);
-            this.CmdExport.Name = "CmdExport";
-            this.CmdExport.Size = new System.Drawing.Size(112, 42);
-            this.CmdExport.TabIndex = 5;
-            this.CmdExport.Text = "EXPORT CONTACTS";
-            this.CmdExport.UseVisualStyleBackColor = true;
-            this.CmdExport.Visible = false;
             // 
             // TxtSearch
             // 
@@ -1269,7 +1256,7 @@
             // CmdSave
             // 
             this.CmdSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdSave.Location = new System.Drawing.Point(538, 28);
+            this.CmdSave.Location = new System.Drawing.Point(652, 28);
             this.CmdSave.Margin = new System.Windows.Forms.Padding(1);
             this.CmdSave.Name = "CmdSave";
             this.CmdSave.Size = new System.Drawing.Size(112, 42);
@@ -1282,7 +1269,7 @@
             // CmdCancel
             // 
             this.CmdCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdCancel.Location = new System.Drawing.Point(424, 28);
+            this.CmdCancel.Location = new System.Drawing.Point(538, 28);
             this.CmdCancel.Margin = new System.Windows.Forms.Padding(1);
             this.CmdCancel.Name = "CmdCancel";
             this.CmdCancel.Size = new System.Drawing.Size(112, 42);
@@ -1332,7 +1319,6 @@
             this.Controls.Add(this.CmdSave);
             this.Controls.Add(this.CmdSearch);
             this.Controls.Add(this.TxtSearch);
-            this.Controls.Add(this.CmdExport);
             this.Controls.Add(this.CmdDeleteUser);
             this.Controls.Add(this.CmdEditUser);
             this.Controls.Add(this.CmdAddUser);
@@ -1363,7 +1349,6 @@
         private System.Windows.Forms.Button CmdAddUser;
         private System.Windows.Forms.Button CmdEditUser;
         private System.Windows.Forms.Button CmdDeleteUser;
-        private System.Windows.Forms.Button CmdExport;
         private System.Windows.Forms.TextBox TxtSearch;
         private System.Windows.Forms.Button CmdSearch;
         private System.Windows.Forms.DateTimePicker DtpLeaveDate;
