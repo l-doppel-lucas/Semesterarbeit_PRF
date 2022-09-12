@@ -250,19 +250,83 @@ namespace semesterarbeit
 
         private bool Validate_mandetory()
         {
-            bool validated = false;
+            bool validated = true;
 
-            string error = lastnameErrorProvider.GetError(this.TxtLastname);
+            string error = firstnameErrorProvider.GetError(this.TxtFirstname);
 
-            if(error == String.Empty)
-            {
-                validated = true;
-            }
-            else
+            if(error != String.Empty)
             {
                 validated = false;
             }
 
+            error = lastnameErrorProvider.GetError(this.TxtLastname);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = streetErrorProvider.GetError(this.TxtStreet);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = emailErrorProvider.GetError(this.TxtEmail);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = zipcodeErrorProvider.GetError(this.TxtZipcode);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            if (RadEmployee.Checked)
+            {
+                error = roleErrorProvider.GetError(this.TxtRole);
+
+                if (error != String.Empty)
+                {
+                    validated = false;
+                }
+            }
+            if (RadTrainee.Checked)
+            {
+
+            }
+            if (RadCustomer.Checked)
+            {
+
+            }
+
+
+            return validated;
+        }
+
+        private bool Validate_optional()
+        {
+            bool validated = true;
+
+            string error = firstnameErrorProvider.GetError(this.TxtFirstname);
+
+            if (RadEmployee.Checked)
+            {
+                
+            }
+            if (RadTrainee.Checked)
+            {
+
+            }
+            if (RadCustomer.Checked)
+            {
+
+            }
 
 
             return validated;
