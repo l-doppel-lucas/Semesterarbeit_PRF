@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace semesterarbeit
 {
@@ -33,18 +32,6 @@ namespace semesterarbeit
             return Disabled + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString() 
                 + ", " + Gender + ", " + Businessphone + ", " + Businessfax + ", " + Mail;
         }
-
-        public virtual string PrintAll()
-        {
-            return Disabled + ", " + Id + ", " + Title + ", " + Salutation + ", " + Firstname + ", " + Lastname + ", " + Birthdate.ToShortDateString()
-                + ", " + Gender + ", " + Businessphone + ", " + Businessfax + ", " + Mail + ", " + ChangeHistory;
-        }
-
-        public string ShortText()
-        {
-            return Id + " - " + Firstname + " " + Lastname;
-        }
-
 
         public void SetOptionalAttributes(string title, string mph,  string bph, string bfa)
         {

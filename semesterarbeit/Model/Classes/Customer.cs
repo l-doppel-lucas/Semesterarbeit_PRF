@@ -52,12 +52,6 @@ namespace semesterarbeit
         {
             return base.ToString() + ", " + Companyname + ", " + Type + ", " + Companycontact;
         }
-
-        public override string PrintAll()
-        {
-            return base.PrintAll() + ", " + Companyname + ", " + Type + ", " + Companycontact;
-        }
-
         public override string GetClassName()
         {
             return "Customer";
