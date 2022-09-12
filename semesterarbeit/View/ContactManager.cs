@@ -252,6 +252,17 @@ namespace semesterarbeit
         {
             bool validated = false;
 
+            string error = lastnameErrorProvider.GetError(this.TxtLastname);
+
+            if(error == String.Empty)
+            {
+                validated = true;
+            }
+            else
+            {
+                validated = false;
+            }
+
 
 
             return validated;
@@ -543,191 +554,199 @@ namespace semesterarbeit
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            if (CmdAddUser.Tag.ToString() == "Clicked")
+            bool validated = Validate_mandetory();
+            if (validated)
             {
-
-                if (RadEmployee.Checked)
+                if (CmdAddUser.Tag.ToString() == "Clicked")
                 {
-                    //Increase the value of the variable id
-                    id++;
 
-
-                    Employee empl1 = new Employee
+                    if (RadEmployee.Checked)
                     {
-                        Disabled = ChkStatus.Checked, // User enabled
-                        Id = id,
-                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                        Firstname = TxtFirstname.Text,
-                        Lastname = TxtLastname.Text,
-                        Birthdate = DtpBirthdate.Value, //Birthdate
-                        CreationDate = DateTime.Now, //Creation date
-                        Gender = Convert.ToString(CmbGender.SelectedItem),
-                        Mail = TxtEmail.Text,
-                        Street = TxtStreet.Text,
-                        City = TxtCity.Text,
-                        Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                        EmplNr = id, //EmplNumber
-                        Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                        Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
-                        Entrydate = DtpStartDate.Value, //EntryDate
-                        Exitdate = DtpLeaveDate.Value, //Exitdate
-                        Role = TxtRole.Text
-                    };
+                        //Increase the value of the variable id
+                        id++;
 
-                    //Add Employee to contact list (database)
-                    Db.AddPerson(empl1);
 
-                    //Call method to save the new object on the harddisk
-                    Db.Serialisation();
+                        Employee empl1 = new Employee
+                        {
+                            Disabled = ChkStatus.Checked, // User enabled
+                            Id = id,
+                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                            Firstname = TxtFirstname.Text,
+                            Lastname = TxtLastname.Text,
+                            Birthdate = DtpBirthdate.Value, //Birthdate
+                            CreationDate = DateTime.Now, //Creation date
+                            Gender = Convert.ToString(CmbGender.SelectedItem),
+                            Mail = TxtEmail.Text,
+                            Street = TxtStreet.Text,
+                            City = TxtCity.Text,
+                            Zipcode = TxtZipcode.Text,
+                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                            EmplNr = id, //EmplNumber
+                            Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                            Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                            Entrydate = DtpStartDate.Value, //EntryDate
+                            Exitdate = DtpLeaveDate.Value, //Exitdate
+                            Role = TxtRole.Text
+                        };
 
-                    SetDashboardNumbers();
+                        //Add Employee to contact list (database)
+                        Db.AddPerson(empl1);
 
-                    //Set optional fields
-                    SetAttributesEmpl_optional(empl1);
+                        //Call method to save the new object on the harddisk
+                        Db.Serialisation();
 
-                    CmdAddUser.Tag = "";
-                }
-                else if (RadTrainee.Checked)
-                {
-                    //Increase the value of the variable id
-                    id++;
+                        SetDashboardNumbers();
 
-                    Trainee train1 = new Trainee
+                        //Set optional fields
+                        SetAttributesEmpl_optional(empl1);
+
+                        CmdAddUser.Tag = "";
+                    }
+                    else if (RadTrainee.Checked)
                     {
-                        Disabled = ChkStatus.Checked, // User enabled
-                        Id = id,
-                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                        Firstname = TxtFirstname.Text,
-                        Lastname = TxtLastname.Text,
-                        Birthdate = DtpBirthdate.Value, //Birthdate
-                        CreationDate = DateTime.Now, //Creation date
-                        Gender = Convert.ToString(CmbGender.SelectedItem),
-                        Mail = TxtEmail.Text,
-                        Street = TxtStreet.Text,
-                        City = TxtCity.Text,
-                        Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                        EmplNr = id, //EmplNumber
-                        Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                        Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
-                        Entrydate = DtpStartDate.Value, //EntryDate
-                        Exitdate = DtpLeaveDate.Value, //ExitDate
-                        Role = TxtRole.Text,
-                        Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
-                        Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
-                    };
+                        //Increase the value of the variable id
+                        id++;
 
-                    //Add Customer to contact list (database)
-                    Db.AddPerson(train1);
+                        Trainee train1 = new Trainee
+                        {
+                            Disabled = ChkStatus.Checked, // User enabled
+                            Id = id,
+                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                            Firstname = TxtFirstname.Text,
+                            Lastname = TxtLastname.Text,
+                            Birthdate = DtpBirthdate.Value, //Birthdate
+                            CreationDate = DateTime.Now, //Creation date
+                            Gender = Convert.ToString(CmbGender.SelectedItem),
+                            Mail = TxtEmail.Text,
+                            Street = TxtStreet.Text,
+                            City = TxtCity.Text,
+                            Zipcode = TxtZipcode.Text,
+                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                            EmplNr = id, //EmplNumber
+                            Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                            Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                            Entrydate = DtpStartDate.Value, //EntryDate
+                            Exitdate = DtpLeaveDate.Value, //ExitDate
+                            Role = TxtRole.Text,
+                            Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
+                            Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
+                        };
 
-                    //Call method to save the new object on the harddisk
-                    Db.Serialisation();
+                        //Add Customer to contact list (database)
+                        Db.AddPerson(train1);
 
-                    SetDashboardNumbers();
+                        //Call method to save the new object on the harddisk
+                        Db.Serialisation();
 
-                    //Set optional fields
-                    SetAttributesTrainee_optional(train1);
+                        SetDashboardNumbers();
 
-                    CmdAddUser.Tag = "";
-                }
-                else if (RadCustomer.Checked)
-                {
-                    //Increase the value of the variable id
-                    id++;
+                        //Set optional fields
+                        SetAttributesTrainee_optional(train1);
 
-                    Customer cust1 = new Customer
+                        CmdAddUser.Tag = "";
+                    }
+                    else if (RadCustomer.Checked)
                     {
-                        Disabled = ChkStatus.Checked, // User enabled
-                        Id = id,
-                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                        Firstname = TxtFirstname.Text,
-                        Lastname = TxtLastname.Text,
-                        Birthdate = DtpBirthdate.Value, //Birthdate
-                        CreationDate = DateTime.Now, //Creation date
-                        Gender = Convert.ToString(CmbGender.SelectedItem),
-                        Mail = TxtEmail.Text,
-                        Street = TxtStreet.Text,
-                        City = TxtCity.Text,
-                        Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                        Companyname = TxtCompanyName.Text,
-                        Type = (CustType)CmbCustomerType.SelectedValue,
-                        Companycontact = TxtContacPerson.Text
-                    };
+                        //Increase the value of the variable id
+                        id++;
 
-                    //Add Customer to contact list (database)
-                    Db.AddPerson(cust1);
+                        Customer cust1 = new Customer
+                        {
+                            Disabled = ChkStatus.Checked, // User enabled
+                            Id = id,
+                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                            Firstname = TxtFirstname.Text,
+                            Lastname = TxtLastname.Text,
+                            Birthdate = DtpBirthdate.Value, //Birthdate
+                            CreationDate = DateTime.Now, //Creation date
+                            Gender = Convert.ToString(CmbGender.SelectedItem),
+                            Mail = TxtEmail.Text,
+                            Street = TxtStreet.Text,
+                            City = TxtCity.Text,
+                            Zipcode = TxtZipcode.Text,
+                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                            Companyname = TxtCompanyName.Text,
+                            Type = (CustType)CmbCustomerType.SelectedValue,
+                            Companycontact = TxtContacPerson.Text
+                        };
 
-                    //Call method to save the new object on the harddisk
-                    Db.Serialisation();
+                        //Add Customer to contact list (database)
+                        Db.AddPerson(cust1);
 
-                    SetDashboardNumbers();
+                        //Call method to save the new object on the harddisk
+                        Db.Serialisation();
 
-                    //Set optional fields
-                    SetAttributesCust_optional(cust1);
+                        SetDashboardNumbers();
 
-                    CmdAddUser.Tag = "";
+                        //Set optional fields
+                        SetAttributesCust_optional(cust1);
+
+                        CmdAddUser.Tag = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select contact type!");
+                    }
                 }
-                else
+                else if (CmdEditUser.Tag.ToString() == "Clicked")
                 {
-                    MessageBox.Show("Please select contact type!");
+                    if (RadCustomer.Checked)
+                    {
+                        SetAttributesCust_mandatory(LsbOutput.SelectedItem as Customer);
+                        SetAttributesCust_optional(LsbOutput.SelectedItem as Customer);
+
+                        Db.Serialisation();
+                        SetDashboardNumbers();
+                        CmdEditUser.Tag = "";
+                    }
+                    else if (RadEmployee.Checked)
+                    {
+                        SetAttributesEmp_mandatory(LsbOutput.SelectedItem as Employee);
+                        SetAttributesEmpl_optional(LsbOutput.SelectedItem as Employee);
+
+                        Db.Serialisation();
+                        CmdEditUser.Tag = "";
+                    }
+                    else if (RadTrainee.Checked)
+                    {
+                        SetAttributesTrainee_mandatory(LsbOutput.SelectedItem as Trainee);
+                        SetAttributesTrainee_optional(LsbOutput.SelectedItem as Trainee);
+
+                        Db.Serialisation();
+                        SetDashboardNumbers();
+                        CmdEditUser.Tag = "";
+                    }
+
                 }
+
+                //Change buttons
+                CmdAddUser.Visible = true;
+                CmdEditUser.Visible = true;
+                CmdSave.Visible = false;
+                CmdCancel.Visible = false;
+
+                //Activate buttons, combo boxes, and list boxes
+                ChkStatus.Enabled = true;
+                CmdTakeNotes.Enabled = true;
+                LsbOutput.Enabled = true;
+                CmdAddUser.Enabled = true;
+                CmdDeleteUser.Enabled = true;
+                CmdEditUser.Enabled = true;
+                CmdSearch.Enabled = true;
+
+                //disable all fields
+                DisableAll();
+
+                //Update Dashboard Numbers
+                SetDashboardNumbers();
+
+                //Set Selected Index to 0 
+                ShowStartScreen();
             }
-            else if (CmdEditUser.Tag.ToString() == "Clicked")
+            else
             {
-                if (RadCustomer.Checked)
-                {
-                    SetAttributesCust_mandatory(LsbOutput.SelectedItem as Customer);
-                    SetAttributesCust_optional(LsbOutput.SelectedItem as Customer);
-
-                    Db.Serialisation();
-                    SetDashboardNumbers();
-                    CmdEditUser.Tag = "";
-                }
-                else if (RadEmployee.Checked)
-                {
-                    SetAttributesEmp_mandatory(LsbOutput.SelectedItem as Employee);
-                    SetAttributesEmpl_optional(LsbOutput.SelectedItem as Employee);
-
-                    Db.Serialisation();
-                    CmdEditUser.Tag = "";
-                }
-                else if (RadTrainee.Checked)
-                {
-                    SetAttributesTrainee_mandatory(LsbOutput.SelectedItem as Trainee);
-                    SetAttributesTrainee_optional(LsbOutput.SelectedItem as Trainee);
-
-                    Db.Serialisation();
-                    SetDashboardNumbers();
-                    CmdEditUser.Tag = "";
-                }
-
+                MessageBox.Show("Please check your Data!");
             }
-
-            //Change buttons
-            CmdAddUser.Visible = true;
-            CmdEditUser.Visible = true;
-            CmdSave.Visible = false;
-            CmdCancel.Visible = false;
-
-            //Activate buttons, combo boxes, and list boxes
-            ChkStatus.Enabled = true;
-            CmdTakeNotes.Enabled = true;
-            LsbOutput.Enabled = true;
-            CmdAddUser.Enabled = true;
-            CmdDeleteUser.Enabled = true;
-            CmdEditUser.Enabled = true;
-            CmdSearch.Enabled = true;
-
-            //disable all fields
-            DisableAll();
-
-            //Update Dashboard Numbers
-            SetDashboardNumbers();
-
-            //Set Selected Index to 0 
-            ShowStartScreen();
 
         }
 
