@@ -202,7 +202,7 @@ namespace semesterarbeit
 
         private void TxtCity_Validated(object sender, EventArgs e)
         {
-            Regex regex = new Regex("^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$");
+            Regex regex = new Regex(@"^\s*[a-zA-Z]{1}[0-9a-zA-Z][0-9a-zA-Z '-.=#/]*$");
             var city = this.TxtCity.Text;
             Match match = regex.Match(city);
 
