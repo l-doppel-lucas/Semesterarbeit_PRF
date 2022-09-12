@@ -37,12 +37,6 @@ class Trainee : Employee
             return base.ToString() + ", " + Appyears + ", " + Currappyear;
         }
 
-        public override string PrintAll()
-        {
-            return base.PrintAll() + ", " + Appyears + ", " + Currappyear;
-        }
-
-
         public override string GetClassName()
         {
             return "Trainee";
