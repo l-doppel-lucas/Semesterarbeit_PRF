@@ -307,7 +307,7 @@ namespace semesterarbeit
 
             string error = firstnameErrorProvider.GetError(this.TxtFirstname);
 
-            if(error != String.Empty)
+            if (error != String.Empty)
             {
                 validated = false;
             }
@@ -370,11 +370,8 @@ namespace semesterarbeit
             {
 
             }
-
             return validated;
         }
-
-
         private void CmbSalutation_Validated(object sender, EventArgs e)
         {
 
@@ -401,8 +398,28 @@ namespace semesterarbeit
                 genderErrorProvider.Clear();
             }
         }
+        private bool CheckMandetoryFields ()
+        {
+            //Check if mandetory fields have some input
+            bool check = true;
 
 
+
+            if (RadEmployee.Checked)
+            {
+
+            }
+            if (RadTrainee.Checked)
+            {
+
+            }
+            if (RadCustomer.Checked)
+            {
+
+            }
+
+            return check;
+        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -686,6 +703,7 @@ namespace semesterarbeit
             HideAllTrnee();
             HideAllCust();
             HideAllEmp();
+    
 
         }
         private void CmdSave_Click(object sender, EventArgs e)
@@ -991,7 +1009,7 @@ namespace semesterarbeit
                 {
                     ShowButtons();
                 }
-           
+
                 ShowListBox();
 
             }
@@ -1212,9 +1230,9 @@ namespace semesterarbeit
             LblAppCount.Text = Convert.ToString(Db.GetNumberofTrnee());
         }
 
-         /*---------------------------------------------------------------------
-         * Radio Butoons
-         * --------------------------------------------------------------------*/
+        /*---------------------------------------------------------------------
+        * Radio Butoons
+        * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
         {
             if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
@@ -1268,17 +1286,6 @@ namespace semesterarbeit
             HideAllCmbTrnee();
             HideAllCmbEmp();
         }
-
-        private void TxtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         /*---------------------------------------------------------------------
         Text Boxes and Labels
@@ -1583,7 +1590,7 @@ namespace semesterarbeit
             TxtNotesHistory.Visible = true;
             LblNotesHistory.Visible = true;
             CmdTakeNotes.Visible = true;
-            if (CmdAddUser.Tag.ToString() == "Clicked") 
+            if (CmdAddUser.Tag.ToString() == "Clicked")
             {
                 CmdTakeNotes.Enabled = false;
             }
@@ -1591,7 +1598,7 @@ namespace semesterarbeit
             {
                 CmdTakeNotes.Enabled = true;
             }
-            
+
         }
 
         //Make all Apprentice textboxes and labels visible
@@ -1643,14 +1650,6 @@ namespace semesterarbeit
             RadTrainee.Visible = true;
             RadCustomer.Visible = true;
             RadEmployee.Visible = true;
-        }
-
-        //Hide all radio buttons 
-        private void HideAllRad()
-        {
-            RadTrainee.Visible = false;
-            RadCustomer.Visible = false;
-            RadEmployee.Visible = false;
         }
 
         //Uncheck all redio buttons
