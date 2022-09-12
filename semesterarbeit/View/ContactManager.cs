@@ -27,6 +27,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
         private System.Windows.Forms.ErrorProvider salutationErrorProvider;
+        private System.Windows.Forms.ErrorProvider genderErrorProvider;
 
         public Dashboard(string us1)
         {
@@ -147,6 +148,17 @@ namespace semesterarbeit
             salutationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.CmbSalutation.Validated += new System.EventHandler(this.CmbSalutation_Validated);
+
+            // ErrorProvider gender
+
+            genderErrorProvider = new System.Windows.Forms.ErrorProvider();
+            genderErrorProvider.SetIconAlignment(this.CmbGender, ErrorIconAlignment.MiddleRight);
+            genderErrorProvider.SetIconPadding(this.CmbGender, 2);
+            genderErrorProvider.BlinkRate = 0;
+            genderErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbGender.Validated += new System.EventHandler(this.CmbGender_Validated);
+
         }
 
 
@@ -359,27 +371,38 @@ namespace semesterarbeit
 
             }
 
+            return validated;
+        }
+
+
         private void CmbSalutation_Validated(object sender, EventArgs e)
         {
-       
+
 
             if (CmbSalutation.SelectedItem == null)
             {
-                salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");         
+                salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");
             }
             else
             {
-                salutationErrorProvider.Clear(); 
+                salutationErrorProvider.Clear();
+            }
+        }
+
+        
+        private void CmbGender_Validated(object sender, EventArgs e)
+        {
+            if (CmbGender.SelectedItem == null)
+            {
+                genderErrorProvider.SetError(this.CmbGender, "Please select a Gender!"); 
+            }
+            else
+            {
+                genderErrorProvider.Clear();
             }
         }
 
 
-
-
-
-
-            return validated;
-        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
