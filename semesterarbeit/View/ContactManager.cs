@@ -326,6 +326,9 @@ namespace semesterarbeit
                         //Hide comboboxes and date pickers
                         HideAllCmbCust();
 
+                        //enable take notes
+                        CmdTakeNotes.Enabled = true;
+
                         //Cast the selected object of the list into type "Customer" and write into the variable "selectedCustomer"
                         Customer selectedCustomer = (Customer)selectedPerson;
 
@@ -464,6 +467,9 @@ namespace semesterarbeit
 
             //Uncheck radio buttons
             UncheckAllRad();
+
+            //set disable user to unchecked
+            ChkStatus.Checked = false;
 
             //Disable Take notes for customer
             CmdTakeNotes.Enabled = false;
