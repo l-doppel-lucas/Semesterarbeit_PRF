@@ -22,6 +22,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
         private System.Windows.Forms.ErrorProvider streetErrorProvider;
+        private System.Windows.Forms.ErrorProvider cityErrorProvider;
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
@@ -61,18 +62,6 @@ namespace semesterarbeit
             // Create and set the ErrorProvider for each data entry control.
 
 
-            // ErrorProvider streetname
-
-            streetErrorProvider = new System.Windows.Forms.ErrorProvider();
-            streetErrorProvider.SetIconAlignment(this.TxtStreet, ErrorIconAlignment.MiddleRight);
-            streetErrorProvider.SetIconPadding(this.TxtStreet, 2);
-            streetErrorProvider.BlinkRate = 0;
-            streetErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
-
-            this.TxtStreet.Validated += new System.EventHandler(this.TxtStreet_Validated);
-
-
-
             // ErrorProvider firstname
 
             firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
@@ -93,6 +82,27 @@ namespace semesterarbeit
             lastnameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtLastname.Validated += new System.EventHandler(this.TxtLastname_Validated);
+
+            // ErrorProvider street
+
+            streetErrorProvider = new System.Windows.Forms.ErrorProvider();
+            streetErrorProvider.SetIconAlignment(this.TxtStreet, ErrorIconAlignment.MiddleRight);
+            streetErrorProvider.SetIconPadding(this.TxtStreet, 2);
+            streetErrorProvider.BlinkRate = 0;
+            streetErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtStreet.Validated += new System.EventHandler(this.TxtStreet_Validated);
+
+
+            // ErrorProvider city
+
+            cityErrorProvider = new System.Windows.Forms.ErrorProvider();
+            cityErrorProvider.SetIconAlignment(this.TxtCity, ErrorIconAlignment.MiddleRight);
+            cityErrorProvider.SetIconPadding(this.TxtCity, 2);
+            cityErrorProvider.BlinkRate = 0;
+            cityErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtCity.Validated += new System.EventHandler(this.TxtCity_Validated);
 
             // ErrorProvider email
 
@@ -174,8 +184,8 @@ namespace semesterarbeit
         private void TxtStreet_Validated(object sender, EventArgs e)
         {
             Regex regex = new Regex(@"^(?<name>\w[\s\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
-            var firstname = this.TxtStreet.Text;
-            Match match = regex.Match(firstname);
+            var street = this.TxtStreet.Text;
+            Match match = regex.Match(street);
 
             if (match.Success)
             {
@@ -186,6 +196,25 @@ namespace semesterarbeit
             {
                 // Set the error if the street is not valid.
                 streetErrorProvider.SetError(this.TxtStreet, "Invalid Street Format!");
+            }
+        }
+
+
+        private void TxtCity_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"^\s*[a-zA-Z]{1}[0-9a-zA-Z][0-9a-zA-Z '-.=#/]*$");
+            var city = this.TxtCity.Text;
+            Match match = regex.Match(city);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                cityErrorProvider.SetError(this.TxtCity, String.Empty);
+            }
+            else
+            {
+                // Set the error if the city is not valid.
+                cityErrorProvider.SetError(this.TxtCity, "Invalid City Format!");
             }
         }
 
