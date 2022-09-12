@@ -27,6 +27,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
         private System.Windows.Forms.ErrorProvider salutationErrorProvider;
+        private System.Windows.Forms.ErrorProvider genderErrorProvider;
 
         public Dashboard(string us1)
         {
@@ -147,6 +148,17 @@ namespace semesterarbeit
             salutationErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.CmbSalutation.Validated += new System.EventHandler(this.CmbSalutation_Validated);
+
+            // ErrorProvider gender
+
+            genderErrorProvider = new System.Windows.Forms.ErrorProvider();
+            genderErrorProvider.SetIconAlignment(this.CmbGender, ErrorIconAlignment.MiddleRight);
+            genderErrorProvider.SetIconPadding(this.CmbGender, 2);
+            genderErrorProvider.BlinkRate = 0;
+            genderErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbGender.Validated += new System.EventHandler(this.CmbGender_Validated);
+
         }
 
 
@@ -374,11 +386,44 @@ namespace semesterarbeit
             }
         }
 
+        
+        private void CmbGender_Validated(object sender, EventArgs e)
+        {
+            if (CmbGender.SelectedItem == null)
+            {
+                genderErrorProvider.SetError(this.CmbGender, "Please select a Gender!"); 
+            }
+            else
+            {
+                genderErrorProvider.Clear();
+            }
+        }
         private bool CheckMandetoryFields ()
         {
             //Check if mandetory fields have some input
             bool check = true;
 
+            //Person Fields
+            if(CmbSalutation.SelectedText.Length < 1)
+            {
+                check = false;
+            }
+            if(TxtFirstname.Text.Length < 1)
+            {
+                check = false;
+            }
+            if(TxtLastname.Text.Length < 1)
+            {
+                check = false;
+            }
+            if(CmbGender.SelectedText.Length < 1)
+            {
+                check = false;
+            }
+            if(TxtEmail.Text.Length < 1)
+            {
+                check = false;
+            }
 
 
             if (RadEmployee.Checked)
