@@ -352,6 +352,29 @@ namespace semesterarbeit
             return validated;
         }
 
+        private bool CheckMandetoryFields ()
+        {
+            //Check if mandetory fields have some input
+            bool check = true;
+
+
+
+            if (RadEmployee.Checked)
+            {
+
+            }
+            if (RadTrainee.Checked)
+            {
+
+            }
+            if (RadCustomer.Checked)
+            {
+
+            }
+
+            return check;
+        }
+
         private void Dashboard_Load(object sender, EventArgs e)
         {
 
@@ -634,6 +657,7 @@ namespace semesterarbeit
             HideAllTrnee();
             HideAllCust();
             HideAllEmp();
+    
 
         }
         private void CmdSave_Click(object sender, EventArgs e)
