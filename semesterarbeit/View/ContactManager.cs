@@ -19,11 +19,10 @@ namespace semesterarbeit
         //Create Contact List for Listbox
         public Database Db = new Database();
 
-
-        private System.Windows.Forms.ErrorProvider emailErrorProvider;
-        private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
+        private System.Windows.Forms.ErrorProvider emailErrorProvider;
+        private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
 
         public Dashboard(string us1)
@@ -114,6 +113,7 @@ namespace semesterarbeit
             //Show dashboard data
             SetDashboardNumbers();
         }
+
 
 
         private void TxtFirstname_Validated(object sender, EventArgs e)
