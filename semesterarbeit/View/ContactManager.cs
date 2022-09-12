@@ -27,10 +27,6 @@ namespace semesterarbeit
 
         public Dashboard(string us1)
         {
-
-            
-
-
             InitializeComponent();
 
             //Set user variable
@@ -60,10 +56,7 @@ namespace semesterarbeit
             SetDashboardNumbers();
 
 
-
-
             // Create and set the ErrorProvider for each data entry control.
-
             // ErrorProvider firstname
 
             firstnameErrorProvider = new System.Windows.Forms.ErrorProvider();
@@ -120,6 +113,9 @@ namespace semesterarbeit
         }
 
 
+        /*---------------------------------------------------------------------
+        Validation
+        -----------------------------------------------------------------------*/
 
         private void TxtFirstname_Validated(object sender, EventArgs e)
         {
@@ -216,8 +212,14 @@ namespace semesterarbeit
             }
         }
 
+        private bool Validate_mandetory()
+        {
+            bool validated = false;
 
 
+
+            return validated;
+        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
