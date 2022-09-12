@@ -28,6 +28,40 @@ namespace semesterarbeit
         public Dashboard(string us1)
         {
 
+            
+
+
+            InitializeComponent();
+
+            //Set user variable
+            user = us1;
+
+            //Setting the Values in Combobox to the Enum Values
+            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+            CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
+
+            //Setting the Values in Combobox to the Enum Values
+            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
+            CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
+
+            //Import person objects on the start of the program
+            if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
+
+            //Show contact list in database
+            LsbOutput.DataSource = Db.contactList;
+
+            //Get the last ID
+            id = Db.ReturnLastID();
+
+            //Disable all
+            DisableAll();
+
+            //Show dashboard data
+            SetDashboardNumbers();
+
+
+
+
             // Create and set the ErrorProvider for each data entry control.
 
             // ErrorProvider firstname
@@ -83,35 +117,6 @@ namespace semesterarbeit
             roleErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtRole.Validated += new System.EventHandler(this.TxtRole_Validated);
-
-
-            InitializeComponent();
-
-            //Set user variable
-            user = us1;
-
-            //Setting the Values in Combobox to the Enum Values
-            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
-            CmbMgmtLevel.DataSource = Enum.GetValues(typeof(MgmLvl));
-
-            //Setting the Values in Combobox to the Enum Values
-            //source: https://stackoverflow.com/questions/906899/binding-an-enum-to-a-winforms-combo-box-and-then-setting-it
-            CmbCustomerType.DataSource = Enum.GetValues(typeof(CustType));
-
-            //Import person objects on the start of the program
-            if (Db.Deserialisation() == false) { MessageBox.Show("No existing Contacts!"); }
-
-            //Show contact list in database
-            LsbOutput.DataSource = Db.contactList;
-
-            //Get the last ID
-            id = Db.ReturnLastID();
-
-            //Disable all
-            DisableAll();
-
-            //Show dashboard data
-            SetDashboardNumbers();
         }
 
 
