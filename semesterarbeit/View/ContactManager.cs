@@ -279,6 +279,7 @@ namespace semesterarbeit
 
         private bool Validation()
         {
+            //validate each field with the error message
             bool validated = true;
 
             string error = firstnameErrorProvider.GetError(this.TxtFirstname);
@@ -766,6 +767,30 @@ namespace semesterarbeit
                         SetAttributesCust_optional(cust1);
 
                         CmdAddUser.Tag = "";
+
+                        //Change buttons
+                        CmdAddUser.Visible = true;
+                        CmdEditUser.Visible = true;
+                        CmdSave.Visible = false;
+                        CmdCancel.Visible = false;
+
+                        //Activate buttons, combo boxes, and list boxes
+                        ChkStatus.Enabled = true;
+                        CmdTakeNotes.Enabled = true;
+                        LsbOutput.Enabled = true;
+                        CmdAddUser.Enabled = true;
+                        CmdDeleteUser.Enabled = true;
+                        CmdEditUser.Enabled = true;
+                        CmdSearch.Enabled = true;
+
+                        //disable all fields
+                        DisableAll();
+
+                        //Update Dashboard Numbers
+                        SetDashboardNumbers();
+
+                        //Set Selected Index to 0 
+                        ShowStartScreen();
                     }
                     else
                     {
@@ -801,31 +826,30 @@ namespace semesterarbeit
                         CmdEditUser.Tag = "";
                     }
 
+                    //Change buttons
+                    CmdAddUser.Visible = true;
+                    CmdEditUser.Visible = true;
+                    CmdSave.Visible = false;
+                    CmdCancel.Visible = false;
+
+                    //Activate buttons, combo boxes, and list boxes
+                    ChkStatus.Enabled = true;
+                    CmdTakeNotes.Enabled = true;
+                    LsbOutput.Enabled = true;
+                    CmdAddUser.Enabled = true;
+                    CmdDeleteUser.Enabled = true;
+                    CmdEditUser.Enabled = true;
+                    CmdSearch.Enabled = true;
+
+                    //disable all fields
+                    DisableAll();
+
+                    //Update Dashboard Numbers
+                    SetDashboardNumbers();
+
+                    //Set Selected Index to 0 
+                    ShowStartScreen();
                 }
-
-                //Change buttons
-                CmdAddUser.Visible = true;
-                CmdEditUser.Visible = true;
-                CmdSave.Visible = false;
-                CmdCancel.Visible = false;
-
-                //Activate buttons, combo boxes, and list boxes
-                ChkStatus.Enabled = true;
-                CmdTakeNotes.Enabled = true;
-                LsbOutput.Enabled = true;
-                CmdAddUser.Enabled = true;
-                CmdDeleteUser.Enabled = true;
-                CmdEditUser.Enabled = true;
-                CmdSearch.Enabled = true;
-
-                //disable all fields
-                DisableAll();
-
-                //Update Dashboard Numbers
-                SetDashboardNumbers();
-
-                //Set Selected Index to 0 
-                ShowStartScreen();
             }
             else
             {
