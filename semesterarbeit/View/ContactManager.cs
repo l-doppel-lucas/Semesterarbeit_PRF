@@ -277,7 +277,7 @@ namespace semesterarbeit
             }
         }
 
-        private bool Validate()
+        private bool Validation()
         {
             bool validated = true;
 
@@ -637,7 +637,7 @@ namespace semesterarbeit
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            bool validated = Validate();
+            bool validated = Validation();
 
             if (validated)
             {
