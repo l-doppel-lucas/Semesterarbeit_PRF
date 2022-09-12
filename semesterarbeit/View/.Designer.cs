@@ -1193,7 +1193,7 @@
             // CmdAddUser
             // 
             this.CmdAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdAddUser.Location = new System.Drawing.Point(538, 28);
+            this.CmdAddUser.Location = new System.Drawing.Point(652, 28);
             this.CmdAddUser.Margin = new System.Windows.Forms.Padding(1);
             this.CmdAddUser.Name = "CmdAddUser";
             this.CmdAddUser.Size = new System.Drawing.Size(112, 42);

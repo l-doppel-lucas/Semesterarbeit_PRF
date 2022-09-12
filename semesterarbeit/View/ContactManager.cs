@@ -21,6 +21,8 @@ namespace semesterarbeit
 
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
+        private System.Windows.Forms.ErrorProvider streetErrorProvider;
+        private System.Windows.Forms.ErrorProvider cityErrorProvider;
         private System.Windows.Forms.ErrorProvider emailErrorProvider;
         private System.Windows.Forms.ErrorProvider zipcodeErrorProvider;
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
@@ -28,9 +30,6 @@ namespace semesterarbeit
 
         public Dashboard(string us1)
         {
-
-            
-
 
             InitializeComponent();
 
@@ -61,9 +60,8 @@ namespace semesterarbeit
             SetDashboardNumbers();
 
 
-
-
             // Create and set the ErrorProvider for each data entry control.
+
 
             // ErrorProvider firstname
 
@@ -86,6 +84,27 @@ namespace semesterarbeit
 
             this.TxtLastname.Validated += new System.EventHandler(this.TxtLastname_Validated);
 
+            // ErrorProvider street
+
+            streetErrorProvider = new System.Windows.Forms.ErrorProvider();
+            streetErrorProvider.SetIconAlignment(this.TxtStreet, ErrorIconAlignment.MiddleRight);
+            streetErrorProvider.SetIconPadding(this.TxtStreet, 2);
+            streetErrorProvider.BlinkRate = 0;
+            streetErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtStreet.Validated += new System.EventHandler(this.TxtStreet_Validated);
+
+
+            // ErrorProvider city
+
+            cityErrorProvider = new System.Windows.Forms.ErrorProvider();
+            cityErrorProvider.SetIconAlignment(this.TxtCity, ErrorIconAlignment.MiddleRight);
+            cityErrorProvider.SetIconPadding(this.TxtCity, 2);
+            cityErrorProvider.BlinkRate = 0;
+            cityErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtCity.Validated += new System.EventHandler(this.TxtCity_Validated);
+
             // ErrorProvider email
 
             emailErrorProvider = new System.Windows.Forms.ErrorProvider();
@@ -106,7 +125,6 @@ namespace semesterarbeit
             zipcodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtZipcode.Validated += new System.EventHandler(this.TxtZipcode_Validated);
-
 
 
             // ErrorProvider role
@@ -132,6 +150,9 @@ namespace semesterarbeit
         }
 
 
+        /*---------------------------------------------------------------------
+        Validation
+        -----------------------------------------------------------------------*/
 
         private void TxtFirstname_Validated(object sender, EventArgs e)
         {
@@ -165,10 +186,49 @@ namespace semesterarbeit
             }
             else
             {
-                // Set the error if the name is not valid.
+                // Set the error if the lastname is not valid.
                 lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Lastname Format!");
             }
         }
+
+
+        private void TxtStreet_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"^(?<name>\w[\s\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
+            var street = this.TxtStreet.Text;
+            Match match = regex.Match(street);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                streetErrorProvider.SetError(this.TxtStreet, String.Empty);
+            }
+            else
+            {
+                // Set the error if the street is not valid.
+                streetErrorProvider.SetError(this.TxtStreet, "Invalid Street Format!");
+            }
+        }
+
+
+        private void TxtCity_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex(@"^\s*[a-zA-Z]{1}[0-9a-zA-Z][0-9a-zA-Z '-.=#/]*$");
+            var city = this.TxtCity.Text;
+            Match match = regex.Match(city);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                cityErrorProvider.SetError(this.TxtCity, String.Empty);
+            }
+            else
+            {
+                // Set the error if the city is not valid.
+                cityErrorProvider.SetError(this.TxtCity, "Invalid City Format!");
+            }
+        }
+
 
         private void TxtEmail_Validated(object sender, EventArgs e)
         {
@@ -204,7 +264,7 @@ namespace semesterarbeit
             }
             else
             {
-                // Set the error if the name is not valid.
+                // Set the error if the zip is not valid.
                 zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!");
             }
 
@@ -219,15 +279,85 @@ namespace semesterarbeit
             if (match.Success)
             {
                 // Clear the error, if any, in the error provider.
-                lastnameErrorProvider.SetError(this.TxtRole, String.Empty);
+                roleErrorProvider.SetError(this.TxtRole, String.Empty);
             }
             else
             {
-                // Set the error if the name is not valid.
-                lastnameErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
+                // Set the error if the role is not valid.
+                roleErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
             }
         }
 
+        private bool Validation()
+        {
+            //validate each field with the error message
+            bool validated = true;
+
+            string error = firstnameErrorProvider.GetError(this.TxtFirstname);
+
+            if(error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = lastnameErrorProvider.GetError(this.TxtLastname);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = cityErrorProvider.GetError(this.TxtCity);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = streetErrorProvider.GetError(this.TxtStreet);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = emailErrorProvider.GetError(this.TxtEmail);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = zipcodeErrorProvider.GetError(this.TxtZipcode);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            if (RadEmployee.Checked)
+            {
+                error = roleErrorProvider.GetError(this.TxtRole);
+
+                if (error != String.Empty)
+                {
+                    validated = false;
+                }
+            }
+            if (RadTrainee.Checked)
+            {
+                error = roleErrorProvider.GetError(this.TxtRole);
+
+                if (error != String.Empty)
+                {
+                    validated = false;
+                }
+
+            }
+            if (RadCustomer.Checked)
+            {
+
+            }
 
         private void CmbSalutation_Validated(object sender, EventArgs e)
         {
@@ -248,6 +378,8 @@ namespace semesterarbeit
 
 
 
+            return validated;
+        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
@@ -535,191 +667,223 @@ namespace semesterarbeit
         }
         private void CmdSave_Click(object sender, EventArgs e)
         {
-            if (CmdAddUser.Tag.ToString() == "Clicked")
+            bool validated = Validation();
+
+            if (validated)
             {
-
-                if (RadEmployee.Checked)
+                if (CmdAddUser.Tag.ToString() == "Clicked")
                 {
-                    //Increase the value of the variable id
-                    id++;
 
-
-                    Employee empl1 = new Employee
+                    if (RadEmployee.Checked)
                     {
-                        Disabled = ChkStatus.Checked, // User enabled
-                        Id = id,
-                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                        Firstname = TxtFirstname.Text,
-                        Lastname = TxtLastname.Text,
-                        Birthdate = DtpBirthdate.Value, //Birthdate
-                        CreationDate = DateTime.Now, //Creation date
-                        Gender = Convert.ToString(CmbGender.SelectedItem),
-                        Mail = TxtEmail.Text,
-                        Street = TxtStreet.Text,
-                        City = TxtCity.Text,
-                        Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                        EmplNr = id, //EmplNumber
-                        Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                        Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
-                        Entrydate = DtpStartDate.Value, //EntryDate
-                        Exitdate = DtpLeaveDate.Value, //Exitdate
-                        Role = TxtRole.Text
-                    };
+                        //Increase the value of the variable id
+                        id++;
 
-                    //Add Employee to contact list (database)
-                    Db.AddPerson(empl1);
 
-                    //Call method to save the new object on the harddisk
-                    Db.Serialisation();
+                        Employee empl1 = new Employee
+                        {
+                            Disabled = ChkStatus.Checked, // User enabled
+                            Id = id,
+                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                            Firstname = TxtFirstname.Text,
+                            Lastname = TxtLastname.Text,
+                            Birthdate = DtpBirthdate.Value, //Birthdate
+                            CreationDate = DateTime.Now, //Creation date
+                            Gender = Convert.ToString(CmbGender.SelectedItem),
+                            Mail = TxtEmail.Text,
+                            Street = TxtStreet.Text,
+                            City = TxtCity.Text,
+                            Zipcode = TxtZipcode.Text,
+                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                            EmplNr = id, //EmplNumber
+                            Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                            Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                            Entrydate = DtpStartDate.Value, //EntryDate
+                            Exitdate = DtpLeaveDate.Value, //Exitdate
+                            Role = TxtRole.Text
+                        };
 
+                        //Add Employee to contact list (database)
+                        Db.AddPerson(empl1);
+
+                        //Call method to save the new object on the harddisk
+                        Db.Serialisation();
+
+                        SetDashboardNumbers();
+
+                        //Set optional fields
+                        SetAttributesEmpl_optional(empl1);
+
+                        CmdAddUser.Tag = "";
+                    }
+                    else if (RadTrainee.Checked)
+                    {
+                        //Increase the value of the variable id
+                        id++;
+
+                        Trainee train1 = new Trainee
+                        {
+                            Disabled = ChkStatus.Checked, // User enabled
+                            Id = id,
+                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                            Firstname = TxtFirstname.Text,
+                            Lastname = TxtLastname.Text,
+                            Birthdate = DtpBirthdate.Value, //Birthdate
+                            CreationDate = DateTime.Now, //Creation date
+                            Gender = Convert.ToString(CmbGender.SelectedItem),
+                            Mail = TxtEmail.Text,
+                            Street = TxtStreet.Text,
+                            City = TxtCity.Text,
+                            Zipcode = TxtZipcode.Text,
+                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                            EmplNr = id, //EmplNumber
+                            Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                            Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                            Entrydate = DtpStartDate.Value, //EntryDate
+                            Exitdate = DtpLeaveDate.Value, //ExitDate
+                            Role = TxtRole.Text,
+                            Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
+                            Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
+                        };
+
+                        //Add Customer to contact list (database)
+                        Db.AddPerson(train1);
+
+                        //Call method to save the new object on the harddisk
+                        Db.Serialisation();
+
+                        SetDashboardNumbers();
+
+                        //Set optional fields
+                        SetAttributesTrainee_optional(train1);
+
+                        CmdAddUser.Tag = "";
+                    }
+                    else if (RadCustomer.Checked)
+                    {
+                        //Increase the value of the variable id
+                        id++;
+
+                        Customer cust1 = new Customer
+                        {
+                            Disabled = ChkStatus.Checked, // User enabled
+                            Id = id,
+                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                            Firstname = TxtFirstname.Text,
+                            Lastname = TxtLastname.Text,
+                            Birthdate = DtpBirthdate.Value, //Birthdate
+                            CreationDate = DateTime.Now, //Creation date
+                            Gender = Convert.ToString(CmbGender.SelectedItem),
+                            Mail = TxtEmail.Text,
+                            Street = TxtStreet.Text,
+                            City = TxtCity.Text,
+                            Zipcode = TxtZipcode.Text,
+                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                            Companyname = TxtCompanyName.Text,
+                            Type = (CustType)CmbCustomerType.SelectedValue,
+                            Companycontact = TxtContacPerson.Text
+                        };
+
+                        //Add Customer to contact list (database)
+                        Db.AddPerson(cust1);
+
+                        //Call method to save the new object on the harddisk
+                        Db.Serialisation();
+
+                        SetDashboardNumbers();
+
+                        //Set optional fields
+                        SetAttributesCust_optional(cust1);
+
+                        CmdAddUser.Tag = "";
+
+                        //Change buttons
+                        CmdAddUser.Visible = true;
+                        CmdEditUser.Visible = true;
+                        CmdSave.Visible = false;
+                        CmdCancel.Visible = false;
+
+                        //Activate buttons, combo boxes, and list boxes
+                        ChkStatus.Enabled = true;
+                        CmdTakeNotes.Enabled = true;
+                        LsbOutput.Enabled = true;
+                        CmdAddUser.Enabled = true;
+                        CmdDeleteUser.Enabled = true;
+                        CmdEditUser.Enabled = true;
+                        CmdSearch.Enabled = true;
+
+                        //disable all fields
+                        DisableAll();
+
+                        //Update Dashboard Numbers
+                        SetDashboardNumbers();
+
+                        //Set Selected Index to 0 
+                        ShowStartScreen();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select contact type!");
+                    }
+                }
+                else if (CmdEditUser.Tag.ToString() == "Clicked")
+                {
+                    if (RadCustomer.Checked)
+                    {
+                        SetAttributesCust_mandatory(LsbOutput.SelectedItem as Customer);
+                        SetAttributesCust_optional(LsbOutput.SelectedItem as Customer);
+
+                        Db.Serialisation();
+                        SetDashboardNumbers();
+                        CmdEditUser.Tag = "";
+                    }
+                    else if (RadEmployee.Checked)
+                    {
+                        SetAttributesEmp_mandatory(LsbOutput.SelectedItem as Employee);
+                        SetAttributesEmpl_optional(LsbOutput.SelectedItem as Employee);
+
+                        Db.Serialisation();
+                        CmdEditUser.Tag = "";
+                    }
+                    else if (RadTrainee.Checked)
+                    {
+                        SetAttributesTrainee_mandatory(LsbOutput.SelectedItem as Trainee);
+                        SetAttributesTrainee_optional(LsbOutput.SelectedItem as Trainee);
+
+                        Db.Serialisation();
+                        SetDashboardNumbers();
+                        CmdEditUser.Tag = "";
+                    }
+
+                    //Change buttons
+                    CmdAddUser.Visible = true;
+                    CmdEditUser.Visible = true;
+                    CmdSave.Visible = false;
+                    CmdCancel.Visible = false;
+
+                    //Activate buttons, combo boxes, and list boxes
+                    ChkStatus.Enabled = true;
+                    CmdTakeNotes.Enabled = true;
+                    LsbOutput.Enabled = true;
+                    CmdAddUser.Enabled = true;
+                    CmdDeleteUser.Enabled = true;
+                    CmdEditUser.Enabled = true;
+                    CmdSearch.Enabled = true;
+
+                    //disable all fields
+                    DisableAll();
+
+                    //Update Dashboard Numbers
                     SetDashboardNumbers();
 
-                    //Set optional fields
-                    SetAttributesEmpl_optional(empl1);
-
-                    CmdAddUser.Tag = "";
-                }
-                else if (RadTrainee.Checked)
-                {
-                    //Increase the value of the variable id
-                    id++;
-
-                    Trainee train1 = new Trainee
-                    {
-                        Disabled = ChkStatus.Checked, // User enabled
-                        Id = id,
-                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                        Firstname = TxtFirstname.Text,
-                        Lastname = TxtLastname.Text,
-                        Birthdate = DtpBirthdate.Value, //Birthdate
-                        CreationDate = DateTime.Now, //Creation date
-                        Gender = Convert.ToString(CmbGender.SelectedItem),
-                        Mail = TxtEmail.Text,
-                        Street = TxtStreet.Text,
-                        City = TxtCity.Text,
-                        Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                        EmplNr = id, //EmplNumber
-                        Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                        Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
-                        Entrydate = DtpStartDate.Value, //EntryDate
-                        Exitdate = DtpLeaveDate.Value, //ExitDate
-                        Role = TxtRole.Text,
-                        Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
-                        Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
-                    };
-
-                    //Add Customer to contact list (database)
-                    Db.AddPerson(train1);
-
-                    //Call method to save the new object on the harddisk
-                    Db.Serialisation();
-
-                    SetDashboardNumbers();
-
-                    //Set optional fields
-                    SetAttributesTrainee_optional(train1);
-
-                    CmdAddUser.Tag = "";
-                }
-                else if (RadCustomer.Checked)
-                {
-                    //Increase the value of the variable id
-                    id++;
-
-                    Customer cust1 = new Customer
-                    {
-                        Disabled = ChkStatus.Checked, // User enabled
-                        Id = id,
-                        Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                        Firstname = TxtFirstname.Text,
-                        Lastname = TxtLastname.Text,
-                        Birthdate = DtpBirthdate.Value, //Birthdate
-                        CreationDate = DateTime.Now, //Creation date
-                        Gender = Convert.ToString(CmbGender.SelectedItem),
-                        Mail = TxtEmail.Text,
-                        Street = TxtStreet.Text,
-                        City = TxtCity.Text,
-                        Zipcode = TxtZipcode.Text,
-                        ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                        Companyname = TxtCompanyName.Text,
-                        Type = (CustType)CmbCustomerType.SelectedValue,
-                        Companycontact = TxtContacPerson.Text
-                    };
-
-                    //Add Customer to contact list (database)
-                    Db.AddPerson(cust1);
-
-                    //Call method to save the new object on the harddisk
-                    Db.Serialisation();
-
-                    SetDashboardNumbers();
-
-                    //Set optional fields
-                    SetAttributesCust_optional(cust1);
-
-                    CmdAddUser.Tag = "";
-                }
-                else
-                {
-                    MessageBox.Show("Please select contact type!");
+                    //Set Selected Index to 0 
+                    ShowStartScreen();
                 }
             }
-            else if (CmdEditUser.Tag.ToString() == "Clicked")
+            else
             {
-                if (RadCustomer.Checked)
-                {
-                    SetAttributesCust_mandatory(LsbOutput.SelectedItem as Customer);
-                    SetAttributesCust_optional(LsbOutput.SelectedItem as Customer);
-
-                    Db.Serialisation();
-                    SetDashboardNumbers();
-                    CmdEditUser.Tag = "";
-                }
-                else if (RadEmployee.Checked)
-                {
-                    SetAttributesEmp_mandatory(LsbOutput.SelectedItem as Employee);
-                    SetAttributesEmpl_optional(LsbOutput.SelectedItem as Employee);
-
-                    Db.Serialisation();
-                    CmdEditUser.Tag = "";
-                }
-                else if (RadTrainee.Checked)
-                {
-                    SetAttributesTrainee_mandatory(LsbOutput.SelectedItem as Trainee);
-                    SetAttributesTrainee_optional(LsbOutput.SelectedItem as Trainee);
-
-                    Db.Serialisation();
-                    SetDashboardNumbers();
-                    CmdEditUser.Tag = "";
-                }
-
+                MessageBox.Show("Please check your Data!");
             }
-
-            //Change buttons
-            CmdAddUser.Visible = true;
-            CmdEditUser.Visible = true;
-            CmdSave.Visible = false;
-            CmdCancel.Visible = false;
-
-            //Activate buttons, combo boxes, and list boxes
-            ChkStatus.Enabled = true;
-            CmdTakeNotes.Enabled = true;
-            LsbOutput.Enabled = true;
-            CmdAddUser.Enabled = true;
-            CmdDeleteUser.Enabled = true;
-            CmdEditUser.Enabled = true;
-            CmdSearch.Enabled = true;
-
-            //disable all fields
-            DisableAll();
-
-            //Update Dashboard Numbers
-            SetDashboardNumbers();
-
-            //Set Selected Index to 0 
-            ShowStartScreen();
 
         }
 
@@ -858,7 +1022,7 @@ namespace semesterarbeit
             {
                 //Cast into customer to run Take Notes function
                 Customer cust = LsbOutput.SelectedItem as Customer;
-                cust.TakeNotes(TxtNotes.Text + " - " + user);
+                cust.TakeNotes(user + " - " + TxtNotes.Text);
 
                 //Display Changes in Notes History
                 TxtNotesHistory.Text = cust.NotesHistory;
@@ -1025,20 +1189,7 @@ namespace semesterarbeit
             LblAppCount.Text = Convert.ToString(Db.GetNumberofTrnee());
         }
 
-
-        private void CheckMandatoryFields()
-        {
-            
-        }
-
-        private void CheckOptionalFields()
-        {
-
-        }
-
-
-
-        /*---------------------------------------------------------------------
+         /*---------------------------------------------------------------------
          * Radio Butoons
          * --------------------------------------------------------------------*/
         private void RadEmployee_CheckedChanged(object sender, EventArgs e)
