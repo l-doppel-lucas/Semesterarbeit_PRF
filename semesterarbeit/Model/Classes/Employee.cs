@@ -62,11 +62,6 @@ namespace semesterarbeit
             return base.ToString() + ", " + Departement + ", " + Entrydate + ", " + Exitdate + ", " + Workpensum + ", " + Role + ", " + Lvl;
         }
 
-        public override string PrintAll()
-        {
-            return base.PrintAll() + ", " + Departement + ", " + Entrydate + ", " + Exitdate + ", " + Workpensum + ", " + Role + ", " + Lvl;
-        }
-
         public override string GetClassName()
         {
             return "Employee";
