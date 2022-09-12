@@ -59,8 +59,6 @@ namespace semesterarbeit
             SetDashboardNumbers();
 
 
-
-
             // Create and set the ErrorProvider for each data entry control.
 
 
@@ -141,6 +139,9 @@ namespace semesterarbeit
         }
 
 
+        /*---------------------------------------------------------------------
+        Validation
+        -----------------------------------------------------------------------*/
 
         private void TxtFirstname_Validated(object sender, EventArgs e)
         {
@@ -276,8 +277,14 @@ namespace semesterarbeit
             }
         }
 
+        private bool Validate_mandetory()
+        {
+            bool validated = false;
 
 
+
+            return validated;
+        }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
