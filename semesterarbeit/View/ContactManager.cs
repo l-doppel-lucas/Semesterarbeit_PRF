@@ -635,7 +635,7 @@ namespace semesterarbeit
         private void TxtAHVNumber_Validated(object sender, EventArgs e)
         {
 
-            Regex regex = new Regex(@" ^ *[0 - 9\.] + $");
+            Regex regex = new Regex(@"^756\.?[.]\d{4}[.]\d{4}[.]\d{2}$");
             var ahvnumber = this.TxtAHVNumber.Text;
             Match match = regex.Match(ahvnumber);
 
@@ -647,7 +647,7 @@ namespace semesterarbeit
             else
             {
                 // Set the error if the ahvnumber is not valid.
-                ahvnumberErrorProvider.SetError(this.TxtAHVNumber, "Invalid AHV Number Format!");
+                ahvnumberErrorProvider.SetError(this.TxtAHVNumber, "Invalid AHV Number Format (756.****.****.**!");
             }
 
         }
