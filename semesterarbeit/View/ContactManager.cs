@@ -33,6 +33,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider departmentErrorProvider;
         private System.Windows.Forms.ErrorProvider companynameErrorProvider;
         private System.Windows.Forms.ErrorProvider workpensumErrorProvider;
+        private System.Windows.Forms.ErrorProvider apprentyearsErrorProvider;
 
 
         // Create ErrorProvider - non mandetory fields
@@ -45,6 +46,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider nationalityErrorProvider;
         private System.Windows.Forms.ErrorProvider ahvnumberErrorProvider;
         private System.Windows.Forms.ErrorProvider contactpersonErrorProvider;
+        private System.Windows.Forms.ErrorProvider currentapprentyearErrorProvider;
 
 
         public Dashboard(string us1)
@@ -308,6 +310,27 @@ namespace semesterarbeit
             contactpersonErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.TxtContactPerson.Validated += new System.EventHandler(this.TxtContactPerson_Validated);
+
+            // ErrorProvider apprentyears
+
+            apprentyearsErrorProvider = new System.Windows.Forms.ErrorProvider();
+            apprentyearsErrorProvider.SetIconAlignment(this.CmbApprentYears, ErrorIconAlignment.MiddleRight);
+            apprentyearsErrorProvider.SetIconPadding(this.CmbApprentYears, 2);
+            apprentyearsErrorProvider.BlinkRate = 0;
+            apprentyearsErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbApprentYears.Validated += new System.EventHandler(this.CmbApprentYears_Validated);
+
+
+            // ErrorProvider currentapprentyear
+
+            currentapprentyearErrorProvider = new System.Windows.Forms.ErrorProvider();
+            currentapprentyearErrorProvider.SetIconAlignment(this.CmbCurrentApprentYear, ErrorIconAlignment.MiddleRight);
+            currentapprentyearErrorProvider.SetIconPadding(this.CmbCurrentApprentYear, 2);
+            currentapprentyearErrorProvider.BlinkRate = 0;
+            currentapprentyearErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbCurrentApprentYear.Validated += new System.EventHandler(this.CmbCurrentApprentYear_Validated);
 
         }
 
@@ -651,15 +674,6 @@ namespace semesterarbeit
 
 
 
-
-
-
-
-
-
-
-
-
         private bool Validation()
         {
             //validate each field with the error message
@@ -785,6 +799,36 @@ namespace semesterarbeit
             else
             {
                 workpensumErrorProvider.Clear();
+            }
+        }
+
+
+        private void CmbApprentYears_Validated(object sender, EventArgs e)
+        {
+
+
+            if (CmbApprentYears.SelectedItem == null)
+            {
+                apprentyearsErrorProvider.SetError(this.CmbApprentYears, "Please select a Year!");
+            }
+            else
+            {
+                apprentyearsErrorProvider.Clear();
+            }
+        }
+
+
+        private void CmbCurrentApprentYear_Validated(object sender, EventArgs e)
+        {
+
+
+            if (CmbCurrentApprentYear.SelectedItem == null)
+            {
+                currentapprentyearErrorProvider.SetError(this.CmbCurrentApprentYear, "Please select a Year!");
+            }
+            else
+            {
+                currentapprentyearErrorProvider.Clear();
             }
         }
 
