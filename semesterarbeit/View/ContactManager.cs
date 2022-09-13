@@ -20,7 +20,7 @@ namespace semesterarbeit
         public Database Db = new Database();
 
         
-        // Create ErrorProvider - mandatory fields
+        // Create ErrorProvider - mandetory fields
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
         private System.Windows.Forms.ErrorProvider streetErrorProvider;
@@ -35,7 +35,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider workpensumErrorProvider;
 
 
-        // Create ErrorProvider - non mandatory fields
+        // Create ErrorProvider - non mandetory fields
         private System.Windows.Forms.ErrorProvider titleErrorProvider;
         private System.Windows.Forms.ErrorProvider birthplaceErrorProvider;
         private System.Windows.Forms.ErrorProvider businessphoneErrorProvider;
@@ -671,6 +671,7 @@ namespace semesterarbeit
             {
                 validated = false;
             }
+
 
             error = lastnameErrorProvider.GetError(this.TxtLastname);
 
