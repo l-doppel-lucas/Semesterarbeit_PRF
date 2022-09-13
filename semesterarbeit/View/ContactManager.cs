@@ -19,6 +19,8 @@ namespace semesterarbeit
         //Create Contact List for Listbox
         public Database Db = new Database();
 
+        
+        // Create ErrorProvider
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
         private System.Windows.Forms.ErrorProvider streetErrorProvider;
@@ -28,7 +30,9 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
         private System.Windows.Forms.ErrorProvider salutationErrorProvider;
         private System.Windows.Forms.ErrorProvider genderErrorProvider;
+        private System.Windows.Forms.ErrorProvider departmentErrorProvider;
         private System.Windows.Forms.ErrorProvider companynameErrorProvider;
+        private System.Windows.Forms.ErrorProvider workpensumErrorProvider;
 
         public Dashboard(string us1)
         {
@@ -159,6 +163,28 @@ namespace semesterarbeit
             genderErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
 
             this.CmbGender.Validated += new System.EventHandler(this.CmbGender_Validated);
+
+
+            // ErrorProvider workpensum
+
+            workpensumErrorProvider = new System.Windows.Forms.ErrorProvider();
+            workpensumErrorProvider.SetIconAlignment(this.CmbWorkPensum, ErrorIconAlignment.MiddleRight);
+            workpensumErrorProvider.SetIconPadding(this.CmbWorkPensum, 2);
+            workpensumErrorProvider.BlinkRate = 0;
+            workpensumErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbWorkPensum.Validated += new System.EventHandler(this.CmbWorkPensum_Validated);
+
+
+            // ErrorProvider department
+
+            departmentErrorProvider = new System.Windows.Forms.ErrorProvider();
+            departmentErrorProvider.SetIconAlignment(this.CmbDepartment, ErrorIconAlignment.MiddleRight);
+            departmentErrorProvider.SetIconPadding(this.CmbDepartment, 2);
+            departmentErrorProvider.BlinkRate = 0;
+            departmentErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbDepartment.Validated += new System.EventHandler(this.CmbDepartment_Validated);
 
 
             // ErrorProvider companyname
@@ -428,6 +454,34 @@ namespace semesterarbeit
                 genderErrorProvider.Clear();
             }
         }
+
+
+
+        private void CmbDepartment_Validated(object sender, EventArgs e)
+        {
+            if (CmbDepartment.SelectedItem == null)
+            {
+                departmentErrorProvider.SetError(this.CmbDepartment, "Please select a Department!");
+            }
+            else
+            {
+                departmentErrorProvider.Clear();
+            }
+        }
+
+        private void CmbWorkPensum_Validated(object sender, EventArgs e)
+        {
+            if (CmbWorkPensum.SelectedItem == null)
+            {
+                workpensumErrorProvider.SetError(this.CmbWorkPensum, "Please select a Work Pensum!");
+            }
+            else
+            {
+                workpensumErrorProvider.Clear();
+            }
+        }
+
+
         private bool CheckMandetoryFields ()
         {
             //Check if mandetory fields have some input
