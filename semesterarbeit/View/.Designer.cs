@@ -91,7 +91,7 @@
             this.TxtZipcode = new System.Windows.Forms.TextBox();
             this.TxtLeaveDate = new System.Windows.Forms.TextBox();
             this.LblDepartment = new System.Windows.Forms.Label();
-            this.TxtContacPerson = new System.Windows.Forms.TextBox();
+            this.TxtContactPerson = new System.Windows.Forms.TextBox();
             this.TxtBusinessFax = new System.Windows.Forms.TextBox();
             this.LblContactPerson = new System.Windows.Forms.Label();
             this.LblNationality = new System.Windows.Forms.Label();
@@ -318,7 +318,7 @@
             this.tabPage1.Controls.Add(this.TxtZipcode);
             this.tabPage1.Controls.Add(this.TxtLeaveDate);
             this.tabPage1.Controls.Add(this.LblDepartment);
-            this.tabPage1.Controls.Add(this.TxtContacPerson);
+            this.tabPage1.Controls.Add(this.TxtContactPerson);
             this.tabPage1.Controls.Add(this.TxtBusinessFax);
             this.tabPage1.Controls.Add(this.LblContactPerson);
             this.tabPage1.Controls.Add(this.LblNationality);
@@ -928,14 +928,14 @@
             this.LblDepartment.TabIndex = 141;
             this.LblDepartment.Text = "Department*";
             // 
-            // TxtContacPerson
+            // TxtContactPerson
             // 
-            this.TxtContacPerson.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtContacPerson.Location = new System.Drawing.Point(1368, 287);
-            this.TxtContacPerson.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtContacPerson.Name = "TxtContacPerson";
-            this.TxtContacPerson.Size = new System.Drawing.Size(274, 31);
-            this.TxtContacPerson.TabIndex = 138;
+            this.TxtContactPerson.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtContactPerson.Location = new System.Drawing.Point(1368, 287);
+            this.TxtContactPerson.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtContactPerson.Name = "TxtContactPerson";
+            this.TxtContactPerson.Size = new System.Drawing.Size(274, 31);
+            this.TxtContactPerson.TabIndex = 138;
             // 
             // TxtBusinessFax
             // 
@@ -1451,7 +1451,7 @@
         private System.Windows.Forms.TextBox TxtZipcode;
         private System.Windows.Forms.TextBox TxtLeaveDate;
         private System.Windows.Forms.Label LblDepartment;
-        private System.Windows.Forms.TextBox TxtContacPerson;
+        private System.Windows.Forms.TextBox TxtContactPerson;
         private System.Windows.Forms.TextBox TxtBusinessFax;
         private System.Windows.Forms.Label LblContactPerson;
         private System.Windows.Forms.Label LblNationality;

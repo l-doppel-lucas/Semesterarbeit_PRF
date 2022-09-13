@@ -20,7 +20,7 @@ namespace semesterarbeit
         public Database Db = new Database();
 
         
-        // Create ErrorProvider
+        // Create ErrorProvider - mandatory fields
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
         private System.Windows.Forms.ErrorProvider streetErrorProvider;
@@ -33,6 +33,19 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider departmentErrorProvider;
         private System.Windows.Forms.ErrorProvider companynameErrorProvider;
         private System.Windows.Forms.ErrorProvider workpensumErrorProvider;
+
+
+        // Create ErrorProvider - non mandatory fields
+        private System.Windows.Forms.ErrorProvider titleErrorProvider;
+        private System.Windows.Forms.ErrorProvider birthplaceErrorProvider;
+        private System.Windows.Forms.ErrorProvider businessphoneErrorProvider;
+        private System.Windows.Forms.ErrorProvider businessfaxErrorProvider;
+        private System.Windows.Forms.ErrorProvider mobilenumberErrorProvider;
+        private System.Windows.Forms.ErrorProvider privatephoneErrorProvider;
+        private System.Windows.Forms.ErrorProvider nationalityErrorProvider;
+        private System.Windows.Forms.ErrorProvider ahvnumberErrorProvider;
+        private System.Windows.Forms.ErrorProvider contactpersonErrorProvider;
+
 
         public Dashboard(string us1)
         {
@@ -197,6 +210,105 @@ namespace semesterarbeit
 
             this.TxtCompanyName.Validated += new System.EventHandler(this.TxtCompanyName_Validated);
 
+
+            // ErrorProvider title
+
+            titleErrorProvider = new System.Windows.Forms.ErrorProvider();
+            titleErrorProvider.SetIconAlignment(this.TxtTitle, ErrorIconAlignment.MiddleRight);
+            titleErrorProvider.SetIconPadding(this.TxtTitle, 2);
+            titleErrorProvider.BlinkRate = 0;
+            titleErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtTitle.Validated += new System.EventHandler(this.TxtTitle_Validated);
+
+
+            // ErrorProvider birthplace
+
+            birthplaceErrorProvider = new System.Windows.Forms.ErrorProvider();
+            birthplaceErrorProvider.SetIconAlignment(this.TxtBirthplace, ErrorIconAlignment.MiddleRight);
+            birthplaceErrorProvider.SetIconPadding(this.TxtBirthplace, 2);
+            birthplaceErrorProvider.BlinkRate = 0;
+            birthplaceErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtBirthplace.Validated += new System.EventHandler(this.TxtBirthplace_Validated);
+
+
+            // ErrorProvider businessphone
+
+            businessphoneErrorProvider = new System.Windows.Forms.ErrorProvider();
+            businessphoneErrorProvider.SetIconAlignment(this.TxtBusinessPhone, ErrorIconAlignment.MiddleRight);
+            businessphoneErrorProvider.SetIconPadding(this.TxtBusinessPhone, 2);
+            businessphoneErrorProvider.BlinkRate = 0;
+            businessphoneErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtBusinessPhone.Validated += new System.EventHandler(this.TxtBusinessPhone_Validated);
+
+
+            // ErrorProvider businessfax
+
+            businessfaxErrorProvider = new System.Windows.Forms.ErrorProvider();
+            businessfaxErrorProvider.SetIconAlignment(this.TxtBusinessFax, ErrorIconAlignment.MiddleRight);
+            businessfaxErrorProvider.SetIconPadding(this.TxtBusinessFax, 2);
+            businessfaxErrorProvider.BlinkRate = 0;
+            businessfaxErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtBusinessFax.Validated += new System.EventHandler(this.TxtBusinessFax_Validated);
+
+
+            // ErrorProvider mobilenumber
+
+            mobilenumberErrorProvider = new System.Windows.Forms.ErrorProvider();
+            mobilenumberErrorProvider.SetIconAlignment(this.TxtMobileNumber, ErrorIconAlignment.MiddleRight);
+            mobilenumberErrorProvider.SetIconPadding(this.TxtMobileNumber, 2);
+            mobilenumberErrorProvider.BlinkRate = 0;
+            mobilenumberErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtMobileNumber.Validated += new System.EventHandler(this.TxtMobileNumber_Validated);
+
+
+            // ErrorProvider privatephone
+
+            privatephoneErrorProvider = new System.Windows.Forms.ErrorProvider();
+            privatephoneErrorProvider.SetIconAlignment(this.TxtPrivatePhone, ErrorIconAlignment.MiddleRight);
+            privatephoneErrorProvider.SetIconPadding(this.TxtPrivatePhone, 2);
+            privatephoneErrorProvider.BlinkRate = 0;
+            privatephoneErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtPrivatePhone.Validated += new System.EventHandler(this.TxtPrivatePhone_Validated);
+
+
+            // ErrorProvider nationality
+
+            nationalityErrorProvider = new System.Windows.Forms.ErrorProvider();
+            nationalityErrorProvider.SetIconAlignment(this.TxtNationality, ErrorIconAlignment.MiddleRight);
+            nationalityErrorProvider.SetIconPadding(this.TxtNationality, 2);
+            nationalityErrorProvider.BlinkRate = 0;
+            nationalityErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtNationality.Validated += new System.EventHandler(this.TxtNationality_Validated);
+
+
+            // ErrorProvider ahvnumber
+
+            ahvnumberErrorProvider = new System.Windows.Forms.ErrorProvider();
+            ahvnumberErrorProvider.SetIconAlignment(this.TxtAHVNumber, ErrorIconAlignment.MiddleRight);
+            ahvnumberErrorProvider.SetIconPadding(this.TxtAHVNumber, 2);
+            ahvnumberErrorProvider.BlinkRate = 0;
+            ahvnumberErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtAHVNumber.Validated += new System.EventHandler(this.TxtAHVNumber_Validated);
+
+
+            // ErrorProvider contactperson
+
+            contactpersonErrorProvider = new System.Windows.Forms.ErrorProvider();
+            contactpersonErrorProvider.SetIconAlignment(this.TxtContactPerson, ErrorIconAlignment.MiddleRight);
+            contactpersonErrorProvider.SetIconPadding(this.TxtContactPerson, 2);
+            contactpersonErrorProvider.BlinkRate = 0;
+            contactpersonErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtContactPerson.Validated += new System.EventHandler(this.TxtContactPerson_Validated);
+
         }
 
 
@@ -356,6 +468,198 @@ namespace semesterarbeit
             }
         }
 
+
+        private void TxtTitle_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var title = this.TxtTitle.Text;
+            Match match = regex.Match(title);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                titleErrorProvider.SetError(this.TxtTitle, String.Empty);
+            }
+            else
+            {
+                // Set the error if the title is not valid.
+                titleErrorProvider.SetError(this.TxtTitle, "Invalid Title Format!");
+            }
+        }
+
+
+        private void TxtBirthplace_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var birthplace = this.TxtBirthplace.Text;
+            Match match = regex.Match(birthplace);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                birthplaceErrorProvider.SetError(this.TxtBirthplace, String.Empty);
+            }
+            else
+            {
+                // Set the error if the birthplace is not valid.
+                birthplaceErrorProvider.SetError(this.TxtBirthplace, "Invalid Birthplace Format!");
+            }
+        }
+
+
+        private void TxtBusinessPhone_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$");
+            var businessphone = this.TxtBusinessPhone.Text;
+            Match match = regex.Match(businessphone);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                businessphoneErrorProvider.SetError(this.TxtBusinessPhone, String.Empty);
+            }
+            else
+            {
+                // Set the error if the businessphone is not valid.
+                businessphoneErrorProvider.SetError(this.TxtBusinessPhone, "Invalid Business Phone Format!");
+            }
+
+        }
+
+        private void TxtBusinessFax_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$");
+            var businessfax = this.TxtBusinessFax.Text;
+            Match match = regex.Match(businessfax);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                businessfaxErrorProvider.SetError(this.TxtBusinessFax, String.Empty);
+            }
+            else
+            {
+                // Set the error if the businessfax is not valid.
+                businessfaxErrorProvider.SetError(this.TxtBusinessFax, "Invalid Business Fax Format!");
+            }
+
+        }
+
+
+
+        private void TxtMobileNumber_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$");
+            var mobilenumber = this.TxtMobileNumber.Text;
+            Match match = regex.Match(mobilenumber);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                mobilenumberErrorProvider.SetError(this.TxtMobileNumber, String.Empty);
+            }
+            else
+            {
+                // Set the error if the mobilenumber is not valid.
+                mobilenumberErrorProvider.SetError(this.TxtMobileNumber, "Invalid Mobile Number Format!");
+            }
+
+        }
+
+        private void TxtPrivatePhone_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$");
+            var privatephone = this.TxtPrivatePhone.Text;
+            Match match = regex.Match(privatephone);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                privatephoneErrorProvider.SetError(this.TxtPrivatePhone, String.Empty);
+            }
+            else
+            {
+                // Set the error if the mobilenumber is not valid.
+                privatephoneErrorProvider.SetError(this.TxtPrivatePhone, "Invalid Private Phone Format!");
+            }
+
+        }
+
+
+        private void TxtNationality_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var nationality = this.TxtNationality.Text;
+            Match match = regex.Match(nationality);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                nationalityErrorProvider.SetError(this.TxtNationality, String.Empty);
+            }
+            else
+            {
+                // Set the error if the nationality is not valid.
+                nationalityErrorProvider.SetError(this.TxtNationality, "Invalid Nationality Format!");
+            }
+        }
+
+
+        private void TxtAHVNumber_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex(@" ^ *[0 - 9\.] + $");
+            var ahvnumber = this.TxtAHVNumber.Text;
+            Match match = regex.Match(ahvnumber);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                ahvnumberErrorProvider.SetError(this.TxtAHVNumber, String.Empty);
+            }
+            else
+            {
+                // Set the error if the ahvnumber is not valid.
+                ahvnumberErrorProvider.SetError(this.TxtAHVNumber, "Invalid AHV Number Format!");
+            }
+
+        }
+
+
+        private void TxtContactPerson_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var contactperson = this.TxtContactPerson.Text;
+            Match match = regex.Match(contactperson);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                contactpersonErrorProvider.SetError(this.TxtContactPerson, String.Empty);
+            }
+            else
+            {
+                // Set the error if the contactperson is not valid.
+                contactpersonErrorProvider.SetError(this.TxtContactPerson, "Invalid Name Format!");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         private bool Validation()
         {
             //validate each field with the error message
@@ -428,6 +732,8 @@ namespace semesterarbeit
             }
             return validated;
         }
+
+        
         private void CmbSalutation_Validated(object sender, EventArgs e)
         {
 
@@ -697,7 +1003,7 @@ namespace semesterarbeit
                         //Write the properties of the object of type "Customer" into the specific textboxes
                         TxtCompanyName.Text = selectedCustomer.Companyname;
                         TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
-                        TxtContacPerson.Text = selectedCustomer.Companycontact;
+                        TxtContactPerson.Text = selectedCustomer.Companycontact;
                         TxtNotesHistory.Text = selectedCustomer.NotesHistory;
                         break;
                 }
@@ -975,7 +1281,7 @@ namespace semesterarbeit
                             ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
                             Companyname = TxtCompanyName.Text,
                             Type = (CustType)CmbCustomerType.SelectedValue,
-                            Companycontact = TxtContacPerson.Text
+                            Companycontact = TxtContactPerson.Text
                         };
 
                         //Add Customer to contact list (database)
@@ -1307,7 +1613,7 @@ namespace semesterarbeit
                     mph: TxtMobileNumber.Text,
                     bph: TxtBusinessPhone.Text,
                     bfa: TxtBusinessFax.Text,
-                    compcont: TxtContacPerson.Text
+                    compcont: TxtContactPerson.Text
                     );
         }
 
@@ -1531,7 +1837,7 @@ namespace semesterarbeit
         {
             TxtCompanyName.ReadOnly = false;
             TxtCustomerType.ReadOnly = false;
-            TxtContacPerson.ReadOnly = false;
+            TxtContactPerson.ReadOnly = false;
 
             CmbCustomerType.Enabled = true;
         }
@@ -1618,7 +1924,7 @@ namespace semesterarbeit
         {
             TxtCompanyName.ReadOnly = true;
             TxtCustomerType.ReadOnly = true;
-            TxtContacPerson.ReadOnly = true;
+            TxtContactPerson.ReadOnly = true;
         }
 
         //Disables all Apprentice Textboxes
@@ -1669,7 +1975,7 @@ namespace semesterarbeit
         {
             TxtCompanyName.Visible = false;
             TxtCustomerType.Visible = false;
-            TxtContacPerson.Visible = false;
+            TxtContactPerson.Visible = false;
             LblCompanyName.Visible = false;
             LblCustomerType.Visible = false;
             LblContactPerson.Visible = false;
@@ -1720,7 +2026,7 @@ namespace semesterarbeit
         {
             TxtCompanyName.Visible = true;
             TxtCustomerType.Visible = true;
-            TxtContacPerson.Visible = true;
+            TxtContactPerson.Visible = true;
             LblCompanyName.Visible = true;
             LblCustomerType.Visible = true;
             LblContactPerson.Visible = true;
@@ -1777,7 +2083,7 @@ namespace semesterarbeit
             TxtPrivatePhone.ResetText();
             TxtCompanyName.ResetText();
             TxtCustomerType.ResetText();
-            TxtContacPerson.ResetText();
+            TxtContactPerson.ResetText();
             TxtApprentYears.ResetText();
             TxtCurrentApprentYear.ResetText();
         }
