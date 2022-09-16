@@ -671,83 +671,6 @@ namespace semesterarbeit
             }
         }
 
-
-
-
-        private bool Validation()
-        {
-            //validate each field with the error message
-            bool validated = true;
-
-            string error = firstnameErrorProvider.GetError(this.TxtFirstname);
-
-            if (error != String.Empty)
-            {
-                validated = false;
-            }
-
-
-            error = lastnameErrorProvider.GetError(this.TxtLastname);
-
-            if (error != String.Empty)
-            {
-                validated = false;
-            }
-
-            error = cityErrorProvider.GetError(this.TxtCity);
-
-            if (error != String.Empty)
-            {
-                validated = false;
-            }
-
-            error = streetErrorProvider.GetError(this.TxtStreet);
-
-            if (error != String.Empty)
-            {
-                validated = false;
-            }
-
-            error = emailErrorProvider.GetError(this.TxtEmail);
-
-            if (error != String.Empty)
-            {
-                validated = false;
-            }
-
-            error = zipcodeErrorProvider.GetError(this.TxtZipcode);
-
-            if (error != String.Empty)
-            {
-                validated = false;
-            }
-
-            if (RadEmployee.Checked)
-            {
-                error = roleErrorProvider.GetError(this.TxtRole);
-
-                if (error != String.Empty)
-                {
-                    validated = false;
-                }
-            }
-            if (RadTrainee.Checked)
-            {
-                error = roleErrorProvider.GetError(this.TxtRole);
-
-                if (error != String.Empty)
-                {
-                    validated = false;
-                }
-
-            }
-            if (RadCustomer.Checked)
-            {
-
-            }
-            return validated;
-        }
-
         
         private void CmbSalutation_Validated(object sender, EventArgs e)
         {
@@ -832,6 +755,219 @@ namespace semesterarbeit
             }
         }
 
+        private bool Validation()
+        {
+            //validate each field with the error message
+            bool validated = true;
+
+            string error = salutationErrorProvider.GetError(this.CmbSalutation);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = titleErrorProvider.GetError(this.TxtTitle);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = firstnameErrorProvider.GetError(this.TxtFirstname);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = lastnameErrorProvider.GetError(this.TxtLastname);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = genderErrorProvider.GetError(this.CmbGender);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = streetErrorProvider.GetError(this.TxtStreet);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = cityErrorProvider.GetError(this.TxtCity);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = zipcodeErrorProvider.GetError(this.TxtZipcode);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = nationalityErrorProvider.GetError(this.TxtNationality);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = businessphoneErrorProvider.GetError(this.TxtBusinessPhone);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = businessfaxErrorProvider.GetError(this.TxtBusinessFax);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = mobilenumberErrorProvider.GetError(this.TxtMobileNumber);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = privatephoneErrorProvider.GetError(this.TxtPrivatePhone);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = emailErrorProvider.GetError(this.TxtEmail);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            //Customer
+            error = companynameErrorProvider.GetError(this.TxtCompanyName);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            /* Fehlt
+            error = customertypeErrorProvider.GetError(this.TxtEmail);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+            */
+
+            error = contactpersonErrorProvider.GetError(this.TxtContactPerson);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            //Employee
+            error = birthplaceErrorProvider.GetError(this.TxtBirthplace);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = ahvnumberErrorProvider.GetError(this.TxtAHVNumber);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = departmentErrorProvider.GetError(this.CmbDepartment);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = roleErrorProvider.GetError(this.TxtRole);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            /* fehlt
+            error = mgmtlevelErrorProvider.GetError(this.TxtEmail);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+            */
+
+            error = workpensumErrorProvider.GetError(this.CmbWorkPensum);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = apprentyearsErrorProvider.GetError(this.CmbApprentYears);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = currentapprentyearErrorProvider.GetError(this.CmbCurrentApprentYear);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            /*
+            if (RadEmployee.Checked)
+            {
+                error = roleErrorProvider.GetError(this.TxtRole);
+
+                if (error != String.Empty)
+                {
+                    validated = false;
+                }
+            }
+            if (RadTrainee.Checked)
+            {
+                error = roleErrorProvider.GetError(this.TxtRole);
+
+                if (error != String.Empty)
+                {
+                    validated = false;
+                }
+
+            }
+            if (RadCustomer.Checked)
+            {
+
+            }
+            */
+            return validated;
+        }
 
         private bool CheckMandetoryFields ()
         {
@@ -1215,94 +1351,108 @@ namespace semesterarbeit
 
                     if (RadEmployee.Checked)
                     {
-                        //Increase the value of the variable id
-                        id++;
-
-
-                        Employee empl1 = new Employee
+                        if (DtpStartDate.Value > DtpLeaveDate.Value)
                         {
-                            Disabled = ChkStatus.Checked, // User enabled
-                            Id = id,
-                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                            Firstname = TxtFirstname.Text,
-                            Lastname = TxtLastname.Text,
-                            Birthdate = DtpBirthdate.Value, //Birthdate
-                            CreationDate = DateTime.Now, //Creation date
-                            Gender = Convert.ToString(CmbGender.SelectedItem),
-                            Mail = TxtEmail.Text,
-                            Street = TxtStreet.Text,
-                            City = TxtCity.Text,
-                            Zipcode = TxtZipcode.Text,
-                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                            EmplNr = id, //EmplNumber
-                            Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                            Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
-                            Entrydate = DtpStartDate.Value, //EntryDate
-                            Exitdate = DtpLeaveDate.Value, //Exitdate
-                            Role = TxtRole.Text
-                        };
+                            MessageBox.Show("Entry date is after leaving date!");
+                        }
+                        else
+                        {
+                            //Increase the value of the variable id
+                            id++;
 
-                        //Add Employee to contact list (database)
-                        Db.AddPerson(empl1);
 
-                        //Call method to save the new object on the harddisk
-                        Db.Serialisation();
+                            Employee empl1 = new Employee
+                            {
+                                Disabled = ChkStatus.Checked, // User enabled
+                                Id = id,
+                                Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                                Firstname = TxtFirstname.Text,
+                                Lastname = TxtLastname.Text,
+                                Birthdate = DtpBirthdate.Value, //Birthdate
+                                CreationDate = DateTime.Now, //Creation date
+                                Gender = Convert.ToString(CmbGender.SelectedItem),
+                                Mail = TxtEmail.Text,
+                                Street = TxtStreet.Text,
+                                City = TxtCity.Text,
+                                Zipcode = TxtZipcode.Text,
+                                ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                                EmplNr = id, //EmplNumber
+                                Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                                Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                                Entrydate = DtpStartDate.Value, //EntryDate
+                                Exitdate = DtpLeaveDate.Value, //Exitdate
+                                Role = TxtRole.Text
+                            };
 
-                        SetDashboardNumbers();
+                            //Add Employee to contact list (database)
+                            Db.AddPerson(empl1);
 
-                        //Set optional fields
-                        SetAttributesEmpl_optional(empl1);
+                            //Call method to save the new object on the harddisk
+                            Db.Serialisation();
 
-                        CmdAddUser.Tag = "";
+                            SetDashboardNumbers();
 
-                        //reset Buttons
-                        ResetAddUser();
+                            //Set optional fields
+                            SetAttributesEmpl_optional(empl1);
+
+                            CmdAddUser.Tag = "";
+
+                            //reset Buttons
+                            ResetAddUser();
+                        }
                     }
                     else if (RadTrainee.Checked)
                     {
-                        //Increase the value of the variable id
-                        id++;
-
-                        Trainee train1 = new Trainee
+                        if (DtpStartDate.Value > DtpLeaveDate.Value)
                         {
-                            Disabled = ChkStatus.Checked, // User enabled
-                            Id = id,
-                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                            Firstname = TxtFirstname.Text,
-                            Lastname = TxtLastname.Text,
-                            Birthdate = DtpBirthdate.Value, //Birthdate
-                            CreationDate = DateTime.Now, //Creation date
-                            Gender = Convert.ToString(CmbGender.SelectedItem),
-                            Mail = TxtEmail.Text,
-                            Street = TxtStreet.Text,
-                            City = TxtCity.Text,
-                            Zipcode = TxtZipcode.Text,
-                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                            EmplNr = id, //EmplNumber
-                            Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                            Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
-                            Entrydate = DtpStartDate.Value, //EntryDate
-                            Exitdate = DtpLeaveDate.Value, //ExitDate
-                            Role = TxtRole.Text,
-                            Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
-                            Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
-                        };
+                            MessageBox.Show("Entry date is after leaving date!");
+                        }
+                        else
+                        {
+                            //Increase the value of the variable id
+                            id++;
 
-                        //Add Customer to contact list (database)
-                        Db.AddPerson(train1);
+                            Trainee train1 = new Trainee
+                            {
+                                Disabled = ChkStatus.Checked, // User enabled
+                                Id = id,
+                                Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                                Firstname = TxtFirstname.Text,
+                                Lastname = TxtLastname.Text,
+                                Birthdate = DtpBirthdate.Value, //Birthdate
+                                CreationDate = DateTime.Now, //Creation date
+                                Gender = Convert.ToString(CmbGender.SelectedItem),
+                                Mail = TxtEmail.Text,
+                                Street = TxtStreet.Text,
+                                City = TxtCity.Text,
+                                Zipcode = TxtZipcode.Text,
+                                ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                                EmplNr = id, //EmplNumber
+                                Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                                Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                                Entrydate = DtpStartDate.Value, //EntryDate
+                                Exitdate = DtpLeaveDate.Value, //ExitDate
+                                Role = TxtRole.Text,
+                                Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
+                                Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
+                            };
 
-                        //Call method to save the new object on the harddisk
-                        Db.Serialisation();
+                            //Add Customer to contact list (database)
+                            Db.AddPerson(train1);
 
-                        SetDashboardNumbers();
+                            //Call method to save the new object on the harddisk
+                            Db.Serialisation();
 
-                        //Set optional fields
-                        SetAttributesTrainee_optional(train1);
+                            SetDashboardNumbers();
 
-                        CmdAddUser.Tag = "";
+                            //Set optional fields
+                            SetAttributesTrainee_optional(train1);
 
-                        //reset Buttons
-                        ResetAddUser();
+                            CmdAddUser.Tag = "";
+
+                            //reset Buttons
+                            ResetAddUser();
+                        }
                     }
                     else if (RadCustomer.Checked)
                     {
@@ -1385,7 +1535,7 @@ namespace semesterarbeit
             }
             else
             {
-                MessageBox.Show("Please check your Data!");
+                MessageBox.Show("Please fill out all mandetory fields!");
             }
 
         }
