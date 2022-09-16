@@ -350,7 +350,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 firstnameErrorProvider.SetError(this.TxtFirstname, String.Empty);
             }
-            else
+            else if(CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the name is not valid.
                 firstnameErrorProvider.SetError(this.TxtFirstname, "Invalid Firstname Format!");
@@ -369,7 +369,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 lastnameErrorProvider.SetError(this.TxtLastname, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the lastname is not valid.
                 lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Lastname Format!");
@@ -388,7 +388,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 streetErrorProvider.SetError(this.TxtStreet, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the street is not valid.
                 streetErrorProvider.SetError(this.TxtStreet, "Invalid Street and Number Format!");
@@ -407,7 +407,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 cityErrorProvider.SetError(this.TxtCity, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the city is not valid.
                 cityErrorProvider.SetError(this.TxtCity, "Invalid City Format!");
@@ -426,13 +426,12 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 emailErrorProvider.SetError(this.TxtEmail, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the name is not valid.
                 emailErrorProvider.SetError(this.TxtEmail, "Invalid Email Format!");
             }
         }
-
 
 
         private void TxtZipcode_Validated(object sender, EventArgs e)
@@ -447,7 +446,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 zipcodeErrorProvider.SetError(this.TxtZipcode, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the zip is not valid.
                 zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!");
@@ -466,7 +465,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 roleErrorProvider.SetError(this.TxtRole, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the role is not valid.
                 roleErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
@@ -484,7 +483,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 companynameErrorProvider.SetError(this.TxtCompanyName, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the companyname is not valid.
                 companynameErrorProvider.SetError(this.TxtCompanyName, "Invalid Company Format!");
@@ -498,12 +497,12 @@ namespace semesterarbeit
             var title = this.TxtTitle.Text;
             Match match = regex.Match(title);
 
-            if (match.Success)
+            if (match.Success || TxtTitle.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 titleErrorProvider.SetError(this.TxtTitle, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the title is not valid.
                 titleErrorProvider.SetError(this.TxtTitle, "Invalid Title Format!");
@@ -517,12 +516,12 @@ namespace semesterarbeit
             var birthplace = this.TxtBirthplace.Text;
             Match match = regex.Match(birthplace);
 
-            if (match.Success)
+            if (match.Success || TxtBirthplace.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 birthplaceErrorProvider.SetError(this.TxtBirthplace, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the birthplace is not valid.
                 birthplaceErrorProvider.SetError(this.TxtBirthplace, "Invalid Birthplace Format!");
@@ -537,12 +536,12 @@ namespace semesterarbeit
             var businessphone = this.TxtBusinessPhone.Text;
             Match match = regex.Match(businessphone);
 
-            if (match.Success)
+            if (match.Success || TxtBusinessPhone.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 businessphoneErrorProvider.SetError(this.TxtBusinessPhone, String.Empty);
             }
-            else
+            else if(CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the businessphone is not valid.
                 businessphoneErrorProvider.SetError(this.TxtBusinessPhone, "Invalid Business Phone Format!");
@@ -557,19 +556,18 @@ namespace semesterarbeit
             var businessfax = this.TxtBusinessFax.Text;
             Match match = regex.Match(businessfax);
 
-            if (match.Success)
+            if (match.Success || TxtBusinessFax.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 businessfaxErrorProvider.SetError(this.TxtBusinessFax, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the businessfax is not valid.
                 businessfaxErrorProvider.SetError(this.TxtBusinessFax, "Invalid Business Fax Format!");
             }
 
         }
-
 
 
         private void TxtMobileNumber_Validated(object sender, EventArgs e)
@@ -579,12 +577,12 @@ namespace semesterarbeit
             var mobilenumber = this.TxtMobileNumber.Text;
             Match match = regex.Match(mobilenumber);
 
-            if (match.Success)
+            if (match.Success || TxtMobileNumber.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 mobilenumberErrorProvider.SetError(this.TxtMobileNumber, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the mobilenumber is not valid.
                 mobilenumberErrorProvider.SetError(this.TxtMobileNumber, "Invalid Mobile Number Format!");
@@ -599,12 +597,12 @@ namespace semesterarbeit
             var privatephone = this.TxtPrivatePhone.Text;
             Match match = regex.Match(privatephone);
 
-            if (match.Success)
+            if (match.Success || TxtPrivatePhone.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 privatephoneErrorProvider.SetError(this.TxtPrivatePhone, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the mobilenumber is not valid.
                 privatephoneErrorProvider.SetError(this.TxtPrivatePhone, "Invalid Private Phone Format!");
@@ -619,12 +617,12 @@ namespace semesterarbeit
             var nationality = this.TxtNationality.Text;
             Match match = regex.Match(nationality);
 
-            if (match.Success)
+            if (match.Success || TxtNationality.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 nationalityErrorProvider.SetError(this.TxtNationality, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the nationality is not valid.
                 nationalityErrorProvider.SetError(this.TxtNationality, "Invalid Nationality Format!");
@@ -639,12 +637,12 @@ namespace semesterarbeit
             var ahvnumber = this.TxtAHVNumber.Text;
             Match match = regex.Match(ahvnumber);
 
-            if (match.Success)
+            if (match.Success || TxtAHVNumber.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 ahvnumberErrorProvider.SetError(this.TxtAHVNumber, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the ahvnumber is not valid.
                 ahvnumberErrorProvider.SetError(this.TxtAHVNumber, "Invalid AHV Number Format (756.****.****.**!");
@@ -659,12 +657,12 @@ namespace semesterarbeit
             var contactperson = this.TxtContactPerson.Text;
             Match match = regex.Match(contactperson);
 
-            if (match.Success)
+            if (match.Success || TxtContactPerson.Text == "")
             {
                 // Clear the error, if any, in the error provider.
                 contactpersonErrorProvider.SetError(this.TxtContactPerson, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the contactperson is not valid.
                 contactpersonErrorProvider.SetError(this.TxtContactPerson, "Invalid Name Format!");
@@ -674,13 +672,11 @@ namespace semesterarbeit
         
         private void CmbSalutation_Validated(object sender, EventArgs e)
         {
-
-
             if (CmbSalutation.SelectedItem == null)
             {
                 salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 salutationErrorProvider.Clear();
             }
@@ -693,13 +689,11 @@ namespace semesterarbeit
             {
                 genderErrorProvider.SetError(this.CmbGender, "Please select a Gender!"); 
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 genderErrorProvider.Clear();
             }
         }
-
-
 
         private void CmbDepartment_Validated(object sender, EventArgs e)
         {
@@ -707,7 +701,7 @@ namespace semesterarbeit
             {
                 departmentErrorProvider.SetError(this.CmbDepartment, "Please select a Department!");
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 departmentErrorProvider.Clear();
             }
@@ -719,7 +713,7 @@ namespace semesterarbeit
             {
                 workpensumErrorProvider.SetError(this.CmbWorkPensum, "Please select a Work Pensum!");
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 workpensumErrorProvider.Clear();
             }
@@ -728,13 +722,11 @@ namespace semesterarbeit
 
         private void CmbApprentYears_Validated(object sender, EventArgs e)
         {
-
-
             if (CmbApprentYears.SelectedItem == null)
             {
                 apprentyearsErrorProvider.SetError(this.CmbApprentYears, "Please select a Year!");
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 apprentyearsErrorProvider.Clear();
             }
@@ -743,13 +735,11 @@ namespace semesterarbeit
 
         private void CmbCurrentApprentYear_Validated(object sender, EventArgs e)
         {
-
-
             if (CmbCurrentApprentYear.SelectedItem == null)
             {
                 currentapprentyearErrorProvider.SetError(this.CmbCurrentApprentYear, "Please select a Year!");
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 currentapprentyearErrorProvider.Clear();
             }
@@ -1065,7 +1055,8 @@ namespace semesterarbeit
         private void LsbOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (LsbOutput.SelectedIndex >= 0)
-            { //Hide comboboxes and date pickers
+            { 
+                //Hide comboboxes and date pickers
                 HideAllCmbPers();
 
                 //disable all fields
@@ -1188,7 +1179,6 @@ namespace semesterarbeit
                         TxtNotesHistory.Text = selectedCustomer.NotesHistory;
                         break;
                 }
-
 
                 //Check if the user is active or not
                 if (selectedPerson.Disabled == true)
@@ -1397,7 +1387,7 @@ namespace semesterarbeit
 
                             CmdAddUser.Tag = "";
 
-                            //reset Buttons
+                            //reset Buttons, Fields and Error Messages
                             ResetAddUser();
                         }
                     }
@@ -1606,6 +1596,9 @@ namespace semesterarbeit
         private void CmdCancel_Click(object sender, EventArgs e)
         {
             ShowStartScreen();
+
+            CmdAddUser.Tag = "";
+            CmdEditUser.Tag = "";
         }
 
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -1697,7 +1690,35 @@ namespace semesterarbeit
         /*---------------------------------------------------------------------
          * Functions
          * -------------------------------------------------------------------*/
-
+        private void ResetValidationErrorMessages ()
+        {
+            //Reset Regex Error Messages
+            salutationErrorProvider.SetError(CmbSalutation, String.Empty);
+            titleErrorProvider.SetError(TxtTitle, String.Empty);
+            firstnameErrorProvider.SetError(TxtFirstname, String.Empty);
+            lastnameErrorProvider.SetError(TxtLastname, String.Empty);
+            genderErrorProvider.SetError(CmbGender, String.Empty);
+            businessphoneErrorProvider.SetError(TxtBusinessPhone, String.Empty);
+            businessfaxErrorProvider.SetError(TxtBusinessFax, String.Empty);
+            mobilenumberErrorProvider.SetError(TxtMobileNumber, String.Empty);
+            privatephoneErrorProvider.SetError(TxtPrivatePhone, String.Empty);
+            emailErrorProvider.SetError(TxtEmail, String.Empty);
+            streetErrorProvider.SetError(TxtStreet, String.Empty);
+            cityErrorProvider.SetError(TxtCity, String.Empty);
+            zipcodeErrorProvider.SetError(TxtZipcode, String.Empty);
+            //Employee
+            nationalityErrorProvider.SetError(TxtNationality, String.Empty);
+            birthplaceErrorProvider.SetError(TxtBirthplace, String.Empty);
+            ahvnumberErrorProvider.SetError(TxtAHVNumber, String.Empty);
+            departmentErrorProvider.SetError(CmbDepartment, String.Empty);
+            roleErrorProvider.SetError(TxtRole, String.Empty);
+            workpensumErrorProvider.SetError(CmbWorkPensum, String.Empty);
+            apprentyearsErrorProvider.SetError(CmbApprentYears, String.Empty);
+            currentapprentyearErrorProvider.SetError(CmbCurrentApprentYear, String.Empty);
+            //Customer
+            companynameErrorProvider.SetError(TxtCompanyName, String.Empty);
+            contactpersonErrorProvider.SetError(TxtContactPerson, String.Empty);
+        }
         private void ResetAddUser ()
         {
             //Change buttons
@@ -1975,6 +1996,9 @@ namespace semesterarbeit
 
             //unselect listbox
             LsbOutput.ClearSelected();
+
+            //Reset Error Messages
+            ResetValidationErrorMessages();
         }
 
         //Enables all Person Textboxes, Comboboxes and Radio Buttons
