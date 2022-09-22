@@ -4,6 +4,9 @@ Tabreihenfolge nicht ganz korrekt
 
 Kein Import vorhanden (da Optional)
 
+Suchmöglichkeit, wie im Unterricht definiert, über 5 Felder gegeben. Kann einfach erweitert werden, indem die Textboxen hinzugefügt werden.
+
+
 Benutzer für Login: 
 user
 asdf1234

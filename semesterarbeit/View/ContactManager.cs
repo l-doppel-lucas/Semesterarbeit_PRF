@@ -381,7 +381,7 @@ namespace semesterarbeit
 
         private void TxtStreet_Validated(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^(?<name>\w[\s\.\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
+            Regex regex = new Regex(@"^(?<name>\w[\s\w\.]+?)\s*(?<num>\d+\s*[a-z]?)$");
             var street = this.TxtStreet.Text;
             Match match = regex.Match(street);
 
