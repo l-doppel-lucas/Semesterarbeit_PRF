@@ -20,7 +20,7 @@ namespace semesterarbeit
         public Database Db = new Database();
 
         
-        // Create ErrorProvider - mandetory fields
+        // Create ErrorProvider - mandatory fields
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
         private System.Windows.Forms.ErrorProvider streetErrorProvider;
@@ -36,7 +36,7 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider apprentyearsErrorProvider;
 
 
-        // Create ErrorProvider - non mandetory fields
+        // Create ErrorProvider - non mandatory fields
         private System.Windows.Forms.ErrorProvider titleErrorProvider;
         private System.Windows.Forms.ErrorProvider birthplaceErrorProvider;
         private System.Windows.Forms.ErrorProvider businessphoneErrorProvider;
@@ -79,7 +79,6 @@ namespace semesterarbeit
 
             //Show dashboard data
             SetDashboardNumbers();
-
 
             // Create and set the ErrorProvider for each data entry control.
 
@@ -332,6 +331,9 @@ namespace semesterarbeit
 
             this.CmbCurrentApprentYear.Validated += new System.EventHandler(this.CmbCurrentApprentYear_Validated);
 
+
+            //Show startscreen
+            ShowStartScreen();
         }
 
 
@@ -379,7 +381,7 @@ namespace semesterarbeit
 
         private void TxtStreet_Validated(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^(?<name>\w[\s\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
+            Regex regex = new Regex(@"^(?<name>\w[\s\.\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
             var street = this.TxtStreet.Text;
             Match match = regex.Match(street);
 
@@ -959,12 +961,12 @@ namespace semesterarbeit
             return validated;
         }
 
-        private bool CheckMandetoryFields ()
+        private bool CheckMandatoryFields ()
         {
-            //Check if mandetory fields have some input
+            //Check if mandatory fields have some input
             bool check = true;
 
-            //Check mandetory person fields
+            //Check mandetary person fields
             if(CmbSalutation.SelectedItem == null)
             {
                 check = false;
@@ -1001,7 +1003,7 @@ namespace semesterarbeit
             
             if (RadEmployee.Checked || RadTrainee.Checked)
             {
-                //Check mandetory employee fields
+                //Check mandatory employee fields
                 if (CmbDepartment.SelectedItem == null)
                 {
                     check = false;
@@ -1017,12 +1019,12 @@ namespace semesterarbeit
             }
             if (RadTrainee.Checked)
             {
-                //Check mandetory trainee fields
-                if (TxtApprentYears.Text.Length < 1)
+                //Check mandatory trainee fields
+                if (CmbApprentYears.SelectedItem == null)
                 {
                     check = false;
                 }
-                if (TxtCurrentApprentYear.Text.Length < 1)
+                if (CmbCurrentApprentYear.SelectedItem == null)
                 {
                     check = false;
                 }
@@ -1030,7 +1032,7 @@ namespace semesterarbeit
             }
             if (RadCustomer.Checked)
             {
-                //Check mandetory customer fields
+                //Check mandatory customer fields
                 if (TxtCompanyName.Text.Length < 1)
                 {
                     check = false;
@@ -1332,7 +1334,7 @@ namespace semesterarbeit
         private void CmdSave_Click(object sender, EventArgs e)
         {
             bool validated = Validation();
-            bool check = CheckMandetoryFields();
+            bool check = CheckMandatoryFields();
 
             if (validated && check)
             {
@@ -1525,7 +1527,7 @@ namespace semesterarbeit
             }
             else
             {
-                MessageBox.Show("Please fill out all mandetory fields!");
+                MessageBox.Show("Please fill out all mandatory fields!");
             }
 
         }
@@ -1590,6 +1592,8 @@ namespace semesterarbeit
 
             Db.Serialisation();
             SetDashboardNumbers();
+
+            ShowStartScreen();
 
         }
 
@@ -1953,18 +1957,32 @@ namespace semesterarbeit
 
         private void ShowStartScreen()
         {
-            //Change buttons
-            CmdAddUser.Visible = true;
-            CmdEditUser.Visible = true;
-            CmdSave.Visible = false;
-            CmdCancel.Visible = false;
+            if(TabControl.SelectedIndex == 1)
+            {
+                //Change buttons
+                CmdAddUser.Visible = true;
+                CmdSave.Visible = false;
+                CmdCancel.Visible = false;
+                CmdEditUser.Visible = true;
+
+            }
+
+            //check if there is a user left
+            if (LsbOutput.Items.Count > 0)
+            {
+                CmdEditUser.Enabled = true;
+                CmdDeleteUser.Enabled = true;
+            }
+            else
+            {
+                CmdEditUser.Enabled = false;
+                CmdDeleteUser.Enabled = false;
+            }
 
             //Activate buttons, combo boxes, and list boxes
             CmdTakeNotes.Enabled = true;
             LsbOutput.Enabled = true;
             CmdAddUser.Enabled = true;
-            CmdDeleteUser.Enabled = true;
-            CmdEditUser.Enabled = true;
             CmdSearch.Enabled = true;
 
             //Deaktivate checkbox
@@ -1999,6 +2017,8 @@ namespace semesterarbeit
 
             //Reset Error Messages
             ResetValidationErrorMessages();
+
+
         }
 
         //Enables all Person Textboxes, Comboboxes and Radio Buttons
@@ -2305,6 +2325,9 @@ namespace semesterarbeit
             TxtContactPerson.ResetText();
             TxtApprentYears.ResetText();
             TxtCurrentApprentYear.ResetText();
+            TxtNotesHistory.ResetText();
+            TxtLastModified.ResetText();
+            TxtCreationDate.ResetText();
         }
 
         //Make all radio buttons visible
