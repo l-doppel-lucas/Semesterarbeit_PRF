@@ -858,15 +858,6 @@ namespace semesterarbeit
                 validated = false;
             }
 
-            /* Fehlt
-            error = customertypeErrorProvider.GetError(this.TxtEmail);
-
-            if (error != String.Empty)
-            {
-                validated = false;
-            }
-            */
-
             error = contactpersonErrorProvider.GetError(this.TxtContactPerson);
 
             if (error != String.Empty)
@@ -903,15 +894,6 @@ namespace semesterarbeit
                 validated = false;
             }
 
-            /* fehlt
-            error = mgmtlevelErrorProvider.GetError(this.TxtEmail);
-
-            if (error != String.Empty)
-            {
-                validated = false;
-            }
-            */
-
             error = workpensumErrorProvider.GetError(this.CmbWorkPensum);
 
             if (error != String.Empty)
@@ -932,32 +914,6 @@ namespace semesterarbeit
             {
                 validated = false;
             }
-
-            /*
-            if (RadEmployee.Checked)
-            {
-                error = roleErrorProvider.GetError(this.TxtRole);
-
-                if (error != String.Empty)
-                {
-                    validated = false;
-                }
-            }
-            if (RadTrainee.Checked)
-            {
-                error = roleErrorProvider.GetError(this.TxtRole);
-
-                if (error != String.Empty)
-                {
-                    validated = false;
-                }
-
-            }
-            if (RadCustomer.Checked)
-            {
-
-            }
-            */
             return validated;
         }
 
