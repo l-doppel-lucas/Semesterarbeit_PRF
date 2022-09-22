@@ -19,6 +19,8 @@ namespace semesterarbeit
         //Create Contact List for Listbox
         public Database Db = new Database();
 
+        
+        // Create ErrorProvider - mandatory fields
         private System.Windows.Forms.ErrorProvider firstnameErrorProvider;
         private System.Windows.Forms.ErrorProvider lastnameErrorProvider;
         private System.Windows.Forms.ErrorProvider streetErrorProvider;
@@ -28,6 +30,24 @@ namespace semesterarbeit
         private System.Windows.Forms.ErrorProvider roleErrorProvider;
         private System.Windows.Forms.ErrorProvider salutationErrorProvider;
         private System.Windows.Forms.ErrorProvider genderErrorProvider;
+        private System.Windows.Forms.ErrorProvider departmentErrorProvider;
+        private System.Windows.Forms.ErrorProvider companynameErrorProvider;
+        private System.Windows.Forms.ErrorProvider workpensumErrorProvider;
+        private System.Windows.Forms.ErrorProvider apprentyearsErrorProvider;
+
+
+        // Create ErrorProvider - non mandatory fields
+        private System.Windows.Forms.ErrorProvider titleErrorProvider;
+        private System.Windows.Forms.ErrorProvider birthplaceErrorProvider;
+        private System.Windows.Forms.ErrorProvider businessphoneErrorProvider;
+        private System.Windows.Forms.ErrorProvider businessfaxErrorProvider;
+        private System.Windows.Forms.ErrorProvider mobilenumberErrorProvider;
+        private System.Windows.Forms.ErrorProvider privatephoneErrorProvider;
+        private System.Windows.Forms.ErrorProvider nationalityErrorProvider;
+        private System.Windows.Forms.ErrorProvider ahvnumberErrorProvider;
+        private System.Windows.Forms.ErrorProvider contactpersonErrorProvider;
+        private System.Windows.Forms.ErrorProvider currentapprentyearErrorProvider;
+
 
         public Dashboard(string us1)
         {
@@ -59,7 +79,6 @@ namespace semesterarbeit
 
             //Show dashboard data
             SetDashboardNumbers();
-
 
             // Create and set the ErrorProvider for each data entry control.
 
@@ -159,6 +178,162 @@ namespace semesterarbeit
 
             this.CmbGender.Validated += new System.EventHandler(this.CmbGender_Validated);
 
+
+            // ErrorProvider workpensum
+
+            workpensumErrorProvider = new System.Windows.Forms.ErrorProvider();
+            workpensumErrorProvider.SetIconAlignment(this.CmbWorkPensum, ErrorIconAlignment.MiddleRight);
+            workpensumErrorProvider.SetIconPadding(this.CmbWorkPensum, 2);
+            workpensumErrorProvider.BlinkRate = 0;
+            workpensumErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbWorkPensum.Validated += new System.EventHandler(this.CmbWorkPensum_Validated);
+
+
+            // ErrorProvider department
+
+            departmentErrorProvider = new System.Windows.Forms.ErrorProvider();
+            departmentErrorProvider.SetIconAlignment(this.CmbDepartment, ErrorIconAlignment.MiddleRight);
+            departmentErrorProvider.SetIconPadding(this.CmbDepartment, 2);
+            departmentErrorProvider.BlinkRate = 0;
+            departmentErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbDepartment.Validated += new System.EventHandler(this.CmbDepartment_Validated);
+
+
+            // ErrorProvider companyname
+
+            companynameErrorProvider = new System.Windows.Forms.ErrorProvider();
+            companynameErrorProvider.SetIconAlignment(this.TxtCompanyName, ErrorIconAlignment.MiddleRight);
+            companynameErrorProvider.SetIconPadding(this.TxtCompanyName, 2);
+            companynameErrorProvider.BlinkRate = 0;
+            companynameErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtCompanyName.Validated += new System.EventHandler(this.TxtCompanyName_Validated);
+
+
+            // ErrorProvider title
+
+            titleErrorProvider = new System.Windows.Forms.ErrorProvider();
+            titleErrorProvider.SetIconAlignment(this.TxtTitle, ErrorIconAlignment.MiddleRight);
+            titleErrorProvider.SetIconPadding(this.TxtTitle, 2);
+            titleErrorProvider.BlinkRate = 0;
+            titleErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtTitle.Validated += new System.EventHandler(this.TxtTitle_Validated);
+
+
+            // ErrorProvider birthplace
+
+            birthplaceErrorProvider = new System.Windows.Forms.ErrorProvider();
+            birthplaceErrorProvider.SetIconAlignment(this.TxtBirthplace, ErrorIconAlignment.MiddleRight);
+            birthplaceErrorProvider.SetIconPadding(this.TxtBirthplace, 2);
+            birthplaceErrorProvider.BlinkRate = 0;
+            birthplaceErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtBirthplace.Validated += new System.EventHandler(this.TxtBirthplace_Validated);
+
+
+            // ErrorProvider businessphone
+
+            businessphoneErrorProvider = new System.Windows.Forms.ErrorProvider();
+            businessphoneErrorProvider.SetIconAlignment(this.TxtBusinessPhone, ErrorIconAlignment.MiddleRight);
+            businessphoneErrorProvider.SetIconPadding(this.TxtBusinessPhone, 2);
+            businessphoneErrorProvider.BlinkRate = 0;
+            businessphoneErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtBusinessPhone.Validated += new System.EventHandler(this.TxtBusinessPhone_Validated);
+
+
+            // ErrorProvider businessfax
+
+            businessfaxErrorProvider = new System.Windows.Forms.ErrorProvider();
+            businessfaxErrorProvider.SetIconAlignment(this.TxtBusinessFax, ErrorIconAlignment.MiddleRight);
+            businessfaxErrorProvider.SetIconPadding(this.TxtBusinessFax, 2);
+            businessfaxErrorProvider.BlinkRate = 0;
+            businessfaxErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtBusinessFax.Validated += new System.EventHandler(this.TxtBusinessFax_Validated);
+
+
+            // ErrorProvider mobilenumber
+
+            mobilenumberErrorProvider = new System.Windows.Forms.ErrorProvider();
+            mobilenumberErrorProvider.SetIconAlignment(this.TxtMobileNumber, ErrorIconAlignment.MiddleRight);
+            mobilenumberErrorProvider.SetIconPadding(this.TxtMobileNumber, 2);
+            mobilenumberErrorProvider.BlinkRate = 0;
+            mobilenumberErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtMobileNumber.Validated += new System.EventHandler(this.TxtMobileNumber_Validated);
+
+
+            // ErrorProvider privatephone
+
+            privatephoneErrorProvider = new System.Windows.Forms.ErrorProvider();
+            privatephoneErrorProvider.SetIconAlignment(this.TxtPrivatePhone, ErrorIconAlignment.MiddleRight);
+            privatephoneErrorProvider.SetIconPadding(this.TxtPrivatePhone, 2);
+            privatephoneErrorProvider.BlinkRate = 0;
+            privatephoneErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtPrivatePhone.Validated += new System.EventHandler(this.TxtPrivatePhone_Validated);
+
+
+            // ErrorProvider nationality
+
+            nationalityErrorProvider = new System.Windows.Forms.ErrorProvider();
+            nationalityErrorProvider.SetIconAlignment(this.TxtNationality, ErrorIconAlignment.MiddleRight);
+            nationalityErrorProvider.SetIconPadding(this.TxtNationality, 2);
+            nationalityErrorProvider.BlinkRate = 0;
+            nationalityErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtNationality.Validated += new System.EventHandler(this.TxtNationality_Validated);
+
+
+            // ErrorProvider ahvnumber
+
+            ahvnumberErrorProvider = new System.Windows.Forms.ErrorProvider();
+            ahvnumberErrorProvider.SetIconAlignment(this.TxtAHVNumber, ErrorIconAlignment.MiddleRight);
+            ahvnumberErrorProvider.SetIconPadding(this.TxtAHVNumber, 2);
+            ahvnumberErrorProvider.BlinkRate = 0;
+            ahvnumberErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtAHVNumber.Validated += new System.EventHandler(this.TxtAHVNumber_Validated);
+
+
+            // ErrorProvider contactperson
+
+            contactpersonErrorProvider = new System.Windows.Forms.ErrorProvider();
+            contactpersonErrorProvider.SetIconAlignment(this.TxtContactPerson, ErrorIconAlignment.MiddleRight);
+            contactpersonErrorProvider.SetIconPadding(this.TxtContactPerson, 2);
+            contactpersonErrorProvider.BlinkRate = 0;
+            contactpersonErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.TxtContactPerson.Validated += new System.EventHandler(this.TxtContactPerson_Validated);
+
+            // ErrorProvider apprentyears
+
+            apprentyearsErrorProvider = new System.Windows.Forms.ErrorProvider();
+            apprentyearsErrorProvider.SetIconAlignment(this.CmbApprentYears, ErrorIconAlignment.MiddleRight);
+            apprentyearsErrorProvider.SetIconPadding(this.CmbApprentYears, 2);
+            apprentyearsErrorProvider.BlinkRate = 0;
+            apprentyearsErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbApprentYears.Validated += new System.EventHandler(this.CmbApprentYears_Validated);
+
+
+            // ErrorProvider currentapprentyear
+
+            currentapprentyearErrorProvider = new System.Windows.Forms.ErrorProvider();
+            currentapprentyearErrorProvider.SetIconAlignment(this.CmbCurrentApprentYear, ErrorIconAlignment.MiddleRight);
+            currentapprentyearErrorProvider.SetIconPadding(this.CmbCurrentApprentYear, 2);
+            currentapprentyearErrorProvider.BlinkRate = 0;
+            currentapprentyearErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
+
+            this.CmbCurrentApprentYear.Validated += new System.EventHandler(this.CmbCurrentApprentYear_Validated);
+
+
+            //Show startscreen
+            ShowStartScreen();
         }
 
 
@@ -177,7 +352,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 firstnameErrorProvider.SetError(this.TxtFirstname, String.Empty);
             }
-            else
+            else if(CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the name is not valid.
                 firstnameErrorProvider.SetError(this.TxtFirstname, "Invalid Firstname Format!");
@@ -196,7 +371,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 lastnameErrorProvider.SetError(this.TxtLastname, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the lastname is not valid.
                 lastnameErrorProvider.SetError(this.TxtLastname, "Invalid Lastname Format!");
@@ -206,7 +381,7 @@ namespace semesterarbeit
 
         private void TxtStreet_Validated(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^(?<name>\w[\s\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
+            Regex regex = new Regex(@"^(?<name>\w[\s\.\w]+?)\s*(?<num>\d+\s*[a-z]?)$");
             var street = this.TxtStreet.Text;
             Match match = regex.Match(street);
 
@@ -215,10 +390,10 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 streetErrorProvider.SetError(this.TxtStreet, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the street is not valid.
-                streetErrorProvider.SetError(this.TxtStreet, "Invalid Street Format!");
+                streetErrorProvider.SetError(this.TxtStreet, "Invalid Street and Number Format!");
             }
         }
 
@@ -234,7 +409,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 cityErrorProvider.SetError(this.TxtCity, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the city is not valid.
                 cityErrorProvider.SetError(this.TxtCity, "Invalid City Format!");
@@ -253,13 +428,12 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 emailErrorProvider.SetError(this.TxtEmail, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the name is not valid.
                 emailErrorProvider.SetError(this.TxtEmail, "Invalid Email Format!");
             }
         }
-
 
 
         private void TxtZipcode_Validated(object sender, EventArgs e)
@@ -274,7 +448,7 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 zipcodeErrorProvider.SetError(this.TxtZipcode, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the zip is not valid.
                 zipcodeErrorProvider.SetError(this.TxtZipcode, "Invalid ZIP Format!");
@@ -293,10 +467,283 @@ namespace semesterarbeit
                 // Clear the error, if any, in the error provider.
                 roleErrorProvider.SetError(this.TxtRole, String.Empty);
             }
-            else
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
             {
                 // Set the error if the role is not valid.
                 roleErrorProvider.SetError(this.TxtRole, "Invalid Role Format!");
+            }
+        }
+
+        private void TxtCompanyName_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var companyname = this.TxtCompanyName.Text;
+            Match match = regex.Match(companyname);
+
+            if (match.Success)
+            {
+                // Clear the error, if any, in the error provider.
+                companynameErrorProvider.SetError(this.TxtCompanyName, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the companyname is not valid.
+                companynameErrorProvider.SetError(this.TxtCompanyName, "Invalid Company Format!");
+            }
+        }
+
+
+        private void TxtTitle_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var title = this.TxtTitle.Text;
+            Match match = regex.Match(title);
+
+            if (match.Success || TxtTitle.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                titleErrorProvider.SetError(this.TxtTitle, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the title is not valid.
+                titleErrorProvider.SetError(this.TxtTitle, "Invalid Title Format!");
+            }
+        }
+
+
+        private void TxtBirthplace_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var birthplace = this.TxtBirthplace.Text;
+            Match match = regex.Match(birthplace);
+
+            if (match.Success || TxtBirthplace.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                birthplaceErrorProvider.SetError(this.TxtBirthplace, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the birthplace is not valid.
+                birthplaceErrorProvider.SetError(this.TxtBirthplace, "Invalid Birthplace Format!");
+            }
+        }
+
+
+        private void TxtBusinessPhone_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$");
+            var businessphone = this.TxtBusinessPhone.Text;
+            Match match = regex.Match(businessphone);
+
+            if (match.Success || TxtBusinessPhone.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                businessphoneErrorProvider.SetError(this.TxtBusinessPhone, String.Empty);
+            }
+            else if(CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the businessphone is not valid.
+                businessphoneErrorProvider.SetError(this.TxtBusinessPhone, "Invalid Business Phone Format!");
+            }
+
+        }
+
+        private void TxtBusinessFax_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$");
+            var businessfax = this.TxtBusinessFax.Text;
+            Match match = regex.Match(businessfax);
+
+            if (match.Success || TxtBusinessFax.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                businessfaxErrorProvider.SetError(this.TxtBusinessFax, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the businessfax is not valid.
+                businessfaxErrorProvider.SetError(this.TxtBusinessFax, "Invalid Business Fax Format!");
+            }
+
+        }
+
+
+        private void TxtMobileNumber_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$");
+            var mobilenumber = this.TxtMobileNumber.Text;
+            Match match = regex.Match(mobilenumber);
+
+            if (match.Success || TxtMobileNumber.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                mobilenumberErrorProvider.SetError(this.TxtMobileNumber, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the mobilenumber is not valid.
+                mobilenumberErrorProvider.SetError(this.TxtMobileNumber, "Invalid Mobile Number Format!");
+            }
+
+        }
+
+        private void TxtPrivatePhone_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex("^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$");
+            var privatephone = this.TxtPrivatePhone.Text;
+            Match match = regex.Match(privatephone);
+
+            if (match.Success || TxtPrivatePhone.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                privatephoneErrorProvider.SetError(this.TxtPrivatePhone, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the mobilenumber is not valid.
+                privatephoneErrorProvider.SetError(this.TxtPrivatePhone, "Invalid Private Phone Format!");
+            }
+
+        }
+
+
+        private void TxtNationality_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var nationality = this.TxtNationality.Text;
+            Match match = regex.Match(nationality);
+
+            if (match.Success || TxtNationality.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                nationalityErrorProvider.SetError(this.TxtNationality, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the nationality is not valid.
+                nationalityErrorProvider.SetError(this.TxtNationality, "Invalid Nationality Format!");
+            }
+        }
+
+
+        private void TxtAHVNumber_Validated(object sender, EventArgs e)
+        {
+
+            Regex regex = new Regex(@"^756\.?[.]\d{4}[.]\d{4}[.]\d{2}$");
+            var ahvnumber = this.TxtAHVNumber.Text;
+            Match match = regex.Match(ahvnumber);
+
+            if (match.Success || TxtAHVNumber.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                ahvnumberErrorProvider.SetError(this.TxtAHVNumber, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the ahvnumber is not valid.
+                ahvnumberErrorProvider.SetError(this.TxtAHVNumber, "Invalid AHV Number Format (756.****.****.**!");
+            }
+
+        }
+
+
+        private void TxtContactPerson_Validated(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-z]+");
+            var contactperson = this.TxtContactPerson.Text;
+            Match match = regex.Match(contactperson);
+
+            if (match.Success || TxtContactPerson.Text == "")
+            {
+                // Clear the error, if any, in the error provider.
+                contactpersonErrorProvider.SetError(this.TxtContactPerson, String.Empty);
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                // Set the error if the contactperson is not valid.
+                contactpersonErrorProvider.SetError(this.TxtContactPerson, "Invalid Name Format!");
+            }
+        }
+
+        
+        private void CmbSalutation_Validated(object sender, EventArgs e)
+        {
+            if (CmbSalutation.SelectedItem == null)
+            {
+                salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                salutationErrorProvider.Clear();
+            }
+        }
+
+        
+        private void CmbGender_Validated(object sender, EventArgs e)
+        {
+            if (CmbGender.SelectedItem == null)
+            {
+                genderErrorProvider.SetError(this.CmbGender, "Please select a Gender!"); 
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                genderErrorProvider.Clear();
+            }
+        }
+
+        private void CmbDepartment_Validated(object sender, EventArgs e)
+        {
+            if (CmbDepartment.SelectedItem == null)
+            {
+                departmentErrorProvider.SetError(this.CmbDepartment, "Please select a Department!");
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                departmentErrorProvider.Clear();
+            }
+        }
+
+        private void CmbWorkPensum_Validated(object sender, EventArgs e)
+        {
+            if (CmbWorkPensum.SelectedItem == null)
+            {
+                workpensumErrorProvider.SetError(this.CmbWorkPensum, "Please select a Work Pensum!");
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                workpensumErrorProvider.Clear();
+            }
+        }
+
+
+        private void CmbApprentYears_Validated(object sender, EventArgs e)
+        {
+            if (CmbApprentYears.SelectedItem == null)
+            {
+                apprentyearsErrorProvider.SetError(this.CmbApprentYears, "Please select a Year!");
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                apprentyearsErrorProvider.Clear();
+            }
+        }
+
+
+        private void CmbCurrentApprentYear_Validated(object sender, EventArgs e)
+        {
+            if (CmbCurrentApprentYear.SelectedItem == null)
+            {
+                currentapprentyearErrorProvider.SetError(this.CmbCurrentApprentYear, "Please select a Year!");
+            }
+            else if (CmdAddUser.Tag.ToString() == "Clicked" || CmdEditUser.Tag.ToString() == "Clicked")
+            {
+                currentapprentyearErrorProvider.Clear();
             }
         }
 
@@ -305,7 +752,21 @@ namespace semesterarbeit
             //validate each field with the error message
             bool validated = true;
 
-            string error = firstnameErrorProvider.GetError(this.TxtFirstname);
+            string error = salutationErrorProvider.GetError(this.CmbSalutation);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = titleErrorProvider.GetError(this.TxtTitle);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = firstnameErrorProvider.GetError(this.TxtFirstname);
 
             if (error != String.Empty)
             {
@@ -319,7 +780,7 @@ namespace semesterarbeit
                 validated = false;
             }
 
-            error = cityErrorProvider.GetError(this.TxtCity);
+            error = genderErrorProvider.GetError(this.CmbGender);
 
             if (error != String.Empty)
             {
@@ -333,7 +794,7 @@ namespace semesterarbeit
                 validated = false;
             }
 
-            error = emailErrorProvider.GetError(this.TxtEmail);
+            error = cityErrorProvider.GetError(this.TxtCity);
 
             if (error != String.Empty)
             {
@@ -347,64 +808,122 @@ namespace semesterarbeit
                 validated = false;
             }
 
-            if (RadEmployee.Checked)
-            {
-                error = roleErrorProvider.GetError(this.TxtRole);
+            error = nationalityErrorProvider.GetError(this.TxtNationality);
 
-                if (error != String.Empty)
-                {
-                    validated = false;
-                }
+            if (error != String.Empty)
+            {
+                validated = false;
             }
-            if (RadTrainee.Checked)
+
+            error = businessphoneErrorProvider.GetError(this.TxtBusinessPhone);
+
+            if (error != String.Empty)
             {
-                error = roleErrorProvider.GetError(this.TxtRole);
-
-                if (error != String.Empty)
-                {
-                    validated = false;
-                }
-
+                validated = false;
             }
-            if (RadCustomer.Checked)
-            {
 
+            error = businessfaxErrorProvider.GetError(this.TxtBusinessFax);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = mobilenumberErrorProvider.GetError(this.TxtMobileNumber);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = privatephoneErrorProvider.GetError(this.TxtPrivatePhone);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = emailErrorProvider.GetError(this.TxtEmail);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            //Customer
+            error = companynameErrorProvider.GetError(this.TxtCompanyName);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = contactpersonErrorProvider.GetError(this.TxtContactPerson);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            //Employee
+            error = birthplaceErrorProvider.GetError(this.TxtBirthplace);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = ahvnumberErrorProvider.GetError(this.TxtAHVNumber);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = departmentErrorProvider.GetError(this.CmbDepartment);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = roleErrorProvider.GetError(this.TxtRole);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = workpensumErrorProvider.GetError(this.CmbWorkPensum);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = apprentyearsErrorProvider.GetError(this.CmbApprentYears);
+
+            if (error != String.Empty)
+            {
+                validated = false;
+            }
+
+            error = currentapprentyearErrorProvider.GetError(this.CmbCurrentApprentYear);
+
+            if (error != String.Empty)
+            {
+                validated = false;
             }
             return validated;
         }
-        private void CmbSalutation_Validated(object sender, EventArgs e)
-        {
 
-
-            if (CmbSalutation.SelectedItem == null)
-            {
-                salutationErrorProvider.SetError(this.CmbSalutation, "Please select a Salutation!");
-            }
-            else
-            {
-                salutationErrorProvider.Clear();
-            }
-        }
-
-        
-        private void CmbGender_Validated(object sender, EventArgs e)
+        private bool CheckMandatoryFields ()
         {
-            if (CmbGender.SelectedItem == null)
-            {
-                genderErrorProvider.SetError(this.CmbGender, "Please select a Gender!"); 
-            }
-            else
-            {
-                genderErrorProvider.Clear();
-            }
-        }
-        private bool CheckMandetoryFields ()
-        {
-            //Check if mandetory fields have some input
+            //Check if mandatory fields have some input
             bool check = true;
 
-            //Person Fields
-            if(CmbSalutation.SelectedText.Length < 1)
+            //Check mandetary person fields
+            if(CmbSalutation.SelectedItem == null)
             {
                 check = false;
             }
@@ -416,27 +935,68 @@ namespace semesterarbeit
             {
                 check = false;
             }
-            if(CmbGender.SelectedText.Length < 1)
+            if(CmbGender.SelectedItem == null)
             {
                 check = false;
             }
-            if(TxtEmail.Text.Length < 1)
+            if (TxtEmail.Text.Length < 1)
+            {
+                check = false;
+            }
+            if (TxtStreet.Text.Length < 1)
+            {
+                check = false;
+            }
+            if (TxtCity.Text.Length < 1)
+            {
+                check = false;
+            }
+            if (TxtZipcode.Text.Length < 1)
             {
                 check = false;
             }
 
-
-            if (RadEmployee.Checked)
+            
+            if (RadEmployee.Checked || RadTrainee.Checked)
             {
-
+                //Check mandatory employee fields
+                if (CmbDepartment.SelectedItem == null)
+                {
+                    check = false;
+                }
+                if (TxtRole.Text.Length < 1)
+                {
+                    check = false;
+                }
+                if (CmbWorkPensum.SelectedItem == null)
+                {
+                    check = false;
+                }
             }
             if (RadTrainee.Checked)
             {
+                //Check mandatory trainee fields
+                if (CmbApprentYears.SelectedItem == null)
+                {
+                    check = false;
+                }
+                if (CmbCurrentApprentYear.SelectedItem == null)
+                {
+                    check = false;
+                }
 
             }
             if (RadCustomer.Checked)
             {
-
+                //Check mandatory customer fields
+                if (TxtCompanyName.Text.Length < 1)
+                {
+                    check = false;
+                }
+                if (CmbCustomerType.SelectedItem == null)
+                {
+                    check = false;
+                }
             }
 
             return check;
@@ -453,7 +1013,8 @@ namespace semesterarbeit
         private void LsbOutput_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (LsbOutput.SelectedIndex >= 0)
-            { //Hide comboboxes and date pickers
+            { 
+                //Hide comboboxes and date pickers
                 HideAllCmbPers();
 
                 //disable all fields
@@ -572,11 +1133,10 @@ namespace semesterarbeit
                         //Write the properties of the object of type "Customer" into the specific textboxes
                         TxtCompanyName.Text = selectedCustomer.Companyname;
                         TxtCustomerType.Text = Convert.ToString(selectedCustomer.Type);
-                        TxtContacPerson.Text = selectedCustomer.Companycontact;
+                        TxtContactPerson.Text = selectedCustomer.Companycontact;
                         TxtNotesHistory.Text = selectedCustomer.NotesHistory;
                         break;
                 }
-
 
                 //Check if the user is active or not
                 if (selectedPerson.Disabled == true)
@@ -730,96 +1290,117 @@ namespace semesterarbeit
         private void CmdSave_Click(object sender, EventArgs e)
         {
             bool validated = Validation();
+            bool check = CheckMandatoryFields();
 
-            if (validated)
+            if (validated && check)
             {
                 if (CmdAddUser.Tag.ToString() == "Clicked")
                 {
 
                     if (RadEmployee.Checked)
                     {
-                        //Increase the value of the variable id
-                        id++;
-
-
-                        Employee empl1 = new Employee
+                        if (DtpStartDate.Value > DtpLeaveDate.Value)
                         {
-                            Disabled = ChkStatus.Checked, // User enabled
-                            Id = id,
-                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                            Firstname = TxtFirstname.Text,
-                            Lastname = TxtLastname.Text,
-                            Birthdate = DtpBirthdate.Value, //Birthdate
-                            CreationDate = DateTime.Now, //Creation date
-                            Gender = Convert.ToString(CmbGender.SelectedItem),
-                            Mail = TxtEmail.Text,
-                            Street = TxtStreet.Text,
-                            City = TxtCity.Text,
-                            Zipcode = TxtZipcode.Text,
-                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                            EmplNr = id, //EmplNumber
-                            Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                            Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
-                            Entrydate = DtpStartDate.Value, //EntryDate
-                            Exitdate = DtpLeaveDate.Value, //Exitdate
-                            Role = TxtRole.Text
-                        };
+                            MessageBox.Show("Entry date is after leaving date!");
+                        }
+                        else
+                        {
+                            //Increase the value of the variable id
+                            id++;
 
-                        //Add Employee to contact list (database)
-                        Db.AddPerson(empl1);
 
-                        //Call method to save the new object on the harddisk
-                        Db.Serialisation();
+                            Employee empl1 = new Employee
+                            {
+                                Disabled = ChkStatus.Checked, // User enabled
+                                Id = id,
+                                Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                                Firstname = TxtFirstname.Text,
+                                Lastname = TxtLastname.Text,
+                                Birthdate = DtpBirthdate.Value, //Birthdate
+                                CreationDate = DateTime.Now, //Creation date
+                                Gender = Convert.ToString(CmbGender.SelectedItem),
+                                Mail = TxtEmail.Text,
+                                Street = TxtStreet.Text,
+                                City = TxtCity.Text,
+                                Zipcode = TxtZipcode.Text,
+                                ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                                EmplNr = id, //EmplNumber
+                                Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                                Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                                Entrydate = DtpStartDate.Value, //EntryDate
+                                Exitdate = DtpLeaveDate.Value, //Exitdate
+                                Role = TxtRole.Text
+                            };
 
-                        SetDashboardNumbers();
+                            //Add Employee to contact list (database)
+                            Db.AddPerson(empl1);
 
-                        //Set optional fields
-                        SetAttributesEmpl_optional(empl1);
+                            //Call method to save the new object on the harddisk
+                            Db.Serialisation();
 
-                        CmdAddUser.Tag = "";
+                            SetDashboardNumbers();
+
+                            //Set optional fields
+                            SetAttributesEmpl_optional(empl1);
+
+                            CmdAddUser.Tag = "";
+
+                            //reset Buttons, Fields and Error Messages
+                            ResetAddUser();
+                        }
                     }
                     else if (RadTrainee.Checked)
                     {
-                        //Increase the value of the variable id
-                        id++;
-
-                        Trainee train1 = new Trainee
+                        if (DtpStartDate.Value > DtpLeaveDate.Value)
                         {
-                            Disabled = ChkStatus.Checked, // User enabled
-                            Id = id,
-                            Salutation = Convert.ToString(CmbSalutation.SelectedItem),
-                            Firstname = TxtFirstname.Text,
-                            Lastname = TxtLastname.Text,
-                            Birthdate = DtpBirthdate.Value, //Birthdate
-                            CreationDate = DateTime.Now, //Creation date
-                            Gender = Convert.ToString(CmbGender.SelectedItem),
-                            Mail = TxtEmail.Text,
-                            Street = TxtStreet.Text,
-                            City = TxtCity.Text,
-                            Zipcode = TxtZipcode.Text,
-                            ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
-                            EmplNr = id, //EmplNumber
-                            Departement = Convert.ToString(CmbDepartment.SelectedItem),
-                            Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
-                            Entrydate = DtpStartDate.Value, //EntryDate
-                            Exitdate = DtpLeaveDate.Value, //ExitDate
-                            Role = TxtRole.Text,
-                            Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
-                            Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
-                        };
+                            MessageBox.Show("Entry date is after leaving date!");
+                        }
+                        else
+                        {
+                            //Increase the value of the variable id
+                            id++;
 
-                        //Add Customer to contact list (database)
-                        Db.AddPerson(train1);
+                            Trainee train1 = new Trainee
+                            {
+                                Disabled = ChkStatus.Checked, // User enabled
+                                Id = id,
+                                Salutation = Convert.ToString(CmbSalutation.SelectedItem),
+                                Firstname = TxtFirstname.Text,
+                                Lastname = TxtLastname.Text,
+                                Birthdate = DtpBirthdate.Value, //Birthdate
+                                CreationDate = DateTime.Now, //Creation date
+                                Gender = Convert.ToString(CmbGender.SelectedItem),
+                                Mail = TxtEmail.Text,
+                                Street = TxtStreet.Text,
+                                City = TxtCity.Text,
+                                Zipcode = TxtZipcode.Text,
+                                ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
+                                EmplNr = id, //EmplNumber
+                                Departement = Convert.ToString(CmbDepartment.SelectedItem),
+                                Workpensum = Convert.ToString(CmbWorkPensum.SelectedItem),
+                                Entrydate = DtpStartDate.Value, //EntryDate
+                                Exitdate = DtpLeaveDate.Value, //ExitDate
+                                Role = TxtRole.Text,
+                                Appyears = Convert.ToString(CmbApprentYears.SelectedItem),
+                                Currappyear = Convert.ToString(CmbCurrentApprentYear.SelectedItem)
+                            };
 
-                        //Call method to save the new object on the harddisk
-                        Db.Serialisation();
+                            //Add Customer to contact list (database)
+                            Db.AddPerson(train1);
 
-                        SetDashboardNumbers();
+                            //Call method to save the new object on the harddisk
+                            Db.Serialisation();
 
-                        //Set optional fields
-                        SetAttributesTrainee_optional(train1);
+                            SetDashboardNumbers();
 
-                        CmdAddUser.Tag = "";
+                            //Set optional fields
+                            SetAttributesTrainee_optional(train1);
+
+                            CmdAddUser.Tag = "";
+
+                            //reset Buttons
+                            ResetAddUser();
+                        }
                     }
                     else if (RadCustomer.Checked)
                     {
@@ -843,7 +1424,7 @@ namespace semesterarbeit
                             ChangeHistory = Convert.ToString(DateTime.Now) + " - " + user + Environment.NewLine, //change history
                             Companyname = TxtCompanyName.Text,
                             Type = (CustType)CmbCustomerType.SelectedValue,
-                            Companycontact = TxtContacPerson.Text
+                            Companycontact = TxtContactPerson.Text
                         };
 
                         //Add Customer to contact list (database)
@@ -859,29 +1440,8 @@ namespace semesterarbeit
 
                         CmdAddUser.Tag = "";
 
-                        //Change buttons
-                        CmdAddUser.Visible = true;
-                        CmdEditUser.Visible = true;
-                        CmdSave.Visible = false;
-                        CmdCancel.Visible = false;
-
-                        //Activate buttons, combo boxes, and list boxes
-                        ChkStatus.Enabled = true;
-                        CmdTakeNotes.Enabled = true;
-                        LsbOutput.Enabled = true;
-                        CmdAddUser.Enabled = true;
-                        CmdDeleteUser.Enabled = true;
-                        CmdEditUser.Enabled = true;
-                        CmdSearch.Enabled = true;
-
-                        //disable all fields
-                        DisableAll();
-
-                        //Update Dashboard Numbers
-                        SetDashboardNumbers();
-
-                        //Set Selected Index to 0 
-                        ShowStartScreen();
+                        //reset Buttons
+                        ResetAddUser();
                     }
                     else
                     {
@@ -917,34 +1477,13 @@ namespace semesterarbeit
                         CmdEditUser.Tag = "";
                     }
 
-                    //Change buttons
-                    CmdAddUser.Visible = true;
-                    CmdEditUser.Visible = true;
-                    CmdSave.Visible = false;
-                    CmdCancel.Visible = false;
-
-                    //Activate buttons, combo boxes, and list boxes
-                    ChkStatus.Enabled = true;
-                    CmdTakeNotes.Enabled = true;
-                    LsbOutput.Enabled = true;
-                    CmdAddUser.Enabled = true;
-                    CmdDeleteUser.Enabled = true;
-                    CmdEditUser.Enabled = true;
-                    CmdSearch.Enabled = true;
-
-                    //disable all fields
-                    DisableAll();
-
-                    //Update Dashboard Numbers
-                    SetDashboardNumbers();
-
-                    //Set Selected Index to 0 
-                    ShowStartScreen();
+                    //reset Buttons
+                    ResetAddUser();
                 }
             }
             else
             {
-                MessageBox.Show("Please check your Data!");
+                MessageBox.Show("Please fill out all mandatory fields!");
             }
 
         }
@@ -1010,11 +1549,16 @@ namespace semesterarbeit
             Db.Serialisation();
             SetDashboardNumbers();
 
+            ShowStartScreen();
+
         }
 
         private void CmdCancel_Click(object sender, EventArgs e)
         {
             ShowStartScreen();
+
+            CmdAddUser.Tag = "";
+            CmdEditUser.Tag = "";
         }
 
         private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -1106,6 +1650,61 @@ namespace semesterarbeit
         /*---------------------------------------------------------------------
          * Functions
          * -------------------------------------------------------------------*/
+        private void ResetValidationErrorMessages ()
+        {
+            //Reset Regex Error Messages
+            salutationErrorProvider.SetError(CmbSalutation, String.Empty);
+            titleErrorProvider.SetError(TxtTitle, String.Empty);
+            firstnameErrorProvider.SetError(TxtFirstname, String.Empty);
+            lastnameErrorProvider.SetError(TxtLastname, String.Empty);
+            genderErrorProvider.SetError(CmbGender, String.Empty);
+            businessphoneErrorProvider.SetError(TxtBusinessPhone, String.Empty);
+            businessfaxErrorProvider.SetError(TxtBusinessFax, String.Empty);
+            mobilenumberErrorProvider.SetError(TxtMobileNumber, String.Empty);
+            privatephoneErrorProvider.SetError(TxtPrivatePhone, String.Empty);
+            emailErrorProvider.SetError(TxtEmail, String.Empty);
+            streetErrorProvider.SetError(TxtStreet, String.Empty);
+            cityErrorProvider.SetError(TxtCity, String.Empty);
+            zipcodeErrorProvider.SetError(TxtZipcode, String.Empty);
+            //Employee
+            nationalityErrorProvider.SetError(TxtNationality, String.Empty);
+            birthplaceErrorProvider.SetError(TxtBirthplace, String.Empty);
+            ahvnumberErrorProvider.SetError(TxtAHVNumber, String.Empty);
+            departmentErrorProvider.SetError(CmbDepartment, String.Empty);
+            roleErrorProvider.SetError(TxtRole, String.Empty);
+            workpensumErrorProvider.SetError(CmbWorkPensum, String.Empty);
+            apprentyearsErrorProvider.SetError(CmbApprentYears, String.Empty);
+            currentapprentyearErrorProvider.SetError(CmbCurrentApprentYear, String.Empty);
+            //Customer
+            companynameErrorProvider.SetError(TxtCompanyName, String.Empty);
+            contactpersonErrorProvider.SetError(TxtContactPerson, String.Empty);
+        }
+        private void ResetAddUser ()
+        {
+            //Change buttons
+            CmdAddUser.Visible = true;
+            CmdEditUser.Visible = true;
+            CmdSave.Visible = false;
+            CmdCancel.Visible = false;
+
+            //Activate buttons, combo boxes, and list boxes
+            ChkStatus.Enabled = true;
+            CmdTakeNotes.Enabled = true;
+            LsbOutput.Enabled = true;
+            CmdAddUser.Enabled = true;
+            CmdDeleteUser.Enabled = true;
+            CmdEditUser.Enabled = true;
+            CmdSearch.Enabled = true;
+
+            //disable all fields
+            DisableAll();
+
+            //Update Dashboard Numbers
+            SetDashboardNumbers();
+
+            //Set Selected Index to 0 
+            ShowStartScreen();
+        }
 
         //Set all mandatory attributes for employees
         private void SetAttributesEmp_mandatory(Person p)
@@ -1190,7 +1789,7 @@ namespace semesterarbeit
                     mph: TxtMobileNumber.Text,
                     bph: TxtBusinessPhone.Text,
                     bfa: TxtBusinessFax.Text,
-                    compcont: TxtContacPerson.Text
+                    compcont: TxtContactPerson.Text
                     );
         }
 
@@ -1314,18 +1913,32 @@ namespace semesterarbeit
 
         private void ShowStartScreen()
         {
-            //Change buttons
-            CmdAddUser.Visible = true;
-            CmdEditUser.Visible = true;
-            CmdSave.Visible = false;
-            CmdCancel.Visible = false;
+            if(TabControl.SelectedIndex == 1)
+            {
+                //Change buttons
+                CmdAddUser.Visible = true;
+                CmdSave.Visible = false;
+                CmdCancel.Visible = false;
+                CmdEditUser.Visible = true;
+
+            }
+
+            //check if there is a user left
+            if (LsbOutput.Items.Count > 0)
+            {
+                CmdEditUser.Enabled = true;
+                CmdDeleteUser.Enabled = true;
+            }
+            else
+            {
+                CmdEditUser.Enabled = false;
+                CmdDeleteUser.Enabled = false;
+            }
 
             //Activate buttons, combo boxes, and list boxes
             CmdTakeNotes.Enabled = true;
             LsbOutput.Enabled = true;
             CmdAddUser.Enabled = true;
-            CmdDeleteUser.Enabled = true;
-            CmdEditUser.Enabled = true;
             CmdSearch.Enabled = true;
 
             //Deaktivate checkbox
@@ -1357,6 +1970,11 @@ namespace semesterarbeit
 
             //unselect listbox
             LsbOutput.ClearSelected();
+
+            //Reset Error Messages
+            ResetValidationErrorMessages();
+
+
         }
 
         //Enables all Person Textboxes, Comboboxes and Radio Buttons
@@ -1414,7 +2032,7 @@ namespace semesterarbeit
         {
             TxtCompanyName.ReadOnly = false;
             TxtCustomerType.ReadOnly = false;
-            TxtContacPerson.ReadOnly = false;
+            TxtContactPerson.ReadOnly = false;
 
             CmbCustomerType.Enabled = true;
         }
@@ -1501,7 +2119,7 @@ namespace semesterarbeit
         {
             TxtCompanyName.ReadOnly = true;
             TxtCustomerType.ReadOnly = true;
-            TxtContacPerson.ReadOnly = true;
+            TxtContactPerson.ReadOnly = true;
         }
 
         //Disables all Apprentice Textboxes
@@ -1552,7 +2170,7 @@ namespace semesterarbeit
         {
             TxtCompanyName.Visible = false;
             TxtCustomerType.Visible = false;
-            TxtContacPerson.Visible = false;
+            TxtContactPerson.Visible = false;
             LblCompanyName.Visible = false;
             LblCustomerType.Visible = false;
             LblContactPerson.Visible = false;
@@ -1603,7 +2221,7 @@ namespace semesterarbeit
         {
             TxtCompanyName.Visible = true;
             TxtCustomerType.Visible = true;
-            TxtContacPerson.Visible = true;
+            TxtContactPerson.Visible = true;
             LblCompanyName.Visible = true;
             LblCustomerType.Visible = true;
             LblContactPerson.Visible = true;
@@ -1660,9 +2278,12 @@ namespace semesterarbeit
             TxtPrivatePhone.ResetText();
             TxtCompanyName.ResetText();
             TxtCustomerType.ResetText();
-            TxtContacPerson.ResetText();
+            TxtContactPerson.ResetText();
             TxtApprentYears.ResetText();
             TxtCurrentApprentYear.ResetText();
+            TxtNotesHistory.ResetText();
+            TxtLastModified.ResetText();
+            TxtCreationDate.ResetText();
         }
 
         //Make all radio buttons visible
