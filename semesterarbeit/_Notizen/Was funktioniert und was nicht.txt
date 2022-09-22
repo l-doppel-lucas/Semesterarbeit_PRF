@@ -1,1 +1,16 @@
-﻿
+﻿Employee ID wird auch bei Customer hochgezählt --> anfangs wurde für jede Person eine eindeutige ID definiert, die nach nochmaligem durchsehen der Aufgabenstellung für die Employee ID "missbraucht" wurde
+
+Tabreihenfolge nicht ganz korrekt
+
+Kein Import vorhanden (da Optional)
+
+Benutzer für Login: 
+user
+asdf1234
+
+admin
+asdf1234
+
+Sollte das Programm nicht starten, muss die Datei ContactManager.resx unter View --> ContactManager.cs gelöscht werden
+
+Die benötigten Stunden wurden im File Stundenerfassung.xlsx eingetragen

@@ -9,29 +9,30 @@ namespace semesterarbeit.Controller
     [Serializable()]
     public class Database
     {
-        //Create new binding list "contactList" of type "Person"
-        //Binding list is used to refresh the datasource of the listbox
+        //Datasource for the Listbox refreshes with Binding List
         //Source: https://stackoverflow.com/questions/17615069/how-to-refresh-datasource-of-a-listbox
         public BindingList<Person> contactList = new BindingList<Person>();
 
-        //New Bindig List for Search results
+        //Bindig List for Search results
         public BindingList<Person> search = new BindingList<Person>();
 
         /*---------------------------------------------------------------------
             Methods
         -----------------------------------------------------------------------*/
-        //Method to add an object of type "Person" to the list "contactList"
+        //Add an object of type "Person" to the "contactList"
         public void AddPerson(Person p)
         {
             contactList.Add(p);
         }
 
-        //Method to remove an object of the list "contactList"
+        //Remove an object of the "contactList"
         public void DeletePerson(Person p)
         {
             contactList.Remove(p);
         }
 
+        //Count the Number of Persons, Customers, Employees and Trainees
+        //to display on Dashboard
         public int GetNumberOfPers()
         {
             return contactList.Count;
@@ -79,6 +80,7 @@ namespace semesterarbeit.Controller
             return NumberOfCust;
         }
 
+        //Return ID/Employee Number
         public int ReturnLastID()
         {
             int id;
@@ -96,7 +98,7 @@ namespace semesterarbeit.Controller
         }
 
         
-        //Method for the serialisation of all objects of the list "contactlist" 
+        //Serialisation of all objects of the "contactlist" 
         public void Serialisation()
         {
             FileStream file = new FileStream(Environment.CurrentDirectory + @"\contacts.dat", FileMode.Create);
@@ -107,7 +109,7 @@ namespace semesterarbeit.Controller
 
         
 
-        //Function for the deserialisation of all objects of the list "contactlist"
+        //Deserialisation of all objects of the "contactlist"
         public Boolean Deserialisation()
         {
             try
